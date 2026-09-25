@@ -63,3 +63,26 @@ tự giải quyết bằng mặc định hợp lý nhất và ghi tại đây.
   CẦN tác giả xác nhận câu "The authors reviewed and approved the research question and the plan".
 - D-10: Funding ("did not receive any specific grant"), CRediT, COI mặc định → CẦN tác giả xác nhận trước khi nộp.
 - Số từ vòng S4: thân bài 2.755 từ (giới hạn 6.200 với 4 exhibit); abstract 96 từ.
+
+## Iter 3 — S5 integrity (Stage 2.5) + phản biện sơ bộ trong context (2026-09-25)
+- S5: `notes/05_integrity_stage2_5.md` PASS; `project_R/validation/validate_estimator.R` (8 ô ATT(g,t) khớp lm() tới
+  1e−10; mô phỏng 3 kịch bản khôi phục ATT và run-up) → outputs/validation.csv. Failure-mode checklist 7/7 CLEAR.
+- LibreOffice thiếu Writer → cài `libreoffice-writer`, `poppler-utils` qua apt để render PDF kiểm tra bố cục.
+- S6 (sơ bộ): panel 5 ghế chạy TRONG CÙNG CONTEXT (`notes/review_full/`), provenance PASS nhưng
+  fresh_context=false, blind_to_peer_outputs=false. Quyết định: Major revision (F3). Roadmap RR-1…RR-10.
+- D-11: năm truy xuất dữ liệu trong data citation ("2025") cần tác giả xác nhận.
+
+## Iter 4 — Vòng sửa theo phản biện sơ bộ + chuyển sang phản biện độc lập (2026-09-25)
+- DEVIATION (exploratory, sau PAP, theo RR-1…RR-3): R7 loại xu hướng tuyến tính trước coverage; R8 thêm tăng trưởng
+  ln(mcap) g−3→g−1 vào hiệp biến; R9 bỏ Malaysia; bảng leave-one-market-out (Internet Appendix Table IA1).
+  Kết quả: ln(MTB) R7 −0.052 (p 0.126), R8 0.028 (p 0.265), R9 −0.003; LOMO MTB từ −0.007 đến 0.017.
+  ln(mcap) R7 −0.134 (p 0.001) → đã báo cáo trong 3.3; mcap bỏ Malaysia +0.037 → hiệu ứng mcap âm do cohort Malaysia.
+- Văn bản: đổi tiêu đề (RR-6) → "Rated Firms Gain Value Before, Not After, Their First ESG Score: Evidence from
+  Five Southeast Asian Markets"; thêm backfilling (Berg, Fabisik & Sautner 2020, ECGI WP 708/2020), index inclusion
+  (Shleifer 1986; Harris & Gurel 1986), Rambachan & Roth (2023); Eq. (1) dạng ký hiệu; Internet Appendix
+  (Table IA1, IA2, Fig. IA1). 4 tài liệu mới đã xác minh (notes/05 #14–#17). checks.py 74/74 PASS; 3.365 từ.
+- Người dùng yêu cầu (2026-09-25): "tuân thủ tuyệt đối skill… phải sub agent độc lập". D-12: phản biện chính thức
+  Stage 3 chạy lại bằng 5 SUBAGENT ĐỘC LẬP (context riêng, không thấy output của nhau, cấm đọc notes/review_full)
+  trên bản v1.1 đã xuất ẩn danh `notes/review_independent/input/manuscript_for_review.md`. Panel trong context
+  (notes/review_full) chỉ còn giá trị là phản biện nội bộ sơ bộ, không dùng làm căn cứ quyết định.
+- Đã gửi người dùng bản thảo DOCX hiện tại + Internet Appendix.

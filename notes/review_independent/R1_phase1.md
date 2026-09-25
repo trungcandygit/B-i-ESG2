@@ -1,0 +1,35 @@
+## Contract Paraphrase
+
+D1 methodology_rigor (mandatory; eligible and owned by methodology). From a methodology seat this is the core of my remit: whether the design can identify the estimand the paper claims, whether the data construction (sample definition, treatment/event dating, control-group composition, panel balance, attrition, variable definitions) is transparent and defensible, whether estimators and inference suit the data structure (staggered timing, heterogeneous effects, clustering, small numbers of treated cohorts or clusters), whether uncertainty is reported completely (point estimates with standard errors or confidence intervals, sample sizes, the inference procedure, and multiple-testing context), and whether a competent third party could reproduce the numbers from the stated procedure, data sources, and code.
+
+D2 domain_accuracy (mandatory; eligible only for the domain seat). This asks whether claims match current domain evidence, whether prior work is represented correctly, and whether domain terminology and facts are right. I do not score it; where a factual point bears directly on identification (for example, how the treatment event is dated by a data provider) I discuss it only as a design issue under D1.
+
+D3 argumentative_coherence (mandatory; eligible for da and methodology, owned by da). From a methodology perspective this asks whether the conclusions the paper draws are licensed by the estimates it reports: that the headline thesis matches the sign, timing, precision and robustness of the evidence; that null results are not read as evidence of absence without power or equivalence reasoning; that pre-period dynamics are not given a causal interpretation the design cannot support; and that abstract, introduction, results and conclusion describe the same finding with the same strength.
+
+D4 cross_disciplinary_relevance (high; eligible only for the perspective seat). Accessibility and substantiation of framing and implications for adjacent fields. Not scored by me.
+
+D5 writing_and_structure (normal; eligible only for the eic seat). Organisation, clarity, exhibit quality, and adherence to venue conventions. Not scored by me, although I note exhibit-level reporting gaps that affect statistical interpretability under D1.
+
+D6 venue_fit_and_contribution (mandatory; eligible only for the eic seat). Fit to the configured venue and originality/significance of the contribution. Not scored by me.
+
+Failure conditions. The panel outcome is determined by the synthesizer, not by me, under these rules: F1 (severity 95, any reviewer) a fatal block on any mandatory dimension leads to reject; F2 (90, any) any block on a mandatory dimension leads to major revision; F3 (70, majority) two or more mandatory dimensions at warn or worse leads to major revision; F4 (60, any) a block on a high-priority dimension leads to major revision; F5 (40, any) any dimension at warn or worse leads to minor revision; F0 (10, all) every dimension at pass leads to accept. Because D1 and D3 are both mandatory, my scores on them bear directly on F1, F2 and F3, so each block, warn, or fatal classification must bind to the pre-committed triggers below.
+
+## Scoring Plan
+
+### D1: methodology_rigor
+dimension_id: D1
+what_to_look_for: A staggered-adoption estimator robust to heterogeneous and dynamic effects (e.g., Callaway-Sant'Anna with a stated comparison group, base period, anticipation setting, covariates and aggregation), a clearly defined and correctly dated treatment event, a transparent sample and control-group construction, formal pre-trend assessment with sensitivity to parallel-trend violations (e.g., honest-DiD bounds), inference that is clustered at the appropriate level with the number of clusters and cohorts reported, complete uncertainty reporting (estimates, SE or CI, N) for every headline number, robustness to alternative outcome definitions, comparison groups and estimators, and code/data affordances that match what the text describes.
+what_triggers_block: A repairable but decision-relevant design or inference defect that makes the headline estimates uninterpretable as stated, such as treatment timing that is mis-dated or endogenously defined relative to the outcome, a comparison group contaminated by treated or selected units, inference that ignores clustering or a small number of treated cohorts, headline estimates without standard errors or confidence intervals, or a material mismatch between the described method and the implemented code or reported tables.
+what_triggers_warn: Design and inference are broadly appropriate but important robustness or reporting elements are missing or thin, such as no sensitivity analysis for parallel-trend violations, no alternative estimator or comparison-group check, unreported cluster or cohort counts, unclear covariate or base-period choices, incomplete description of sample filters, or reproducibility gaps that a revision can close without changing the design.
+what_triggers_fatal: The design cannot in principle identify the estimand on which the core claim rests, for example because treatment assignment is mechanically determined by the outcome being studied or no valid comparison exists at any horizon, or reported headline numbers cannot be produced by the described procedure, such that no revision short of a different study could rescue the core claim.
+
+### D3: argumentative_coherence
+dimension_id: D3
+what_to_look_for: Whether the thesis stated in the title, abstract and conclusion matches the sign, timing, magnitude, precision and robustness of the reported estimates; whether pre-treatment movements are interpreted consistently with what a DiD design with pre-trends can support (selection versus anticipation versus causal effect); whether post-treatment nulls are accompanied by power, minimum detectable effect or equivalence reasoning before being read as absence of effect; and whether the same finding is stated with the same strength across sections and exhibits.
+what_triggers_block: The central claim is stated with a causal or evidential strength the estimates do not support, such as interpreting a statistically imprecise null as a confirmed absence of effect, or giving a causal reading to pre-period divergence that the design treats as a parallel-trend violation, where fixing it requires reframing the core thesis rather than rewording.
+what_triggers_warn: The core thesis is supported in direction but some claims overreach in wording, magnitude, or generality; alternative explanations for the pattern are acknowledged incompletely; or sections describe the headline result with inconsistent strength, all fixable by rewording and added caveats.
+what_triggers_fatal: The central thesis is contradicted by the paper's own reported evidence, or rests on a logical inference (such as reading a design-induced artefact as a substantive finding) that cannot be repaired without abandoning the thesis.
+
+criteria_binding_unavailable
+
+[PRE-COMMITMENT-ACKNOWLEDGED]
