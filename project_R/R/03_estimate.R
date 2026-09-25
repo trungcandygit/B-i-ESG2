@@ -82,3 +82,24 @@ rev_tab <- bind_rows(c(rev_rows, list(
   lomo_tab %>% filter(excluded == "MY") %>% mutate(spec = "R9_excludeMY", slope = NA) %>% select(-excluded))))
 write_out(rev_tab, "robustness_revision.csv")
 write_out(lomo_tab, "leave_one_market_out.csv")
+
+# ---- Revision round 2 (exploratory; independent five-seat review, notes/AUDIT_LEDGER.md Iter 5) ----
+rev2_rows <- list(); pm_rows <- list(); rm_rows <- list()
+for (y in names(OUTCOMES)) {
+  cat("Revision 2:", y, "\n")
+  r10 <- run_cs(y, control = "never", covars = TRUE, shift_G = 1)
+  rev2_rows[[paste(y, "R10")]] <- cbind(outcome = y, spec = "R10_shift1", summ(r10, "post"),
+                                        n_treated_firms = r10$n_treated_firms, n_control_firms = r10$n_control_firms)
+  r11 <- run_cs(y, control = "never", covars = TRUE, drop_cohorts = 2022:2024)
+  rev2_rows[[paste(y, "R11")]] <- cbind(outcome = y, spec = "R11_balanced", summ(r11, "post"),
+                                        n_treated_firms = r11$n_treated_firms, n_control_firms = r11$n_control_firms)
+  for (cc in sort(unique(panel$country))) {
+    rp <- run_cs(y, control = "never", covars = TRUE, only_country = cc)
+    pm_rows[[paste(y, cc)]] <- cbind(outcome = y, market = cc, summ(rp, "post"),
+                                     n_treated_firms = rp$n_treated_firms, n_control_firms = rp$n_control_firms)
+  }
+  rm_rows[[y]] <- cbind(outcome = y, rm_bounds(main[[y]]))
+}
+write_out(bind_rows(rev2_rows), "robustness_revision2.csv")
+write_out(bind_rows(pm_rows), "per_market.csv")
+write_out(bind_rows(rm_rows), "rm_bounds.csv")

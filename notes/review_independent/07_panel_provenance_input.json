@@ -1,0 +1,7 @@
+{"schema_version":"review-panel-provenance-input/1.0","panel_id":"jfip-esg-coverage-independent-round1","mode":"reviewer_full","contract_id":"reviewer/reviewer_full/v2","contract_sha256":"e9712090d2469fea15a37b8e22d4e137afbcb2bf38d5789939c5df56738ef7af",
+"seats":[
+{"seat_id":"EIC","role_id":"eic","context_id":"subagent-a22041990e9b09260","peer_outputs_visible":false,"actor_type":"model","model_family":"claude","provider":"anthropic","human_reviewer_id":null},
+{"seat_id":"R1","role_id":"methodology","context_id":"subagent-a6022fec247c57f95","peer_outputs_visible":false,"actor_type":"model","model_family":"claude","provider":"anthropic","human_reviewer_id":null},
+{"seat_id":"R2","role_id":"domain","context_id":"subagent-a82286714529e8955","peer_outputs_visible":false,"actor_type":"model","model_family":"claude","provider":"anthropic","human_reviewer_id":null},
+{"seat_id":"R3","role_id":"perspective","context_id":"subagent-a70f0d8b7abe012e4","peer_outputs_visible":false,"actor_type":"model","model_family":"claude","provider":"anthropic","human_reviewer_id":null},
+{"seat_id":"DA","role_id":"da","context_id":"subagent-a8fa27b277e3d30f7","peer_outputs_visible":false,"actor_type":"model","model_family":"claude","provider":"anthropic","human_reviewer_id":null}]}

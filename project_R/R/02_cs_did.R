@@ -19,11 +19,14 @@ make_X <- function(df, covars) {
 # Build all 2x2 cells (g, t) for outcome y.
 build_cells <- function(y, control = c("never", "notyet"), covars = TRUE, drop_cohorts = NULL,
                         support = FALSE, placebo = FALSE, treated_subset = NULL, pregrowth = FALSE,
-                        exclude_country = NULL) {
+                        exclude_country = NULL, only_country = NULL, shift_G = 0) {
   control <- match.arg(control)
   d <- panel %>% mutate(yv = .data[[y]], size_b = ln_asset) %>%
     select(firm_id, year, G, country, industry_code, size_b, yv, high0, ln_mcap)
   if (!is.null(exclude_country)) d <- d %>% filter(!(country %in% exclude_country))
+  if (!is.null(only_country)) d <- d %>% filter(country %in% only_country)
+  # Revision round 2 (R10): date treatment one year after the first recorded score (publication lag / backfilling).
+  if (shift_G != 0) d <- d %>% mutate(G = ifelse(is.finite(G), G + shift_G, G)) %>% filter(!is.finite(G) | G <= max(year) + 1)
   if (placebo) {
     # Fake treatment three years before true coverage; keep only truly untreated years of treated firms.
     d <- d %>% filter(!is.finite(G) | year < G) %>% mutate(G = ifelse(is.finite(G), G - 3, G))
@@ -162,4 +165,21 @@ trend_adjust <- function(res) {
   est <- adj(res$est)
   dr <- t(apply(res$draws, 1, function(r) { names(r) <- colnames(res$draws); adj(r) }))
   list(est = est, draws = dr)
+}
+
+# Revision round 2: relative-magnitude sensitivity in the spirit of Rambachan and Roth (2023). Post-coverage violations
+# of parallel trends may change from one year to the next by at most Mbar times the largest change between
+# consecutive pre-coverage event-time estimates. The implied bias bound for event time e >= 0 is (e + 1) * Mbar * Dmax;
+# the bound for the headline average uses the same weights as the headline estimate. The robust interval widens the
+# bootstrap 95% interval by the bound. This is a conservative, simplified construction, not the exact HonestDiD
+# confidence set.
+rm_bounds <- function(res, Mbar = c(0, 0.25, 0.5, 1)) {
+  w <- res$gt %>% filter(e >= 0, e <= POST_MAX, !is.na(att)) %>% group_by(e) %>% summarise(n = sum(n_treated))
+  pre <- c(res$est[as.character(-5:-2)], `-1` = 0)
+  dmax <- max(abs(diff(pre)), na.rm = TRUE)
+  wbar <- sum((w$e + 1) * w$n) / sum(w$n)
+  lo <- quantile(res$draws[, "post"], 0.025, names = FALSE); hi <- quantile(res$draws[, "post"], 0.975, names = FALSE)
+  data.frame(Mbar = Mbar, dmax = dmax, bias_bound = Mbar * dmax * wbar, est = res$est[["post"]],
+             robust_lo = lo - Mbar * dmax * wbar, robust_hi = hi + Mbar * dmax * wbar,
+             includes_zero = (lo - Mbar * dmax * wbar) <= 0 & (hi + Mbar * dmax * wbar) >= 0)
 }
