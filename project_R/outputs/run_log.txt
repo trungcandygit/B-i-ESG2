@@ -1,0 +1,3 @@
+Panel: 36168 firm-years; 3288 firms
+Main: ln_mtb 
+Main: ln_mcap 

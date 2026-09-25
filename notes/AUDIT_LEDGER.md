@@ -35,3 +35,31 @@ tự giải quyết bằng mặc định hợp lý nhất và ghi tại đây.
 - D-6: Vì phản biện single-anonymized, file nộp chính là bản có tên tác giả (07); bản ẩn danh (02) vẫn dựng và
   kiểm tra theo HANDOFF/G2 để dùng khi cần.
 - Người dùng bổ sung FORCE RULES A–H → ghi vào CLAUDE.md §4.
+
+## Iter 2 — S3 thực nghiệm R, S4 viết bài (2026-09-25)
+- Môi trường: R 4.3.3 qua apt (r-base-core, dplyr, tidyr, ggplot2, readxl, plm, sandwich, lmtest, data.table,
+  stringdist). Không có `fixest`/`did` trên apt → tự cài đặt ước lượng Callaway–Sant'Anna (outcome regression,
+  base period g−1, never-treated) trong `project_R/R/02_cs_did.R`; bootstrap cụm theo công ty bằng trọng số tần suất,
+  B = 999, seed 20260925; ma trận trọng số dùng chung cho mọi đặc tả (cho phép kiểm định chênh lệch H3).
+- Pipeline: `project_R/run_all.R` → 00_setup, 01_data, 02_cs_did, 03_estimate, 04_tables_figures, 05_numbers.
+  Chạy ~6 phút (4 lõi, mclapply; kết quả không phụ thuộc số lõi vì trọng số bootstrap tính trước).
+- D-7: Đơn vị tiền tệ: kiểm tra chéo DBS, BCA, SM Investments (2023) → giá trị hợp lý theo USD; ghi "U.S. dollars
+  as recorded in the data set". Một số market cap bất thường (vd. Chandra Asri 2019: 1,14e12) → winsorize 1/99
+  theo PAP; nêu ở Limitations.
+- DEVIATION (kỹ thuật, không đổi ước lượng): (i) trimws khi ghi CSV; (ii) mclapply cho bootstrap; (iii) đổi nhãn
+  "treated/covered" → "scored" trong bảng/hình cho khớp văn bản; (iv) thêm số công ty có năm trống độ phủ.
+- Kết quả chính (outputs/att_main.csv): ATT ln(MTB) 0.002 (SE 0.024; KTC [−0.046, 0.048]; MDE 0.067) → H1 không
+  bác bỏ; ln(mcap) −0.055 (Holm p 0.134); leverage 0.008 (Holm p 0.134); ln(asset) 0.044 (p 0.018; Holm 0.053).
+  Pre-trend: ln(mcap) e−5 −0.132, e−4 −0.125 (Wald p 0.022); ln(MTB) e−5 −0.095, e−4 −0.082 (Wald p 0.074).
+  Placebo R5 có ý nghĩa (MTB 0.059, mcap 0.134) → theo PAP §7 KHÔNG diễn giải nhân quả; thông điệp chính:
+  "coverage follows firm value". TWFE tĩnh R6: MTB 0.064 (p 0.014) → minh hoạ sai lệch của TWFE.
+  H3: chênh lệch high−low −0.041 (p 0.307) → không có bằng chứng.
+- S4: academic-paper (load 1 lần, mode full). Paper Configuration Record: `notes/04_paper_config.md` (D-8, tự xác
+  nhận theo §1b). Bản thảo nguồn: `manuscript/manuscript.md` + `manuscript/meta.md`; mọi số là placeholder
+  {{key}} lấy từ `project_R/outputs/numbers.csv`; bảng lấy từ `table*_formatted.csv`.
+  Dựng DOCX: `project_R/docx_build/build_manuscript.py`; kiểm tra: `project_R/docx_build/checks.py`.
+- D-9: AI disclosure (guideline: trong Methods) → mục 2.4; nêu trung thực Claude đã sàng lọc câu hỏi, soạn PAP,
+  viết code, soạn và sửa văn bản, kiểm tra tài liệu. Chỉ dùng Claude trong phiên này (không dùng Gemini).
+  CẦN tác giả xác nhận câu "The authors reviewed and approved the research question and the plan".
+- D-10: Funding ("did not receive any specific grant"), CRediT, COI mặc định → CẦN tác giả xác nhận trước khi nộp.
+- Số từ vòng S4: thân bài 2.755 từ (giới hạn 6.200 với 4 exhibit); abstract 96 từ.

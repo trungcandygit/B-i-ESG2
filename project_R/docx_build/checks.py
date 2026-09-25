@@ -1,0 +1,154 @@
+"""Automated manuscript checks (FORCE RULE H). Usage: python3 checks.py [docx_dir]
+Checks run on the filled manuscript text (placeholders resolved from numbers.csv) and on the built DOCX files."""
+import csv, os, re, sys, zipfile
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from build_manuscript import load_numbers, parse_sections, blocks, MS, META, OUTR, ROOT
+
+LIMIT_NO_EXHIBITS = 7000
+AUTHOR_TOKENS = ['Nguyen', 'Binh', 'Trung', 'Tuan', 'kontrungcany', 'apd.edu', 'Academy of Policy', 'Foreign Trade University',
+                 '0009-0007-0042-2835', '0009-0008-3307-6569', '0009-0000-1901-1541', 'nguyenanhtuan']
+ABBREV = {'ESG': 'environmental, social, and governance', 'LSEG': 'London Stock Exchange Group',
+          'ATT': 'average treatment effects on the treated', 'MTB': 'market-to-book', 'MDE': 'minimum detectable effect'}
+results = []
+
+
+def check(name, ok, detail=''):
+    results.append((name, 'PASS' if ok else 'FAIL', detail))
+
+
+def words(text):
+    text = re.sub(r'[*^~]', '', text)
+    return len(re.findall(r"[A-Za-z0-9À-ɏ−][A-Za-z0-9À-ɏ'’.,−%()/-]*", text))
+
+
+def main(docx_dir):
+    nums = load_numbers()
+    secs = parse_sections(MS, nums)
+    meta = parse_sections(META, nums)
+    body = secs['body'].replace('[[COMPANION]]', meta['companion_named'])
+    exhibits = [b for b in blocks(secs['exhibits'])]
+    n_ex = len(exhibits)
+
+    # 1. Word count (JF:IP word-count PDF: main body + footnotes, excluding title, authors, abstract, references, exhibits)
+    wc = words(body); limit = LIMIT_NO_EXHIBITS - 200 * n_ex
+    check('word count (main text) <= limit', wc <= limit, f'{wc} words; limit {limit} with {n_ex} exhibits')
+    aw = words(secs['abstract']); check('abstract <= 100 words', aw <= 100, f'{aw} words')
+    kw = [k.strip() for k in secs['keywords'].split(';')]
+    check('keywords <= 7 and alphabetical', len(kw) <= 7 and kw == sorted(kw, key=str.lower), '; '.join(kw))
+    check('running title < 40 characters', len(secs['running_title']) < 40, f"{len(secs['running_title'])} chars")
+    check('exhibits <= 5', n_ex <= 5, f'{n_ex} exhibits')
+
+    # 2. Placeholders / leftover drafting markers
+    left = re.findall(r'\{\{|\}\}|\[\[|RESULTS_|DISCUSSION_|LIMITATIONS_|CONCLUSION_|TODO|XXX', body + secs['abstract'])
+    check('no unresolved placeholders', not left, str(left[:5]))
+
+    # 3. Exhibits cited in text, in order
+    cites = [('Table', int(m)) for m in re.findall(r'Table (\d)', body)] + [('Figure', int(m)) for m in re.findall(r'Figure (\d)', body)]
+    first = {}
+    for m in re.finditer(r'(Table|Figure) (\d)', body):
+        first.setdefault((m.group(1), int(m.group(2))), m.start())
+    caps = []
+    for b in exhibits:
+        cap = [l for l in b.splitlines() if l.startswith('caption:=')][0][9:]
+        lab = cap.split('|')[0]
+        kind, n = ('Figure', int(lab.split()[-1].rstrip('.'))) if lab.startswith('Fig') else ('Table', int(lab.split()[-1]))
+        caps.append((kind, n, cap))
+    for kind, n, cap in caps:
+        check(f'{kind} {n} cited in text', (kind, n) in first)
+    order = sorted(first.items(), key=lambda x: x[1])
+    tab_order = [k[1] for k, _ in order if k[0] == 'Table']
+    check('tables first cited in numeric order', tab_order == sorted(tab_order), str(tab_order))
+
+    # 4. Notes <= 3 sentences, every exhibit has a Source line
+    for b in exhibits:
+        d = dict(l.split(':=', 1) for l in b.splitlines())
+        note = d['note']; ns = len(re.findall(r'[.!?](\s|$)', note))
+        check(f"note <= 3 sentences: {d['caption'].split('|')[0]}", ns <= 3, f'{ns} sentences')
+        check(f"source line: {d['caption'].split('|')[0]}", bool(d.get('source')))
+
+    # 5. Caption ↔ content: header row of each table CSV must match the caption's subject
+    expect = {1: ['Scored mean', 'Never-scored mean'], 2: ['ATT', 'Pre-trend p'], 3: ['Specification']}
+    for kind, n, cap in caps:
+        if kind == 'Table':
+            f = [l for l in [b for b in exhibits if f'Table {n}|' in b][0].splitlines() if l.startswith('csvfile:=')][0][9:]
+            hdr = next(csv.reader(open(os.path.join(OUTR, f), encoding='utf-8')))
+            check(f'Table {n} header matches caption design', all(h in hdr for h in expect[n]), '|'.join(hdr))
+
+    # 6. Cross-references to sections exist
+    heads = re.findall(r'^#+ (\d+(?:\.\d+)?)\.? ', body, flags=re.M)
+    refs = re.findall(r'Section (\d+(?:\.\d+)?)', body)
+    check('section cross-references exist', all(r in heads for r in refs), f'refs {sorted(set(refs))}; heads {heads}')
+    eqs = re.findall(r'\| \((\d+)\)', body); eqrefs = re.findall(r'Eq(?:uation)?\.? \((\d+)\)', body)
+    check('equation references exist', all(e in eqs for e in eqrefs), f'{eqrefs} vs {eqs}')
+
+    # 7. Citations ↔ references
+    refs_list = blocks(secs['references'])
+    ref_keys = []
+    for r in refs_list:
+        auth, year = r.split(', 20')[0] if False else None, None
+        m = re.match(r'(.+?), (\d{4})', r); ref_keys.append((m.group(1), m.group(2)))
+    surnames = []
+    for a, y in ref_keys:
+        first_s = a.split(',')[0].split(' and ')[0].strip()
+        surnames.append((first_s, y))
+    text_all = body + ' ' + secs['abstract']
+    for s, y in surnames:
+        check(f'reference cited in text: {s} {y}', s in text_all and y in text_all)
+    cited = re.findall(r"([A-Z][A-Za-zÀ-ž'\-]+)(?:,? (?:[A-Z][A-Za-zÀ-ž'\-]+,? )*(?:and [A-Z][A-Za-zÀ-ž'\-]+)?)? \((\d{4})\)|\(([A-Z][^()]*?), (\d{4})\)", body)
+    in_text = set()
+    for m in re.finditer(r"([A-Z][A-Za-zÀ-ž'\-]+)[^()]{0,60}?,? (?:\(|)(\d{4})\)", body):
+        in_text.add((m.group(1), m.group(2)))
+    ref_first = {s for s, _ in surnames}
+    orphan = [(a, y) for a, y in in_text if y.startswith(('19', '20')) and a not in ref_first and not any(a in r for r in refs_list)]
+    check('no in-text citation missing from references', not orphan, str(orphan[:6]))
+    verified = open(os.path.join(ROOT, 'notes', '05_references_verified.md'), encoding='utf-8').read()
+    for r in refs_list:
+        doi = re.search(r'doi\.org/(\S+)', r)
+        if doi:
+            check(f'DOI verified in notes/05: {doi.group(1)}', doi.group(1) in verified)
+
+    # 8. Abbreviations defined at first use in body and in abstract
+    for ab, long in ABBREV.items():
+        pos_b = re.search(r'\b%s\b' % ab, body)
+        if pos_b:
+            check(f'abbrev {ab} defined in body before use', f'({ab})' in body[:pos_b.start() + len(ab) + 2] or long.lower() in body[:pos_b.start()].lower())
+        pos_a = re.search(r'\b%s\b' % ab, secs['abstract'])
+        if pos_a:
+            check(f'abbrev {ab} defined in abstract', f'({ab})' in secs['abstract'])
+
+    # 9. Style: no em dash, no banned words, no second person
+    full = body + secs['abstract']
+    check('no em dash', '—' not in full)
+    banned = re.findall(r'\b(genuinely|strictly|markedly|fundamentally|crucial|critical|robustly|delve|guarantee|prove[sd]?|verif(?:y|ies|ied)|ensure[sd]?|Firstly|Secondly|you|your)\b', full, flags=re.I)
+    check('no banned words / second person', not banned, str(sorted(set(banned))))
+
+    # 10. Every number in text equals a numbers.csv value or a structural integer
+    vals = set(nums.values())
+    tokens = re.findall(r'(?<![\w.])[−-]?\d[\d,]*\.\d+', body + secs['abstract'])
+    bad = [t for t in tokens if t not in vals]
+    check('every decimal number in text comes from numbers.csv', not bad, str(bad[:8]))
+
+    # 11. DOCX files: anonymization and validity
+    if docx_dir:
+        anon = os.path.join(docx_dir, 'Manuscript_Anonymized.docx')
+        if os.path.exists(anon):
+            z = zipfile.ZipFile(anon); names = z.namelist()
+            alltxt = ''.join(z.read(n).decode('utf-8', 'ignore') for n in names if n.endswith('.xml'))
+            hits = [t for t in AUTHOR_TOKENS if t in alltxt]
+            check('anonymized: no author identifiers in any XML part', not hits, str(hits))
+            check('anonymized: no word/people.xml', 'word/people.xml' not in names)
+            core = z.read('docProps/core.xml').decode()
+            check('anonymized: empty creator/lastModifiedBy', not re.search(r'<dc:creator>[^<]+<', core) and not re.search(r'<cp:lastModifiedBy>[^<]+<', core))
+            check('anonymized: no author contributions section', 'Author contributions' not in alltxt)
+            check('anonymized: companion disclosure blinded', 'details withheld for anonymous review' in alltxt)
+    return results
+
+
+if __name__ == '__main__':
+    res = main(sys.argv[1] if len(sys.argv) > 1 else None)
+    width = max(len(r[0]) for r in res)
+    for n, s, d in res:
+        print(f'{s:4}  {n:{width}}  {d}')
+    fails = [r for r in res if r[1] == 'FAIL']
+    print(f'\n{len(res) - len(fails)}/{len(res)} PASS')
+    sys.exit(1 if fails else 0)
