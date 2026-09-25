@@ -1,0 +1,24 @@
+
+TY  - JOUR
+AU  - Fleitas-Castillo, Gema C.
+AU  - Peña-Martel, Devora
+AU  - Santana-Martín, Domingo Javier
+AU  - Santana-Negrín, Yaiza
+TI  - Board Gender Diversity and Greenwashing in Europe
+JO  - Corporate Social Responsibility and Environmental Management
+JA  - Corp Soc Responsib Environ Manag
+VL  - 32
+IS  - 3
+SN  - 1535-3958
+UR  - https://doi.org/10.1002/csr.3187
+DO  - https://doi.org/10.1002/csr.3187
+SP  - 4315
+EP  - 4327
+KW  - board gender diversity
+KW  - critical mass
+KW  - European context
+KW  - greenwashing
+KW  - token
+PY  - 2025
+AB  - ABSTRACT We analyze how the relative power of female directors influences the level of greenwashing. Using a sample of European listed firms (2020?2023), the results point to an inverted U-shaped relationship between the number of female directors and greenwashing. Firms tend to increase their level of greenwashing when the number of female directors is low, but once a critical mass is reached, greenwashing decreases. At low levels of female representation, women are used as ?insurance? to improve public image without incurring a high cost if the deception is discovered. However, a high number of female directors exerts a significant influence on decision-making, due to their characteristic traits and their concern for preserving their reputation, thereby encouraging more ethical behavior and greater transparency, and so reducing the gap between reports issued and action taken.
+ER  - 

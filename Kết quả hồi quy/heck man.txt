@@ -1,0 +1,581 @@
+
+R version 4.5.1 (2025-06-13) -- "Great Square Root"
+Copyright (C) 2025 The R Foundation for Statistical Computing
+Platform: aarch64-apple-darwin20
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[R.app GUI 1.82 (8536) aarch64-apple-darwin20]
+
+[Workspace restored from /Users/nguyenvantrung/.RData]
+[History restored from /Users/nguyenvantrung/.Rapp.history]
+
+> ###############################################################################
+> # GRI & Corporate Brownwashing — ASEAN-5
+> # Part 1: Reproduce variable construction + descriptives (must match old output)
+> # Part 2: Heckman two-stage sample-selection model (robustness check, H1)
+> #
+> # Run in R. When file.choose() opens, pick: Final_Data_Cleaned.csv
+> ###############################################################################
+> 
+> ## ---- Packages -------------------------------------------------------------
+> required_pkgs <- c("fixest", "dplyr", "tidyr", "sampleSelection")
+> new_pkgs <- required_pkgs[!(required_pkgs %in% installed.packages()[,"Package"])]
+> if (length(new_pkgs) > 0) install.packages(new_pkgs)
+> 
+> library(fixest)
+> library(dplyr)
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Warning message:
+package ‘dplyr’ was built under R version 4.5.2 
+> library(tidyr)
+Warning message:
+package ‘tidyr’ was built under R version 4.5.2 
+> library(sampleSelection)   # heckit() / selection()
+Loading required package: maxLik
+Loading required package: miscTools
+
+Please cite the 'maxLik' package as:
+Henningsen, Arne and Toomet, Ott (2011). maxLik: A package for maximum likelihood estimation in R. Computational Statistics 26(3), 443-458. DOI 10.1007/s00180-010-0217-1.
+
+If you have questions, suggestions, or comments regarding the 'maxLik' package, please use a forum or 'tracker' at maxLik's R-Forge site:
+https://r-forge.r-project.org/projects/maxlik/
+Warning message:
+package ‘sampleSelection’ was built under R version 4.5.2 
+> 
+> ## ---- Load data ------------------------------------------------------------
+> data_path <- file.choose()                       # <-- choose Final_Data_Cleaned.csv
+> df <- read.csv(data_path, stringsAsFactors = FALSE)
+> 
+> ## ---- Variable construction (identical to baseline) ------------------------
+> df <- df %>%
++   arrange(firm_id, year) %>%
++   mutate(
++     zESG  = as.numeric(scale(ESG_Score)),
++     zESGC = as.numeric(scale(ESGC_Score)),
++     GWI   = zESG - zESGC,
++     GREENWASH = pmax(GWI, 0),
++     BROWNWASH = pmax(-GWI, 0),
++     FemD  = female_board,
++     CM    = female_critical_mass,
++     p     = FemD/100,
++     q     = 1 - p,
++     Blau    = 1 - (p^2 + q^2),
++     Shannon = ifelse(p %in% c(0,1), 0, -(p*log(p) + q*log(q))),
++     BSize   = board_size,
++     InD     = board_ind,
++     SustCom = sus_comp,
++     Size    = firm_size,
++     Lev     = leverage * 100,
++     ROA     = roa * 100,
++     MTB     = mtb,
++     GRI     = gri,
++     log_co2 = log_co2,
++     BW_dummy = as.numeric(GWI < 0),
++     GW_dummy = as.numeric(GWI > 0)
++   )
+> 
+> ## ---- Descriptive statistics (should match Table 2 exactly) ----------------
+> print(df %>%
++   summarise(across(c(GWI, GREENWASH, BROWNWASH, ESG_Score, ESGC_Score,
++                      FemD, Blau, Shannon, BSize, InD, Size, Lev, ROA, MTB, log_co2),
++                    list(mean = ~mean(.x, na.rm=TRUE), sd = ~sd(.x, na.rm=TRUE),
++                         min = ~min(.x, na.rm=TRUE), median = ~median(.x, na.rm=TRUE),
++                         max = ~max(.x, na.rm=TRUE)))) %>% t())
+                           [,1]
+GWI_mean           3.713432e-15
+GWI_sd             1.465257e+00
+GWI_min           -3.432110e+00
+GWI_median        -1.355558e-01
+GWI_max            8.399224e+00
+GREENWASH_mean     5.112473e-01
+GREENWASH_sd       1.080450e+00
+GREENWASH_min      0.000000e+00
+GREENWASH_median   0.000000e+00
+GREENWASH_max      8.399224e+00
+BROWNWASH_mean     5.112473e-01
+BROWNWASH_sd       6.757178e-01
+BROWNWASH_min      0.000000e+00
+BROWNWASH_median   1.355558e-01
+BROWNWASH_max      3.432110e+00
+ESG_Score_mean     5.529552e+01
+ESG_Score_sd       1.565816e+01
+ESG_Score_min      5.341081e+00
+ESG_Score_median   5.595391e+01
+ESG_Score_max      9.206516e+01
+ESGC_Score_mean    9.712608e+01
+ESGC_Score_sd      1.188572e+01
+ESGC_Score_min     4.545455e+00
+ESGC_Score_median  1.000000e+02
+ESGC_Score_max     1.000000e+02
+FemD_mean          1.896698e+01
+FemD_sd            1.320475e+01
+FemD_min           0.000000e+00
+FemD_median        1.666667e+01
+FemD_max           7.500000e+01
+Blau_mean          2.725347e-01
+Blau_sd            1.520811e-01
+Blau_min           0.000000e+00
+Blau_median        2.777778e-01
+Blau_max           5.000000e-01
+Shannon_mean       4.200837e-01
+Shannon_sd         2.118320e-01
+Shannon_min        0.000000e+00
+Shannon_median     4.505612e-01
+Shannon_max        6.931472e-01
+BSize_mean         9.544361e+00
+BSize_sd           3.153609e+00
+BSize_min          1.000000e+00
+BSize_median       9.000000e+00
+BSize_max          2.100000e+01
+InD_mean           4.936529e+01
+InD_sd             1.435607e+01
+InD_min            0.000000e+00
+InD_median         5.000000e+01
+InD_max            1.000000e+02
+Size_mean          2.162135e+01
+Size_sd            1.547803e+00
+Size_min           1.631049e+01
+Size_median        2.178514e+01
+Size_max           2.533582e+01
+Lev_mean           2.876718e+01
+Lev_sd             1.713747e+01
+Lev_min            1.473925e-01
+Lev_median         2.964035e+01
+Lev_max            6.637160e+01
+ROA_mean           5.842341e+00
+ROA_sd             6.395356e+00
+ROA_min           -9.124080e+00
+ROA_median         4.404000e+00
+ROA_max            3.684360e+01
+MTB_mean           3.004727e+00
+MTB_sd             5.475764e+00
+MTB_min            2.409362e-01
+MTB_median         1.418080e+00
+MTB_max            4.201405e+01
+log_co2_mean       1.176995e+01
+log_co2_sd         2.657498e+00
+log_co2_min        2.379546e+00
+log_co2_median     1.163941e+01
+log_co2_max        1.910171e+01
+> 
+> print(df %>% summarise(CM = mean(CM, na.rm=TRUE)*100,
++                        SustCom = mean(SustCom, na.rm=TRUE)*100,
++                        GRI = mean(GRI, na.rm=TRUE)*100,
++                        GREENWASH_freq = mean(GWI>0, na.rm=TRUE)*100,
++                        BROWNWASH_freq = mean(GWI<0, na.rm=TRUE)*100))
+        CM  SustCom      GRI GREENWASH_freq BROWNWASH_freq
+1 19.94987 22.70677 85.16291       45.56391       54.43609
+> 
+> ## ---- Build lagged panel (identical to baseline) ---------------------------
+> lag_vars <- c("FemD","CM","Blau","Shannon","BSize","InD","SustCom",
++               "Size","Lev","ROA","MTB","GRI","log_co2")
+> 
+> df <- df %>%
++   arrange(firm_id, year) %>%
++   group_by(firm_id) %>%
++   mutate(across(all_of(lag_vars), ~lag(.x), .names = "{.col}_L1")) %>%
++   ungroup()
+> 
+> # Analytic panel = rows with complete lagged regressors (matches N = 1,506)
+> df <- df %>%
++   mutate(in_panel = as.numeric(if_all(ends_with("_L1"), ~!is.na(.x))))
+> panel <- df %>% filter(in_panel == 1)
+> cat("Panel N:", nrow(panel), " Firms:", length(unique(panel$firm_id)), "\n")
+Panel N: 1506  Firms: 385 
+> 
+> ###############################################################################
+> # Part 2: HECKMAN TWO-STAGE MODEL
+> #
+> # Selection eq.: probability a firm-year enters the analytic panel (in_panel),
+> #                estimated on the FULL sample (all 1,995 firm-years).
+> # Outcome  eq.: extensive margin of brownwashing (BW_dummy) for selected obs.
+> #
+> # Exclusion restriction: firm_tenure = number of observed years for the firm.
+> #   A firm with more observed years is mechanically more likely to contribute a
+> #   lagged (in-panel) observation, but firm tenure has no direct effect on the
+> #   brownwash/greenwash decision in a given year once fundamentals are held
+> #   fixed -> valid instrument for selection.
+> ###############################################################################
+> 
+> ## ---- Contemporaneous controls used in the outcome equation ----------------
+> # (Heckit is estimated in levels with industry/country/year dummies, since
+> #  firm fixed effects cannot be combined with the two-step selection model.)
+> controls_out <- "FemD + BSize + InD + SustCom + Size + ROA + Lev + MTB + log_co2"
+> 
+> ## ---- Exclusion restriction + selection regressors -------------------------
+> df <- df %>%
++   group_by(firm_id) %>%
++   mutate(firm_tenure = n()) %>%      # exclusion restriction
++   ungroup()
+> 
+> # Selection regressors: exclusion restriction + variables available for ALL obs
+> sel_rhs <- "firm_tenure + FemD + BSize + InD + SustCom + Size + ROA + Lev + MTB + log_co2 + factor(year)"
+> out_rhs <- paste(controls_out, "+ GRI + factor(industry_code) + factor(country) + factor(year)")
+> 
+> sel_formula <- as.formula(paste("in_panel ~", sel_rhs))
+> out_formula <- as.formula(paste("BW_dummy ~ GRI +", controls_out,
++                                 "+ factor(industry_code) + factor(country) + factor(year)"))
+> 
+> ## ---- Heckman two-step estimation ------------------------------------------
+> heck <- selection(
++   selection = sel_formula,
++   outcome   = out_formula,
++   data      = df,
++   method    = "2step"
++ )
+Error in solve.default(crossprod(xMat)) : 
+  system is computationally singular: reciprocal condition number = 1.85827e-21
+> 
+> cat("\n================= HECKMAN TWO-STEP: FULL SUMMARY =================\n")
+
+================= HECKMAN TWO-STEP: FULL SUMMARY =================
+> print(summary(heck))
+Error: object 'heck' not found
+> 
+> ## ---- Pull the numbers you need for the manuscript / Table 4 ---------------
+> cf   <- summary(heck)$estimate
+Error: object 'heck' not found
+> # GRI coefficient in the outcome equation
+> gri_row <- grep("^GRI$", rownames(cf))
+Error: object 'cf' not found
+> cat("\n--- Outcome equation: GRI coefficient (extensive margin) ---\n")
+
+--- Outcome equation: GRI coefficient (extensive margin) ---
+> print(cf[gri_row, , drop = FALSE])
+Error: object 'cf' not found
+> 
+> # Inverse Mills Ratio (selection correction term)
+> imr_row <- grep("invMillsRatio|imrData|rho|Mills", rownames(cf), ignore.case = TRUE)
+Error: object 'cf' not found
+> cat("\n--- Inverse Mills Ratio / selection term ---\n")
+
+--- Inverse Mills Ratio / selection term ---
+> print(cf[imr_row, , drop = FALSE])
+Error: object 'cf' not found
+> 
+> cat("\nSelected obs (outcome eq.):", heck$param$nObs, "\n")
+Error: object 'heck' not found
+> cat("Total obs (selection eq.):", nrow(df), "\n")
+Total obs (selection eq.): 1995 
+> 
+> ## ---- OPTIONAL: also report a firm-FE LPM restricted to selected sample -----
+> ## (for readers who want the within-firm analogue alongside the Heckman check)
+> controls_f <- "FemD_L1 + BSize_L1 + InD_L1 + SustCom_L1 + Size_L1 + ROA_L1 + Lev_L1 + MTB_L1 + log_co2_L1"
+> m_ext <- feols(as.formula(paste("BW_dummy ~ GRI_L1 +", controls_f, "| firm_id + year")),
++                data = panel, cluster = ~firm_id, fixef.rm = "none")
+> cat("\n--- Baseline extensive-margin firm-FE LPM (for comparison) ---\n")
+
+--- Baseline extensive-margin firm-FE LPM (for comparison) ---
+> print(summary(m_ext))
+OLS estimation, Dep. Var.: BW_dummy
+Observations: 1,506
+Fixed-effects: firm_id: 385,  year: 10
+Standard-errors: Clustered (firm_id) 
+            Estimate Std. Error   t value  Pr(>|t|)    
+GRI_L1     -0.133732   0.047552 -2.812308 0.0051712 ** 
+FemD_L1    -0.002335   0.002232 -1.046516 0.2959813    
+BSize_L1    0.010870   0.013250  0.820371 0.4125137    
+InD_L1     -0.002064   0.001603 -1.287636 0.1986483    
+SustCom_L1  0.007495   0.037235  0.201274 0.8405909    
+Size_L1    -0.029893   0.079825 -0.374478 0.7082558    
+ROA_L1     -0.006182   0.002684 -2.303207 0.0218008 *  
+Lev_L1     -0.002361   0.002175 -1.085333 0.2784550    
+MTB_L1     -0.002035   0.002870 -0.709108 0.4786879    
+log_co2_L1 -0.034320   0.018476 -1.857543 0.0639993 .  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+RMSE: 0.290096     Adj. R2: 0.538319
+                 Within R2: 0.02132 
+> ###############################################################################
+> # GRI & Corporate Brownwashing — ASEAN-5
+> # HECKMAN (revised) — avoids the singular-matrix error
+> #
+> # Run in R. When file.choose() opens, pick: Final_Data_Cleaned.csv
+> #
+> # Key changes vs previous attempt:
+> #  (1) Exclusion restriction = firm_avg_gri_others = leave-one-out mean of GRI
+> #      across the firm's OTHER years. It shifts the probability that a given
+> #      firm-year is "fully observed" (in the analytic lagged panel) via the
+> #      firm's overall reporting propensity, but is not the firm-year's own
+> #      brownwashing driver -> valid, and it VARIES within firm.
+> #  (2) NO year factor in the selection equation (that block was collinear with
+> #      "first year always dropped" and caused the singular crossprod).
+> #  (3) Continuous regressors standardized -> better conditioning.
+> #  (4) MLE estimator ("ml"); if it still complains, 2-step fallback provided.
+> ###############################################################################
+> 
+> ## ---- Packages -------------------------------------------------------------
+> required_pkgs <- c("fixest","dplyr","tidyr","sampleSelection")
+> new_pkgs <- required_pkgs[!(required_pkgs %in% installed.packages()[,"Package"])]
+> if (length(new_pkgs) > 0) install.packages(new_pkgs)
+> library(fixest); library(dplyr); library(tidyr); library(sampleSelection)
+> 
+> ## ---- Load + construct (identical to baseline) -----------------------------
+> data_path <- file.choose()                      # choose Final_Data_Cleaned.csv
+> df <- read.csv(data_path, stringsAsFactors = FALSE)
+> 
+> df <- df %>%
++   arrange(firm_id, year) %>%
++   mutate(
++     zESG=as.numeric(scale(ESG_Score)), zESGC=as.numeric(scale(ESGC_Score)),
++     GWI=zESG-zESGC, GREENWASH=pmax(GWI,0), BROWNWASH=pmax(-GWI,0),
++     FemD=female_board, CM=female_critical_mass,
++     p=FemD/100, q=1-p, Blau=1-(p^2+q^2),
++     Shannon=ifelse(p %in% c(0,1),0,-(p*log(p)+q*log(q))),
++     BSize=board_size, InD=board_ind, SustCom=sus_comp, Size=firm_size,
++     Lev=leverage*100, ROA=roa*100, MTB=mtb, GRI=gri, log_co2=log_co2,
++     BW_dummy=as.numeric(GWI<0), GW_dummy=as.numeric(GWI>0)
++   )
+> 
+> ## ---- Lagged analytic panel + selection indicator --------------------------
+> lag_vars <- c("FemD","CM","Blau","Shannon","BSize","InD","SustCom",
++               "Size","Lev","ROA","MTB","GRI","log_co2")
+> df <- df %>%
++   arrange(firm_id, year) %>%
++   group_by(firm_id) %>%
++   mutate(across(all_of(lag_vars), ~lag(.x), .names="{.col}_L1")) %>%
++   ungroup() %>%
++   mutate(in_panel = as.numeric(if_all(ends_with("_L1"), ~!is.na(.x))))
+> 
+> cat("Full obs:", nrow(df), " In-panel:", sum(df$in_panel), "\n")
+Full obs: 1995  In-panel: 1506 
+> 
+> ## ---- Exclusion restriction: leave-one-out firm GRI mean -------------------
+> df <- df %>%
++   group_by(firm_id) %>%
++   mutate(
++     firm_gri_sum = sum(GRI, na.rm=TRUE),
++     firm_n       = n(),
++     gri_loo      = (firm_gri_sum - GRI) / pmax(firm_n - 1, 1)   # leave-one-out mean
++   ) %>%
++   ungroup()
+> 
+> ## ---- Standardize continuous regressors (conditioning) ---------------------
+> z <- function(x) as.numeric(scale(x))
+> df <- df %>%
++   mutate(
++     Size_z=z(Size), ROA_z=z(ROA), Lev_z=z(Lev), MTB_z=z(MTB),
++     log_co2_z=z(log_co2), BSize_z=z(BSize), InD_z=z(InD), FemD_z=z(FemD),
++     gri_loo_z=z(gri_loo)
++   )
+> 
+> ## ---- Heckman: MLE -----------------------------------------------------------
+> sel_formula <- in_panel ~ gri_loo_z + FemD_z + BSize_z + InD_z + SustCom +
++                           Size_z + ROA_z + Lev_z + MTB_z + log_co2_z
+> out_formula <- BW_dummy ~ GRI + FemD_z + BSize_z + InD_z + SustCom +
++                           Size_z + ROA_z + Lev_z + MTB_z + log_co2_z +
++                           factor(industry_code) + factor(country) + factor(year)
+> 
+> heck <- tryCatch(
++   selection(sel_formula, out_formula, data=df, method="ml"),
++   error=function(e){ message("MLE failed: ", conditionMessage(e)); NULL }
++ )
+MLE failed: system is computationally singular: reciprocal condition number = 1.39532e-18
+> 
+> ## ---- Fallback: 2-step if MLE failed ---------------------------------------
+> if (is.null(heck)) {
++   cat("\n>>> MLE failed, trying 2-step...\n")
++   heck <- selection(sel_formula, out_formula, data=df, method="2step")
++ }
+
+>>> MLE failed, trying 2-step...
+Error in solve.default(crossprod(xMat)) : 
+  system is computationally singular: reciprocal condition number = 1.39532e-18
+> 
+> cat("\n================= HECKMAN: FULL SUMMARY =================\n")
+
+================= HECKMAN: FULL SUMMARY =================
+> print(summary(heck))
+Length  Class   Mode 
+     0   NULL   NULL 
+> 
+> ## ---- Extract the numbers for the manuscript / Table 4 ---------------------
+> cf <- summary(heck)$estimate
+Error in summary(heck)$estimate : 
+  $ operator is invalid for atomic vectors
+> cat("\n--- GRI (outcome eq., extensive margin) ---\n")
+
+--- GRI (outcome eq., extensive margin) ---
+> print(cf[grep("^GRI$", rownames(cf)), , drop=FALSE])
+Error: object 'cf' not found
+> cat("\n--- Selection term (rho / invMillsRatio / sigma) ---\n")
+
+--- Selection term (rho / invMillsRatio / sigma) ---
+> print(cf[grep("Mills|rho|sigma|atanh", rownames(cf), ignore.case=TRUE), , drop=FALSE])
+Error: object 'cf' not found
+> cat("\n--- Exclusion restriction in selection eq. (gri_loo_z) ---\n")
+
+--- Exclusion restriction in selection eq. (gri_loo_z) ---
+> print(cf[grep("gri_loo_z", rownames(cf)), , drop=FALSE])
+Error: object 'cf' not found
+> 
+> cat("\nObs total:", nrow(df), " Selected:", sum(df$in_panel), "\n")
+
+Obs total: 1995  Selected: 1506 
+> ###############################################################################
+> # CONTINUE in the SAME R session (df already loaded). No file.choose() again.
+> # Goal: get a Heckman that actually runs, else prove selection is unidentified.
+> ###############################################################################
+> 
+> ## ---- 0. Diagnose the separation problem -----------------------------------
+> # How many firms are "always in" or "always out" of the panel?
+> library(dplyr)
+> firm_mix <- df %>%
++   group_by(firm_id) %>%
++   summarise(m = mean(in_panel), n = n(), .groups = "drop")
+> cat("Firms total:", nrow(firm_mix), "\n")
+Firms total: 489 
+> cat("Always-out (m=0):", sum(firm_mix$m == 0), "\n")
+Always-out (m=0): 104 
+> cat("Always-in  (m=1):", sum(firm_mix$m == 1), "\n")
+Always-in  (m=1): 0 
+> cat("Mixed          :", sum(firm_mix$m > 0 & firm_mix$m < 1), "\n")
+Mixed          : 385 
+> # Check perfect separation by industry / country
+> cat("\nin_panel mean by country:\n"); print(tapply(df$in_panel, df$country, mean))
+
+in_panel mean by country:
+       ID        MY        PH        SG        TH 
+0.7682403 0.6986301 0.8170732 0.8125000 0.7591623 
+> cat("\nin_panel mean by industry:\n"); print(round(tapply(df$in_panel, df$industry_code, mean),3))
+
+in_panel mean by industry:
+communication_services consumer_discretionary       consumer_staples                 energy 
+                 0.823                  0.724                  0.741                  0.788 
+           health_care            industrials information_technology              materials 
+                 0.704                  0.761                  0.613                  0.740 
+           real_estate              utilities 
+                 0.750                  0.810 
+> 
+> ## ---- 1. MINIMAL selection eq.: exclusion restriction + a few continuous ---
+> ##      NO industry/country/year factors anywhere in selection (they separate).
+> ##      Outcome keeps industry+country+year (that eq. is fine).
+> library(sampleSelection)
+> 
+> sel_min <- in_panel ~ gri_loo_z + Size_z + ROA_z + Lev_z + MTB_z + log_co2_z
+> out_min <- BW_dummy ~ GRI + FemD_z + BSize_z + InD_z + SustCom +
++                       Size_z + ROA_z + Lev_z + MTB_z + log_co2_z +
++                       factor(country) + factor(year)
+> 
+> heck2 <- tryCatch(selection(sel_min, out_min, data = df, method = "2step"),
++                   error = function(e){ message("2step failed: ", conditionMessage(e)); NULL })
+2step failed: system is computationally singular: reciprocal condition number = 2.34868e-18
+> 
+> if (!is.null(heck2)) {
++   cat("\n===== HECKMAN (minimal selection) : SUMMARY =====\n")
++   print(summary(heck2))
++   cf <- summary(heck2)$estimate
++   cat("\n--- GRI (outcome eq.) ---\n");  print(cf[grep("^GRI$", rownames(cf)), , drop=FALSE])
++   cat("\n--- selection term (rho/Mills/sigma) ---\n")
++   print(cf[grep("Mills|rho|sigma|atanh", rownames(cf), ignore.case=TRUE), , drop=FALSE])
++ }
+> 
+> ## ---- 2. If still singular, run the two eqs SEPARATELY (manual Heckman) -----
+> if (is.null(heck2)) {
++   cat("\n>>> selection() still singular. Doing manual 2-step by hand.\n")
++ 
++   # Stage 1: probit of in_panel on exclusion restriction + continuous controls
++   s1 <- glm(in_panel ~ gri_loo_z + Size_z + ROA_z + Lev_z + MTB_z + log_co2_z,
++             data = df, family = binomial(link = "probit"))
++   cat("\n--- Stage 1 probit (selection) ---\n"); print(summary(s1))
++ 
++   # Inverse Mills Ratio for the selected sample
++   df$imr <- dnorm(predict(s1, type="link")) / pnorm(predict(s1, type="link"))
++   sel <- df[df$in_panel == 1, ]
++ 
++   # Stage 2: outcome with IMR added (OLS/LPM). Report GRI + IMR.
++   s2 <- lm(BW_dummy ~ GRI + FemD_z + BSize_z + InD_z + SustCom +
++              Size_z + ROA_z + Lev_z + MTB_z + log_co2_z + imr +
++              factor(country) + factor(year), data = sel)
++   cat("\n--- Stage 2 outcome with IMR (manual Heckman) ---\n")
++   print(summary(s2)$coefficients[c("GRI","imr"), , drop=FALSE])
++   cat("\nSelected N:", nrow(sel), " Total N:", nrow(df), "\n")
++ }
+
+>>> selection() still singular. Doing manual 2-step by hand.
+
+--- Stage 1 probit (selection) ---
+
+Call:
+glm(formula = in_panel ~ gri_loo_z + Size_z + ROA_z + Lev_z + 
+    MTB_z + log_co2_z, family = binomial(link = "probit"), data = df)
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  0.74953    0.03263  22.972  < 2e-16 ***
+gri_loo_z    0.17315    0.03203   5.406 6.46e-08 ***
+Size_z       0.32843    0.04784   6.866 6.61e-12 ***
+ROA_z       -0.01213    0.03889  -0.312    0.755    
+Lev_z       -0.01337    0.03614  -0.370    0.711    
+MTB_z        0.04311    0.03806   1.133    0.257    
+log_co2_z    0.05555    0.04242   1.310    0.190    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 2222.0  on 1994  degrees of freedom
+Residual deviance: 2003.3  on 1988  degrees of freedom
+AIC: 2017.3
+
+Number of Fisher Scoring iterations: 4
+
+
+--- Stage 2 outcome with IMR (manual Heckman) ---
+      Estimate Std. Error   t value     Pr(>|t|)
+GRI -0.2798626 0.05322879 -5.257729 1.671807e-07
+imr  0.2915500 0.20491530  1.422783 1.550097e-01
+
+Selected N: 1506  Total N: 1995 
+> 
+> ## ---- 3. Reference: baseline extensive-margin firm-FE LPM (unchanged) -------
+> library(fixest)
+> controls_f <- "FemD_L1 + BSize_L1 + InD_L1 + SustCom_L1 + Size_L1 + ROA_L1 + Lev_L1 + MTB_L1 + log_co2_L1"
+> m_ext <- feols(as.formula(paste("BW_dummy ~ GRI_L1 +", controls_f, "| firm_id + year")),
++                data = df[df$in_panel==1,], cluster = ~firm_id, fixef.rm = "none")
+> cat("\n--- Baseline firm-FE LPM (for comparison) ---\n"); print(summary(m_ext))
+
+--- Baseline firm-FE LPM (for comparison) ---
+OLS estimation, Dep. Var.: BW_dummy
+Observations: 1,506
+Fixed-effects: firm_id: 385,  year: 10
+Standard-errors: Clustered (firm_id) 
+            Estimate Std. Error   t value  Pr(>|t|)    
+GRI_L1     -0.133732   0.047552 -2.812308 0.0051712 ** 
+FemD_L1    -0.002335   0.002232 -1.046516 0.2959813    
+BSize_L1    0.010870   0.013250  0.820371 0.4125137    
+InD_L1     -0.002064   0.001603 -1.287636 0.1986483    
+SustCom_L1  0.007495   0.037235  0.201274 0.8405909    
+Size_L1    -0.029893   0.079825 -0.374478 0.7082558    
+ROA_L1     -0.006182   0.002684 -2.303207 0.0218008 *  
+Lev_L1     -0.002361   0.002175 -1.085333 0.2784550    
+MTB_L1     -0.002035   0.002870 -0.709108 0.4786879    
+log_co2_L1 -0.034320   0.018476 -1.857543 0.0639993 .  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+RMSE: 0.290096     Adj. R2: 0.538319
+                 Within R2: 0.02132 
+> 
