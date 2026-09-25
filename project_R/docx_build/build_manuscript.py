@@ -60,10 +60,15 @@ def blocks(text):
 TOKEN = re.compile(r'(\*[^*]+\*|\^[^^]+\^|~[^~]+~)')
 
 
+STAR = '\u2217'   # placeholder for a literal asterisk written as \* in the source
+
+
 def add_runs(p, text, bold=False, size=None):
+    text = text.replace('\\*', STAR)
     for part in TOKEN.split(text.replace('\n', ' ')):
         if not part:
             continue
+        part_out = None
         r = p.add_run()
         if part.startswith('*') and part.endswith('*') and len(part) > 2:
             r.text = part[1:-1]; r.italic = True
@@ -73,6 +78,7 @@ def add_runs(p, text, bold=False, size=None):
             r.text = part[1:-1]; r.font.subscript = True
         else:
             r.text = part
+        r.text = r.text.replace(STAR, '*')
         r.bold = bold or None
         if size:
             r.font.size = Pt(size)
@@ -172,6 +178,7 @@ def table_exhibit(d, caption, csvfile, note, source, widths=None, size=9):
     p = d.add_paragraph(); add_runs(p, caption.split('|')[0].strip(), bold=True); p.add_run(' ')
     add_runs(p, caption.split('|')[1].strip()); set_spacing(p, 1.0, 6)
     t = d.add_table(rows=len(rows), cols=len(rows[0])); t.alignment = WD_TABLE_ALIGNMENT.CENTER
+    t.autofit = False
     for i, row in enumerate(rows):
         for j, v in enumerate(row):
             c = t.cell(i, j)
@@ -184,6 +191,10 @@ def table_exhibit(d, caption, csvfile, note, source, widths=None, size=9):
         for j, w in enumerate(widths):
             for i in range(len(rows)):
                 t.cell(i, j).width = Inches(w)
+        for gc, w in zip(t._tbl.tblGrid.findall(qn('w:gridCol')), widths):
+            gc.set(qn('w:w'), str(int(w * 1440)))
+        tblPr = t._tbl.tblPr
+        lay = OxmlElement('w:tblLayout'); lay.set(qn('w:type'), 'fixed'); tblPr.append(lay)
     for txt in (note, 'Source: ' + source):
         q = d.add_paragraph(); add_runs(q, txt, size=10); set_spacing(q, 1.0, 2)
     page_break(d)
@@ -196,6 +207,7 @@ def figure_exhibit(d, caption, png, note, source):
     d.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER
     for txt in (note, 'Source: ' + source):
         q = d.add_paragraph(); add_runs(q, txt, size=10); set_spacing(q, 1.0, 2)
+    page_break(d)
 
 
 def build(anonymized, out, meta, secs, exhibits):
@@ -230,9 +242,20 @@ def build(anonymized, out, meta, secs, exhibits):
     d.save(out)
 
 
-def parse_exhibits(secs):
+def build_ia(out, secs, exhibits_ia):
+    d = base_doc()
+    p = d.add_paragraph(); add_runs(p, 'Internet Appendix', bold=True, size=14); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    p = d.add_paragraph(); add_runs(p, secs['title'], bold=True); p.alignment = WD_ALIGN_PARAGRAPH.CENTER; set_spacing(p, 1.5, 12)
+    body_par(d, secs['ia_intro'], indent=False)
+    page_break(d)
+    for ex in exhibits_ia:
+        (table_exhibit if ex['kind'] == 'table' else figure_exhibit)(d, **ex['args'])
+    d.save(out)
+
+
+def parse_exhibits(secs, key='exhibits'):
     exs = []
-    for b in blocks(secs['exhibits']):
+    for b in blocks(secs[key]):
         kv = dict(line.split(':=', 1) for line in b.splitlines())
         kv = {k.strip(): v.strip() for k, v in kv.items()}
         kind = kv.pop('kind')
@@ -253,4 +276,5 @@ if __name__ == '__main__':
     os.makedirs(outdir, exist_ok=True)
     build(False, os.path.join(outdir, 'Manuscript_with_Author_Details.docx'), meta, secs, exhibits)
     build(True, os.path.join(outdir, 'Manuscript_Anonymized.docx'), meta, secs, exhibits)
+    build_ia(os.path.join(outdir, 'Internet_Appendix.docx'), secs, parse_exhibits(secs, 'exhibits_ia'))
     print('built', outdir)

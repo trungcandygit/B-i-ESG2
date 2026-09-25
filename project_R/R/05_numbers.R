@@ -57,6 +57,23 @@ for (i in seq_len(nrow(tw))) {
   put(paste0(a, "_R6"), fmt(tw$est[i])); put(paste0(a, "_R6_pct"), pct(tw$est[i])); put(paste0(a, "_R6_se"), fmt(tw$se[i])); put(paste0(a, "_R6_p"), fmtp(tw$p[i]))
 }
 
+rv <- read.csv(file.path(OUT, "robustness_revision.csv"))
+for (i in seq_len(nrow(rv))) {
+  a <- ab[[rv$outcome[i]]]; k <- sub("_.*", "", rv$spec[i])
+  put(paste0(a, "_", k), fmt(rv$est[i])); put(paste0(a, "_", k, "_se"), fmt(rv$se[i]))
+  put(paste0(a, "_", k, "_p"), fmtp(rv$p[i])); put(paste0(a, "_", k, "_pct"), pct(rv$est[i]))
+  put(paste0(a, "_", k, "_lo"), fmt(rv$ci_lo[i])); put(paste0(a, "_", k, "_hi"), fmt(rv$ci_hi[i]))
+  put(paste0(a, "_", k, "_lo_pct"), pct(rv$ci_lo[i])); put(paste0(a, "_", k, "_hi_pct"), pct(rv$ci_hi[i]))
+  if (!is.na(rv$slope[i])) put(paste0(a, "_", k, "_slope"), fmt(rv$slope[i]))
+  put(paste0(a, "_", k, "_ntr"), fmtn(rv$n_treated_firms[i]))
+}
+lm_ <- read.csv(file.path(OUT, "leave_one_market_out.csv"))
+for (i in seq_len(nrow(lm_))) {
+  a <- ab[[lm_$outcome[i]]]
+  put(paste0(a, "_lomo_", lm_$excluded[i]), fmt(lm_$est[i])); put(paste0(a, "_lomo_", lm_$excluded[i], "_p"), fmtp(lm_$p[i]))
+}
+put("mtb_lomo_min", fmt(min(lm_$est[lm_$outcome == "ln_mtb"]))); put("mtb_lomo_max", fmt(max(lm_$est[lm_$outcome == "ln_mtb"])))
+put("mtb_lomo_minp", fmtp(min(lm_$p[lm_$outcome == "ln_mtb"])))
 ht <- read.csv(file.path(OUT, "heterogeneity_initial_score.csv"))
 for (i in seq_len(nrow(ht))) {
   a <- ab[[ht$outcome[i]]]; g <- c(high_initial_score = "high", low_initial_score = "low",

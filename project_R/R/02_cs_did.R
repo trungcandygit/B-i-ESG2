@@ -18,10 +18,12 @@ make_X <- function(df, covars) {
 
 # Build all 2x2 cells (g, t) for outcome y.
 build_cells <- function(y, control = c("never", "notyet"), covars = TRUE, drop_cohorts = NULL,
-                        support = FALSE, placebo = FALSE, treated_subset = NULL) {
+                        support = FALSE, placebo = FALSE, treated_subset = NULL, pregrowth = FALSE,
+                        exclude_country = NULL) {
   control <- match.arg(control)
   d <- panel %>% mutate(yv = .data[[y]], size_b = ln_asset) %>%
-    select(firm_id, year, G, country, industry_code, size_b, yv, high0)
+    select(firm_id, year, G, country, industry_code, size_b, yv, high0, ln_mcap)
+  if (!is.null(exclude_country)) d <- d %>% filter(!(country %in% exclude_country))
   if (placebo) {
     # Fake treatment three years before true coverage; keep only truly untreated years of treated firms.
     d <- d %>% filter(!is.finite(G) | year < G) %>% mutate(G = ifelse(is.finite(G), G - 3, G))
@@ -31,13 +33,20 @@ build_cells <- function(y, control = c("never", "notyet"), covars = TRUE, drop_c
   wide_a <- d %>% select(firm_id, year, size_b)
   info   <- d %>% distinct(firm_id, G, country, industry_code, high0)
   cohorts <- sort(unique(info$G[is.finite(info$G)]))
-  cohorts <- cohorts[cohorts - 1 >= min(d$year)]
+  cohorts <- cohorts[cohorts - (if (pregrowth) 3 else 1) >= min(d$year)]
   years <- sort(unique(d$year))
   cells <- list()
   for (g in cohorts) {
     base <- g - 1
     yb <- wide_y %>% filter(year == base, !is.na(yv)) %>% select(firm_id, yb = yv)
     ab <- wide_a %>% filter(year == base, !is.na(size_b)) %>% select(firm_id, lnA_b = size_b)
+    if (pregrowth) {
+      # Exploratory (revision round 1, RR-2): growth in log market capitalization from g-3 to g-1.
+      m1 <- d %>% filter(year == base, !is.na(ln_mcap)) %>% select(firm_id, m1 = ln_mcap)
+      m3 <- d %>% filter(year == base - 2, !is.na(ln_mcap)) %>% select(firm_id, m3 = ln_mcap)
+      ab <- ab %>% inner_join(m1, by = "firm_id") %>% inner_join(m3, by = "firm_id") %>%
+        mutate(pg = m1 - m3) %>% select(firm_id, lnA_b, pg)
+    }
     for (t in setdiff(years, base)) {
       e <- t - g
       if (e < E_MIN || e > E_MAX) next
@@ -52,6 +61,7 @@ build_cells <- function(y, control = c("never", "notyet"), covars = TRUE, drop_c
       if (support && nrow(tr) > 0) co <- co %>% filter(lnA_b >= quantile(tr$lnA_b, 0.10, names = FALSE))
       if (nrow(tr) == 0 || nrow(co) < 30) next
       Xc <- make_X(co, covars); Xt <- make_X(tr, covars)
+      if (pregrowth) { Xc <- cbind(Xc, pg = co$pg); Xt <- cbind(Xt, pg = tr$pg) }
       cells[[length(cells) + 1]] <- list(g = g, t = t, e = e,
         it = match(tr$firm_id, FIRMS), ic = match(co$firm_id, FIRMS),
         yt = tr$dY, yc = co$dY, Xt = Xt, Xc = Xc)
@@ -134,4 +144,22 @@ run_twfe <- function(y) {
   b <- coef(m)[["D"]]; se <- sqrt(V["D", "D"])
   data.frame(outcome = y, est = b, se = se, ci_lo = b - 1.96 * se, ci_hi = b + 1.96 * se,
              p = 2 * pnorm(-abs(b / se)), n_obs = nobs(m), n_firms = n_distinct(d$firm_id))
+}
+
+# Exploratory (revision round 1, RR-1): linear pre-trend extrapolation. A line through the event-time estimates for
+# e = -5..-1 (with the base year e = -1 fixed at zero) is extrapolated to e = 0..3 and subtracted; the adjusted
+# post-coverage average uses the same cell weights as the headline estimate. Inference reuses the bootstrap draws.
+trend_adjust <- function(res) {
+  w <- res$gt %>% filter(e >= 0, e <= POST_MAX, !is.na(att)) %>% group_by(e) %>% summarise(n = sum(n_treated))
+  pre_e <- c(-5:-2, -1)
+  adj <- function(v) {
+    yv <- c(v[as.character(-5:-2)], 0)
+    ok <- !is.na(yv)
+    slope <- sum((pre_e[ok] + 1) * yv[ok]) / sum((pre_e[ok] + 1)^2)   # line through (−1, 0)
+    post <- v[as.character(w$e)] - slope * (w$e + 1)
+    c(post = sum(post * w$n) / sum(w$n), slope = slope)
+  }
+  est <- adj(res$est)
+  dr <- t(apply(res$draws, 1, function(r) { names(r) <- colnames(res$draws); adj(r) }))
+  list(est = est, draws = dr)
 }

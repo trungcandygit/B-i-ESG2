@@ -41,6 +41,7 @@ write.csv(t2_fmt, file.path(OUT, "table2_formatted.csv"), row.names = FALSE)
 # ---- Table 3: robustness and heterogeneity (ATT_post, SE in parentheses) ----
 rob <- read.csv(file.path(OUT, "robustness.csv")); tw <- read.csv(file.path(OUT, "twfe_static.csv"))
 het <- read.csv(file.path(OUT, "heterogeneity_initial_score.csv"))
+rv <- read.csv(file.path(OUT, "robustness_revision.csv"))
 cellv <- function(e, s, p) paste0(fmt(e), stars(p), " (", fmt(s), ")")
 row_of <- function(label, d) {
   d <- d[match(names(OUTCOMES), d$outcome), ]
@@ -54,6 +55,9 @@ t3 <- bind_rows(
   row_of("R4 Controls on treated size support", rob[rob$spec == "R4_support", ]),
   row_of("R5 Placebo: coverage dated three years early", rob[rob$spec == "R5_placebo", ]),
   row_of("R6 Static two-way fixed effects", tw),
+  row_of("R7 Linear pre-trend removed", rv[rv$spec == "R7_trendadj", ]),
+  row_of("R8 Controlling for pre-coverage growth", rv[rv$spec == "R8_pregrowth", ]),
+  row_of("R9 Excluding Malaysia", rv[rv$spec == "R9_excludeMY", ]),
   row_of("High initial ESG score", het[het$group == "high_initial_score", ]),
   row_of("Low initial ESG score", het[het$group == "low_initial_score", ]),
   row_of("Difference, high minus low", het[het$group == "difference_high_minus_low", ]))
@@ -90,3 +94,13 @@ pia <- ggplot(cs, aes(x = G, y = total)) + geom_col(fill = "grey60", colour = "b
   theme_bw(base_size = 10) + theme(panel.grid.minor = element_blank())
 ggsave(file.path(FIG, "FigIA1.eps"), pia, width = 6, height = 3.5, device = cairo_ps)
 ggsave(file.path(FIG, "FigIA1.png"), pia, width = 6, height = 3.5, dpi = 600)
+
+# ---- Internet Appendix tables ----
+lomo <- read.csv(file.path(OUT, "leave_one_market_out.csv"))
+cn <- c(ID = "Indonesia", MY = "Malaysia", PH = "Philippines", SG = "Singapore", TH = "Thailand")
+tia1 <- bind_rows(lapply(names(cn), function(cc) row_of(paste("Excluding", cn[[cc]]), lomo[lomo$excluded == cc, ])))
+write.csv(tia1, file.path(OUT, "tableIA1_formatted.csv"), row.names = FALSE)
+csz <- read.csv(file.path(OUT, "cohort_sizes.csv"))
+tia2 <- data.frame(`First score year` = csz$G, Indonesia = csz$ID, Malaysia = csz$MY, Philippines = csz$PH,
+                   Singapore = csz$SG, Thailand = csz$TH, Total = csz$total, check.names = FALSE)
+write.csv(tia2, file.path(OUT, "tableIA2_formatted.csv"), row.names = FALSE)

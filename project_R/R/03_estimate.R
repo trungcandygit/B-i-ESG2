@@ -59,3 +59,26 @@ for (y in names(OUTCOMES)) {
                p = 2 * pnorm(-abs(dd / se)), mde80 = 2.8 * se, n_treated_firms = NA))
 }
 write_out(bind_rows(het_rows), "heterogeneity_initial_score.csv")
+
+# ---- Revision round 1 (exploratory; deviations from the pre-analysis plan, see notes/AUDIT_LEDGER.md Iter 4) ----
+rev_rows <- list(); lomo_rows <- list()
+for (y in names(OUTCOMES)) {
+  cat("Revision:", y, "\n")
+  ta <- trend_adjust(main[[y]])
+  s <- summ(list(est = ta$est, draws = ta$draws), "post")
+  rev_rows[[paste(y, "R7")]] <- cbind(outcome = y, spec = "R7_trendadj", s, slope = ta$est[["slope"]],
+                                      n_treated_firms = main[[y]]$n_treated_firms, n_control_firms = main[[y]]$n_control_firms)
+  r8 <- run_cs(y, control = "never", covars = TRUE, pregrowth = TRUE)
+  rev_rows[[paste(y, "R8")]] <- cbind(outcome = y, spec = "R8_pregrowth", summ(r8, "post"), slope = NA,
+                                      n_treated_firms = r8$n_treated_firms, n_control_firms = r8$n_control_firms)
+  for (cc in sort(unique(panel$country))) {
+    rl <- run_cs(y, control = "never", covars = TRUE, exclude_country = cc)
+    lomo_rows[[paste(y, cc)]] <- cbind(outcome = y, excluded = cc, summ(rl, "post"),
+                                       n_treated_firms = rl$n_treated_firms, n_control_firms = rl$n_control_firms)
+  }
+}
+lomo_tab <- bind_rows(lomo_rows)
+rev_tab <- bind_rows(c(rev_rows, list(
+  lomo_tab %>% filter(excluded == "MY") %>% mutate(spec = "R9_excludeMY", slope = NA) %>% select(-excluded))))
+write_out(rev_tab, "robustness_revision.csv")
+write_out(lomo_tab, "leave_one_market_out.csv")

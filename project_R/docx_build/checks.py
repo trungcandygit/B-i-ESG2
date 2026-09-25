@@ -68,6 +68,7 @@ def main(docx_dir):
 
     # 5. Caption ↔ content: header row of each table CSV must match the caption's subject
     expect = {1: ['Scored mean', 'Never-scored mean'], 2: ['ATT', 'Pre-trend p'], 3: ['Specification']}
+    # Internet Appendix exhibits are cited as 'Table IA1' etc. and are not counted toward the exhibit limit.
     for kind, n, cap in caps:
         if kind == 'Table':
             f = [l for l in [b for b in exhibits if f'Table {n}|' in b][0].splitlines() if l.startswith('csvfile:=')][0][9:]
@@ -124,8 +125,11 @@ def main(docx_dir):
 
     # 10. Every number in text equals a numbers.csv value or a structural integer
     vals = set(nums.values())
-    tokens = re.findall(r'(?<![\w.])[−-]?\d[\d,]*\.\d+', body + secs['abstract'])
-    bad = [t for t in tokens if t not in vals]
+    txt = re.sub(r'^#+ \d+(\.\d+)?\.? ', '', body, flags=re.M)
+    txt = re.sub(r'Section \d+(\.\d+)?', '', txt)
+    constants = {'2.8'}   # 2.8 standard errors = MDE multiplier at 80% power, 5% two-sided (stated in Section 2.3)
+    tokens = re.findall(r'(?<![\w.])[−-]?\d[\d,]*\.\d+', txt + secs['abstract'])
+    bad = [t for t in tokens if t not in vals and t not in constants]
     check('every decimal number in text comes from numbers.csv', not bad, str(bad[:8]))
 
     # 11. DOCX files: anonymization and validity

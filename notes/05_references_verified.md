@@ -19,6 +19,13 @@ bởi WebSearch). Không mục nào được đưa vào bài nếu chưa có ở
 | 12 | Sant'Anna, P. H. C., & Zhao, J. (2020). Doubly robust difference-in-differences estimators. Journal of Econometrics, 219(1), 101–122. | 10.1016/j.jeconom.2020.06.003 | IDEAS v219y2020i1p101-122; ScienceDirect S0304407620301901 |
 | 13 | Tsang, A., Wang, Y., Xiang, Y., & Yu, L. (2024). The rise of ESG rating agencies and management of corporate ESG violations. Journal of Banking & Finance, 169, 107312. | 10.1016/j.jbankfin.2024.107312 | IDEAS jbfina v169y2024; ScienceDirect S0378426624002267 |
 
+| 14 | Berg, F., Fabisik, K., & Sautner, Z. (2020). Is history repeating itself? The (un)predictable past of ESG ratings. European Corporate Governance Institute Finance Working Paper No. 708/2020. | (SSRN 3722087) | ECGI working-paper page; SSRN abstract 3722087; MIT Sloan press release |
+| 15 | Harris, L., & Gurel, E. (1986). Price and volume effects associated with changes in the S&P 500 list: New evidence for the existence of price pressures. Journal of Finance, 41(4), 815–829. | 10.1111/j.1540-6261.1986.tb04550.x | Wiley; IDEAS v41y1986i4p815-29 |
+| 16 | Rambachan, A., & Roth, J. (2023). A more credible approach to parallel trends. Review of Economic Studies, 90(5), 2555–2591. | 10.1093/restud/rdad018 | OUP restud/article-abstract/90/5/2555; author PDF header |
+| 17 | Shleifer, A. (1986). Do demand curves for stocks slope down? Journal of Finance, 41(3), 579–590. | 10.1111/j.1540-6261.1986.tb04518.x | Wiley; IDEAS v41y1986i3p579-90 |
+
+Bổ sung vòng sửa 1 (S7, 2026-09-25): #14–#17 xác minh bằng WebSearch theo đề xuất phản biện R1/R2.
+
 Ghi chú DOI: doi.org bị proxy chặn (HANDOFF §7). DOI của #5, #7, #9, #12 đã được xác nhận bằng WebSearch
 theo đúng chuỗi DOI (kết quả trả về đúng bài, đúng tạp chí/tập/trang).
 
