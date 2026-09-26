@@ -226,3 +226,6 @@ tự giải quyết bằng mặc định hợp lý nhất và ghi tại đây.
 - D-26 (2026-09-26): người dùng hỏi vì sao tên bảng "IA". Đổi theo thuật ngữ JF:IP ("Supplemental Appendix"):
   Internet Appendix → Supplemental Appendix (file Supplemental_Appendix.docx), Table IA1–IA6 → Table S1–S6,
   Fig. IA1 → Fig. S1. Tên file CSV/PNG nội bộ (tableIA*.csv, FigIA1.png) giữ nguyên để không phải chạy lại R.
+- Stage 4.5 (subagent độc lập, Mode 2 final): FAIL (0 SERIOUS, 3 MEDIUM, 14 MINOR; 31/31 tài liệu tồn tại; mọi số khớp
+  R). Đã sửa toàn bộ trên bản đã ghép vòng 1: `notes/final_integrity/stage4_5_dispositions.md` (MEDIUM-1 viết lại không
+  thêm tài liệu; E6: 2 restore, 1 authorize_with_reason). checks.py 99/100 (còn FAIL số từ JF:IP → vòng 2).

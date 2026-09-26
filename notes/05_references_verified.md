@@ -49,3 +49,9 @@ Dữ liệu (data citation, bắt buộc theo Author Guidelines):
 - LSEG Data & Analytics. LSEG ESG Scores, annual, 2014–2024 [Data set]. LSEG Workspace.
 - S&P Global Market Intelligence. Compustat Global, annual fundamentals, 2014–2024 [Data set].
 (Theo bài gốc: ESG từ LSEG Workspace, tài chính từ Compustat Global. Bài mới không dùng biến BoardEx.)
+
+## Stage 4.5 follow-up (2026-09-26)
+- Dobrick, Klein, & Zwergel (2023), Finance Research Letters 55, Article 104014: DOI 10.1016/j.frl.2023.104014
+  (WebSearch: ScienceDirect S1544612323003860; RePEc eee:finlet:v:55:y:2023:i:pb:s1544612323003860).
+- Chen, Noronha, & Singal (2004), Journal of Finance 59(4): pages 1901–1929 confirmed (WebSearch: Wiley Online Library
+  doi 10.1111/j.1540-6261.2004.00683.x; Semantic Scholar). RePEc lists 1901–1930; publisher range kept.
