@@ -1,0 +1,721 @@
+{
+  "contract_version": "1.1",
+  "round_id": "stage3prime-round2",
+  "revision": 1,
+  "verdict_record_hash": "f31e873c8caf60f701177d074f70410d4073f6296a97d42e45d77bd824e4aaab",
+  "rows": [
+    {
+      "item_id": "REV-RR-1",
+      "concern_id": "R1",
+      "obligation_class": "MUST_FIX",
+      "original_comment": "Publication lag: re-date treatment one year later (R10); report post-publication average; describe treatment as first fiscal year with an LSEG score",
+      "authors_claim": "Addressed. §3.2 ¶3 explains the fiscal-year lag and backfilling; new row R10 dates coverage one year later (MTB −0.068, 95% CI −0.116 to −0.020, p = 0.004), §5.4 ¶1, abstract, §1, §8; the treatment is described throughout as the first fiscal year with an LSEG score.",
+      "revision_location": "§3.2 ¶2–¶3; §5.4 ¶1; Table 3 R10; §7 second limitation; Abstract; §8",
+      "verified": "PARTIAL",
+      "status": "PARTIALLY_ADDRESSED",
+      "quality_assessment": "2A verdict stands. Elements (a),(b),(d),(e),(f) met; N for R10 not reported; abstract/§8 'arrives' wording describes the first scored fiscal year as an arrival event. Claim drift CD-1.",
+      "final_verdict": "PARTIALLY_ADDRESSED",
+      "phase2a_verdict": "PARTIALLY_ADDRESSED",
+      "verified_by": "R1",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": [],
+      "cross_model_status": "not_configured"
+    },
+    {
+      "item_id": "REV-RR-2",
+      "concern_id": "R2",
+      "obligation_class": "MUST_FIX",
+      "original_comment": "Relative-magnitude sensitivity bounds and breakdown value; state that exact HonestDiD sets are not computed",
+      "authors_claim": "Addressed with a stated limit. §4.4 Eq. (10) relative-magnitude bound in the spirit of Rambachan and Roth (2023); Table IA5; §5.4 ¶3 (M̄ = 0.25: −0.071 to 0.073); exact HonestDiD sets not computed (§4.4, §7), bound documented in code (rm_bounds()).",
+      "revision_location": "§4.4 Eq. (10); §5.4 ¶3; Table IA5; §7 first limitation",
+      "verified": "PARTIAL",
+      "status": "PARTIALLY_ADDRESSED",
+      "quality_assessment": "2A verdict stands. Bounds reported (Table IA5); no breakdown value; §5.4 ¶3 last sentence says the absence of a positive effect does not depend on the assumption, contradicted by the bounds. Residual must_fix (DA-C1). Claim drift CD-2.",
+      "final_verdict": "PARTIALLY_ADDRESSED",
+      "phase2a_verdict": "PARTIALLY_ADDRESSED",
+      "verified_by": "R1",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": [],
+      "cross_model_status": "not_configured"
+    },
+    {
+      "item_id": "REV-RR-3",
+      "concern_id": "R3",
+      "obligation_class": "MUST_FIX",
+      "original_comment": "Discuss mean-reversion counterfactual; use pre-growth-conditioned comparison (R8) as reversal-aware check",
+      "authors_claim": "Addressed. §6.1 gives three readings (parallel, continued run-up, reversal) and three pieces of evidence on reversal (R10 decline, R8 0.028 p = 0.265, bounds); claim weakened to 'no specification detects a valuation gain'.",
+      "revision_location": "§6.1 ¶1–¶2; §5.4 ¶1–¶2; Table 3 R8; §8",
+      "verified": "PARTIAL",
+      "status": "PARTIALLY_ADDRESSED",
+      "quality_assessment": "2A verdict stands. Reversal reading added in §6.1; R8 limits unstated ('nets out the reversal'); §5.4 ¶1 'neither implies a valuation gain' and §8 remain unconditional. Residual must_fix (DA-C1). Claim drift CD-3.",
+      "final_verdict": "PARTIALLY_ADDRESSED",
+      "phase2a_verdict": "PARTIALLY_ADDRESSED",
+      "verified_by": "R1",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": [],
+      "cross_model_status": "not_configured"
+    },
+    {
+      "item_id": "REV-RR-4",
+      "concern_id": "R4",
+      "obligation_class": "MUST_FIX",
+      "original_comment": "Separate \"valuation\" (MTB) from \"size\" (market cap); no returns or shares data (limitation)",
+      "authors_claim": "Addressed / data limit. §3.3 ¶1 MTB for valuation, market cap for size; returns and shares outstanding not in the data (§7 fourth limitation); title and abstract no longer say 'gain value'; §5.3 notes the equity-issuance reading.",
+      "revision_location": "Title; Abstract; §3.3 ¶1; §5.3 ¶1–¶2; §7 fourth limitation; §1 ¶5",
+      "verified": "PARTIAL",
+      "status": "PARTIALLY_ADDRESSED",
+      "quality_assessment": "2A verdict stands. MTB/market-cap separation and data limitation in place; horizon wording in §1 ¶5 and §5.3 ¶1 still 'five years'; abstract growth statement does not name the outcome. Letter silent on horizon.",
+      "final_verdict": "PARTIALLY_ADDRESSED",
+      "phase2a_verdict": "PARTIALLY_ADDRESSED",
+      "verified_by": "R1",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": [],
+      "cross_model_status": "not_configured"
+    },
+    {
+      "item_id": "REV-RR-5",
+      "concern_id": "R5",
+      "obligation_class": "MUST_FIX",
+      "original_comment": "Balanced cohorts (R11); describe aggregation weights exactly",
+      "authors_claim": "Addressed. §4.2 Eqs. (5)–(6) state the cell-size weights exactly; new row R11 (cohorts ≤ 2021 observed through e = 3): MTB −0.008 (p = 0.806); §5.4 ¶2.",
+      "revision_location": "§4.2 Eqs. (5)–(6) and ¶ after Eq. (6); §5.4 ¶2; Table 3 R11",
+      "verified": "PARTIAL",
+      "status": "PARTIALLY_ADDRESSED",
+      "quality_assessment": "2A verdict stands. Eq. (6) states the weights; R11 reported without retained cohorts/firms.",
+      "final_verdict": "PARTIALLY_ADDRESSED",
+      "phase2a_verdict": "PARTIALLY_ADDRESSED",
+      "verified_by": "R1",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": [],
+      "cross_model_status": "not_configured"
+    },
+    {
+      "item_id": "REV-RR-6",
+      "concern_id": "R6",
+      "obligation_class": "MUST_FIX",
+      "original_comment": "Market-level waves: per-market estimates (IA), market composition in text; cluster-bootstrap caveat",
+      "authors_claim": "Addressed. §3.1 ¶2 market composition (Malaysia 404 of 675; Malaysia + Thailand 84.3%); §4.3 ¶3 explains why a market-cluster bootstrap is not used; Table IA3 per-market estimates; §5.5 ¶3; §6.1 ¶3.",
+      "revision_location": "§3.1 ¶2; §4.3 ¶3; §5.5 ¶3; §6.1 ¶3; Table IA1; Table IA3",
+      "verified": "PARTIAL",
+      "status": "PARTIALLY_ADDRESSED",
+      "quality_assessment": "2A verdict stands. Per-market IA and composition reported; no caveat that firm-level bootstrap CIs and pre-trend p-values may be too narrow; §6.1 ¶3 'precise' and 'unlikely' overreach; abstract/§8 breadth not qualified.",
+      "final_verdict": "PARTIALLY_ADDRESSED",
+      "phase2a_verdict": "PARTIALLY_ADDRESSED",
+      "verified_by": "R1",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": [],
+      "cross_model_status": "not_configured"
+    },
+    {
+      "item_id": "REV-RR-7",
+      "concern_id": "R7",
+      "obligation_class": "MUST_FIX",
+      "original_comment": "Treatment = first LSEG score; other ratings (FTSE Russell/Bursa, SET) not observed; retitle",
+      "authors_claim": "Addressed / data limit. §3.1 ¶1 documents FTSE Russell coverage of FBM EMAS constituents before the November 2022 Bursa–LSEG agreement (Bernama, 2022); other providers' scores not observed; title says 'First LSEG ESG Score'; §7 third limitation.",
+      "revision_location": "Title; §3.1 ¶1; §6.2 ¶1; §7 third limitation",
+      "verified": "YES",
+      "status": "FULLY_ADDRESSED",
+      "quality_assessment": "2A verdict stands (explicit-limitation basis). Letter consistent with manuscript.",
+      "final_verdict": "FULLY_ADDRESSED",
+      "phase2a_verdict": "FULLY_ADDRESSED",
+      "verified_by": "R2",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": [],
+      "cross_model_status": "not_configured"
+    },
+    {
+      "item_id": "REV-RR-8",
+      "concern_id": "R8",
+      "obligation_class": "MUST_FIX",
+      "original_comment": "Correct positioning (Bikmetova & Pirinsky intensive margin + ownership; Tsang et al. 2025; non-U.S. work)",
+      "authors_claim": "Addressed. §1 ¶3 rewritten (Tsang et al. 2024, 2025; Bikmetova and Pirinsky 2026 as intensive margin incl. ownership; analyst-initiation analogues). Non-U.S. papers suggested by R2 whose authors could not be verified are not cited.",
+      "revision_location": "§1 ¶3; §1 ¶7",
+      "verified": "PARTIAL",
+      "status": "PARTIALLY_ADDRESSED",
+      "quality_assessment": "2A verdict stands. Element (d) unmet; the letter's reason (unverifiable candidates) is not a rebuttal on the merits and no verified non-U.S. evidence is acknowledged. Claim drift CD-12.",
+      "final_verdict": "PARTIALLY_ADDRESSED",
+      "phase2a_verdict": "PARTIALLY_ADDRESSED",
+      "verified_by": "R2",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": [],
+      "cross_model_status": "not_configured"
+    },
+    {
+      "item_id": "REV-RR-9",
+      "concern_id": "R9",
+      "obligation_class": "MUST_FIX",
+      "original_comment": "Coverage rule: index membership and disclosure mandates (verified facts only); index entry unobserved",
+      "authors_claim": "Addressed / data limit. §2.2 (index membership, disclosure mandates with Krueger et al. 2024; size bias, Dobrick et al. 2023); §3.1 SGX Rules 711A–711B (FY ending on or after 31 Dec 2017); §7 fourth limitation (index membership and report dates not in the data).",
+      "revision_location": "§2.2 ¶1–¶2; §3.1 ¶1–¶2; §7 fourth limitation",
+      "verified": "PARTIAL",
+      "status": "PARTIALLY_ADDRESSED",
+      "quality_assessment": "2A verdict stands. Provider coverage policy unsourced; mandates dated only for Singapore; SGX reporting-deadline sentence reflects a later rule than the cited 2016 rule. Elements missing are documentary, not data-limited. Claim drift CD-4.",
+      "final_verdict": "PARTIALLY_ADDRESSED",
+      "phase2a_verdict": "PARTIALLY_ADDRESSED",
+      "verified_by": "R2",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": [],
+      "cross_model_status": "not_configured"
+    },
+    {
+      "item_id": "REV-RR-10",
+      "concern_id": "R10",
+      "obligation_class": "MUST_FIX",
+      "original_comment": "Conditional title, abstract, conclusion; practical advice limited (EIC-W12, DA-M5, R3-W4)",
+      "authors_claim": "Addressed. New title (question form), abstract, §1 ¶5 ('We do not claim that coverage has no effect'), §6.3 implications bounded by the MDE, §8.",
+      "revision_location": "Title; Abstract; §1 ¶5–¶6; §5.4 ¶3; §5.6 ¶2; §6.3; §8",
+      "verified": "PARTIAL",
+      "status": "PARTIALLY_ADDRESSED",
+      "quality_assessment": "2A verdict stands. Abstract and §8 closing sentences unconditional; §6.3 advice rests on MDE-as-bound. Letter's '§1 ¶5' pointer is §1 ¶6. Claim drift CD-5.",
+      "final_verdict": "PARTIALLY_ADDRESSED",
+      "phase2a_verdict": "PARTIALLY_ADDRESSED",
+      "verified_by": "EIC",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": [],
+      "cross_model_status": "not_configured"
+    },
+    {
+      "item_id": "REV-RR-11",
+      "concern_id": "S1",
+      "obligation_class": "SHOULD_FIX",
+      "original_comment": "Describe TWFE benchmark (no covariates, all event years)",
+      "authors_claim": "Addressed. §4.5 Eq. (11): no covariates, all event years, firm-clustered SEs.",
+      "revision_location": "§4.5 Eq. (11) and ¶1; §5.5 ¶2",
+      "verified": "PARTIAL",
+      "status": "PARTIALLY_ADDRESSED",
+      "quality_assessment": "2A verdict stands. Specification described; TWFE–CS gap still attributed only to staggered-timing bias.",
+      "final_verdict": "PARTIALLY_ADDRESSED",
+      "phase2a_verdict": "PARTIALLY_ADDRESSED",
+      "verified_by": "R1",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": []
+    },
+    {
+      "item_id": "REV-RR-12",
+      "concern_id": "S2",
+      "obligation_class": "SHOULD_FIX",
+      "original_comment": "MDE vs CI wording",
+      "authors_claim": "Addressed. §5.2: interval stated as the range under assumption (2); MDE stated as the effect detected with 80% probability; 'effects of a few percent cannot be ruled out'.",
+      "revision_location": "§5.2 ¶1; §6.3 ¶2; §7 seventh limitation",
+      "verified": "NO",
+      "status": "MADE_WORSE",
+      "quality_assessment": "2A verdict stands. §5.2 correction (the letter's pointer) was already weighed at 2A; §7 seventh limitation adds 'even under parallel trends' and §6.3 ¶2 repeats the MDE-as-bound. Claim drift CD-6.",
+      "final_verdict": "MADE_WORSE",
+      "phase2a_verdict": "MADE_WORSE",
+      "verified_by": "R1",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": []
+    },
+    {
+      "item_id": "REV-RR-13",
+      "concern_id": "S3",
+      "obligation_class": "SHOULD_FIX",
+      "original_comment": "Placebo wording; registered vs exploratory; provide pre-analysis plan",
+      "authors_claim": "Addressed. §5.5 ¶2 placebo restates the pre-trend; §4.5 separates pre-specified (R1–R6) and exploratory (R7–R11) checks; Table 3 note says so; pre-analysis plan is in the replication package (IA introduction).",
+      "revision_location": "§4.4 ¶1; §4.5 ¶2; §5.5 ¶2; Table 3 note; §1 ¶4; §4.6",
+      "verified": "PARTIAL",
+      "status": "PARTIALLY_ADDRESSED",
+      "quality_assessment": "2A verdict stands. Placebo re-described; plan not provided or dated; no Internet Appendix introduction exists in the manuscript; §4.5 lists six items as 'five' and omits R6. Claim drift CD-7.",
+      "final_verdict": "PARTIALLY_ADDRESSED",
+      "phase2a_verdict": "PARTIALLY_ADDRESSED",
+      "verified_by": "R1",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": []
+    },
+    {
+      "item_id": "REV-RR-14",
+      "concern_id": "S4",
+      "obligation_class": "SHOULD_FIX",
+      "original_comment": "Observation counts and attrition (IA)",
+      "authors_claim": "Addressed. Table IA4 (firm-years and firms per outcome, share missing); §3.2 ¶2 points to it.",
+      "revision_location": "§3.2 ¶2; Table IA4",
+      "verified": "PARTIAL",
+      "status": "PARTIALLY_ADDRESSED",
+      "quality_assessment": "2A verdict stands. Table IA4 added; event-time treated/control counts, attrition/delisting/MTB ≤ 0 handling and 'full grid' description absent.",
+      "final_verdict": "PARTIALLY_ADDRESSED",
+      "phase2a_verdict": "PARTIALLY_ADDRESSED",
+      "verified_by": "R1",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": []
+    },
+    {
+      "item_id": "REV-RR-15",
+      "concern_id": "S5",
+      "obligation_class": "SHOULD_FIX",
+      "original_comment": "R4 described as lower bound only",
+      "authors_claim": "Addressed. §4.5 ¶2 states the lower bound only.",
+      "revision_location": "§4.5 ¶2",
+      "verified": "YES",
+      "status": "FULLY_ADDRESSED",
+      "quality_assessment": "2A verdict stands.",
+      "final_verdict": "FULLY_ADDRESSED",
+      "phase2a_verdict": "FULLY_ADDRESSED",
+      "verified_by": "R1",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": []
+    },
+    {
+      "item_id": "REV-RR-16",
+      "concern_id": "S6",
+      "obligation_class": "SHOULD_FIX",
+      "original_comment": "Data/code availability and statements in the submitted manuscript",
+      "authors_claim": "Addressed. The submitted single-anonymized version carries the title page with data availability, funding, conflict of interest, ethics and author contributions; code availability in the replication package.",
+      "revision_location": "Title page (submitted single-anonymized version): data availability, funding, conflict of interest, ethics, author contributions",
+      "verified": "PARTIAL",
+      "status": "PARTIALLY_ADDRESSED",
+      "quality_assessment": "Adjusted CANNOT_VERIFY → PARTIALLY_ADDRESSED (ADJ-1, author_pointer_located_evidence). Title page carries data availability (licence restriction; code and outputs available), funding, COI, ethics, contributions; it does not say whether identifiers, derived variables, or the data vintage can be shared. Claim drift CD-11.",
+      "final_verdict": "PARTIALLY_ADDRESSED",
+      "phase2a_verdict": "CANNOT_VERIFY",
+      "verified_by": "R1",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": [],
+      "adjustment_id": "ADJ-1"
+    },
+    {
+      "item_id": "REV-RR-17",
+      "concern_id": "S7",
+      "obligation_class": "SHOULD_FIX",
+      "original_comment": "Data errors and pooled winsorization as limitation",
+      "authors_claim": "Addressed as limitation. §7 fifth limitation.",
+      "revision_location": "§7 fifth limitation; §3.3 ¶1",
+      "verified": "PARTIAL",
+      "status": "PARTIALLY_ADDRESSED",
+      "quality_assessment": "2A verdict stands. Consequence of a bad g − 1 value for change-based estimates not noted.",
+      "final_verdict": "PARTIALLY_ADDRESSED",
+      "phase2a_verdict": "PARTIALLY_ADDRESSED",
+      "verified_by": "R1",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": []
+    },
+    {
+      "item_id": "REV-RR-18",
+      "concern_id": "S8",
+      "obligation_class": "SHOULD_FIX",
+      "original_comment": "Consistent significance stars",
+      "authors_claim": "Addressed. Table 2 shows no stars (Holm-adjusted p-values); Table 3 notes that stars use unadjusted p-values.",
+      "revision_location": "Table 2 note; Table 3 note; Table IA1/IA3 notes; §4.3 ¶2",
+      "verified": "YES",
+      "status": "FULLY_ADDRESSED",
+      "quality_assessment": "2A verdict stands.",
+      "final_verdict": "FULLY_ADDRESSED",
+      "phase2a_verdict": "FULLY_ADDRESSED",
+      "verified_by": "R1",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": []
+    },
+    {
+      "item_id": "REV-RR-19",
+      "concern_id": "S9",
+      "obligation_class": "SHOULD_FIX",
+      "original_comment": "Correct Tsang et al. (2024) author names",
+      "authors_claim": "Addressed. Tsang, Albert, Yujie Wang, Yi Xiang, and Li Yu (2024; 2025).",
+      "revision_location": "References (Tsang et al. 2024, 2025)",
+      "verified": "YES",
+      "status": "FULLY_ADDRESSED",
+      "quality_assessment": "2A verdict stands.",
+      "final_verdict": "FULLY_ADDRESSED",
+      "phase2a_verdict": "FULLY_ADDRESSED",
+      "verified_by": "R2",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": []
+    },
+    {
+      "item_id": "REV-RR-20",
+      "concern_id": "S10",
+      "obligation_class": "SHOULD_FIX",
+      "original_comment": "Recast comparisons (Kelly & Ljungqvist; Hartzmark & Sussman); analyst initiation analogue; temporary vs permanent index effects",
+      "authors_claim": "Addressed. §2.2 ¶3 and §6.2 ¶1 use Kelly and Ljungqvist and Hartzmark and Sussman as channels, not contradictions; temporary vs permanent index effects (Harris and Gurel 1986; Chen, Noronha, and Singal 2004) in §1 ¶2 and §5.6.",
+      "revision_location": "§1 ¶2; §2.2 ¶3; §5.2 ¶1; §5.6 ¶1; §6.2 ¶1–¶2",
+      "verified": "PARTIAL",
+      "status": "PARTIALLY_ADDRESSED",
+      "quality_assessment": "2A verdict stands. §6.2 ¶1 does not cite Hartzmark and Sussman; §5.2 still 'contrasts with' their fund-flow evidence; Shleifer (1986) cited for effects that 'partly reverse'. Claim drift CD-8.",
+      "final_verdict": "PARTIALLY_ADDRESSED",
+      "phase2a_verdict": "PARTIALLY_ADDRESSED",
+      "verified_by": "R2",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": []
+    },
+    {
+      "item_id": "REV-RR-21",
+      "concern_id": "S11",
+      "obligation_class": "SHOULD_FIX",
+      "original_comment": "Data vintage, score field, non-definitive recent scores",
+      "authors_claim": "Addressed / partly author-dependent. §3.2 ¶1 (ESG score field, not combined score); §3.2 ¶3 and §5.5 ¶4 (non-definitive recent scores, Sahin et al. 2023); download date must be confirmed by the authors.",
+      "revision_location": "§3.2 ¶1 and ¶3; §5.5 ¶4; References (LSEG, 2025)",
+      "verified": "PARTIAL",
+      "status": "PARTIALLY_ADDRESSED",
+      "quality_assessment": "2A verdict stands. Download date/vintage absent (letter concedes it is pending).",
+      "final_verdict": "PARTIALLY_ADDRESSED",
+      "phase2a_verdict": "PARTIALLY_ADDRESSED",
+      "verified_by": "R2",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": []
+    },
+    {
+      "item_id": "REV-RR-22",
+      "concern_id": "S12",
+      "obligation_class": "SHOULD_FIX",
+      "original_comment": "Rating demand/disagreement/size-bias literature (compact)",
+      "authors_claim": "Addressed. §2.1 ¶2 and §6.2 ¶2: Berg, Heeb, and Kölbel (2022); Christensen, Serafeim, and Sikochi (2022); Gibson Brandon, Krueger, and Schmidt (2021); Avramov et al. (2022); Dobrick et al. (2023).",
+      "revision_location": "§2.1 ¶2; §2.2 ¶1; §6.2 ¶2",
+      "verified": "YES",
+      "status": "FULLY_ADDRESSED",
+      "quality_assessment": "2A verdict stands. Minor pointer error in letter (Dobrick et al. is in §2.2 ¶1, not §2.1 ¶2/§6.2 ¶2), no verdict effect (CD-10).",
+      "final_verdict": "FULLY_ADDRESSED",
+      "phase2a_verdict": "FULLY_ADDRESSED",
+      "verified_by": "R2",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": []
+    },
+    {
+      "item_id": "REV-RR-23",
+      "concern_id": "S13",
+      "obligation_class": "SHOULD_FIX",
+      "original_comment": "Investor-recognition explanation labelled as untested",
+      "authors_claim": "Addressed. §6.2 ¶1 labels the Merton explanation as untested for lack of ownership or attention data; foreign-ownership limits are not in the data (§7).",
+      "revision_location": "§6.2 ¶1; §7 fourth limitation",
+      "verified": "PARTIAL",
+      "status": "PARTIALLY_ADDRESSED",
+      "quality_assessment": "2A verdict stands. No mention of foreign-ownership limits anywhere in the manuscript, contrary to the letter. Claim drift CD-9.",
+      "final_verdict": "PARTIALLY_ADDRESSED",
+      "phase2a_verdict": "PARTIALLY_ADDRESSED",
+      "verified_by": "R3",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": []
+    },
+    {
+      "item_id": "REV-RR-24",
+      "concern_id": "S14",
+      "obligation_class": "SHOULD_FIX",
+      "original_comment": "Remove \"first round of review\" remark",
+      "authors_claim": "Addressed. Removed; §4.4–4.5 describe exploratory analyses as added after the pre-analysis plan.",
+      "revision_location": "§4.4 ¶1; §4.5 ¶2",
+      "verified": "YES",
+      "status": "FULLY_ADDRESSED",
+      "quality_assessment": "2A verdict stands.",
+      "final_verdict": "FULLY_ADDRESSED",
+      "phase2a_verdict": "FULLY_ADDRESSED",
+      "verified_by": "EIC",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": []
+    },
+    {
+      "item_id": "REV-RR-25",
+      "concern_id": "S15",
+      "obligation_class": "SHOULD_FIX",
+      "original_comment": "Companion study named in the submitted (single-anonymized) version",
+      "authors_claim": "Addressed. The submitted single-anonymized version names the companion study (§3.2 ¶1); the blinded wording is used only in the anonymized file.",
+      "revision_location": "§3.2 ¶1 of the submitted single-anonymized version (title-page package)",
+      "verified": "YES",
+      "status": "FULLY_ADDRESSED",
+      "quality_assessment": "Adjusted NOT_ADDRESSED → FULLY_ADDRESSED (ADJ-2, author_pointer_located_evidence). The submitted single-anonymized §3.2 ¶1 names the companion study with authors, title and venue; the non-overlap sentences are retained. Verified on the supplied title-page excerpt only.",
+      "final_verdict": "FULLY_ADDRESSED",
+      "phase2a_verdict": "NOT_ADDRESSED",
+      "verified_by": "EIC",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": [],
+      "adjustment_id": "ADJ-2"
+    },
+    {
+      "item_id": "REV-RR-26",
+      "concern_id": "S16",
+      "obligation_class": "SHOULD_FIX",
+      "original_comment": "Figure 1 note stands alone; report e = 4",
+      "authors_claim": "Addressed. Figure 1 note explains markers, bars, base year and units; §5.3 ¶2 reports e = 4 (MTB −0.077, p = 0.209).",
+      "revision_location": "Fig. 1 note; §5.3 ¶2",
+      "verified": "PARTIAL",
+      "status": "PARTIALLY_ADDRESSED",
+      "quality_assessment": "2A verdict stands. Note lacks control group, covariates, N, and the reason e = 4 is plotted but excluded; e = 4 market-cap estimate not reported.",
+      "final_verdict": "PARTIALLY_ADDRESSED",
+      "phase2a_verdict": "PARTIALLY_ADDRESSED",
+      "verified_by": "EIC",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": []
+    }
+  ],
+  "adjustments": [
+    {
+      "adjustment_id": "ADJ-1",
+      "item_id": "REV-RR-16",
+      "from_verdict": "CANNOT_VERIFY",
+      "to_verdict": "PARTIALLY_ADDRESSED",
+      "basis": "author_pointer_located_evidence",
+      "evidence_anchor": [
+        {
+          "anchor": "text: Title page, Data availability statement \"The ESG scores (LSEG Workspace) and accounting and market data (Compustat Global) are licensed and cannot be redistributed by the authors. Researchers with access to these databases can rebuild the sample with the replication code; the code and all output files are available as supporting material and will be deposited upon acceptance.\"",
+          "anchor_artifact": "manuscript"
+        },
+        {
+          "anchor": "text: Title page, Funding statement \"This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors.\"; Conflict of interest disclosure; Ethics approval statement; Author contributions",
+          "anchor_artifact": "manuscript"
+        }
+      ],
+      "residual_gap": {
+        "text": "The data availability statement says what cannot be redistributed and that code and outputs are available, but not whether firm identifiers, derived variables, or the data vintage (download date) can be shared, as the Phase-1 operationalization lists; it also says the code is 'available as supporting material' and 'will be deposited upon acceptance' without naming a repository.",
+        "residual_obligation_class": "should_fix"
+      },
+      "rationale": "The 2A CANNOT_VERIFY rested only on the title page being outside the 2A input set. The letter pointed to the title page of the submitted single-anonymized version, which is part of the submitted manuscript package and is now in the input set (phase2B_inputs/title_page_statements_v2_1.md). It contains data availability, funding, conflict-of-interest, ethics and author-contribution statements, which satisfies part of the committed pattern; the licence-sharing detail is incomplete, so the item is partially addressed."
+    },
+    {
+      "adjustment_id": "ADJ-2",
+      "item_id": "REV-RR-25",
+      "from_verdict": "NOT_ADDRESSED",
+      "to_verdict": "FULLY_ADDRESSED",
+      "basis": "author_pointer_located_evidence",
+      "evidence_anchor": [
+        {
+          "anchor": "text: Submitted single-anonymized version §3.2 ¶1 \"This data set also underlies a companion study with a different research question (Nguyen Thanh Binh, Nguyen Van Trung, and Nguyen Anh Tuan, 'GRI Adoption and Corporate Brownwashing: Board Governance Evidence from ASEAN-5,' under review at the International Journal of Management and Sustainability).\"",
+          "anchor_artifact": "manuscript"
+        },
+        {
+          "anchor": "text: §3.2 ¶1 \"No outcome or treatment variable, estimate, table, or figure is shared between the two papers.\"",
+          "anchor_artifact": "manuscript"
+        }
+      ],
+      "rationale": "The criterion targets the submitted (single-anonymized) version. The 2A input set contained only the blinded review copy. The letter pointed to the submitted version, whose §3.2 companion-study sentence (title-page package) identifies the companion study by authors, title and journal, while the non-overlap sentences of §3.2 ¶1 are retained. This satisfies the Phase-1 fully_addressed pattern. Verification rests on the supplied excerpt of the submitted version, not on the full single-anonymized file."
+    }
+  ],
+  "new_issues": [
+    {
+      "new_issue_id": "NEW-1",
+      "description": "The re-dated specification R10 is used in the abstract, introduction, §5.4, §6.1 and conclusion as the post-publication result (−0.068, p = 0.004), but it is identified under parallel trends from base year g, and the paper's own narrative is that valuations peak in exactly that year after a run-up. No pre-trend diagnostic, event-time profile, or relative-magnitude bound is reported for R10, so its significant decline is at least as trend-dependent as the headline estimate and cannot separate reversal from a coverage effect. The abstract nevertheless reports it without condition, and §5.4 ¶3 calls the absence of a positive effect 'including row R10' independent of the assumption.",
+      "location_anchor": "text: §5.4 ¶1 \"When we date coverage one year after the first scored fiscal year (row R10), so that the base year is the first scored year ... the MTB effect is −0.068 (95% interval −0.116 to −0.020; p = 0.004)\"",
+      "severity": "major",
+      "found_by": "R1",
+      "confidence": 4,
+      "competence_basis": "R1 card: staggered DiD and event-study identification under pre-trends; the point follows from the base-year choice in Eq. (2) applied to the re-dated treatment and from Fig. 1 (MTB e = 0 is +0.017 relative to e = −1, so the run-up continues into g).",
+      "attribution": "regression",
+      "attribution_evidence": "R10 and all sentences using it are absent from original_manuscript_v1_1.md (Table 3 there ends at R9 and the heterogeneity rows); the diff adds row R10, §5.4 ¶1 and the abstract clause '−0.068 when coverage is dated one year later'.",
+      "nearest_roadmap_item": "REV-RR-1",
+      "non_match_rationale": "RR-1's committed criterion requires R10 to be reported with uncertainty and interpreted as the post-publication estimate; it does not operationalize the identifying assumption or the pre-trend diagnostics of the re-dated specification itself, which is a new analysis whose inferential status is the issue here."
+    },
+    {
+      "new_issue_id": "NEW-2",
+      "description": "§4.3 explains that a p-value near 5% and a CI end near zero can disagree because the bootstrap distribution may be asymmetric. The disagreement that actually appears in Table 2 (ln total assets: CI [0.007, 0.081] excludes zero, p = 0.053) arises because the p-value is Holm-adjusted while the percentile CI is not adjusted for multiplicity. The Table 2 note does not say that the CIs are unadjusted, so the added explanation misattributes the discrepancy.",
+      "location_anchor": "text: §4.3 ¶2 \"when the bootstrap distribution is asymmetric, a p-value near the 5% threshold and an interval whose end lies close to zero can therefore disagree slightly\"",
+      "severity": "minor",
+      "found_by": "R1",
+      "confidence": 4,
+      "competence_basis": "R1 card: inference and reporting; arithmetic check that the unadjusted p for 0.044/0.018 is about 0.015–0.018 and 3 × that equals the Holm 0.053 in Table 2.",
+      "attribution": "regression",
+      "attribution_evidence": "The asymmetry sentence is new in the revised §4.3 (absent from original §2.3); the Table 2 row itself is unchanged from the original.",
+      "nearest_roadmap_item": "REV-RR-18",
+      "non_match_rationale": "RR-18 requires consistent markers and documented p-value/CI methods, which the revision provides; the issue is the correctness of a newly added explanatory sentence and the unlabelled multiplicity status of the CI column, not the marker convention."
+    },
+    {
+      "new_issue_id": "NEW-3",
+      "description": "§4.2 justifies dropping the doubly robust propensity-score component because scored and never-scored firms 'overlap poorly in size'. Poor overlap is equally a problem for the outcome-regression estimator that is kept, which then extrapolates the size quadratic beyond the control support. The only support restriction (R4) trims controls from below only, and no overlap diagnostic is reported.",
+      "location_anchor": "text: §4.2 ¶2 \"the doubly robust version of Sant'Anna and Zhao (2020) adds a propensity-score model, which we do not use because scored and never-scored firms overlap poorly in size\"",
+      "severity": "minor",
+      "found_by": "R1",
+      "confidence": 3,
+      "competence_basis": "R1 card: Callaway–Sant'Anna / Sant'Anna–Zhao estimators; standard result that outcome regression extrapolates under limited overlap.",
+      "attribution": "regression",
+      "attribution_evidence": "The original §2.3 used the outcome regression without giving any reason for omitting the propensity model; the overlap rationale is added in revised §4.2.",
+      "nearest_roadmap_item": "REV-RR-15",
+      "non_match_rationale": "RR-15 concerns only how the R4 size restriction is described (lower bound only), which is fixed; it does not cover the estimator-choice rationale or overlap diagnostics."
+    },
+    {
+      "new_issue_id": "NEW-4",
+      "description": "The introduction describes the pre-coverage estimate with a double negative: 'their market capitalization was −0.132 log points lower ... and their MTB ratio was −0.095 log points lower', which read literally says the outcomes were 0.132 and 0.095 log points higher. The intended meaning is 0.132/0.095 lower, or 'the estimate is −0.132'.",
+      "location_anchor": "text: §1 ¶5 \"Relative to that base year, their market capitalization was −0.132 log points lower five years earlier, and their MTB ratio was −0.095 log points lower.\"",
+      "severity": "minor",
+      "found_by": "EIC",
+      "confidence": 4,
+      "competence_basis": "EIC card: strict on clarity of the one headline message in a short-format paper; plain reading of the sentence.",
+      "attribution": "regression",
+      "attribution_evidence": "The original introduction stated the pre-trend as '14.1 percent' growth; the '−0.132 log points lower' phrasing first appears in revised §1 ¶5.",
+      "nearest_roadmap_item": "REV-RR-4",
+      "non_match_rationale": "RR-4 governs outcome labelling (valuation vs size), test standards and the horizon; the horizon part of this sentence is scored under RR-4, but the sign error created by the double negative is not within its criterion."
+    },
+    {
+      "new_issue_id": "NEW-5",
+      "description": "Heading levels are inconsistent: Section 1 is a level-1 heading ('# 1. Introduction'), Sections 2–8 are level-2 headings, and their subsections (2.1, 3.1, ...) use the same level-2 marker as the sections, so the section/subsection hierarchy is not encoded.",
+      "location_anchor": "text: §1 heading \"# 1. Introduction\" versus \"## 2. Related Literature and Hypotheses\" and \"## 2.1. Ratings, investor demand, and valuation\"",
+      "severity": "minor",
+      "found_by": "EIC",
+      "confidence": 5,
+      "competence_basis": "EIC card: exhibits and structure for a short-format journal; direct inspection of the markdown heading markers.",
+      "attribution": "previously_missed",
+      "attribution_evidence": "Present in both versions: original has '# 1. Introduction', '## 2. Data and Research Design', '## 2.1. Sample and coverage timing'; revised keeps the same pattern. EIC-W11 mentioned it in passing, but no roadmap item carried it.",
+      "nearest_roadmap_item": "REV-RR-26",
+      "non_match_rationale": "RR-26's committed criterion covers only the Figure 1 note and the e = 4 reporting; heading hierarchy is outside it."
+    }
+  ],
+  "post_letter_observations": [
+    "PLO-1 (RR-24, observed after letter reveal, agrees with 2A reading): §4.6 says simulated referee reports 'informed the revision'. 2A judged this a tool disclosure, not a reference to a review round. Keep the AI disclosure (it is required), but check that the submitted version does not imply a prior journal review round.",
+    "PLO-2 (length): the letter states that main text grew to about 7,200 words and will be shortened to the JF:IP limit before submission. A crude whitespace count of §1–§8 in the review copy (headings included, display equations excluded) gives about 8,200 words. Venue-length compliance is unverified and is a next-round check.",
+    "PLO-3 (unverifiable letter statements): 'bound documented in code (rm_bounds())', 'pre-analysis plan is in the replication package', and 'Version 2.1 adds in-text citations drawn only from the reference list already in v2; no new references were added' (v2 is not in the input set; relative to v1.1, references such as Bernama 2022, Krueger et al. 2024, Singapore Exchange 2016 are new). These cannot be checked against the manuscript and change nothing.",
+    "PLO-4 (letter references internal project records): the response letter cites 'ledger D-11' and 'ledger D-13'. A letter sent to the journal should not refer to internal ledgers; replace them with the concrete commitment.",
+    "PLO-5 (forward commitments in the letter, not yet fulfilled): (i) confirm and report the LSEG download date (RR-21); (ii) shorten the text to the JF:IP limit (PLO-2); (iii) deposit code 'upon acceptance' with a named repository (RR-16). No Schema 11 commitment_extracted lists exist, so these are advisory only.",
+    "PLO-6 (single-anonymized venue): the letter says blinded wording is used 'only in the anonymized file'. Under JF:IP single-anonymized review the submitted file carries author names; confirm which file is uploaded as the manuscript so the companion-study citation (RR-25) is the version the editor sees.",
+    "PLO-7 (routing grammar): the roadmap Sources cells ('R1-W1, R2-W1, ...') do not parse under the §10 whole-token grammar; seat labels were taken from the prefix before '-'. See the Judge Record Routing line.",
+    "PLO-8 (2A arithmetic note): the Phase 2A summary computed should_fix_addressed_rate with FULLY_ADDRESSED only (5/16). The protocol numerator counts FULLY_ADDRESSED and PARTIALLY_ADDRESSED; on 2A verdicts the rate would be 13/16 and on final verdicts it is 15/16. The 2A figure was labelled informational and is not used."
+  ],
+  "dissent_adjudications": [],
+  "resolution_intents": [],
+  "cross_model_resolutions": [],
+  "rebuttal_adjudications": [],
+  "g2d_acceptances": [],
+  "pending_rebuttal_upgrades": [],
+  "escalation_approvals": [],
+  "reapplications": [],
+  "decision_inputs": {
+    "per_item": [
+      {
+        "item_id": "REV-RR-1",
+        "final_verdict": "PARTIALLY_ADDRESSED",
+        "driving_severity": "major",
+        "residual_obligation_class": "should_fix"
+      },
+      {
+        "item_id": "REV-RR-2",
+        "final_verdict": "PARTIALLY_ADDRESSED",
+        "driving_severity": "major",
+        "residual_obligation_class": "must_fix"
+      },
+      {
+        "item_id": "REV-RR-3",
+        "final_verdict": "PARTIALLY_ADDRESSED",
+        "driving_severity": "major",
+        "residual_obligation_class": "must_fix"
+      },
+      {
+        "item_id": "REV-RR-4",
+        "final_verdict": "PARTIALLY_ADDRESSED",
+        "driving_severity": "major",
+        "residual_obligation_class": "should_fix"
+      },
+      {
+        "item_id": "REV-RR-5",
+        "final_verdict": "PARTIALLY_ADDRESSED",
+        "driving_severity": "major",
+        "residual_obligation_class": "should_fix"
+      },
+      {
+        "item_id": "REV-RR-6",
+        "final_verdict": "PARTIALLY_ADDRESSED",
+        "driving_severity": "major",
+        "residual_obligation_class": "should_fix"
+      },
+      {
+        "item_id": "REV-RR-7",
+        "final_verdict": "FULLY_ADDRESSED",
+        "driving_severity": "major"
+      },
+      {
+        "item_id": "REV-RR-8",
+        "final_verdict": "PARTIALLY_ADDRESSED",
+        "driving_severity": "major",
+        "residual_obligation_class": "should_fix"
+      },
+      {
+        "item_id": "REV-RR-9",
+        "final_verdict": "PARTIALLY_ADDRESSED",
+        "driving_severity": "major",
+        "residual_obligation_class": "should_fix"
+      },
+      {
+        "item_id": "REV-RR-10",
+        "final_verdict": "PARTIALLY_ADDRESSED",
+        "driving_severity": "major",
+        "residual_obligation_class": "should_fix"
+      }
+    ],
+    "verdict_counts": {
+      "must_fix": {
+        "FULLY_ADDRESSED": 1,
+        "PARTIALLY_ADDRESSED": 9,
+        "NOT_ADDRESSED": 0,
+        "MADE_WORSE": 0,
+        "CANNOT_VERIFY": 0
+      },
+      "should_fix": {
+        "FULLY_ADDRESSED": 6,
+        "PARTIALLY_ADDRESSED": 9,
+        "NOT_ADDRESSED": 0,
+        "MADE_WORSE": 1,
+        "CANNOT_VERIFY": 0
+      },
+      "consider": {
+        "FULLY_ADDRESSED": 0,
+        "PARTIALLY_ADDRESSED": 0,
+        "NOT_ADDRESSED": 0,
+        "MADE_WORSE": 0,
+        "CANNOT_VERIFY": 0
+      }
+    },
+    "residual_obligation_class_counts": {
+      "must_fix": {
+        "must_fix": 2,
+        "should_fix": 7,
+        "consider": 0
+      },
+      "should_fix": {
+        "must_fix": 0,
+        "should_fix": 2,
+        "consider": 7
+      },
+      "consider": {
+        "must_fix": 0,
+        "should_fix": 0,
+        "consider": 0
+      }
+    },
+    "should_fix_addressed_rate": {
+      "numerator": 15,
+      "denominator": 16
+    },
+    "regressions": [
+      {
+        "new_issue_id": "NEW-1",
+        "severity": "major"
+      },
+      {
+        "new_issue_id": "NEW-2",
+        "severity": "minor"
+      },
+      {
+        "new_issue_id": "NEW-3",
+        "severity": "minor"
+      },
+      {
+        "new_issue_id": "NEW-4",
+        "severity": "minor"
+      }
+    ],
+    "non_regression_new_issue_ids": [
+      "NEW-5"
+    ],
+    "escalations": [],
+    "apply_chain_witness": "not_run_no_reports"
+  },
+  "decision_state": "aborted",
+  "abort_reason": "manifest_incomplete"
+}

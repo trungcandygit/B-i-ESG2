@@ -143,3 +143,17 @@ tự giải quyết bằng mặc định hợp lý nhất và ghi tại đây.
   theo re_review_mode_protocol.md dòng 186: "routing changes the PERSONA, not the call count — the three gates stay
   three sequential fenced calls" → Phase 1 / 2A / 2B là 3 subagent độc lập, mỗi mục chấm dưới persona ghế
   EIC/R1/R2/R3 đã định tuyến. Giữ đúng skill; không thêm panel 5 ghế ngoài quy trình.
+
+## Iter 7 — Stage 3' Phase 2A/2B + quyết định phản biện lại (2026-09-26)
+- Phase 2A (subagent độc lập, mù thư phản hồi): `notes/re_review/phase2A_verdicts.{json,md}` (hợp lệ schema; 0 dissent,
+  0 escalation). must_fix: 1 FULLY, 9 PARTIALLY; should_fix: 5 FULLY, 8 PARTIALLY, 1 NOT, 1 MADE_WORSE (RR-12), 1
+  CANNOT_VERIFY (RR-16). 5 new issue (NEW-1 major regression: R10 thiếu chẩn đoán pre-trend/cận; NEW-2..5 minor).
+- Phase 2B (subagent độc lập, thấy thư + trang tiêu đề bản nộp single-anonymized):
+  `notes/re_review/phase2B_traceability.json` (hợp lệ schema) + `phase2B_decision.md`. 2 adjustment
+  (author_pointer_located_evidence): RR-16 → PARTIALLY, RR-25 → FULLY. 13 claim drift (CD-1..13). should_fix rate
+  15/16. Quyết định nội dung: Major Revision (rule B3: NEW-1 major regression; B4 cũng thoả: RR-2, RR-3 residual
+  must_fix). Contract outcome: [RE-REVIEW-ABORT: manifest_incomplete] (D-14). Routing: [ROUTING-DEGRADED].
+- Checker `check_re_review_synthesis.py` đã gọi: `notes/re_review/checker_run.txt` → manifest_incomplete, exit 2 (dự
+  kiến theo D-14; không có manifest/bundle/sidecar).
+- D-17: theo academic-pipeline, 3' Major → Stage 4' (vòng revision thứ 2, cuối cùng theo giới hạn ≤ 2 vòng).
+  Danh sách sửa 37 mục trong phase2B_decision.md; làm hết, rồi Stage 4.5.
