@@ -256,3 +256,5 @@ tự giải quyết bằng mặc định hợp lý nhất và ghi tại đây.
   Hình/, Kết quả hồi quy/, TLTK/, file khoá ~$*.docx, .DS_Store, dữ liệu trung gian của bài gốc (Final_Data_Cleaned.csv,
   Processed_Data_GW2.xlsx, clean_data.py), các bản thảo trung gian manuscript_v*.md, notes/language_round2, __pycache__.
   Giữ `Dữ liệu ban đầu và thô/DATA GW2.xlsx` (run_all.R cần). Mọi file đã xoá vẫn còn trong lịch sử git.
+- D-30 (2026-09-26, người dùng): "bỏ câu đó đi, vì bản đó chưa tính đăng ở đâu". Xoá câu về bản thảo khác khỏi cover
+  letter theo quyết định của tác giả; bài mới không còn nhắc tới bài kia ở bất kỳ file nộp nào.

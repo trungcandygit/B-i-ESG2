@@ -1,6 +1,5 @@
 % JF:IP Insights manuscript, version 3 (Stage 4' revision after the three-gate re-review).
 % Numbers are {{key}} placeholders filled from project_R/outputs/numbers.csv.
-% [[COMPANION]] is replaced by the named or the blinded companion-study disclosure (manuscript/meta.md).
 % Display equations: "$$latex <LaTeX> | (n)" are converted to Word equations (OMML) by the builder.
 @@ title
 Rated at the Peak? Firm Valuation around the First LSEG ESG Score in Five Southeast Asian Markets
