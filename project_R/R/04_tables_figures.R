@@ -93,7 +93,7 @@ p1 <- ggplot(ev, aes(x = e, y = est)) +
 ggsave(file.path(FIG, "Fig1.eps"), p1, width = 6.5, height = 5, device = cairo_ps); strip_eps_date(file.path(FIG, "Fig1.eps"))
 ggsave(file.path(FIG, "Fig1.png"), p1, width = 6.5, height = 5, dpi = 600)
 
-# ---- Internet Appendix figure: number of firms entering coverage by cohort ----
+# ---- Supplemental Appendix figure: number of firms entering coverage by cohort ----
 cs <- read.csv(file.path(OUT, "cohort_sizes.csv"))
 pia <- ggplot(cs, aes(x = G, y = total)) + geom_col(fill = "grey60", colour = "black", width = 0.7) +
   scale_x_continuous(breaks = cs$G) +
@@ -102,7 +102,7 @@ pia <- ggplot(cs, aes(x = G, y = total)) + geom_col(fill = "grey60", colour = "b
 ggsave(file.path(FIG, "FigIA1.eps"), pia, width = 6, height = 3.5, device = cairo_ps); strip_eps_date(file.path(FIG, "FigIA1.eps"))
 ggsave(file.path(FIG, "FigIA1.png"), pia, width = 6, height = 3.5, dpi = 600)
 
-# ---- Internet Appendix tables ----
+# ---- Supplemental Appendix tables ----
 lomo <- read.csv(file.path(OUT, "leave_one_market_out.csv"))
 cn <- c(ID = "Indonesia", MY = "Malaysia", PH = "Philippines", SG = "Singapore", TH = "Thailand")
 tia1 <- bind_rows(lapply(names(cn), function(cc) row_of(paste("Without", cn[[cc]]), lomo[lomo$excluded == cc, ])))

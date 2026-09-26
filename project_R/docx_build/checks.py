@@ -83,7 +83,7 @@ def main(docx_dir):
 
     # 5. Caption ↔ content: header row of each table CSV must match the caption's subject
     expect = {1: ['Scored mean', 'Never-scored mean', 'Norm. diff.'], 2: ['ATT', 'Pre-trend p'], 3: ['Specification']}
-    # Internet Appendix exhibits are cited as 'Table IA1' etc. and are not counted toward the exhibit limit.
+    # Supplemental Appendix exhibits are cited as 'Table S1' etc. and are not counted toward the exhibit limit.
     for kind, n, cap in caps:
         if kind == 'Table':
             f = [l for l in [b for b in exhibits if f'Table {n}|' in b][0].splitlines() if l.startswith('csvfile:=')][0][9:]

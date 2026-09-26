@@ -215,3 +215,14 @@ tự giải quyết bằng mặc định hợp lý nhất và ghi tại đây.
   Tên tạp chí/tập trong References giữ nghiêng vì APA 7 bắt buộc (người dùng yêu cầu APA). checks.py thêm kiểm tra
   "no italics". Ngoặc đơn: chỉ giữ cho trích dẫn APA, số phương trình, thống kê gọn; các agent vòng 1 chuyển phần
   chú thích trong ngoặc thành mệnh đề thường.
+
+## Iter 9 — Vòng ngôn ngữ 1 (proofreading + stop-slop + cắt gọn) (2026-09-26)
+- 5 agent độc lập song song (A: abstract + §1; B: §2–3; C: §4; D: §5; E: §6–8), mỗi agent load academic-paper,
+  proofreading, stop-slop; brief chung `notes/language_round1/BRIEF.md`; log từng nhóm `log_<X>.md` (câu bị xoá và lý
+  do, placeholder/trích dẫn bị bỏ và nơi còn trích dẫn). Kết quả: §1 1.189→861; §2–3 1.704→1.276; §4 1.614→1.274;
+  §5 2.391→1.819 (wc); §6–8 1.499→1.154. Ghép vào manuscript.md (bản trước: manuscript_v3_before_language_r1.md).
+- Cổng academic-paper sau vòng 1: checks.py 98/99 PASS; thân bài 6.313 từ (−24% so với 8.316); FAIL duy nhất là giới
+  hạn JF:IP 6.200 → vòng 2 cắt tiếp.
+- D-26 (2026-09-26): người dùng hỏi vì sao tên bảng "IA". Đổi theo thuật ngữ JF:IP ("Supplemental Appendix"):
+  Internet Appendix → Supplemental Appendix (file Supplemental_Appendix.docx), Table IA1–IA6 → Table S1–S6,
+  Fig. IA1 → Fig. S1. Tên file CSV/PNG nội bộ (tableIA*.csv, FigIA1.png) giữ nguyên để không phải chạy lại R.

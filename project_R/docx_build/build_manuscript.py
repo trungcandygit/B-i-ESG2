@@ -295,7 +295,7 @@ def build(anonymized, out, meta, secs, exhibits, inline=False):
 
 def build_ia(out, secs, exhibits_ia):
     d = base_doc()
-    p = d.add_paragraph(); add_runs(p, 'Internet Appendix', bold=True, size=14); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    p = d.add_paragraph(); add_runs(p, 'Supplemental Appendix', bold=True, size=14); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
     p = d.add_paragraph(); add_runs(p, secs['title'], bold=True); p.alignment = WD_ALIGN_PARAGRAPH.CENTER; set_spacing(p, 1.5, 12)
     body_par(d, secs['ia_intro'], indent=False)
     page_break(d)
@@ -329,5 +329,5 @@ if __name__ == '__main__':
     build(True, os.path.join(outdir, 'Manuscript_Anonymized.docx'), meta, secs, exhibits)
     # Reading copy with exhibits placed in the text (JF:IP submission files keep tables and figures after the references).
     build(False, os.path.join(outdir, 'Reading_Copy_Exhibits_in_Text.docx'), meta, secs, exhibits, inline=True)
-    build_ia(os.path.join(outdir, 'Internet_Appendix.docx'), secs, parse_exhibits(secs, 'exhibits_ia'))
+    build_ia(os.path.join(outdir, 'Supplemental_Appendix.docx'), secs, parse_exhibits(secs, 'exhibits_ia'))
     print('built', outdir)

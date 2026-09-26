@@ -2,7 +2,7 @@
 
 Files: 00_CHECKLIST_NopBai.md, 01_Title_Page.docx, 02_Manuscript_Anonymized.docx, 03_Figures/,
 04_Declaration_of_Competing_Interest.docx, 05_Replication_Package/ (+ .zip), 06_Cover_Letter.docx,
-07_Manuscript_with_Author_Details.docx, 08_Internet_Appendix.docx, 09_Word_Count.docx/.pdf.
+07_Manuscript_with_Author_Details.docx, 08_Supplemental_Appendix.docx, 09_Word_Count.docx/.pdf.
 Highlights are not required by JF:IP and are not produced."""
 import os, re, shutil, subprocess, sys, zipfile
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -33,10 +33,10 @@ def main():
         shutil.rmtree(SUB)
     os.makedirs(SUB)
 
-    # 02 / 07 manuscripts, 08 Internet Appendix
+    # 02 / 07 manuscripts, 08 Supplemental Appendix
     build(True, os.path.join(SUB, '02_Manuscript_Anonymized.docx'), meta, secs, exhibits)
     build(False, os.path.join(SUB, '07_Manuscript_with_Author_Details.docx'), meta, secs, exhibits)
-    build_ia(os.path.join(SUB, '08_Internet_Appendix.docx'), secs, exhibits_ia)
+    build_ia(os.path.join(SUB, '08_Supplemental_Appendix.docx'), secs, exhibits_ia)
 
     # 01 Title page
     d = base_doc()

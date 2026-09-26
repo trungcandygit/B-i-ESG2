@@ -16,7 +16,7 @@ parts = ['# ' + secs['title'], '', 'Running title: ' + secs['running_title'], ''
          'Keywords: ' + secs['keywords'], '', 'JEL classification: ' + secs['jel'], '', re.sub(r'^(#+) ', lambda m: '#' + m.group(1) + ' ', body, flags=re.M), '',
          '## References', '']
 parts += [b + '\n' for b in blocks(secs['references'])]
-for key, title in (('exhibits', 'Exhibits'), ('exhibits_ia', 'Internet Appendix exhibits')):
+for key, title in (('exhibits', 'Exhibits'), ('exhibits_ia', 'Supplemental Appendix exhibits')):
     parts += ['', '## ' + title, '']
     for ex in parse_exhibits(secs, key):
         a = ex['args']; cap = a['caption'].replace('|', ' ')
