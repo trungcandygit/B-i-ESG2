@@ -33,3 +33,6 @@ Revision: leverage
 Revision: ln_asset 
 Revision 2: ln_mtb 
 Revision 2: ln_mcap 
+Revision 2: leverage 
+Revision 2: ln_asset 
+Done in 12.8 minutes

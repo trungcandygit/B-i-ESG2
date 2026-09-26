@@ -1,0 +1,241 @@
+# Rated Firms Gain Value Before, Not After, Their First ESG Score: Evidence from Five Southeast Asian Markets
+
+Running title: ESG rating coverage and firm value
+
+## Abstract
+
+Environmental, social, and governance (ESG) rating providers extended coverage to hundreds of listed firms in Indonesia, Malaysia, the Philippines, Singapore, and Thailand after 2018. Using the staggered first appearance of London Stock Exchange Group (LSEG) ESG scores for 675 non-financial firms and 2,613 never-rated firms, we estimate heterogeneity-robust difference-in-differences effects. Rated firms' market capitalization grew 14.1 percent faster than that of comparable firms over the five years before their first score. After the first score, market-to-book ratios did not change (estimate 0.002; 95% confidence interval −0.046 to 0.048). Rated firms gained value before, not after, their first score.
+
+Keywords: Difference-in-differences; ESG ratings; Firm valuation; Investor recognition; Southeast Asia; Staggered adoption
+
+JEL classification: G14, G32, M14, Q56
+
+# 1. Introduction
+
+Environmental, social, and governance (ESG) ratings now shape portfolio screens, index membership, and the mandates of sustainable funds. Whether a firm is rated at all may therefore matter as much as the level of its rating. A firm without a score is invisible to investors who hold only rated stocks, and a first score can widen the firm's investor base. In Merton's (1987) model, a larger investor base lowers the required return and raises the price of a stock. Models of sustainable investing add a second channel: investors who value ESG attributes accept lower expected returns on assets they can identify as green (Pástor, Stambaugh, and Taylor, 2021; Pedersen, Fitzgibbons, and Pomorski, 2021). Hartzmark and Sussman (2019) show that fund investors respond strongly to newly published sustainability ratings. These arguments predict that the initiation of rating coverage raises firm value.
+
+The opposite prediction is also plausible. Rating providers choose which firms to cover, and they tend to add firms that have become large or liquid enough to enter the indices their clients track. If coverage responds to past growth in market value, rated firms will look more valuable than unrated firms without coverage having caused any change. Coverage decisions of this kind resemble index additions, and additions to a major index raise prices around the announcement (Shleifer, 1986; Harris and Gurel, 1986); a first ESG score that arrives with index membership could therefore coincide with price effects that have little to do with the score itself. Evidence on coverage initiation so far comes from U.S. firms and concerns firm conduct rather than valuation. Tsang, Wang, Xiang, and Yu (2024) find that firms covered by more ESG rating agencies commit fewer ESG violations, and Bikmetova and Pirinsky (2026) find that coverage is followed by lower toxic emissions, better ratings, and higher ownership by ESG-oriented institutions.
+
+We ask whether the first ESG score changes how equity markets value a firm, and we study the question in five Southeast Asian markets: Indonesia, Malaysia, the Philippines, Singapore, and Thailand. These markets offer a useful setting for two reasons. First, the London Stock Exchange Group (LSEG) extended its ESG coverage in these markets in large, market-specific waves: 577 of the 675 non-financial firms that entered coverage between 2015 and 2024 did so in 2020 to 2023. Second, most listed firms in these markets remain unrated, which supplies a large pool of never-rated comparison firms drawn from the same exchanges and years.
+
+We use the year in which a firm first receives an LSEG ESG score as a staggered treatment and estimate group-time average treatment effects on the treated (ATT) with the estimator of Callaway and Sant'Anna (2021), which avoids the biases of two-way fixed effects regressions when treatment timing varies and effects are heterogeneous (Goodman-Bacon, 2021; Baker, Larcker, and Wang, 2022). The primary outcome is the natural logarithm of the market-to-book (MTB) ratio. We registered the hypotheses, sample rules, estimator, and robustness checks in a pre-analysis plan before estimating any effect.
+
+We report two findings. First, coverage does not change valuation. The average effect on log MTB over the first four years of coverage is 0.002 (standard error 0.024), and the 95% confidence interval excludes changes in the MTB ratio outside the range from −4.5 to 4.9 percent. Second, coverage arrives after a period of fast growth. Relative to never-rated firms with similar size, country, and industry, rated firms' market capitalization grew 14.1 percent and their MTB ratio 10.0 percent over the five years before the first score. After the first score, the valuation gap stops widening. When we remove a linear extrapolation of the pre-coverage trend, the post-coverage MTB effect becomes −0.052 and remains insignificant, and excluding any one of the five markets leaves it between −0.007 and 0.017. The evidence is consistent with coverage that arrives after firms have grown, and it gives no support to a valuation gain from the first score.
+
+The study contributes to research on the financial consequences of ESG ratings. Berg, Kölbel, and Rigobon (2022) show that ratings from different providers disagree widely, which raises the question of what investors learn from any single score. Our evidence adds that, in these five markets, the arrival of a first score carries no detectable valuation effect, while the selection of firms into coverage is strongly related to their prior market performance. The result warns against reading cross-sectional valuation premiums of rated firms as effects of ratings. It also illustrates how pre-trends in staggered designs can carry economic content rather than being a nuisance (Roth, 2022).
+
+The rest of the paper proceeds as follows. Section 2 describes the data and the research design. Section 3 reports the results. Section 4 discusses the findings, states the limitations, and concludes.
+
+## 2. Data and Research Design
+
+## 2.1. Sample and coverage timing
+
+The data set covers all 3,709 firms listed in Indonesia, Malaysia, the Philippines, Singapore, and Thailand from 2014 to 2024 (40,799 firm-years). It combines annual LSEG ESG scores (LSEG, 2025), which were distributed as Refinitiv ESG scores and earlier as ASSET4 scores, with accounting and market data from Compustat Global (S&P Global Market Intelligence, 2025). This data set also underlies a companion study with a different research question (details withheld for anonymous review). That study uses only firm-years with ESG and governance data and asks how reporting standards and board structure relate to the gap between ESG scores and controversy scores. The present paper uses the full listed universe, treats the first appearance of an ESG score as an event, and studies market valuation and financing. No variable, estimate, table, or figure is shared between the two papers.
+
+We drop financial firms, which leaves 3,423 firms. A firm's treatment year is the first fiscal year with a non-missing LSEG ESG score. Once a firm is scored, it almost always remains scored (17 of the 675 scored firms have a later year without a score), so we treat coverage as permanent. We drop the 135 firms already scored in 2014 because they have no pre-coverage year. The estimation sample has 3,288 firms and 36,168 firm-years: 675 firms first scored between 2015 and 2024 and 2,613 firms never scored. Coverage expanded in waves that differ by market (Table IA2 of the Internet Appendix). Thailand and Singapore account for 108 first scores in 2019 and 2020, and Malaysia for 289 first scores in 2021 and 2022. The data do not record why the provider expanded coverage in a given market and year.
+
+The treatment year is the first year for which the downloaded data contain a score, which need not be the year in which a score was first published. Berg, Fabisik, and Sautner (2020) document that the provider rewrote historical scores on a large scale. If historical years were filled in when a firm entered coverage, our treatment year precedes the first published score. Post-coverage estimates would then mix years before and after publication, and the initial scores that we use to split the sample could be revised values. Backfilling cannot, however, move any recorded score into the years before the treatment year, so it does not create the pre-coverage run-up that we report.
+
+## 2.2. Outcomes
+
+The primary outcome is the natural logarithm of the MTB ratio. Three secondary outcomes describe firm size and financing: the logarithm of market capitalization, book leverage (total debt divided by total assets), and the logarithm of total assets. Monetary amounts are in U.S. dollars as recorded in the data set. We winsorize MTB, market capitalization, leverage, and total assets at the 1st and 99th percentiles of the pooled sample before taking logarithms.
+
+## 2.3. Estimation
+
+For each cohort of firms first scored in year *g* and each year *t*, we compare the change in the outcome between year *g* − 1 and year *t* for firms in the cohort with the change for never-scored firms. Because rated firms are larger than unrated firms, we adjust for covariates measured in year *g* − 1 with an outcome regression (Sant'Anna and Zhao, 2020): we regress the change on country indicators, industry indicators, and a quadratic in log total assets among never-scored firms and use the fitted values as the counterfactual change for scored firms. The group-time effect is
+
+$$ ATT(g,t) = (1/N~g~) Σ~i∈g~ (ΔY~i,t~ − ΔŶ~i,t~) | (1)
+
+where the sum runs over the N~g~ firms first scored in year *g*, ΔY~i,t~ is the change in the outcome of firm *i* from year *g* − 1 to year *t*, and ΔŶ~i,t~ is its predicted change from the never-scored regression. We average the group-time effects by years since coverage, *e* = *t* − *g*, weighting each cohort by its number of scored firms. The headline estimate averages all effects from the year of the first score to three years later. Estimates for *e* ≤ −2 compare trends before coverage and are the pre-trend estimates.
+
+Inference uses a bootstrap that resamples firms with replacement (999 replications, fixed seed), which keeps each firm's time series intact. We report bootstrap standard errors, percentile 95% confidence intervals, and the minimum detectable effect at 80% power and a 5% two-sided test (2.8 standard errors). We test the primary outcome at the 5% level and adjust the three secondary outcomes with the Holm method. The pre-analysis plan also fixed five robustness checks and one comparison: adding not-yet-scored firms to the controls, dropping the covariates, excluding the 2020 and 2021 cohorts, restricting controls to the size range of scored firms, dating coverage three years early as a placebo, and a static two-way fixed effects regression.
+
+After the first round of review we added three exploratory checks that the plan did not contain. First, we fit a line through the pre-coverage event-time estimates (constrained to pass through zero in the base year), extrapolate it to the post-coverage years, and subtract it; this is a simple member of the family of trend-robust approaches formalized by Rambachan and Roth (2023). Second, we add the growth in log market capitalization from year *g* − 3 to year *g* − 1 to the covariates, which compares scored firms with never-scored firms that grew at a similar rate before coverage. Third, we re-estimate the model five times, each time excluding one market. All three use the same bootstrap draws as the main estimates.
+
+## 2.4. Use of generative AI
+
+The authors used Claude (Anthropic), accessed through Claude Code in September 2026, to write and debug the R code, draft and edit the text, and search for and check references. The tool also screened candidate research questions and drafted the pre-analysis plan. The authors reviewed and approved the research question and the plan before any estimation, reviewed every output of the tool, checked each reported number against the R output files, and take full responsibility for the content.
+
+## 3. Results
+
+## 3.1. Who gets rated
+
+Table 1 compares scored firms in the year before their first score with never-scored firm-years. Scored firms are much larger: their median market capitalization is 203.2 million U.S. dollars against 42.2 million, and their median total assets are 4.3 times those of never-scored firms. Their mean MTB ratio is 2.37, compared with 1.84. These differences in levels are the reason we compare changes rather than levels and adjust for size, country, and industry.
+
+## 3.2. Coverage and valuation
+
+Table 2 reports the average effects over the first four years of coverage. The effect on log MTB is 0.002 with a 95% confidence interval from −0.046 to 0.048. The minimum detectable effect is 0.067, so an effect of about 7.0 percent on the MTB ratio would be detected with 80% probability. The effect on log market capitalization is −0.055 (Holm-adjusted *p* = 0.134). Total assets rise by 0.044 log points after coverage (unadjusted *p* = 0.018; Holm-adjusted *p* = 0.053), and leverage rises by 0.8 percentage points (Holm-adjusted *p* = 0.134).
+
+Figure 1 shows the dynamics. Before the first score, the coefficients for market capitalization and MTB are negative and rise toward zero. For market capitalization, the estimates are −0.132 five years and −0.125 four years before the base year; for MTB, they are −0.095 and −0.082. A negative pre-coverage coefficient means that the scored firms' outcome was lower, relative to its base-year level, than the path of comparable never-scored firms implies. Scored firms therefore gained value faster than comparable firms before they were rated. The joint test that all pre-coverage coefficients are zero gives *p* = 0.022 for market capitalization and *p* = 0.074 for MTB. From the year of the first score to three years later, the MTB coefficients lie between −0.044 and 0.017, and none differs from zero at the 5% level. Leverage shows a different profile: it is higher before coverage relative to the base year (pre-trend *p* = 0.002), dips in the base year, and returns to its earlier level afterwards.
+
+## 3.3. Robustness and heterogeneity
+
+Table 3 reports the pre-specified robustness checks. The valuation result does not depend on the choice of controls or covariates. The effect on log MTB is −0.001 when not-yet-scored firms join the control group, 0.025 without covariates, 0.031 without the 2020 and 2021 cohorts, and 0.016 when controls are restricted to the size range of scored firms; none differs from zero at the 10% level. The size results are less stable. The market capitalization effect shrinks to −0.007 under the size restriction, and the asset effect falls to 0.011 without covariates and to 0.020 without the 2020 and 2021 cohorts but rises to 0.101 under the size restriction. We therefore do not read the asset estimate in Table 2 as evidence that coverage causes firms to grow.
+
+The placebo in row R5 dates coverage three years before the first score and uses only years before the actual score. It yields an effect of 0.059 on log MTB (*p* = 0.010) and of 0.134 on log market capitalization (*p* < 0.001). The placebo fails, and it fails in the direction that Figure 1 predicts: the valuation gains that distinguish scored firms accrue before a rating provider covers them. Row R6 shows why the choice of estimator matters. A static two-way fixed effects regression compares all years after the first score with all years before it and therefore averages over the run-up. It attributes an increase of 0.064 in log MTB (*p* = 0.014) and of 0.185 in log market capitalization to coverage, which would support the conclusion that ratings raise firm value (Goodman-Bacon, 2021; Baker, Larcker, and Wang, 2022).
+
+Rows R7 to R9 report the exploratory checks. Removing the linear pre-trend changes the MTB effect to −0.052 (95% confidence interval −0.118 to 0.014); the point estimate is negative because the pre-coverage run-up would have continued under a linear trend, but the interval includes zero. For market capitalization the same adjustment gives −0.134 (*p* = 0.001): relative to a continued linear run-up, rated firms' market value grew more slowly after coverage. Conditioning on pre-coverage growth gives 0.028 (*p* = 0.265), and excluding Malaysia gives −0.003 (*p* = 0.940). Across all five leave-one-market-out samples (Table IA1 of the Internet Appendix), the MTB effect ranges from −0.007 to 0.017. The market capitalization effect is less stable: it turns to 0.037 when Malaysian firms are excluded, so the negative baseline estimate for market capitalization reflects the large Malaysian cohorts of 2021 and 2022.
+
+The last three rows of Table 3 split scored firms at the median of the first ESG score within their cohort. The MTB effect is −0.019 for firms that enter coverage with a high score and 0.022 for firms with a low score. The difference of −0.041 (standard error 0.040, *p* = 0.307) is not significant, and its minimum detectable value is 0.113. We find no evidence that the content of the first score matters for valuation, but the test cannot exclude moderate differences between the two groups.
+
+## 4. Discussion and Conclusion
+
+## 4.1. Interpretation
+
+The event study supports two readings of the flat valuation path after the first score. If scored and never-scored firms would have followed parallel paths from the base year onward, coverage had no effect on valuation, and the confidence interval excludes changes outside the range from −4.5 to 4.9 percent. If instead the run-up in Figure 1 would have continued without coverage, the flat path implies that coverage lowered valuations relative to that trend. Neither reading supports the prediction that a first rating raises firm value. The more robust result is the ordering of events: rating coverage arrives after a period in which scored firms' market capitalization and MTB ratios grew faster than those of comparable firms.
+
+This ordering is consistent with a provider that adds firms once they become large or visible enough to matter to its clients, although the data do not reveal the provider's selection rule, and backfilled scores could make the recorded treatment year earlier than publication (Berg, Fabisik, and Sautner, 2020). Table 1 shows that scored firms were already much larger than unscored firms before their first score, so they were probably known to many investors before coverage began. In Merton's (1987) framework, a first rating then adds little to the investor base. The result differs from the evidence of Kelly and Ljungqvist (2012), who show that losing analyst coverage lowers prices, and from the fund-level response to sustainability ratings documented by Hartzmark and Sussman (2019). One explanation consistent with our data is that an ESG score is a weaker information event than analyst coverage for these firms, especially given the disagreement among rating providers (Berg, Kölbel, and Rigobon, 2022). The U.S. evidence that coverage changes firm conduct (Tsang et al., 2024; Bikmetova and Pirinsky, 2026) concerns outcomes we do not observe, and our leverage and asset estimates do not show a stable financing response.
+
+The results carry a methodological implication for studies that compare rated and unrated firms. A cross-sectional valuation premium of rated firms, or a static two-way fixed effects estimate, can reflect the selection of firms into coverage rather than an effect of ratings. In our sample, the static regression suggests that coverage raises MTB by 6.6 percent, while the heterogeneity-robust estimator and its event-time profile attribute the gap to growth that precedes coverage (Callaway and Sant'Anna, 2021; Roth, 2022). Whether the same ordering holds in other emerging markets, or for other rating providers, is a hypothesis that our data cannot test. For listed firms, the evidence gives no reason to expect a first ESG score to raise the market value of their shares. For investors and exchanges, it implies that comparisons between rated and unrated firms in these markets mix the effect of a rating with the growth that preceded it.
+
+## 4.2. Limitations
+
+The study has six limitations. First, the rating provider chooses when to cover a firm, and we have no source of variation in coverage that is unrelated to firm performance. The post-coverage estimates rely on conditional parallel trends from the base year, an assumption that the pre-coverage estimates call into question; our trend adjustment is linear and exploratory, and we do not report the full sensitivity bounds of Rambachan and Roth (2023). Second, the data are annual and may contain backfilled scores, so we observe neither the date on which a first score was published nor announcement returns. Third, we observe coverage by LSEG only; some firms may have received scores from other providers earlier, which would bias the estimates toward zero. Fourth, a small number of market capitalization values in the source data are implausibly large; winsorization limits their influence but does not correct them, and return on assets is available for a minority of firm-years. Fifth, Malaysian firms account for most first scores in 2021 and 2022, so the average effect weights that market heavily. Sixth, the minimum detectable effect on log MTB is 0.067, so the design cannot rule out valuation effects smaller than about 7.0 percent.
+
+## 4.3. Conclusion
+
+Using the staggered first appearance of LSEG ESG scores for 675 non-financial firms in Indonesia, Malaysia, the Philippines, Singapore, and Thailand, we find no change in market-to-book ratios after a firm is first rated. Rated firms had instead gained market value faster than comparable firms during the five years before their first score. In these markets, rated firms gained value before, not after, their first score, and analyses that ignore this ordering will overstate the valuation benefit of being rated.
+
+## References
+
+Baker, Andrew C., David F. Larcker, and Charles C. Y. Wang, 2022, How much should we trust staggered difference-in-differences estimates?, *Journal of Financial Economics* 144(2), 370–395. https://doi.org/10.1016/j.jfineco.2022.01.004
+
+Berg, Florian, Kornelia Fabisik, and Zacharias Sautner, 2020, Is history repeating itself? The (un)predictable past of ESG ratings, European Corporate Governance Institute Finance Working Paper No. 708/2020. https://ssrn.com/abstract=3722087
+
+Berg, Florian, Julian F. Kölbel, and Roberto Rigobon, 2022, Aggregate confusion: The divergence of ESG ratings, *Review of Finance* 26(6), 1315–1344. https://doi.org/10.1093/rof/rfac033
+
+Bikmetova, Natalya, and Christo A. Pirinsky, 2026, Do ESG rating agencies improve ESG performance?, *Journal of Business Ethics* 204(2), 335–365. https://doi.org/10.1007/s10551-025-06063-0
+
+Callaway, Brantly, and Pedro H. C. Sant'Anna, 2021, Difference-in-differences with multiple time periods, *Journal of Econometrics* 225(2), 200–230. https://doi.org/10.1016/j.jeconom.2020.12.001
+
+Goodman-Bacon, Andrew, 2021, Difference-in-differences with variation in treatment timing, *Journal of Econometrics* 225(2), 254–277. https://doi.org/10.1016/j.jeconom.2021.03.014
+
+Harris, Lawrence, and Eitan Gurel, 1986, Price and volume effects associated with changes in the S&P 500 list: New evidence for the existence of price pressures, *Journal of Finance* 41(4), 815–829. https://doi.org/10.1111/j.1540-6261.1986.tb04550.x
+
+Hartzmark, Samuel M., and Abigail B. Sussman, 2019, Do investors value sustainability? A natural experiment examining ranking and fund flows, *Journal of Finance* 74(6), 2789–2837. https://doi.org/10.1111/jofi.12841
+
+Kelly, Bryan, and Alexander Ljungqvist, 2012, Testing asymmetric-information asset pricing models, *Review of Financial Studies* 25(5), 1366–1413. https://doi.org/10.1093/rfs/hhr134
+
+LSEG, 2025, LSEG ESG Scores, annual, 2014–2024 [Data set], LSEG Workspace.
+
+Merton, Robert C., 1987, A simple model of capital market equilibrium with incomplete information, *Journal of Finance* 42(3), 483–510. https://doi.org/10.1111/j.1540-6261.1987.tb04565.x
+
+Pástor, Ľuboš, Robert F. Stambaugh, and Lucian A. Taylor, 2021, Sustainable investing in equilibrium, *Journal of Financial Economics* 142(2), 550–571. https://doi.org/10.1016/j.jfineco.2020.12.011
+
+Pedersen, Lasse Heje, Shaun Fitzgibbons, and Lukasz Pomorski, 2021, Responsible investing: The ESG-efficient frontier, *Journal of Financial Economics* 142(2), 572–597. https://doi.org/10.1016/j.jfineco.2020.11.001
+
+Rambachan, Ashesh, and Jonathan Roth, 2023, A more credible approach to parallel trends, *Review of Economic Studies* 90(5), 2555–2591. https://doi.org/10.1093/restud/rdad018
+
+Roth, Jonathan, 2022, Pretest with caution: Event-study estimates after testing for parallel trends, *American Economic Review: Insights* 4(3), 305–322. https://doi.org/10.1257/aeri.20210236
+
+S&P Global Market Intelligence, 2025, Compustat Global, annual fundamentals, 2014–2024 [Data set].
+
+Sant'Anna, Pedro H. C., and Jun Zhao, 2020, Doubly robust difference-in-differences estimators, *Journal of Econometrics* 219(1), 101–122. https://doi.org/10.1016/j.jeconom.2020.06.003
+
+Shleifer, Andrei, 1986, Do demand curves for stocks slope down?, *Journal of Finance* 41(3), 579–590. https://doi.org/10.1111/j.1540-6261.1986.tb04518.x
+
+Tsang, Albert, Yang Wang, Yan Xiang, and Li Yu, 2024, The rise of ESG rating agencies and management of corporate ESG violations, *Journal of Banking & Finance* 169, 107312. https://doi.org/10.1016/j.jbankfin.2024.107312
+
+
+## Exhibits
+
+### Table 1 Pre-coverage characteristics of scored firms and never-scored firms
+
+| Variable | Scored mean | Scored median | Scored N | Never-scored mean | Never-scored median | Never-scored N | Normalized difference |
+|---|---|---|---|---|---|---|---|
+| Market-to-book ratio | 2.37 | 1.26 | 629 | 1.84 | 0.95 | 20,706 | 0.17 |
+| Market capitalization (USD million) | 762.5 | 203.2 | 655 | 157.3 | 42.2 | 22,417 | 0.69 |
+| Book leverage | 0.235 | 0.217 | 632 | 0.241 | 0.205 | 22,333 | −0.04 |
+| Total assets (USD million) | 882.1 | 294.3 | 655 | 238.0 | 68.7 | 24,814 | 0.61 |
+| Return on assets | 0.064 | 0.057 | 385 | 0.045 | 0.046 | 5,614 | 0.21 |
+
+Note: Scored firms are measured in the year before their first LSEG ESG score; never-scored firms contribute all firm-years from 2014 to 2024. The normalized difference is the difference in means divided by the square root of the average of the two variances.
+
+Source: Authors' calculations from LSEG ESG scores and Compustat Global.
+
+### Table 2 Average effect of the first ESG score over event years 0 to 3
+
+| Outcome | ATT | SE | 95% CI | p-value | MDE | Pre-trend p | Scored firms | Control firms |
+|---|---|---|---|---|---|---|---|---|
+| ln(MTB) | 0.002 | 0.024 | [−0.046, 0.048] | 0.936 | 0.067 | 0.074 | 628 | 2,412 |
+| ln(market capitalization) | −0.055 | 0.030 | [−0.109, 0.003] | 0.134 | 0.084 | 0.022 | 635 | 2,447 |
+| Book leverage | 0.008 | 0.005 | [−0.001, 0.018] | 0.134 | 0.014 | 0.002 | 631 | 2,520 |
+| ln(total assets) | 0.044* | 0.018 | [0.007, 0.081] | 0.053 | 0.051 | 0.083 | 655 | 2,603 |
+
+Note: ATT is the average treatment effect on the treated with 95% bootstrap confidence intervals; p-values for the three secondary outcomes are Holm-adjusted. MDE is the minimum detectable effect at 80% power, and pre-trend p is the joint test that event-time effects −5 to −2 are zero; *, **, and *** denote significance at the 10%, 5%, and 1% levels.
+
+Source: Authors' calculations from LSEG ESG scores and Compustat Global.
+
+### Fig. 1 Event-time effects of the first ESG score on valuation, size, and leverage
+
+[Figure image file: Fig1.png in this folder]
+
+Note: Circles show point estimates and bars show 95% bootstrap confidence intervals; open circles with dotted bars are years before the first score and filled circles with solid bars are years after it. The year before the first score (−1) is the base year and is set to zero.
+
+Source: Authors' calculations from LSEG ESG scores and Compustat Global.
+
+### Table 3 Robustness checks and heterogeneity by initial ESG score
+
+| Specification | ln(MTB) | ln(market capitalization) | Book leverage | ln(total assets) |
+|---|---|---|---|---|
+| Baseline (never-scored controls, covariates) | 0.002 (0.024) | −0.055* (0.030) | 0.008* (0.005) | 0.044** (0.018) |
+| R1 Not-yet-scored firms added to controls | −0.001 (0.024) | −0.053* (0.029) | 0.009* (0.005) | 0.040** (0.017) |
+| R2 No covariates | 0.025 (0.022) | 0.016 (0.025) | 0.012*** (0.004) | 0.011 (0.015) |
+| R3 Excluding 2020 and 2021 cohorts | 0.031 (0.027) | −0.029 (0.036) | 0.004 (0.005) | 0.020 (0.019) |
+| R4 Controls on treated size support | 0.016 (0.025) | −0.007 (0.031) | 0.009* (0.005) | 0.101*** (0.017) |
+| R5 Placebo: coverage dated three years early | 0.059*** (0.023) | 0.134*** (0.028) | −0.002 (0.005) | 0.115*** (0.015) |
+| R6 Static two-way fixed effects | 0.064** (0.026) | 0.185*** (0.032) | 0.005 (0.005) | 0.117*** (0.022) |
+| R7 Linear pre-trend removed | −0.052 (0.034) | −0.134*** (0.042) | 0.023*** (0.006) | 0.011 (0.023) |
+| R8 Controlling for pre-coverage growth | 0.028 (0.025) | −0.034 (0.032) | 0.008 (0.005) | 0.043** (0.018) |
+| R9 Excluding Malaysia | −0.003 (0.035) | 0.037 (0.038) | 0.022*** (0.008) | 0.046 (0.029) |
+| High initial ESG score | −0.019 (0.030) | −0.029 (0.034) | 0.009 (0.006) | 0.038* (0.022) |
+| Low initial ESG score | 0.022 (0.033) | −0.081* (0.042) | 0.007 (0.006) | 0.049** (0.022) |
+| Difference, high minus low | −0.041 (0.040) | 0.052 (0.047) | 0.002 (0.008) | −0.011 (0.025) |
+
+Note: Each cell reports the average effect over event years 0 to 3 with the bootstrap standard error in parentheses (firm-clustered standard error in row R6). High and low initial scores split scored firms at the median first score of their cohort; *, **, and *** denote significance at the 10%, 5%, and 1% levels based on unadjusted p-values.
+
+Source: Authors' calculations from LSEG ESG scores and Compustat Global.
+
+
+## Internet Appendix exhibits
+
+### Table IA1 Leave-one-market-out estimates of the average effect of the first ESG score
+
+| Specification | ln(MTB) | ln(market capitalization) | Book leverage | ln(total assets) |
+|---|---|---|---|---|
+| Excluding Indonesia | 0.017 (0.024) | −0.030 (0.030) | 0.011** (0.005) | 0.037* (0.020) |
+| Excluding Malaysia | −0.003 (0.035) | 0.037 (0.038) | 0.022*** (0.008) | 0.046 (0.029) |
+| Excluding Philippines | −0.001 (0.025) | −0.066** (0.031) | 0.009* (0.005) | 0.031* (0.019) |
+| Excluding Singapore | −0.007 (0.025) | −0.066** (0.032) | 0.005 (0.005) | 0.063*** (0.019) |
+| Excluding Thailand | 0.004 (0.029) | −0.096** (0.037) | 0.004 (0.005) | 0.040* (0.021) |
+
+Note: Each cell reports the average effect over event years 0 to 3 with the bootstrap standard error in parentheses, estimated as in the baseline after dropping all firms from the named market; *, **, and *** denote significance at the 10%, 5%, and 1% levels based on unadjusted p-values.
+
+Source: Authors' calculations from LSEG ESG scores and Compustat Global.
+
+### Table IA2 Number of non-financial firms by year of first LSEG ESG score and market
+
+| First score year | Indonesia | Malaysia | Philippines | Singapore | Thailand | Total |
+|---|---|---|---|---|---|---|
+| 2015 | 2 | 0 | 2 | 0 | 4 | 8 |
+| 2016 | 3 | 2 | 1 | 1 | 2 | 9 |
+| 2017 | 1 | 4 | 0 | 0 | 2 | 7 |
+| 2018 | 2 | 3 | 1 | 0 | 2 | 8 |
+| 2019 | 1 | 2 | 0 | 9 | 18 | 30 |
+| 2020 | 3 | 5 | 1 | 34 | 47 | 90 |
+| 2021 | 6 | 96 | 5 | 3 | 31 | 141 |
+| 2022 | 13 | 193 | 4 | 1 | 26 | 237 |
+| 2023 | 8 | 83 | 0 | 2 | 16 | 109 |
+| 2024 | 3 | 16 | 0 | 0 | 17 | 36 |
+
+Note: Counts cover firms in the estimation sample; firms first scored in 2014 are excluded because they have no pre-coverage year.
+
+Source: Authors' calculations from LSEG ESG scores.
+
+### Fig. IA1 Number of non-financial firms by year of first LSEG ESG score
+
+[Figure image file: FigIA1.png in this folder]
+
+Note: Bars show the number of firms in the estimation sample that received their first LSEG ESG score in each year, all five markets combined.
+
+Source: Authors' calculations from LSEG ESG scores.
