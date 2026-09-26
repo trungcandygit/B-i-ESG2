@@ -10,6 +10,8 @@
 - Khoa Luật, Trường Kinh tế và Quản lý công, Đại học Kinh tế Quốc dân
 - GVHD: TS. Nguyễn Thị Hồng Hạnh — Năm 2026
 - File gốc: `v2_Pham_Thi_My_Binh_BCTH.docx` (Báo cáo thực tập tổng hợp, ~11.400 từ)
+- Bài mẫu khóa luận: `Bai_mau_Khoa_luan_Bui_Thi_Xuyen.docx` (Bùi Thị Xuyến, LUKT32B, "Pháp luật về giao kết hợp đồng mua bán hàng hóa và thực tiễn áp dụng tại Công ty TNHH Quốc tế Việt Nam Ấn Độ", 2026)
+- Đề cương sơ bộ: `De_cuong_so_bo.md` / `.docx`
 
 ## Thông tin công ty (nguồn: BCTH, trích từ Hồ sơ năng lực, Giấy đăng ký hoạt động của ASL LAW)
 - Tên: Công ty Luật TNHH ASL; tên thương mại quốc tế: ASL LAW; website https://aslgate.com
