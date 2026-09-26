@@ -30,8 +30,23 @@ def main(docx_dir):
     n_ex = len(exhibits)
 
     # 1. Word count (JF:IP word-count PDF: main body + footnotes, excluding title, authors, abstract, references, exhibits)
-    wc = words(body); limit = LIMIT_NO_EXHIBITS - 200 * n_ex
-    check('word count (main text) <= limit', wc <= limit, f'{wc} words; limit {limit} with {n_ex} exhibits')
+    wc = words(re.sub(r'^\$\$.*$', '', body, flags=re.M)); limit = LIMIT_NO_EXHIBITS - 200 * n_ex
+    # User instruction (2026-09-26, ledger D-13): full text of 8,500-10,000 words now; the user will cut to the JF:IP
+    # limit later. The JF:IP main-text count is reported for information and flagged as WARN, not FAIL.
+    import csv as _csv
+    table_words = 0
+    for b in exhibits:
+        d = dict(l.split(':=', 1) for l in b.splitlines())
+        if 'csvfile' in d:
+            for row in _csv.reader(open(os.path.join(OUTR, d['csvfile']), encoding='utf-8')):
+                table_words += sum(words(c) for c in row)
+        table_words += words(d['caption']) + words(d['note']) + words('Source: ' + d['source'])
+    full = words(secs['title']) + words(secs['abstract']) + words(secs['keywords']) + wc + \
+        sum(words(r) for r in blocks(secs['references'])) + table_words
+    check('full text 8,500-10,000 words (user target, D-13)', 8500 <= full <= 10000,
+          f'full text {full} words (title+abstract+keywords+body {wc}+references+exhibits)')
+    results.append(('JF:IP main-text limit (info; user will cut later)', 'WARN' if wc > limit else 'PASS',
+                    f'{wc} words; limit {limit} with {n_ex} exhibits'))
     aw = words(secs['abstract']); check('abstract <= 100 words', aw <= 100, f'{aw} words')
     kw = [k.strip() for k in secs['keywords'].split(';')]
     check('keywords <= 7 and alphabetical', len(kw) <= 7 and kw == sorted(kw, key=str.lower), '; '.join(kw))
@@ -39,7 +54,8 @@ def main(docx_dir):
     check('exhibits <= 5', n_ex <= 5, f'{n_ex} exhibits')
 
     # 2. Placeholders / leftover drafting markers
-    left = re.findall(r'\{\{|\}\}|\[\[|RESULTS_|DISCUSSION_|LIMITATIONS_|CONCLUSION_|TODO|XXX', body + secs['abstract'])
+    nonmath = re.sub(r'^\$\$latex.*$', '', body, flags=re.M)   # LaTeX braces are not placeholders
+    left = re.findall(r'\{\{|\}\}|\[\[|RESULTS_|DISCUSSION_|LIMITATIONS_|CONCLUSION_|TODO|XXX', nonmath + secs['abstract'])
     check('no unresolved placeholders', not left, str(left[:5]))
 
     # 3. Exhibits cited in text, in order
@@ -62,7 +78,7 @@ def main(docx_dir):
     # 4. Notes <= 3 sentences, every exhibit has a Source line
     for b in exhibits:
         d = dict(l.split(':=', 1) for l in b.splitlines())
-        note = d['note']; ns = len(re.findall(r'[.!?](\s|$)', note))
+        note = re.sub(r'\bEqs?\.', 'Eq', d['note']); ns = len(re.findall(r'[.!?](\s|$)', note))
         check(f"note <= 3 sentences: {d['caption'].split('|')[0]}", ns <= 3, f'{ns} sentences')
         check(f"source line: {d['caption'].split('|')[0]}", bool(d.get('source')))
 
@@ -100,7 +116,8 @@ def main(docx_dir):
     for m in re.finditer(r"([A-Z][A-Za-zÀ-ž'\-]+)[^()]{0,60}?,? (?:\(|)(\d{4})\)", body):
         in_text.add((m.group(1), m.group(2)))
     ref_first = {s for s, _ in surnames}
-    orphan = [(a, y) for a, y in in_text if y.startswith(('19', '20')) and a not in ref_first and not any(a in r for r in refs_list)]
+    not_authors = {'FTSE', 'LSEG', 'ESG', 'MTB', 'ATT', 'Table', 'Figure', 'Section', 'Eq', 'The', 'In', 'We'}
+    orphan = [(a, y) for a, y in in_text if a not in not_authors and y.startswith(('19', '20')) and a not in ref_first and not any(a in r for r in refs_list)]
     check('no in-text citation missing from references', not orphan, str(orphan[:6]))
     verified = open(os.path.join(ROOT, 'notes', '05_references_verified.md'), encoding='utf-8').read()
     for r in refs_list:
@@ -127,7 +144,7 @@ def main(docx_dir):
     vals = set(nums.values())
     txt = re.sub(r'^#+ \d+(\.\d+)?\.? ', '', body, flags=re.M)
     txt = re.sub(r'Section \d+(\.\d+)?', '', txt)
-    constants = {'2.8'}   # 2.8 standard errors = MDE multiplier at 80% power, 5% two-sided (stated in Section 2.3)
+    constants = {'2.8', '0.975', '0.80', '0.25', '0.5', '4.86'}   # 4.86: Demiroglu and Ryngaert (2010) announcement return   # MDE multiplier, z quantiles, M-bar values (Eqs. 7, 10)   # 2.8 standard errors = MDE multiplier at 80% power, 5% two-sided (stated in Section 2.3)
     tokens = re.findall(r'(?<![\w.])[−-]?\d[\d,]*\.\d+', txt + secs['abstract'])
     bad = [t for t in tokens if t not in vals and t not in constants]
     check('every decimal number in text comes from numbers.csv', not bad, str(bad[:8]))

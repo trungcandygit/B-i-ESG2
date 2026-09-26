@@ -4,6 +4,10 @@ fmtp <- function(p) ifelse(is.na(p), "", ifelse(p < 0.001, "<0.001", formatC(p, 
 fmtn <- function(x) formatC(x, format = "d", big.mark = ",")
 stars <- function(p) ifelse(is.na(p), "", ifelse(p < 0.01, "***", ifelse(p < 0.05, "**", ifelse(p < 0.10, "*", ""))))
 
+strip_eps_date <- function(f) {   # remove the %%CreationDate comment so reruns are byte-identical
+  x <- readLines(f, warn = FALSE); writeLines(x[!grepl("^%%CreationDate", x)], f)
+}
+
 # ---- Table 1: pre-coverage characteristics of treated firms vs. never-covered firm-years ----
 t1_vars <- c(mtb_w = "Market-to-book ratio", mcap_m = "Market capitalization (USD million)",
              lev_w = "Book leverage", asset_m = "Total assets (USD million)", roa_w = "Return on assets")
@@ -32,7 +36,7 @@ write.csv(t1_fmt, file.path(OUT, "table1_formatted.csv"), row.names = FALSE)
 pre <- read.csv(file.path(OUT, "pretrend_tests.csv"))
 t2 <- main_tab %>% left_join(pre %>% select(outcome, pre_p = p), by = "outcome")
 t2_fmt <- data.frame(Outcome = OUTCOMES[t2$outcome],
-  ATT = paste0(fmt(t2$est), stars(t2$p_holm)), SE = fmt(t2$se),
+  ATT = fmt(t2$est), SE = fmt(t2$se),
   `95% CI` = paste0("[", fmt(t2$ci_lo), ", ", fmt(t2$ci_hi), "]"),
   `p-value` = fmtp(t2$p_holm), MDE = fmt(t2$mde80), `Pre-trend p` = fmtp(t2$pre_p),
   `Scored firms` = fmtn(t2$n_treated_firms), `Control firms` = fmtn(t2$n_control_firms), check.names = FALSE)
@@ -42,6 +46,7 @@ write.csv(t2_fmt, file.path(OUT, "table2_formatted.csv"), row.names = FALSE)
 rob <- read.csv(file.path(OUT, "robustness.csv")); tw <- read.csv(file.path(OUT, "twfe_static.csv"))
 het <- read.csv(file.path(OUT, "heterogeneity_initial_score.csv"))
 rv <- read.csv(file.path(OUT, "robustness_revision.csv"))
+rv2 <- read.csv(file.path(OUT, "robustness_revision2.csv"))
 cellv <- function(e, s, p) paste0(fmt(e), stars(p), " (", fmt(s), ")")
 row_of <- function(label, d) {
   d <- d[match(names(OUTCOMES), d$outcome), ]
@@ -58,6 +63,8 @@ t3 <- bind_rows(
   row_of("R7 Linear pre-trend removed", rv[rv$spec == "R7_trendadj", ]),
   row_of("R8 Controlling for pre-coverage growth", rv[rv$spec == "R8_pregrowth", ]),
   row_of("R9 Excluding Malaysia", rv[rv$spec == "R9_excludeMY", ]),
+  row_of("R10 Treatment dated one year later", rv2[rv2$spec == "R10_shift1", ]),
+  row_of("R11 Cohorts observed through event year 3", rv2[rv2$spec == "R11_balanced", ]),
   row_of("High initial ESG score", het[het$group == "high_initial_score", ]),
   row_of("Low initial ESG score", het[het$group == "low_initial_score", ]),
   row_of("Difference, high minus low", het[het$group == "difference_high_minus_low", ]))
@@ -83,7 +90,7 @@ p1 <- ggplot(ev, aes(x = e, y = est)) +
        y = "Effect relative to base year (log points; leverage: ratio)") +
   theme_bw(base_size = 10, base_family = "sans") +
   theme(legend.position = "bottom", panel.grid.minor = element_blank(), strip.background = element_rect(fill = "grey92"))
-ggsave(file.path(FIG, "Fig1.eps"), p1, width = 6.5, height = 5, device = cairo_ps)
+ggsave(file.path(FIG, "Fig1.eps"), p1, width = 6.5, height = 5, device = cairo_ps); strip_eps_date(file.path(FIG, "Fig1.eps"))
 ggsave(file.path(FIG, "Fig1.png"), p1, width = 6.5, height = 5, dpi = 600)
 
 # ---- Internet Appendix figure: number of firms entering coverage by cohort ----
@@ -92,7 +99,7 @@ pia <- ggplot(cs, aes(x = G, y = total)) + geom_col(fill = "grey60", colour = "b
   scale_x_continuous(breaks = cs$G) +
   labs(x = "Year of first LSEG ESG score", y = "Number of non-financial firms") +
   theme_bw(base_size = 10) + theme(panel.grid.minor = element_blank())
-ggsave(file.path(FIG, "FigIA1.eps"), pia, width = 6, height = 3.5, device = cairo_ps)
+ggsave(file.path(FIG, "FigIA1.eps"), pia, width = 6, height = 3.5, device = cairo_ps); strip_eps_date(file.path(FIG, "FigIA1.eps"))
 ggsave(file.path(FIG, "FigIA1.png"), pia, width = 6, height = 3.5, dpi = 600)
 
 # ---- Internet Appendix tables ----
@@ -104,3 +111,24 @@ csz <- read.csv(file.path(OUT, "cohort_sizes.csv"))
 tia2 <- data.frame(`First score year` = csz$G, Indonesia = csz$ID, Malaysia = csz$MY, Philippines = csz$PH,
                    Singapore = csz$SG, Thailand = csz$TH, Total = csz$total, check.names = FALSE)
 write.csv(tia2, file.path(OUT, "tableIA2_formatted.csv"), row.names = FALSE)
+
+# Per-market estimates (Table IA3), sample sizes by outcome (Table IA4), relative-magnitude bounds (Table IA5)
+pm <- read.csv(file.path(OUT, "per_market.csv"))
+tia3 <- bind_rows(lapply(names(cn), function(cc) {
+  r <- row_of(cn[[cc]], pm[pm$market == cc, ])
+  r$`Scored firms (ln MTB)` <- fmtn(pm$n_treated_firms[pm$market == cc & pm$outcome == "ln_mtb"]); r }))
+write.csv(tia3, file.path(OUT, "tableIA3_formatted.csv"), row.names = FALSE)
+ss <- bind_rows(lapply(names(OUTCOMES), function(y) {
+  v <- panel[[y]]
+  data.frame(Outcome = OUTCOMES[[y]],
+             `Scored firms: firm-years` = fmtn(sum(!is.na(v) & panel$treated)),
+             `Scored firms: firms` = fmtn(n_distinct(panel$firm_id[!is.na(v) & panel$treated])),
+             `Never-scored: firm-years` = fmtn(sum(!is.na(v) & !panel$treated)),
+             `Never-scored: firms` = fmtn(n_distinct(panel$firm_id[!is.na(v) & !panel$treated])),
+             `Share of firm-years missing` = fmt(mean(is.na(v)), 3), check.names = FALSE) }))
+write.csv(ss, file.path(OUT, "tableIA4_formatted.csv"), row.names = FALSE)
+rmb <- read.csv(file.path(OUT, "rm_bounds.csv"))
+tia5 <- rmb %>% transmute(Outcome = OUTCOMES[outcome], `M-bar` = fmt(Mbar, 2), `Largest pre-period change` = fmt(dmax),
+  `Bias bound` = fmt(bias_bound), `Robust 95% interval` = paste0("[", fmt(robust_lo), ", ", fmt(robust_hi), "]"))
+names(tia5) <- c("Outcome", "M\u0304", "Largest pre-period change", "Bias bound", "Robust 95% interval")
+write.csv(tia5, file.path(OUT, "tableIA5_formatted.csv"), row.names = FALSE)

@@ -86,3 +86,31 @@ tự giải quyết bằng mặc định hợp lý nhất và ghi tại đây.
   trên bản v1.1 đã xuất ẩn danh `notes/review_independent/input/manuscript_for_review.md`. Panel trong context
   (notes/review_full) chỉ còn giá trị là phản biện nội bộ sơ bộ, không dùng làm căn cứ quyết định.
 - Đã gửi người dùng bản thảo DOCX hiện tại + Internet Appendix.
+
+## Iter 5 — Phản biện độc lập Stage 3 + vòng sửa Stage 4 (2026-09-25/26)
+- Stage 3: 5 subagent độc lập (context riêng, không thấy output của nhau; provenance fresh_context = true,
+  blind_to_peer_outputs = true, correlated-error disclosure: cùng họ model Claude). Báo cáo trong
+  `notes/review_independent/`. Tất cả 5 ghế: Major Revision. D1, D2, D3, D6 block (repairable) → F2 → major_revision.
+  DA CRITICAL C1 (post-coverage null không được nhận diện; bỏ qua kịch bản đảo chiều) → VALIDATED, repairable.
+- Conformance: lỗi thẻ Phase 1 do dispatcher (tôi) hướng dẫn `[PRE-COMMITMENT-ACKNOWLEDGED]` thay vì
+  `[CONTRACT-ACKNOWLEDGED]`; bản chuẩn hoá trong `conformance/` → EIC, R1, R2, R3 PASS; DA lỗi DA-TABLE-PARSE (định
+  dạng bảng), nội dung vẫn dùng. File gốc của phản biện viên không sửa.
+- Phiên mới (2026-09-26, hook SessionStart): load lại academic-pipeline + academic-paper (1 lần/phiên).
+- Người dùng yêu cầu (2026-09-26): "Phần phương pháp phải có công thức toán; bài full text 8.500–10.000 từ; lát tôi
+  cắt sau; skill có bước nào phải làm hết; không rút gọn; không hỏi lại".
+- D-13: Full text mục tiêu 8.500–10.000 từ (vượt giới hạn JF:IP 6.200 từ thân bài; người dùng sẽ cắt sau). checks.py:
+  full text là tiêu chí PASS; giới hạn JF:IP báo WARN (không FAIL). Vòng này: full text 8.695 từ; thân bài 7.174.
+- D-14: Vòng sửa viết lại toàn văn (tái cấu trúc 8 mục + 11 phương trình đánh số OMML qua pandoc), KHÔNG dùng quy
+  trình patch 1.1 (#390) của academic-paper revision mode, vì người dùng yêu cầu mở rộng và tái cấu trúc toàn bài.
+  Hệ quả: không có revision-evidence-bundle/patch/apply-report → checker `check_re_review_synthesis.py` của Stage 3'
+  không thể replay (manifest_incomplete). Ba cổng của Stage 3' vẫn chạy đầy đủ bằng subagent độc lập; claim drift
+  được đối chiếu thủ công trong Response to Reviewers.
+- Phân tích mới (exploratory, sau PAP): R10 dời năm xử lý +1 (MTB −0.068, p 0.004), R11 cohort cân bằng ≤ 2021
+  (MTB −0.008), per-market (Table IA3), cận relative-magnitude (Table IA5; M̄ 0.25: [−0.071, 0.073]), số quan sát theo
+  biến (Table IA4). Table 3 thêm R10, R11. Table 2 bỏ dấu sao (chỉ có p Holm). EPS bỏ dòng %%CreationDate để chạy
+  lại byte-identical.
+- Tài liệu mới xác minh #18–#29 (notes/05). Sửa tên tác giả Tsang et al. (Yujie Wang, Yi Xiang). Không dùng tài liệu
+  không xác minh được tác giả (Hu et al. 2026; bài EMFT/CJAR 2025).
+- Tiêu đề mới: "Rated at the Peak? Firm Valuation around the First LSEG ESG Score in Five Southeast Asian Markets";
+  running title "Valuation around first ESG scores" (33 ký tự); 7 keywords (xếp chữ cái); JEL G14, G15, G32, M14, Q56.
+- Response to Reviewers: `notes/review_independent/08_response_to_reviewers.md` (26/26 mục có trạng thái).

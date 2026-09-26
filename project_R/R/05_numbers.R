@@ -67,6 +67,31 @@ for (i in seq_len(nrow(rv))) {
   if (!is.na(rv$slope[i])) put(paste0(a, "_", k, "_slope"), fmt(rv$slope[i]))
   put(paste0(a, "_", k, "_ntr"), fmtn(rv$n_treated_firms[i]))
 }
+rv2 <- read.csv(file.path(OUT, "robustness_revision2.csv"))
+for (i in seq_len(nrow(rv2))) {
+  a <- ab[[rv2$outcome[i]]]; k <- sub("_.*", "", rv2$spec[i])
+  put(paste0(a, "_", k), fmt(rv2$est[i])); put(paste0(a, "_", k, "_se"), fmt(rv2$se[i]))
+  put(paste0(a, "_", k, "_p"), fmtp(rv2$p[i])); put(paste0(a, "_", k, "_pct"), pct(rv2$est[i]))
+  put(paste0(a, "_", k, "_lo"), fmt(rv2$ci_lo[i])); put(paste0(a, "_", k, "_hi"), fmt(rv2$ci_hi[i]))
+  put(paste0(a, "_", k, "_ntr"), fmtn(rv2$n_treated_firms[i]))
+}
+pm <- read.csv(file.path(OUT, "per_market.csv"))
+for (i in seq_len(nrow(pm))) {
+  a <- ab[[pm$outcome[i]]]
+  put(paste0(a, "_pm_", pm$market[i]), fmt(pm$est[i])); put(paste0(a, "_pm_", pm$market[i], "_se"), fmt(pm$se[i]))
+  put(paste0(a, "_pm_", pm$market[i], "_p"), fmtp(pm$p[i])); put(paste0(a, "_pm_", pm$market[i], "_ntr"), fmtn(pm$n_treated_firms[i]))
+}
+rmb <- read.csv(file.path(OUT, "rm_bounds.csv"))
+for (i in seq_len(nrow(rmb))) {
+  a <- ab[[rmb$outcome[i]]]; m <- gsub("\\.", "", formatC(rmb$Mbar[i], digits = 2, format = "f"))
+  put(paste0(a, "_rm", m, "_lo"), fmt(rmb$robust_lo[i])); put(paste0(a, "_rm", m, "_hi"), fmt(rmb$robust_hi[i]))
+  put(paste0(a, "_rm", m, "_lo_pct"), pct(rmb$robust_lo[i])); put(paste0(a, "_rm", m, "_hi_pct"), pct(rmb$robust_hi[i]))
+  put(paste0(a, "_rm_dmax"), fmt(rmb$dmax[i]))
+}
+tot <- sum(cs$total)
+put("n_my_treated", fmtn(sum(cs$MY))); put("pct_my_treated", fmt(100 * sum(cs$MY) / tot, 1))
+put("n_th_treated", fmtn(sum(cs$TH))); put("pct_my_th_treated", fmt(100 * (sum(cs$MY) + sum(cs$TH)) / tot, 1))
+put("n_sg_treated", fmtn(sum(cs$SG))); put("n_id_treated", fmtn(sum(cs$ID))); put("n_ph_treated", fmtn(sum(cs$PH)))
 lm_ <- read.csv(file.path(OUT, "leave_one_market_out.csv"))
 for (i in seq_len(nrow(lm_))) {
   a <- ab[[lm_$outcome[i]]]

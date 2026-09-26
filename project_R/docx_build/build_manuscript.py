@@ -130,6 +130,39 @@ def body_par(d, text, indent=True):
     return p
 
 
+_OMML_CACHE = {}
+
+
+def latex_to_omml(latex):
+    """Convert one LaTeX display equation to an OMML <m:oMath> element using pandoc."""
+    import copy, subprocess, tempfile, zipfile
+    from lxml import etree
+    if latex in _OMML_CACHE:
+        return copy.deepcopy(_OMML_CACHE[latex])
+    with tempfile.TemporaryDirectory() as td:
+        src, out = os.path.join(td, 'eq.md'), os.path.join(td, 'eq.docx')
+        open(src, 'w', encoding='utf-8').write('$$' + latex + '$$\n')
+        subprocess.run(['pandoc', src, '-o', out], check=True)
+        xml = zipfile.ZipFile(out).read('word/document.xml')
+    root = etree.fromstring(xml)
+    M = '{http://schemas.openxmlformats.org/officeDocument/2006/math}'
+    om = root.find('.//' + M + 'oMath')
+    assert om is not None, 'pandoc produced no OMML for: ' + latex
+    _OMML_CACHE[latex] = om
+    return copy.deepcopy(om)
+
+
+def equation_omml(d, text):
+    eq, num = [s.strip() for s in text[len('$$latex'):].rsplit('|', 1)]
+    p = d.add_paragraph(); set_spacing(p, 1.5, 6, 6)
+    ts = p.paragraph_format.tab_stops
+    ts.add_tab_stop(Inches(3.25), WD_TAB_ALIGNMENT.CENTER); ts.add_tab_stop(Inches(6.5), WD_TAB_ALIGNMENT.RIGHT)
+    p.add_run('\t')
+    p._p.append(latex_to_omml(eq))
+    p.add_run('\t' + num)
+    return p
+
+
 def equation(d, text):
     eq, num = [s.strip() for s in text[2:].split('|')]
     p = d.add_paragraph(); set_spacing(p, 1.5, 6, 6)
@@ -145,6 +178,8 @@ def write_body(d, text):
             heading(d, b[3:], 2)
         elif b.startswith('# '):
             heading(d, b[2:], 1)
+        elif b.startswith('$$latex'):
+            equation_omml(d, b)
         elif b.startswith('$$'):
             equation(d, b)
         else:
