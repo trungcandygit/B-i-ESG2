@@ -31,6 +31,7 @@ Highlights: JF:IP không yêu cầu, nên không làm.
 ## 3. Việc bạn tự làm trên hệ thống
 
 - [ ] Vào trang nộp bài của AFA (https://afajof.org/jfip-submissions/), trả phí nộp bài (submission fee, theo trang AFA: Việt Nam thuộc nhóm middle-income, 75 USD nếu là hội viên AFA, 125 USD nếu không), rồi theo link sang Wiley Research Exchange để nộp. Nút Submit trên Wiley Online Library có thể chuyển sai sang Journal Finder.
+- [ ] Lưu biên lai (receipt) phí nộp bài và upload làm Supplementary file: Author Guidelines ghi "Submission Fee: Supplementary file" và phí phải trả trước khi bài được xử lý.
 - [ ] Nhập tác giả: họ ở ô Family, tên ở Given, đệm ở Middle (ví dụ Given "Trung", Middle "Van", Family "Nguyen").
 - [ ] Keywords nhập cách nhau bằng dấu chấm phẩy: {{KEYWORDS}}.
 - [ ] Mở 02 bằng Word kiểm tra công thức (LibreOffice không hiển thị công thức OMML).
