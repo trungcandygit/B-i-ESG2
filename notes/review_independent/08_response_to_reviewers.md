@@ -1,6 +1,6 @@
 # Response to Reviewers — revision round after the independent five-seat review
 
-Manuscript v2: "Rated at the Peak? Firm Valuation around the First LSEG ESG Score in Five Southeast Asian Markets"
+Manuscript v2.1: "Rated at the Peak? Firm Valuation around the First LSEG ESG Score in Five Southeast Asian Markets"
 (previous title: "Rated Firms Gain Value Before, Not After, Their First ESG Score: Evidence from Five Southeast Asian
 Markets"). Roadmap: `06_editorial_decision.md` (RR-1 … RR-26). Section numbers refer to the revised manuscript.
 Where the data cannot support a requested analysis, we say so and treat the point as a limitation rather than
@@ -48,6 +48,10 @@ Points on which we disagree or cannot comply:
 - R2 request to code prior FTSE Russell/SET ratings and index entry, R3 request to analyse foreign-ownership
   limits, EIC request to decompose market capitalization into price and shares: the data do not contain these
   variables; stated as limitations (§7) rather than approximated.
+
+Version 2.1 adds in-text citations, drawn only from the reference list already in v2, to the hypotheses
+(§2), data (§3), every methods subsection (§4), each results subsection (§5.1–5.6) and the discussion (§6), so that
+the design choices and each result are tied to prior work; no new references were added.
 
 The full text grew from about 3,400 to about 7,200 words of main text at the authors' request; the authors will
 shorten it to the JF:IP limit before submission (ledger D-13).

@@ -116,7 +116,7 @@ def main(docx_dir):
     for m in re.finditer(r"([A-Z][A-Za-zÀ-ž'\-]+)[^()]{0,60}?,? (?:\(|)(\d{4})\)", body):
         in_text.add((m.group(1), m.group(2)))
     ref_first = {s for s, _ in surnames}
-    not_authors = {'FTSE', 'LSEG', 'ESG', 'MTB', 'ATT', 'Table', 'Figure', 'Section', 'Eq', 'The', 'In', 'We'}
+    not_authors = {'FTSE', 'LSEG', 'ESG', 'MTB', 'ATT', 'Table', 'Figure', 'Section', 'Eq', 'The', 'In', 'We', 'Inference', 'Following', 'Because', 'This', 'As', 'If', 'A', 'Singapore'}
     orphan = [(a, y) for a, y in in_text if a not in not_authors and y.startswith(('19', '20')) and a not in ref_first and not any(a in r for r in refs_list)]
     check('no in-text citation missing from references', not orphan, str(orphan[:6]))
     verified = open(os.path.join(ROOT, 'notes', '05_references_verified.md'), encoding='utf-8').read()

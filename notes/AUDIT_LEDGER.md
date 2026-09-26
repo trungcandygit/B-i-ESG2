@@ -114,3 +114,18 @@ tự giải quyết bằng mặc định hợp lý nhất và ghi tại đây.
 - Tiêu đề mới: "Rated at the Peak? Firm Valuation around the First LSEG ESG Score in Five Southeast Asian Markets";
   running title "Valuation around first ESG scores" (33 ký tự); 7 keywords (xếp chữ cái); JEL G14, G15, G32, M14, Q56.
 - Response to Reviewers: `notes/review_independent/08_response_to_reviewers.md` (26/26 mục có trạng thái).
+
+## Iter 6 — v2.1 bổ sung trích dẫn + Stage 3' Phase 1 (2026-09-26)
+- Người dùng yêu cầu (2026-09-26): "phải trích dẫn đầy đủ ở trong các mục… liên hệ kết quả nghiên cứu, có trích dẫn
+  các tác giả khác. Phương pháp cũng vậy. Không tìm thêm tác giả mà trích dẫn các tác giả đã có sẵn". v2.1: thêm trích
+  dẫn (chỉ dùng 31 tài liệu đã có, không thêm tài liệu mới) vào §2, §3, §4 (mọi tiểu mục), §5.1–5.6, §6.
+- academic-paper citation_compliance_agent (Phase 5a): `notes/05b_citation_compliance_v2_1.md` → PASS; 31 tài liệu,
+  0 orphan hai chiều, 67% từ 2021+; retraction screening = not_checked (không có Crossref/Retraction Watch offline).
+- checks.py 96/96 PASS; full text 9.730 từ (D-13 PASS); thân bài 8.209 (JF:IP WARN).
+- Stage 3' Phase 1 (subagent độc lập, mù bài): `notes/re_review/phase1_precommitment.{json,md}`; 26 bản ghi
+  (10 must_fix RR-1…RR-10, 16 should_fix RR-11…RR-26), JSON hợp lệ theo precommitment.schema.json; thẻ cuối
+  [CONTRACT-ACKNOWLEDGED]. Lệch checker đã ghi nhận: input_manifest_hash = placeholder 64 số 0 (không có manifest,
+  D-14); nhãn ghế lấy từ tiền tố "R1-W1" vì bảng Sources không theo ngữ pháp §10; letter_text trích đoạn thư gần nhất
+  (thư vòng 1 không có khối acceptance criteria). NS-1 (advisory): CI cho con số pre-trend 14.1%/10.0%.
+- Xuất lại bản sửa v2.1 cho Phase 2: `notes/re_review/input/revised_manuscript_v2_1.md` + `diff_v1_1_to_v2_1.patch`
+  (thay bản v2 xuất trước khi thêm trích dẫn).
