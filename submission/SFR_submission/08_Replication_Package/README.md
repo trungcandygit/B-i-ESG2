@@ -1,4 +1,4 @@
-# Replication package — "Rated Firms Gain Value Before, Not After, Their First ESG Score"
+# Replication package — "Rated at the Peak? Firm Valuation around the First LSEG ESG Score in Five Southeast Asian Markets"
 
 ## Requirements
 R 4.3 or later with packages readxl, dplyr, tidyr, ggplot2, plm, sandwich (parallel is part of base R).
@@ -18,7 +18,7 @@ Reruns reproduce every CSV byte for byte.
 | Figure 1 | outputs/figures/Fig1.eps, Fig1.png (data: event_study.csv) |
 | Table 3 | outputs/table3_formatted.csv (raw: att_main.csv, robustness.csv, twfe_static.csv, robustness_revision.csv, heterogeneity_initial_score.csv) |
 | Table S1 | outputs/tableIA1_formatted.csv (raw: leave_one_market_out.csv) |
-| Table S2, Figure IA1 | outputs/tableIA2_formatted.csv, outputs/figures/FigIA1.* (raw: cohort_sizes.csv) |
+| Table S2, Figure S1 | outputs/tableIA2_formatted.csv, outputs/figures/FigIA1.* (raw: cohort_sizes.csv) |
 | Numbers quoted in the text | outputs/numbers.csv (key → formatted value) |
 | Sample construction | outputs/sample_flow.csv, coverage_gaps.csv |
 | Group-time effects | outputs/att_gt.csv |

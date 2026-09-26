@@ -50,8 +50,9 @@ skill đã load còn hiệu lực cả phiên, **không gọi lại**.
   minor revision round 2). File của bài gốc đã xoá khỏi repo theo yêu cầu người dùng (2026-09-26, ledger Iter 10;
   vẫn còn trong lịch sử git). Dữ liệu: `Dữ liệu ban đầu và thô/DATA GW2.xlsx`.
 - Bản đồ vùng cấm trùng: `notes/00_original_paper_map.md`.
-- Bài mới (bản thảo làm việc): `manuscript/` ; bộ hồ sơ nộp: `submission/JFIP_submission/`
-  (dựng bằng `project_R/docx_build/build_submission.py`).
+- Bài mới (bản thảo làm việc): `manuscript/` ; tạp chí đích hiện tại: Sustainable Finance Review (Emerald), bộ hồ sơ nộp
+  `submission/SFR_submission/` (dựng bằng `project_R/docx_build/build_sfr.py`, nội dung riêng ở `manuscript/sfr.md`).
+  Bộ JF:IP cũ đã xoá (còn trong lịch sử git, commit 7b5fee5).
 - Nhật ký: `notes/AUDIT_LEDGER.md`. Kiểm tra trùng lặp: `notes/09_overlap_audit.md`.
 - Tác giả (người dùng chốt 2026-09-26, ledger D-31): Nguyen Thanh Binh, Nguyen Van Trung (liên hệ), Ha Hong Hanh, Nguyen Bach Diep.
 

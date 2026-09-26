@@ -271,3 +271,20 @@ tự giải quyết bằng mặc định hợp lý nhất và ghi tại đây.
   không còn tên, email, ORCID, đơn vị; không có people.xml; 5 file qua validate.py.
   Lưu ý chưa xử lý (chờ tác giả): (1) JF:IP yêu cầu khai báo AI trong Methods, bản hiện tại không còn khai báo nào;
   (2) cover letter 06 vẫn viết "described in Section 4.6".
+
+## Iter 11 — Đổi tạp chí đích sang Sustainable Finance Review (Emerald) (2026-09-26)
+- D-33 (người dùng): JF:IP thu phí nộp và chưa có trong Scopus → chuyển sang Sustainable Finance Review (SFR, Emerald).
+  Theo Emerald Author Guidelines (18/6/2026, người dùng dán) và bài mẫu SFR (sfr-10-2025-0039, Vol. 1 No. 2):
+  structured abstract (Purpose; Design/methodology/approach; Findings; Research limitations/implications; Practical
+  implications; Originality/value) 236/250 từ kể cả keywords và paper type; 6 keywords; Paper type: Research paper; JEL;
+  Emerald Harvard (tài liệu tham khảo viết lại trong manuscript/sfr.md, trích dẫn "and", et al. nghiêng); heading cấp 1
+  đậm, cấp 2 nghiêng không đậm, số mục "2.1" không có dấu chấm cuối; bảng tách file 03_Tables.docx, vị trí đánh dấu
+  "[Insert Table n here]"; hình tách file (EPS) + file Word có chú thích; "Note(s):" và "Source(s): Authors' own work…"
+  dưới mỗi bảng, hình (theo bài mẫu và guideline "If the figure/table is the property of the author(s)…"); "Fig." →
+  "Figure"; Supplemental Appendix → "Supplementary_material_appendix_1".
+- Đánh số bảng: guideline chung của Emerald nói số La Mã, nhưng bài SFR đã đăng dùng "Table 1, 2…"; chọn số Ả Rập theo
+  bài mẫu (người dùng yêu cầu theo bài mẫu), đổi được nếu biên tập viên yêu cầu.
+- Khai báo AI: tác giả đã bỏ §4.6 khỏi thân bài; Emerald yêu cầu khai báo → đặt ở Title Page (mục "Declaration of
+  generative AI use"), không nằm trong bản ẩn danh.
+- Giới hạn số từ của SFR chưa xác minh (emerald.com bị chặn). Thân bài 6.127 từ; thân bài + abstract + references 7.151.
+- Xoá submission/JFIP_submission (còn trong lịch sử git, commit 7b5fee5, gồm các file tác giả sửa tay).
