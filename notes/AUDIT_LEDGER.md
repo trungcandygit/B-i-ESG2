@@ -229,3 +229,6 @@ tự giải quyết bằng mặc định hợp lý nhất và ghi tại đây.
 - Stage 4.5 (subagent độc lập, Mode 2 final): FAIL (0 SERIOUS, 3 MEDIUM, 14 MINOR; 31/31 tài liệu tồn tại; mọi số khớp
   R). Đã sửa toàn bộ trên bản đã ghép vòng 1: `notes/final_integrity/stage4_5_dispositions.md` (MEDIUM-1 viết lại không
   thêm tài liệu; E6: 2 restore, 1 authorize_with_reason). checks.py 99/100 (còn FAIL số từ JF:IP → vòng 2).
+- 2026-09-26: người dùng dừng cả 3 agent vòng ngôn ngữ 2 (proofreading, stop-slop, coherence) trước khi chúng ghi báo
+  cáo; không có file báo cáo nào. Không tự khởi chạy lại. Trạng thái bản thảo: sau vòng 1 + sửa Stage 4.5; thân bài
+  6.313 từ (vượt giới hạn JF:IP 6.200); checks.py 99/100 PASS.
