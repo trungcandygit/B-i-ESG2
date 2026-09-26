@@ -138,3 +138,8 @@ tự giải quyết bằng mặc định hợp lý nhất và ghi tại đây.
   Table 3/IA1/IA3 để ô số không xuống dòng (đã render PDF kiểm tra); (v) Table IA3 cột đầu "Market" (sửa trong R
   04_tables_figures.R, chạy lại run_all.R). Các sửa này đến sau ảnh chụp Phase 2A (chỉ trình bày, không đổi số/ý) và
   sẽ được Stage 4.5 xem trên bản cuối.
+- D-16 (2026-09-26): người dùng hỏi "phản biện phải 5 sub agent". Vòng 1 (Stage 3, full review) đã chạy 5 subagent
+  độc lập (notes/review_independent/{EIC,R1,R2,R3,DA}_phase1/2.md). Vòng phản biện lại (Stage 3', re-review mode)
+  theo re_review_mode_protocol.md dòng 186: "routing changes the PERSONA, not the call count — the three gates stay
+  three sequential fenced calls" → Phase 1 / 2A / 2B là 3 subagent độc lập, mỗi mục chấm dưới persona ghế
+  EIC/R1/R2/R3 đã định tuyến. Giữ đúng skill; không thêm panel 5 ghế ngoài quy trình.
