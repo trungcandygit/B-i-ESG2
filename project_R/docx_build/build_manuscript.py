@@ -172,7 +172,7 @@ def equation(d, text):
     return p
 
 
-def write_body(d, text):
+def write_body(d, text, inline=None):
     for b in blocks(text):
         if b.startswith('## '):
             heading(d, b[3:], 2)
@@ -184,6 +184,14 @@ def write_body(d, text):
             equation(d, b)
         else:
             body_par(d, b)
+            # Reading copy only: place each exhibit after the paragraph that first cites it.
+            for ex in list(inline or []):
+                lab = ex['args']['caption'].split('|')[0].strip()
+                if re.search(r'\b' + re.escape(lab) + r'(?!\d)', b):
+                    n0 = len(d.paragraphs)
+                    (table_exhibit if ex['kind'] == 'table' else figure_exhibit)(d, **ex['args'])
+                    d.paragraphs[n0].paragraph_format.page_break_before = True   # caption starts a new page
+                    inline.remove(ex)
 
 
 def page_break(d):
@@ -249,7 +257,7 @@ def figure_exhibit(d, caption, png, note, source):
     page_break(d)
 
 
-def build(anonymized, out, meta, secs, exhibits):
+def build(anonymized, out, meta, secs, exhibits, inline=False):
     d = base_doc()
     p = d.add_paragraph(); add_runs(p, secs['title'], bold=True, size=14); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
     set_spacing(p, 1.5, 12)
@@ -270,14 +278,18 @@ def build(anonymized, out, meta, secs, exhibits):
     page_break(d)
     body = secs['body'].replace('[[COMPANION]]', meta['companion_blind' if anonymized else 'companion_named'])
     assert '[[' not in body, 'unresolved anchor in body'
-    write_body(d, body)
+    left = list(exhibits) if inline else None
+    write_body(d, body, left)
+    if inline:
+        assert not left, 'exhibit not cited in body: ' + str([e['args']['caption'] for e in left])
     heading(d, 'References', 1)
     for b in blocks(secs['references']):
         p = d.add_paragraph(); add_runs(p, b); set_spacing(p, 1.5, 4)
         p.paragraph_format.left_indent = Inches(0.3); p.paragraph_format.first_line_indent = Inches(-0.3)
-    page_break(d)
-    for ex in exhibits:
-        (table_exhibit if ex['kind'] == 'table' else figure_exhibit)(d, **ex['args'])
+    if not inline:
+        page_break(d)
+        for ex in exhibits:
+            (table_exhibit if ex['kind'] == 'table' else figure_exhibit)(d, **ex['args'])
     d.save(out)
 
 
@@ -315,5 +327,7 @@ if __name__ == '__main__':
     os.makedirs(outdir, exist_ok=True)
     build(False, os.path.join(outdir, 'Manuscript_with_Author_Details.docx'), meta, secs, exhibits)
     build(True, os.path.join(outdir, 'Manuscript_Anonymized.docx'), meta, secs, exhibits)
+    # Reading copy with exhibits placed in the text (JF:IP submission files keep tables and figures after the references).
+    build(False, os.path.join(outdir, 'Reading_Copy_Exhibits_in_Text.docx'), meta, secs, exhibits, inline=True)
     build_ia(os.path.join(outdir, 'Internet_Appendix.docx'), secs, parse_exhibits(secs, 'exhibits_ia'))
     print('built', outdir)

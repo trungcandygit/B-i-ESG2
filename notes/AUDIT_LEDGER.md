@@ -184,3 +184,10 @@ tự giải quyết bằng mặc định hợp lý nhất và ghi tại đây.
   Main text → References → Tables → Figures (legend dưới hình); Supplemental Appendix = Internet Appendix riêng.
   Nhãn hình giữ "Fig. n" (CLAUDE.md E1; Free Format chỉ yêu cầu nhất quán). Bộ hồ sơ S10 sẽ thêm Plain Language
   Summary và Suggested X post (tuỳ chọn).
+- D-20 (2026-09-26): người dùng hỏi vì sao bảng/hình ở cuối. JF:IP quy định thứ tự file chính: title page → abstract →
+  keywords → main text → references → tables → figures → nên bản nộp giữ nguyên. Thêm bản đọc
+  `manuscript/Reading_Copy_Exhibits_in_Text.docx` (mỗi bảng/hình đặt sau đoạn nhắc đến nó lần đầu, sang trang mới)
+  để đọc/duyệt; không dùng để nộp.
+- D-21 (2026-09-26): kiểu tài liệu tham khảo. JF:IP: "There is no submission requirement for formatting references"
+  (Free Format) → không bắt buộc APA. Bài dùng kiểu author-year của Journal of Finance (tạp chí anh em cùng AFA):
+  "Tác giả, Năm, Tên bài, *Tạp chí* Tập(Số), trang. DOI" — nhất quán, đủ các trường JF:IP yêu cầu. Giữ nguyên.
