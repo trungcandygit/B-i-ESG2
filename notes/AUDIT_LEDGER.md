@@ -258,3 +258,8 @@ tự giải quyết bằng mặc định hợp lý nhất và ghi tại đây.
   Giữ `Dữ liệu ban đầu và thô/DATA GW2.xlsx` (run_all.R cần). Mọi file đã xoá vẫn còn trong lịch sử git.
 - D-30 (2026-09-26, người dùng): "bỏ câu đó đi, vì bản đó chưa tính đăng ở đâu". Xoá câu về bản thảo khác khỏi cover
   letter theo quyết định của tác giả; bài mới không còn nhắc tới bài kia ở bất kỳ file nộp nào.
+- D-31 (2026-09-26, người dùng): thay nhóm tác giả (thay D-3): Nguyen Thanh Binh^a^, Nguyen Van Trung^a,*^ (liên hệ,
+  15233582@st.neu.edu.vn), Ha Hong Hanh^b^ (School of Accounting and Auditing, NEU), Nguyen Bach Diep^a^; email, ORCID
+  theo người dùng. Cập nhật meta.md, COI, cover letter, token ẩn danh. Author contributions của Ha Hong Hanh
+  (Methodology, Validation, Writing – review and editing) và Nguyen Bach Diep (Data curation, Validation, Writing –
+  review and editing) là mặc định do Claude đặt, cần tác giả xác nhận.

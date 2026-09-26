@@ -1,14 +1,20 @@
 % Author block and title-page statements (used only in the version with author details and in 01_Title_Page).
 @@ authors
-Nguyen Thanh Binh^a^, Nguyen Van Trung^a,^*, Nguyen Anh Tuan^b^
+Nguyen Thanh Binh^a^, Nguyen Van Trung^a,^*, Ha Hong Hanh^b^, Nguyen Bach Diep^a^
 
 ^a^ Academy of Policy and Development, Nam An Khanh Urban Area, Hoai Duc District, Hanoi, Vietnam
 
-^b^ Foreign Trade University, 91 Chua Lang Street, Dong Da District, Hanoi, Vietnam
+^b^ School of Accounting and Auditing, National Economics University, Hanoi, Vietnam
 
-* Corresponding author: Nguyen Van Trung, Academy of Policy and Development. Email: kontrungcany@gmail.com. Tel: +84 355 347 831.
+\* Corresponding author: Nguyen Van Trung, Academy of Policy and Development, Nam An Khanh Urban Area, Hoai Duc District, Hanoi, Vietnam. Email: 15233582@st.neu.edu.vn. Tel: +84 355 347 831.
 
-Nguyen Thanh Binh: nguyenthanhbinhapd@apd.edu.vn (ORCID 0009-0007-0042-2835); Nguyen Van Trung: kontrungcany@gmail.com (ORCID 0009-0008-3307-6569); Nguyen Anh Tuan: nguyenanhtuan17105@gmail.com (ORCID 0009-0000-1901-1541)
+Nguyen Thanh Binh: nguyenthanhbinhapd@apd.edu.vn; ORCID 0009-0007-0042-2835
+
+Nguyen Van Trung: 15233582@st.neu.edu.vn; ORCID 0009-0008-3307-6569
+
+Ha Hong Hanh: hanhhh@neu.edu.vn; ORCID 0000-0003-3581-6571
+
+Nguyen Bach Diep: diepnb@apd.edu.vn; ORCID 0009-0003-0967-7528
 
 @@ statements
 ## Acknowledgements
@@ -25,7 +31,7 @@ The ESG scores (LSEG Workspace) and the accounting and market data (Compustat Gl
 
 ## Conflict of interest disclosure
 
-Nguyen Thanh Binh has nothing to disclose. Nguyen Van Trung has nothing to disclose. Nguyen Anh Tuan has nothing to disclose.
+Nguyen Thanh Binh has nothing to disclose. Nguyen Van Trung has nothing to disclose. Ha Hong Hanh has nothing to disclose. Nguyen Bach Diep has nothing to disclose.
 
 ## Ethics approval statement
 
@@ -33,7 +39,7 @@ Not applicable. The study uses firm-level secondary data and involves no human p
 
 ## Author contributions
 
-Nguyen Thanh Binh: Conceptualization, Supervision, Writing (review and editing). Nguyen Van Trung: Conceptualization, Data curation, Formal analysis, Methodology, Software, Visualization, Writing (original draft). Nguyen Anh Tuan: Data curation, Validation, Writing (review and editing).
+Nguyen Thanh Binh: Conceptualization, Supervision, Writing (review and editing). Nguyen Van Trung: Conceptualization, Data curation, Formal analysis, Methodology, Software, Visualization, Writing (original draft). Ha Hong Hanh: Methodology, Validation, Writing (review and editing). Nguyen Bach Diep: Data curation, Validation, Writing (review and editing).
 
 @@ companion_named
 This data set also underlies a companion study with a different research question (Nguyen, Nguyen, & Nguyen, GRI adoption and corporate brownwashing: Board governance evidence from ASEAN-5, manuscript under review at the International Journal of Management and Sustainability).

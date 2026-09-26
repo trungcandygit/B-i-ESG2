@@ -8,4 +8,4 @@ The manuscript is not under consideration elsewhere, and all authors have approv
 
 Sincerely,
 
-Nguyen Van Trung, on behalf of Nguyen Thanh Binh and Nguyen Anh Tuan
+Nguyen Van Trung, on behalf of Nguyen Thanh Binh, Ha Hong Hanh, and Nguyen Bach Diep

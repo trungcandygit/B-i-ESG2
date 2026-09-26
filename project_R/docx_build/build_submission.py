@@ -12,8 +12,9 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH
 
 SUB = os.path.join(ROOT, 'submission', 'JFIP_submission')
 PR = os.path.join(ROOT, 'project_R')
-AUTHOR_TOKENS = ['Nguyen', 'Binh', 'Trung', 'Tuan', 'kontrungcany', 'apd.edu', 'Academy of Policy',
-                 'Foreign Trade University', '0009-0007-0042-2835', '0009-0008-3307-6569', '0009-0000-1901-1541']
+AUTHOR_TOKENS = ['Nguyen', 'Binh', 'Trung', 'Hanh', 'Diep', 'Ha Hong', 'apd.edu', 'neu.edu', '15233582', 'Academy of Policy',
+                 'National Economics University', 'School of Accounting and Auditing', '0009-0007-0042-2835',
+                 '0009-0008-3307-6569', '0000-0003-3581-6571', '0009-0003-0967-7528']
 
 
 def words(text):
@@ -70,7 +71,7 @@ def main():
     # 06 Cover letter
     d = base_doc()
     for line in ['Nguyen Van Trung (corresponding author)', 'Academy of Policy and Development, Hanoi, Vietnam',
-                 'kontrungcany@gmail.com', '', 'The Editors', 'Journal of Finance: Insights and Perspectives', '']:
+                 '15233582@st.neu.edu.vn', '', 'The Editors', 'Journal of Finance: Insights and Perspectives', '']:
         q = d.add_paragraph(); add_runs(q, line); set_spacing(q, 1.0, 0)
     for para in blocks(open(os.path.join(ROOT, 'manuscript', 'cover_letter.md'), encoding='utf-8').read()):
         para = para.replace('{{WORDCOUNT}}', f'{wc:,}').replace('{{LIMIT}}', f'{limit:,}') \

@@ -53,7 +53,7 @@ skill đã load còn hiệu lực cả phiên, **không gọi lại**.
 - Bài mới (bản thảo làm việc): `manuscript/` ; bộ hồ sơ nộp: `submission/JFIP_submission/`
   (dựng bằng `project_R/docx_build/build_submission.py`).
 - Nhật ký: `notes/AUDIT_LEDGER.md`. Kiểm tra trùng lặp: `notes/09_overlap_audit.md`.
-- Tác giả: theo nhóm tác giả của bài gốc (xem ledger D-3).
+- Tác giả (người dùng chốt 2026-09-26, ledger D-31): Nguyen Thanh Binh, Nguyen Van Trung (liên hệ), Ha Hong Hanh, Nguyen Bach Diep.
 
 ## 4. FORCE RULES A–H của người dùng (2026-09-25, bắt buộc 100%)
 
