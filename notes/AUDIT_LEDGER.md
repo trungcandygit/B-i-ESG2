@@ -157,3 +157,5 @@ tự giải quyết bằng mặc định hợp lý nhất và ghi tại đây.
   kiến theo D-14; không có manifest/bundle/sidecar).
 - D-17: theo academic-pipeline, 3' Major → Stage 4' (vòng revision thứ 2, cuối cùng theo giới hạn ≤ 2 vòng).
   Danh sách sửa 37 mục trong phase2B_decision.md; làm hết, rồi Stage 4.5.
+- Chạy lại toàn bộ run_all.R (16,9 phút) sau D-15: mọi file trong project_R/outputs giống hệt từng byte so với lần chạy
+  trước (md5), trừ tableIA3_formatted.csv (đổi tiêu đề cột "Market", có chủ đích). → FORCE A4 byte-identical PASS.

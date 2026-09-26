@@ -1,4 +1,4 @@
-"Specification","ln(MTB)","ln(market capitalization)","Book leverage","ln(total assets)","Scored firms (ln MTB)"
+"Market","ln(MTB)","ln(market capitalization)","Book leverage","ln(total assets)","Scored firms (ln MTB)"
 "Indonesia","0.054 (0.128)","−0.018 (0.109)","0.023 (0.018)","0.123* (0.070)","39"
 "Malaysia","0.009 (0.033)","−0.114** (0.048)","0.002 (0.006)","0.033 (0.024)","372"
 "Philippines","−0.006 (0.109)","0.101 (0.128)","0.041 (0.028)","0.025 (0.079)","14"

@@ -103,3 +103,53 @@ for (y in names(OUTCOMES)) {
 write_out(bind_rows(rev2_rows), "robustness_revision2.csv")
 write_out(bind_rows(pm_rows), "per_market.csv")
 write_out(bind_rows(rm_rows), "rm_bounds.csv")
+
+# ---- Revision round 3 (exploratory; Stage 3' re-review, notes/re_review/phase2B_decision.md Section 8) ----
+# (a) R10 diagnostics: event study, pre-trend test and relative-magnitude bounds with base year = first scored year.
+# (b) Breakdown values of M-bar: the smallest M-bar at which the robust interval admits a +5% MTB change or any
+#     positive effect. (c) Firms by event year. (d) Size overlap at g-1. (e) Attrition of scored firms by e = 3.
+r10_ev <- list(); r10_pre <- list(); r10_rm <- list(); bd_rows <- list()
+bd_one <- function(res, label, y) {
+  b <- rm_bounds(res, Mbar = 1)
+  unit <- b$bias_bound                     # bias bound per unit of M-bar
+  hi <- b$robust_hi - unit                 # bootstrap upper limit
+  data.frame(outcome = y, spec = label, ci_hi = hi, bias_per_Mbar = unit,
+             Mbar_admit_zero = max(0, (0 - hi) / unit), Mbar_admit_5pct = max(0, (log(1.05) - hi) / unit))
+}
+for (y in names(OUTCOMES)) {
+  cat("Revision 3:", y, "\n")
+  r10 <- run_cs(y, control = "never", covars = TRUE, shift_G = 1)
+  s10 <- summ(r10)
+  r10_ev[[y]] <- cbind(outcome = y, s10[s10$term != "post", ])
+  r10_pre[[y]] <- cbind(outcome = y, pretrend_wald(r10))
+  r10_rm[[y]] <- cbind(outcome = y, rm_bounds(r10))
+  bd_rows[[paste(y, "main")]] <- bd_one(main[[y]], "baseline", y)
+  bd_rows[[paste(y, "R10")]] <- bd_one(r10, "R10_shift1", y)
+}
+write_out(bind_rows(r10_ev), "r10_event_study.csv")
+write_out(bind_rows(r10_pre), "r10_pretrend_tests.csv")
+write_out(bind_rows(r10_rm), "r10_rm_bounds.csv")
+write_out(bind_rows(bd_rows), "rm_breakdown.csv")
+
+# (c) Scored firms, cohorts, and control firms per cell by event year (ln MTB, baseline).
+gtm <- main[["ln_mtb"]]$gt %>% filter(!is.na(att))
+write_out(gtm %>% group_by(e) %>% summarise(scored_firms = sum(n_treated), cohorts = n_distinct(g),
+                                            controls_min = min(n_control), controls_max = max(n_control)),
+          "firms_by_event_time.csv")
+
+# (d) Size overlap at g-1: scored firms' ln(total assets) against never-scored firms in the same calendar year.
+nev_q <- panel %>% filter(!treated, !is.na(ln_asset)) %>% group_by(year) %>%
+  summarise(q95 = quantile(ln_asset, 0.95, names = FALSE))
+tr_b <- panel %>% filter(treated, year == G - 1, !is.na(ln_asset)) %>% left_join(nev_q, by = "year")
+p10 <- quantile(tr_b$ln_asset, 0.10, names = FALSE)
+write_out(data.frame(
+  n_scored = nrow(tr_b),
+  share_scored_above_never_p95 = mean(tr_b$ln_asset > tr_b$q95),
+  share_never_below_scored_p10 = mean(panel$ln_asset[!panel$treated & !is.na(panel$ln_asset)] < p10)),
+  "size_overlap.csv")
+
+# (e) Attrition: scored firms in cohorts observed through e = 3 (G <= 2021) with ln MTB at g-1 and at g+3.
+att_b <- panel %>% filter(treated, G <= 2021, year == G - 1, !is.na(ln_mtb)) %>% select(firm_id, G)
+att_3 <- panel %>% filter(treated, year == G + 3, !is.na(ln_mtb)) %>% select(firm_id)
+write_out(data.frame(n_base = nrow(att_b), n_e3 = sum(att_b$firm_id %in% att_3$firm_id),
+                     share_e3 = mean(att_b$firm_id %in% att_3$firm_id)), "attrition_e3.csv")
