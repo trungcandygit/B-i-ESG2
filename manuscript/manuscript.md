@@ -53,11 +53,11 @@ Sell-side coverage offers an analogy: losing analyst coverage lowers prices (Kel
 
 The pre-analysis plan states three hypotheses, each tested two-sided.
 
-H1 (primary): The initiation of LSEG ESG coverage changes the log MTB ratio of scored firms relative to comparable never-scored firms. The recognition and preference channels predict a positive effect; the selection view predicts no effect after coverage and relative growth before it.
+H~1~ (primary): The initiation of LSEG ESG coverage changes the log MTB ratio of scored firms relative to comparable never-scored firms. The recognition and preference channels predict a positive effect; the selection view predicts no effect after coverage and relative growth before it.
 
-H2 (secondary): Coverage changes log market capitalization, book leverage, and log total assets.
+H~2~ (secondary): Coverage changes log market capitalization, book leverage, and log total assets.
 
-H3 (heterogeneity): The effect on log MTB differs between firms with initial scores above and below their cohort median, as the preference channel and the evidence on favorable first coverage suggest.
+H~3~ (heterogeneity): The effect on log MTB differs between firms with initial scores above and below their cohort median, as the preference channel and the evidence on favorable first coverage suggest.
 
 # 3. Institutional Setting and Data
 
@@ -69,7 +69,7 @@ Table S2 and Fig. S1 of the Supplemental Appendix show that coverage arrived in 
 
 ## 3.2. Sample and coverage timing
 
-The data cover all {{n_universe_firms}} firms listed in the five markets from 2014 to 2024, or {{n_universe_fy}} firm-years, and combine the annual LSEG ESG score (LSEG, 2025) with accounting and market data from Compustat Global (S&P Global Market Intelligence, 2025). We use the ESG score, not the controversy-adjusted combined score. The files do not record the download date, so the vintage of recent, revisable scores is unknown. [[COMPANION]] That study uses only firm-years with ESG and governance data and asks how reporting standards and board structure relate to the gap between ESG scores and controversy scores. The present paper uses the full listed universe, treats the first appearance of an ESG score as an event, and studies market valuation and financing. No outcome or treatment variable, estimate, table, or figure is shared between the two papers.
+The data cover all {{n_universe_firms}} firms listed in the five markets from 2014 to 2024, or {{n_universe_fy}} firm-years, and combine the annual LSEG ESG score (LSEG, 2025) with accounting and market data from Compustat Global (S&P Global Market Intelligence, 2025). We use the ESG score, not the controversy-adjusted combined score. The files do not record the download date, so the vintage of recent, revisable scores is unknown.
 
 Dropping financial firms leaves {{n_nonfin_firms}} firms. A firm's treatment year, g, is its first fiscal year with an LSEG ESG score. Only {{n_cov_gap}} of the {{n_treated_all}} scored firms have a later year without a score, so we treat coverage as permanent, the staggered-adoption setting of Callaway and Sant'Anna (2021). Excluding the {{n_cov2014}} firms scored in 2014, which have no pre-coverage year, leaves a full firm-year grid of {{n_est_firms}} firms and {{n_est_fy}} firm-years: {{n_treated_all}} firms first scored between {{n_coh_min_year}} and {{n_coh_max_year}} and {{n_never}} never-scored firms. A firm-year enters an estimate only if its outcome is observed in both the base year and the comparison year; MTB ratios at or below zero, which reflect negative book equity, are set to missing. Table S4 of the Supplemental Appendix reports firm-years by outcome, and Table S6 scored firms by event year. Of the {{n_attr_base}} scored firms with a base-year MTB ratio in cohorts observed through event year 3, {{n_attr_e3}}, or {{pct_attr_e3}} percent, still have one in event year 3; the others have no MTB ratio in event year 3. Never-scored firms are much smaller on average, and many trade thinly. The comparison of changes adjusted for size, country, and industry does not need similar levels, but it needs enough never-scored firms of comparable size; a check in Section 4.5 drops small control firms.
 
@@ -153,7 +153,7 @@ The pre-analysis plan fixed rows R1 to R6 of Table 3: four robustness checks, a 
 
 ## 4.6. Use of generative AI
 
-The authors used Claude (Anthropic) through Claude Code in September 2026 to screen candidate research questions, draft the pre-analysis plan, write and debug the R code, draft and edit the text, and search for and check references. Five instances of the tool, each in a separate context, also produced simulated referee reports that informed the revision. The authors reviewed and approved the research question and the pre-analysis plan before any estimation, reviewed every output of the tool, checked each reported number against the R output files, and take full responsibility for the content.
+We used Claude (Anthropic), through Claude Code, in September 2026 to screen research questions, draft the pre-analysis plan, write the R code, edit the text, check references, and simulate referee reports. We reviewed every output, checked each number against the R output files, and take full responsibility for the content.
 
 # 5. Results
 
@@ -240,7 +240,7 @@ Bikmetova, N., & Pirinsky, C. A. (2026). Do ESG rating agencies improve ESG perf
 
 Callaway, B., & Sant'Anna, P. H. C. (2021). Difference-in-differences with multiple time periods. *Journal of Econometrics*, *225*(2), 200–230. https://doi.org/10.1016/j.jeconom.2020.12.001
 
-Chen, H., Noronha, G., & Singal, V. (2004). The price response to S&P 500 index additions and deletions: Evidence of asymmetry and a new explanation. *Journal of Finance*, *59*(4), 1901–1929. https://doi.org/10.1111/j.1540-6261.2004.00683.x
+Chen, H., Noronha, G., & Singal, V. (2004). The price response to S&P 500 index additions and deletions: Evidence of asymmetry and a new explanation. *The Journal of Finance*, *59*(4), 1901–1929. https://doi.org/10.1111/j.1540-6261.2004.00683.x
 
 Christensen, D. M., Serafeim, G., & Sikochi, A. (2022). Why is corporate virtue in the eye of the beholder? The case of ESG ratings. *The Accounting Review*, *97*(1), 147–175. https://doi.org/10.2308/TAR-2019-0506
 
@@ -252,23 +252,23 @@ Gibson Brandon, R., Krueger, P., & Schmidt, P. S. (2021). ESG rating disagreemen
 
 Goodman-Bacon, A. (2021). Difference-in-differences with variation in treatment timing. *Journal of Econometrics*, *225*(2), 254–277. https://doi.org/10.1016/j.jeconom.2021.03.014
 
-Harris, L., & Gurel, E. (1986). Price and volume effects associated with changes in the S&P 500 list: New evidence for the existence of price pressures. *Journal of Finance*, *41*(4), 815–829. https://doi.org/10.1111/j.1540-6261.1986.tb04550.x
+Harris, L., & Gurel, E. (1986). Price and volume effects associated with changes in the S&P 500 list: New evidence for the existence of price pressures. *The Journal of Finance*, *41*(4), 815–829. https://doi.org/10.1111/j.1540-6261.1986.tb04550.x
 
-Hartzmark, S. M., & Sussman, A. B. (2019). Do investors value sustainability? A natural experiment examining ranking and fund flows. *Journal of Finance*, *74*(6), 2789–2837. https://doi.org/10.1111/jofi.12841
+Hartzmark, S. M., & Sussman, A. B. (2019). Do investors value sustainability? A natural experiment examining ranking and fund flows. *The Journal of Finance*, *74*(6), 2789–2837. https://doi.org/10.1111/jofi.12841
 
-Kelly, B., & Ljungqvist, A. (2012). Testing asymmetric-information asset pricing models. *Review of Financial Studies*, *25*(5), 1366–1413. https://doi.org/10.1093/rfs/hhr134
+Kelly, B., & Ljungqvist, A. (2012). Testing asymmetric-information asset pricing models. *The Review of Financial Studies*, *25*(5), 1366–1413. https://doi.org/10.1093/rfs/hhr134
 
 Krueger, P., Sautner, Z., Tang, D. Y., & Zhong, R. (2024). The effects of mandatory ESG disclosure around the world. *Journal of Accounting Research*, *62*(5), 1795–1847. https://doi.org/10.1111/1475-679X.12548
 
 LSEG. (2025). *LSEG ESG scores (ESG score field), annual, 2014–2024* [Data set]. LSEG Workspace.
 
-Merton, R. C. (1987). A simple model of capital market equilibrium with incomplete information. *Journal of Finance*, *42*(3), 483–510. https://doi.org/10.1111/j.1540-6261.1987.tb04565.x
+Merton, R. C. (1987). A simple model of capital market equilibrium with incomplete information. *The Journal of Finance*, *42*(3), 483–510. https://doi.org/10.1111/j.1540-6261.1987.tb04565.x
 
 Pástor, Ľ., Stambaugh, R. F., & Taylor, L. A. (2021). Sustainable investing in equilibrium. *Journal of Financial Economics*, *142*(2), 550–571. https://doi.org/10.1016/j.jfineco.2020.12.011
 
 Pedersen, L. H., Fitzgibbons, S., & Pomorski, L. (2021). Responsible investing: The ESG-efficient frontier. *Journal of Financial Economics*, *142*(2), 572–597. https://doi.org/10.1016/j.jfineco.2020.11.001
 
-Rambachan, A., & Roth, J. (2023). A more credible approach to parallel trends. *Review of Economic Studies*, *90*(5), 2555–2591. https://doi.org/10.1093/restud/rdad018
+Rambachan, A., & Roth, J. (2023). A more credible approach to parallel trends. *The Review of Economic Studies*, *90*(5), 2555–2591. https://doi.org/10.1093/restud/rdad018
 
 Roth, J. (2022). Pretest with caution: Event-study estimates after testing for parallel trends. *American Economic Review: Insights*, *4*(3), 305–322. https://doi.org/10.1257/aeri.20210236
 
@@ -276,9 +276,9 @@ Sahin, Ö., Bax, K., Paterlini, S., & Czado, C. (2023). The pitfalls of (non-def
 
 Sant'Anna, P. H. C., & Zhao, J. (2020). Doubly robust difference-in-differences estimators. *Journal of Econometrics*, *219*(1), 101–122. https://doi.org/10.1016/j.jeconom.2020.06.003
 
-Shleifer, A. (1986). Do demand curves for stocks slope down? *Journal of Finance*, *41*(3), 579–590. https://doi.org/10.1111/j.1540-6261.1986.tb04518.x
+Shleifer, A. (1986). Do demand curves for stocks slope down? *The Journal of Finance*, *41*(3), 579–590. https://doi.org/10.1111/j.1540-6261.1986.tb04518.x
 
-Singapore Exchange. (2016). *SGX Mainboard Rules 711A and 711B: Sustainability report* (introduced in 2016 and applicable to financial years ending on or after 31 December 2017; the linked page shows the current, amended text). https://rulebook.sgx.com/rulebook/711a
+Singapore Exchange. (2016). *SGX Mainboard Rules 711A and 711B: Sustainability report* [Listing rules]. SGX Rulebook. https://rulebook.sgx.com/rulebook/711a
 
 S&P Global Market Intelligence. (2025). *Compustat Global, annual fundamentals, 2014–2024* [Data set].
 

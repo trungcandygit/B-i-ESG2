@@ -7,7 +7,7 @@ Highlights are not required by JF:IP and are not produced."""
 import os, re, shutil, subprocess, sys, zipfile
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from build_manuscript import (load_numbers, parse_sections, parse_exhibits, blocks, base_doc, add_runs, set_spacing,
-                              heading, body_par, write_body, build, build_ia, MS, META, OUTR, ROOT)
+                              heading, body_par, write_body, build, build_ia, fill, save_doc, MS, META, OUTR, ROOT)
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 
 SUB = os.path.join(ROOT, 'submission', 'JFIP_submission')
@@ -24,6 +24,7 @@ def words(text):
 def pdf(docx_path):
     subprocess.run(['soffice', '--headless', '--convert-to', 'pdf', '--outdir', os.path.dirname(docx_path), docx_path],
                    env=dict(os.environ, HOME='/tmp/lohome'), check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    assert os.path.exists(docx_path[:-5] + '.pdf'), 'PDF export failed (is libreoffice-writer installed?)'
 
 
 def main():
@@ -48,7 +49,7 @@ def main():
     q = d.add_paragraph(); add_runs(q, '*JEL classification:* ' + secs['jel']); set_spacing(q)
     for b in blocks(meta['statements']):
         heading(d, b[3:], 2) if b.startswith('## ') else body_par(d, b, indent=False)
-    d.save(os.path.join(SUB, '01_Title_Page.docx'))
+    save_doc(d, os.path.join(SUB, '01_Title_Page.docx'))
 
     # 04 Competing interest declaration (one disclosure per author, as JF:IP requires)
     d = base_doc()
@@ -58,13 +59,13 @@ def main():
     for s in re.split(r'(?<=\.) ', coi):
         body_par(d, s, indent=False)
     body_par(d, 'None of the authors is an Editor or Editorial Board member of the Journal of Finance: Insights and Perspectives.', indent=False)
-    d.save(os.path.join(SUB, '04_Declaration_of_Competing_Interest.docx'))
+    save_doc(d, os.path.join(SUB, '04_Declaration_of_Competing_Interest.docx'))
 
     # 09 Word count file: main body only (no title, authors, abstract, acknowledgements, references, exhibits)
     body = secs['body'].replace('[[COMPANION]]', meta['companion_named'])
     d = base_doc(); write_body(d, body)
-    wc_path = os.path.join(SUB, '09_Word_Count.docx'); d.save(wc_path); pdf(wc_path)
-    wc = words(body); limit = 7000 - 200 * len(exhibits)
+    wc_path = os.path.join(SUB, '09_Word_Count.docx'); save_doc(d, wc_path); pdf(wc_path)
+    wc = words(re.sub(r'^\$\$.*$', '', body, flags=re.M)); limit = 7000 - 200 * len(exhibits)
 
     # 06 Cover letter
     d = base_doc()
@@ -72,9 +73,10 @@ def main():
                  'kontrungcany@gmail.com', '', 'The Editors', 'Journal of Finance: Insights and Perspectives', '']:
         q = d.add_paragraph(); add_runs(q, line); set_spacing(q, 1.0, 0)
     for para in blocks(open(os.path.join(ROOT, 'manuscript', 'cover_letter.md'), encoding='utf-8').read()):
-        body_par(d, para.replace('{{WORDCOUNT}}', f'{wc:,}').replace('{{LIMIT}}', f'{limit:,}')
-                 .replace('{{NEX}}', str(len(exhibits))), indent=False)
-    d.save(os.path.join(SUB, '06_Cover_Letter.docx'))
+        para = para.replace('{{WORDCOUNT}}', f'{wc:,}').replace('{{LIMIT}}', f'{limit:,}') \
+            .replace('{{NEX}}', str(len(exhibits))).replace('{{TITLE}}', secs['title'])
+        body_par(d, fill(para, nums), indent=False)
+    save_doc(d, os.path.join(SUB, '06_Cover_Letter.docx'))
 
     # 03 Figures
     fd = os.path.join(SUB, '03_Figures'); os.makedirs(fd)
@@ -83,7 +85,7 @@ def main():
 
     # 05 Replication package (code + outputs; licensed raw data excluded)
     rp = os.path.join(SUB, '05_Replication_Package'); os.makedirs(rp)
-    for sub in ('R', 'validation', 'overlap'):
+    for sub in ('R', 'validation'):
         shutil.copytree(os.path.join(PR, sub), os.path.join(rp, sub),
                         ignore=shutil.ignore_patterns('original_ESG2_text.txt', 'new_manuscript_sections.tsv'))
     shutil.copy(os.path.join(PR, 'run_all.R'), rp)
@@ -91,6 +93,16 @@ def main():
     shutil.copy(os.path.join(ROOT, 'notes', '02_analysis_plan.md'), os.path.join(rp, 'pre_analysis_plan.md'))
     shutil.copy(os.path.join(ROOT, 'manuscript', 'replication_README.md'), os.path.join(rp, 'README.md'))
     shutil.make_archive(os.path.join(SUB, '05_Replication_Package'), 'zip', rp)
+
+    # 00 Checklist (Vietnamese)
+    import checks as ck
+    ck.results.clear(); res = ck.main(SUB)
+    ck_txt = f"{sum(r[1] == 'PASS' for r in res)}/{len(res)} PASS"
+    t = open(os.path.join(ROOT, 'manuscript', 'checklist_template.md'), encoding='utf-8').read()
+    for k, v in {'{{TITLE}}': secs['title'], '{{WORDCOUNT}}': f'{wc:,}', '{{LIMIT}}': f'{limit:,}',
+                 '{{NEX}}': str(len(exhibits)), '{{CHECKS}}': ck_txt, '{{KEYWORDS}}': secs['keywords']}.items():
+        t = t.replace(k, v)
+    open(os.path.join(SUB, '00_CHECKLIST_NopBai.md'), 'w', encoding='utf-8').write(t)
 
     # Anonymization checks on 02
     z = zipfile.ZipFile(os.path.join(SUB, '02_Manuscript_Anonymized.docx'))

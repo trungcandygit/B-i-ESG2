@@ -232,3 +232,27 @@ tự giải quyết bằng mặc định hợp lý nhất và ghi tại đây.
 - 2026-09-26: người dùng dừng cả 3 agent vòng ngôn ngữ 2 (proofreading, stop-slop, coherence) trước khi chúng ghi báo
   cáo; không có file báo cáo nào. Không tự khởi chạy lại. Trạng thái bản thảo: sau vòng 1 + sửa Stage 4.5; thân bài
   6.313 từ (vượt giới hạn JF:IP 6.200); checks.py 99/100 PASS.
+
+## Iter 10 — Hoàn tất S10 bộ hồ sơ nộp + dọn repo (2026-09-26)
+- D-27 (người dùng): "Không cần TRIM gì hết, trim 4.6 là được". Bỏ các cắt gọn vòng 2 đã thử; chỉ rút gọn §4.6 (khai báo
+  AI vẫn nằm ở Methods vì Author Guidelines JF:IP bắt buộc) còn 2 câu. Người dùng: xoá đoạn phân biệt với bài
+  "Nguyen, Nguyen, & Nguyen" (cùng nhóm tác giả) → bỏ câu [[COMPANION]] và 2 câu so sánh ở §3.2 trong cả hai bản thảo.
+  Cover letter giữ MỘT câu trung tính báo biên tập viên rằng bộ dữ liệu cũng dùng cho một bản thảo khác của cùng
+  tác giả đang được phản biện ở IJMS, với câu hỏi, biến và phương pháp khác (Wiley/COPE yêu cầu báo cho biên tập
+  viên; cover letter không chuyển cho phản biện). Người dùng có thể xoá câu này nếu muốn.
+  Thân bài 6.165 từ ≤ 6.200 (JF:IP, 4 exhibit).
+- D-28 (người dùng, theo skill docx): nhãn giả thuyết viết chỉ số dưới H₁, H₂, H₃ (checks.py kiểm tra). Sửa lỗi schema
+  OOXML cố hữu do python-docx/pandoc sinh ra (thứ tự m:scr/m:sty, m:sepChr, tblCellMar và phần tử con, tblLayout lặp,
+  w:zoom thiếu percent) bằng save_doc() → mọi docx qua validate.py của skill docx.
+- D-29 (người dùng: "APA thì tên tạp chí phải in nghiêng"): tên tạp chí + số tập đã in nghiêng; kiểm tra lại toàn bộ
+  danh mục theo APA 7: dùng đúng tên chính thức "The Journal of Finance", "The Review of Financial Studies",
+  "The Review of Economic Studies"; mục Singapore Exchange bỏ chú thích trong ngoặc, dùng mô tả [Listing rules].
+  checks.py thêm kiểm tra "tên tạp chí và số tập in nghiêng trong mọi tài liệu có DOI".
+- Cover letter cũ sai tiêu đề và con trỏ mục (Section 2.1/2.4) → viết lại, tiêu đề và số liệu điền tự động.
+- S10: dựng `submission/JFIP_submission/` (00 checklist tiếng Việt, 01–09); gói replication không còn thư mục overlap.
+  checks.py 102/102 PASS; validate.py PASS cho 11 docx. R không chạy lại vì không đổi code hay số liệu (numbers.csv
+  giữ nguyên); ghi nhận: không kiểm tra lại byte-identical trong phiên này.
+- Dọn repo theo yêu cầu người dùng ("xoá bài cũ, xoá nhầm hơn bỏ sót"): xoá Báo cáo/, Check AI + Review tạp chí/,
+  Hình/, Kết quả hồi quy/, TLTK/, file khoá ~$*.docx, .DS_Store, dữ liệu trung gian của bài gốc (Final_Data_Cleaned.csv,
+  Processed_Data_GW2.xlsx, clean_data.py), các bản thảo trung gian manuscript_v*.md, notes/language_round2, __pycache__.
+  Giữ `Dữ liệu ban đầu và thô/DATA GW2.xlsx` (run_all.R cần). Mọi file đã xoá vẫn còn trong lịch sử git.

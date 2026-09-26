@@ -90,6 +90,38 @@ def set_spacing(p, line=1.5, after=6, before=0):
     pf.line_spacing = line; pf.space_after = Pt(after); pf.space_before = Pt(before)
 
 
+M_NS = 'http://schemas.openxmlformats.org/officeDocument/2006/math'
+W_NS = 'http://schemas.openxmlformats.org/wordprocessingml/2006/main'
+SCHEMA_ORDER = {   # child order required by the OOXML schema (python-docx and pandoc output violate it)
+    f'{{{M_NS}}}rPr': [f'{{{M_NS}}}{t}' for t in ('lit', 'nor', 'scr', 'sty', 'brk', 'aln')],
+    f'{{{M_NS}}}dPr': [f'{{{M_NS}}}{t}' for t in ('begChr', 'sepChr', 'endChr', 'grow', 'shp', 'ctrlPr')],
+    f'{{{W_NS}}}tblPr': [f'{{{W_NS}}}{t}' for t in (
+        'tblStyle', 'tblpPr', 'tblOverlap', 'bidiVisual', 'tblStyleRowBandSize', 'tblStyleColBandSize', 'tblW', 'jc',
+        'tblCellSpacing', 'tblInd', 'tblBorders', 'shd', 'tblLayout', 'tblCellMar', 'tblLook', 'tblCaption',
+        'tblDescription')],
+    f'{{{W_NS}}}tblCellMar': [f'{{{W_NS}}}{t}' for t in ('top', 'start', 'left', 'bottom', 'end', 'right')],
+}
+
+
+def save_doc(d, out):
+    """Save after putting children in schema order and completing w:zoom, so the file passes XSD validation."""
+    for parent_tag, order in SCHEMA_ORDER.items():
+        rank = {t: i for i, t in enumerate(order)}
+        for el in d.element.body.iter(parent_tag):
+            seen = {}
+            for k in list(el):   # a property may appear once; keep the last setting
+                if k.tag in seen:
+                    el.remove(seen[k.tag])
+                seen[k.tag] = k
+            kids = sorted(el, key=lambda k: rank.get(k.tag, len(order)))
+            for k in kids:
+                el.append(k)
+    for z in d.settings.element.iter(f'{{{W_NS}}}zoom'):
+        if z.get(f'{{{W_NS}}}percent') is None:
+            z.set(f'{{{W_NS}}}percent', '100')
+    d.save(out)
+
+
 def base_doc():
     d = Document()
     st = d.styles['Normal']; st.font.name = 'Times New Roman'; st.font.size = Pt(12)
@@ -290,7 +322,7 @@ def build(anonymized, out, meta, secs, exhibits, inline=False):
         page_break(d)
         for ex in exhibits:
             (table_exhibit if ex['kind'] == 'table' else figure_exhibit)(d, **ex['args'])
-    d.save(out)
+    save_doc(d, out)
 
 
 def build_ia(out, secs, exhibits_ia):
@@ -301,7 +333,7 @@ def build_ia(out, secs, exhibits_ia):
     page_break(d)
     for ex in exhibits_ia:
         (table_exhibit if ex['kind'] == 'table' else figure_exhibit)(d, **ex['args'])
-    d.save(out)
+    save_doc(d, out)
 
 
 def parse_exhibits(secs, key='exhibits'):

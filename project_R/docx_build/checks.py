@@ -123,6 +123,10 @@ def main(docx_dir):
     check('APA: no three-author lists in citations', not three, str(three[:4]))
     amp = [g for g in re.findall(r'\(([^()]*\d{4}[^()]*)\)', body) if re.search(r"[A-Z][\w'’-]+ and [A-Z][\w'’-]+, \d{4}", g)]
     check('APA: "&" in parenthetical citations', not amp, str(amp[:4]))
+    bad_j = [r[:40] for r in blocks(secs['references']) if 'doi.org' in r and not re.search(r'[.?] \*[^*]+\*, \*\d+\*', r)]
+    check('APA: journal name and volume italic in every journal reference', not bad_j, str(bad_j[:4]))
+    hyp = re.findall(r'^H\d', body, flags=re.M)
+    check('hypothesis labels use subscripts (H~1~)', not hyp, str(hyp))
     verified = open(os.path.join(ROOT, 'notes', '05_references_verified.md'), encoding='utf-8').read()
     for r in refs_list:
         doi = re.search(r'doi\.org/(\S+)', r)
@@ -159,6 +163,8 @@ def main(docx_dir):
     # 11. DOCX files: anonymization and validity
     if docx_dir:
         anon = os.path.join(docx_dir, 'Manuscript_Anonymized.docx')
+        if not os.path.exists(anon):
+            anon = os.path.join(docx_dir, '02_Manuscript_Anonymized.docx')
         if os.path.exists(anon):
             z = zipfile.ZipFile(anon); names = z.namelist()
             alltxt = ''.join(z.read(n).decode('utf-8', 'ignore') for n in names if n.endswith('.xml'))
@@ -168,7 +174,7 @@ def main(docx_dir):
             core = z.read('docProps/core.xml').decode()
             check('anonymized: empty creator/lastModifiedBy', not re.search(r'<dc:creator>[^<]+<', core) and not re.search(r'<cp:lastModifiedBy>[^<]+<', core))
             check('anonymized: no author contributions section', 'Author contributions' not in alltxt)
-            check('anonymized: companion disclosure blinded', 'details withheld for anonymous review' in alltxt)
+            check('no companion-study passage (user instruction D-27)', 'companion' not in alltxt.lower())
     return results
 
 
