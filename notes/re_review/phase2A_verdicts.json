@@ -1,0 +1,463 @@
+{
+  "contract_version": "1.1",
+  "round_id": "stage3prime-round2",
+  "precommitment_hash": "f94157217ab092614a40e96e6c869dacae30579c319b65da9a5a1e85ba63df79",
+  "items": [
+    {
+      "item_id": "REV-RR-1",
+      "verdict": "PARTIALLY_ADDRESSED",
+      "change_summary": "The revision adds the structural fiscal-year-to-publication lag (§3.2), a re-dated specification R10 reported for all four outcomes with SE and a CI for ln MTB, interprets it in §5.4/§6.1 and the abstract, and states the unobserved publication date as a limitation.",
+      "verified_by": "R1",
+      "applied_criterion": "precommitted",
+      "evidence_anchor": [
+        "text: §3.2 ¶1 \"A firm's treatment year is the first fiscal year with a non-missing LSEG ESG score.\"",
+        "text: §3.2 ¶3 \"the score for fiscal year g is built from the firm's reports for that year, which are published after the year ends; a score dated g reaches investors in year g + 1 at the earliest\"",
+        "table: Table 3 row R10 \"Treatment dated one year later\" −0.068*** (0.024); −0.073** (0.030); 0.007 (0.005); −0.006 (0.017)",
+        "text: §5.4 ¶1 \"the MTB effect is −0.068 (95% interval −0.116 to −0.020; p = 0.004)\"",
+        "text: §7 second limitation \"we observe neither the date on which a first score was published nor announcement returns; dating coverage one year later addresses only part of this gap\"",
+        "text: Abstract \"The first score arrives near a valuation peak, not before a gain.\""
+      ],
+      "residual_gap": {
+        "text": "Elements (a), (b), (d), (e) and (f) are met; (c) is incomplete because no N (scored/control firms or cells) is reported for R10 anywhere (Table 3 carries no sample sizes and the text gives none). In addition, the abstract and conclusion say the first score 'arrives' near a valuation peak, wording that describes the first scored fiscal year as an arrival/publication event, which §3.2 itself says it is not.",
+        "residual_obligation_class": "should_fix"
+      }
+    },
+    {
+      "item_id": "REV-RR-2",
+      "verdict": "PARTIALLY_ADDRESSED",
+      "change_summary": "The revision adds a relative-magnitude bias bound (Eq. 10) with a grid of M̄ for all four outcomes in new Table IA5, discloses that exact Rambachan–Roth sets are not computed, and conditions the abstract/introduction headline on parallel trends.",
+      "verified_by": "R1",
+      "applied_criterion": "precommitted",
+      "evidence_anchor": [
+        "table: Table IA5 rows ln(MTB) M̄ = 0.00, 0.25, 0.50, 1.00, robust intervals [−0.046, 0.048] to [−0.147, 0.148]; also ln(market capitalization), book leverage, ln(total assets)",
+        "equation: Eq. (10) relative-magnitude restriction |δ(e)−δ(e−1)| ≤ M̄Δ",
+        "text: §4.4 ¶2 \"This construction is conservative and simpler than the confidence sets of Rambachan and Roth (2023), which we do not compute.\"",
+        "text: §5.4 ¶3 \"The post-coverage null is therefore conditional on assumption (2), whereas the absence of a positive effect in every specification, including row R10, does not depend on that assumption holding exactly.\"",
+        "text: Abstract \"the estimate is 0.002 (95% interval −0.046 to 0.048) under parallel trends\""
+      ],
+      "residual_gap": {
+        "text": "No breakdown value of M̄ is reported for any threshold (the grid implies the CI admits a +5% effect already between M̄ = 0 and 0.25, but the paper never states it), so element (b) is missing. The closing sentence of §5.4 ¶3 asserts that the absence of a positive effect 'does not depend on that assumption holding exactly', which the paper's own bounds contradict (upper limits 0.073 to 0.148 at M̄ = 0.25 to 1; R10 has no bounds at all) and which is false as a description of the specifications (R6 is 0.064**, R8 0.028, R3 0.031). Element (d) is therefore only partly met, because the conditioning is contradicted in the same paragraph.",
+        "residual_obligation_class": "must_fix"
+      }
+    },
+    {
+      "item_id": "REV-RR-3",
+      "verdict": "PARTIALLY_ADDRESSED",
+      "change_summary": "The revision adds mean reversion as a third counterfactual with its sign (§6.1), presents R8 as the reversal-aware comparison with estimate and SE, and states in §6.1 that the evidence does not show that coverage has no effect.",
+      "verified_by": "R1",
+      "applied_criterion": "precommitted",
+      "evidence_anchor": [
+        "text: §6.1 ¶1 \"If instead the run-up was partly transitory and would have reversed, the flat path is consistent with a positive effect of coverage that offset the reversal.\"",
+        "text: §5.4 ¶2 \"this comparison nets out the reversal and still shows no significant gain\"",
+        "text: §5.4 ¶1 \"The two readings cannot be separated with these data, but neither implies a valuation gain.\"",
+        "table: Table 3 row R8 ln(MTB) 0.028 (0.025)",
+        "text: §8 \"The first LSEG score therefore arrives near a valuation peak rather than before a gain.\""
+      ],
+      "residual_gap": {
+        "text": "(a) is met. (b) is partly met: R8 is linked to reversal but the text claims that it 'nets out the reversal' and does not state its limits (it conditions only on g−3 to g−1 market-cap growth; regression-to-the-mean risk of matching on pre-trends; its CI of about −0.021 to 0.077 admits a sizeable gain). (c) is not met: §5.4 ¶1 re-introduces two readings of the R10 decline, both of which exclude a gain by construction ('neither implies a valuation gain'), the equivalent of the Round-1 sentence the criterion names, and the conclusion states 'rather than before a gain' without the reversal qualification. §6.1 ¶2 also reads the R10 decline as giving 'no sign of an offsetting gain', which the reversal reading cannot show without its counterfactual.",
+        "residual_obligation_class": "must_fix"
+      }
+    },
+    {
+      "item_id": "REV-RR-4",
+      "verdict": "PARTIALLY_ADDRESSED",
+      "change_summary": "The revision retitles to 'Firm Valuation', reserves valuation language for MTB and size language for market capitalization (§3.3), reports the MTB joint pre-trend test as not rejecting at 5% and the market-cap post path (e = 1 −0.072), and adds the no-returns/no-shares limitation with share issuance as the alternative.",
+      "verified_by": "R1",
+      "applied_criterion": "precommitted",
+      "evidence_anchor": [
+        "text: Title \"Rated at the Peak? Firm Valuation around the First LSEG ESG Score in Five Southeast Asian Markets\"",
+        "text: §3.3 \"the data contain neither stock returns nor shares outstanding, so we use MTB for statements about valuation and market capitalization for statements about size\"",
+        "text: §5.3 ¶1 \"The joint test of Eq. (8) rejects parallel pre-trends for market capitalization (p = 0.022) but not at the 5% level for MTB (p = 0.074)\"",
+        "text: §5.3 ¶1 \"Over the four years from event year −5 to the base year\"",
+        "text: §1 ¶5 \"their market capitalization was −0.132 log points lower five years earlier\"",
+        "text: §5.3 ¶1 \"the estimates are −0.132 five years and −0.125 four years before the base year\"",
+        "text: §7 fourth limitation \"we cannot separate price changes from share issuance\""
+      ],
+      "residual_gap": {
+        "text": "Element (c) is not fully met: the four-year horizon is stated once (§5.3 'four years from event year −5 to the base year'; §5.6), but §1 ¶5 still says 'five years earlier' and §5.3 ¶1 still says e = −5 and e = −4 are 'five years' and 'four years' before the base year (they are four and three years before e = −1), so the text is internally inconsistent. The abstract's 'Scored firms grew faster than comparable firms before their first scored year' does not say which outcome it rests on.",
+        "residual_obligation_class": "should_fix"
+      }
+    },
+    {
+      "item_id": "REV-RR-5",
+      "verdict": "PARTIALLY_ADDRESSED",
+      "change_summary": "The revision states the cell-pooling aggregation exactly (Eq. 6, matching the implementation described in Round 1) and adds R11, the estimate on cohorts first scored by 2021, with SE and an interpretation.",
+      "verified_by": "R1",
+      "applied_criterion": "precommitted",
+      "evidence_anchor": [
+        "equation: Eq. (6) θ̂_post = Σ_{(g,t):0≤t−g≤3} N_{g,t} ATT(g,t) / Σ N_{g,t}, described as \"weighting each cell by its number of scored firms, a variant of the simple aggregation\"",
+        "equation: Eq. (5) event-time aggregation with weights N_{g,g+e}/Σ_h N_{h,h+e}",
+        "table: Table 3 row R11 \"Cohorts observed through event year 3\" −0.008 (0.033)",
+        "text: §5.4 ¶2 \"gives an MTB effect of −0.008 (p = 0.806), so the changing composition of cohorts across event years does not drive the headline estimate\""
+      ],
+      "residual_gap": {
+        "text": "The retained sample for R11 (number of cohorts and of scored/control firms) is not reported; the implied event-time weights of Eq. (6) (about 31.6/29.7/24.8/13.9 percent per Round 1) are not given (optional under the criterion). R11 balances post-periods only, not e = −4..3.",
+        "residual_obligation_class": "should_fix"
+      }
+    },
+    {
+      "item_id": "REV-RR-6",
+      "verdict": "PARTIALLY_ADDRESSED",
+      "change_summary": "The revision adds per-market estimates (Table IA3), moves market composition and the coverage waves into the main text (§3.1), and adds an inference paragraph on market-level waves (§4.3) and a Malaysia/Thailand-weight limitation (§7).",
+      "verified_by": "R1",
+      "applied_criterion": "precommitted",
+      "evidence_anchor": [
+        "table: Table IA3 per-market estimates with SE; Malaysia 0.009 (0.033), 372 scored firms; Thailand 0.027 (0.047), 157 scored firms; Indonesia 39, Philippines 14, Singapore 46",
+        "text: §3.1 ¶2 \"Malaysian firms account for 404 of the 675 scored firms (59.9 percent), and Malaysian and Thai firms together for 84.3 percent\"",
+        "text: §4.3 ¶3 \"With five markets, a bootstrap that resamples markets would rest on too few clusters to be reliable, and we do not use one.\"",
+        "text: Abstract \"675 non-financial firms in Indonesia, Malaysia, the Philippines, Singapore, and Thailand\""
+      ],
+      "residual_gap": {
+        "text": "Element (c) is missing: §4.3 explains why no market-cluster bootstrap is used and that country indicators absorb market-wide mean changes, but never states that the firm-level bootstrap ignores within-wave correlation so that CIs and pre-trend p-values may be too narrow; §7 has no such caveat. Element (d) is partly missing: the abstract and conclusion still list five markets without saying the evidence is concentrated in Malaysia and Thailand. §6.1 ¶3 calls Thailand's estimate (SE 0.047) 'precise' and declares a common market-wide shock 'unlikely', which goes beyond the per-market evidence.",
+        "residual_obligation_class": "should_fix"
+      }
+    },
+    {
+      "item_id": "REV-RR-7",
+      "verdict": "FULLY_ADDRESSED",
+      "change_summary": "The revision retitles to the first LSEG ESG score, uses 'scored/never-scored' for the sample, documents FTSE Russell coverage in Malaysia with a source, states that other scores are unobserved, and explains that the event may be an additional rating that weakens the recognition channel. Residual observation (not a gap under the criterion): 'rated and unrated firms' survives only in generic methodological sentences (§1 ¶6, §6.3, §8), and §6.2/§7 state as fact that some sample firms had FTSE Russell scores, which is an inference from index coverage rather than an observed count.",
+      "verified_by": "R2",
+      "applied_criterion": "precommitted",
+      "evidence_anchor": [
+        "text: Title \"... around the First LSEG ESG Score ...\"",
+        "text: §3.1 ¶1 \"ESG scores of FTSE Russell, another part of LSEG, covered the constituents of the FTSE Bursa Malaysia EMAS index, about 30 percent of listed companies, until Bursa Malaysia and LSEG agreed in November 2022 ... (Bernama, 2022). ... our data do not record those scores.\"",
+        "text: §7 third limitation \"the event we study is then an additional score rather than a first rating of any kind\"",
+        "text: §6.2 ¶1 \"some of them had been scored by FTSE Russell, so the recognition channel of Merton (1987) had less room to operate\""
+      ]
+    },
+    {
+      "item_id": "REV-RR-8",
+      "verdict": "PARTIALLY_ADDRESSED",
+      "change_summary": "The revision replaces the U.S.-only/conduct-only claim, describes Bikmetova and Pirinsky as intensive-margin evidence with an ownership outcome, adds Tsang et al. (2025) and the analyst-initiation analogue, and narrows the contribution to valuation on the extensive margin in emerging markets.",
+      "verified_by": "R2",
+      "applied_criterion": "precommitted",
+      "evidence_anchor": [
+        "text: §1 ¶3 \"Evidence on the consequences of rating coverage comes mainly from U.S. firms.\"",
+        "text: §1 ¶3 \"Bikmetova and Pirinsky (2026) study the intensity of coverage among U.S. firms and find that additional coverage is followed by ... higher ownership by institutions that prefer high-ESG stocks\"",
+        "text: §1 ¶3 \"(Tsang, Wang, Xiang, and Yu, 2025)\"",
+        "text: §1 ¶6 \"We add evidence from emerging markets on the extensive margin of coverage\""
+      ],
+      "residual_gap": {
+        "text": "Element (d) is missing: no existing non-U.S. work on ESG-coverage initiation with market outcomes (for example the Round-1 candidates on crash risk, earnings response and analyst forecasts) is acknowledged; the text says only that evidence comes 'mainly' from U.S. firms, so the reader cannot judge the increment against that literature.",
+        "residual_obligation_class": "should_fix"
+      }
+    },
+    {
+      "item_id": "REV-RR-9",
+      "verdict": "PARTIALLY_ADDRESSED",
+      "change_summary": "The revision names index membership and disclosure as selection channels (§2.2, §3.1), adds Singapore's reporting mandate with a source and the Malaysian FTSE Russell arrangement, and states that index entry and first-report dates are unobserved.",
+      "verified_by": "R2",
+      "applied_criterion": "precommitted",
+      "evidence_anchor": [
+        "text: §2.2 ¶1 \"Providers extend coverage to firms that belong to the indices their clients track and that disclose enough information to be scored.\"",
+        "text: §3.1 ¶1 \"its exchange requires every listed issuer to publish an annual sustainability report on a comply-or-explain basis for financial years ending on or after 31 December 2017 (Singapore Exchange, 2016). The report must be issued with the annual report, or within five months of the financial year-end when the issuer obtains external assurance.\"",
+        "text: §3.1 ¶2 \"The data do not record why the provider expanded coverage in a given market and year; changes in disclosure rules ... and changes in index membership are possible reasons that we cannot observe.\"",
+        "text: §7 fourth limitation \"the data contain no ... index membership, or dates of sustainability reports, so we cannot ... show whether first scores coincide with index entry or with a firm's first sustainability report\""
+      ],
+      "residual_gap": {
+        "text": "Element (a) is not met: the provider's coverage policy is asserted in §2.2 without any source. Element (b) is partly met: only Singapore's mandate is dated; the mandates in Malaysia, Thailand, Indonesia and the Philippines are not stated. The Singapore timing sentence describes the current SGX rule (report issued with the annual report, or within five months with external assurance, introduced by a later amendment) while citing the 2016 rule, which for the sample period required issuance within five months of year-end (twelve months for a first report); the institutional fact is therefore mis-dated for the sample period. The black-box sentence ('The data do not record why the provider expanded coverage') remains, now followed by unsourced channels.",
+        "residual_obligation_class": "should_fix"
+      }
+    },
+    {
+      "item_id": "REV-RR-10",
+      "verdict": "PARTIALLY_ADDRESSED",
+      "change_summary": "The revision removes the unqualified 'not after' title and scopes it to LSEG and the region, conditions the abstract's headline estimate on parallel trends, adds 'We do not claim that coverage has no effect', and drops the Round-1 firm-level verdict sentence.",
+      "verified_by": "EIC",
+      "applied_criterion": "precommitted",
+      "evidence_anchor": [
+        "text: Title \"Rated at the Peak? Firm Valuation around the First LSEG ESG Score in Five Southeast Asian Markets\"",
+        "text: Abstract \"the estimate is 0.002 (95% interval −0.046 to 0.048) under parallel trends ... The first score arrives near a valuation peak, not before a gain.\"",
+        "text: §1 ¶5 \"We do not claim that coverage has no effect on valuation.\"",
+        "text: §8 \"The headline effect is 0.002 under parallel trends, and dating coverage one year later gives −0.068. The first LSEG score therefore arrives near a valuation peak rather than before a gain.\"",
+        "text: §6.3 ¶2 \"the estimates give no support to the expectation that a first LSEG score will raise the market valuation ... although they cannot rule out effects smaller than about 7.0 percent\"",
+        "text: §5.6 ¶2 \"any valuation effect of the first score is small\""
+      ],
+      "residual_gap": {
+        "text": "The abstract's and conclusion's closing sentences ('not before a gain', 'rather than before a gain') remain unconditional and are not linked to the bounds of RR-2; §5.6 ¶2 states that 'any valuation effect ... is small' without the parallel-trends condition; §5.4 ¶3 claims the absence of a positive effect does not depend on the assumption (see RR-2), which is conditioning language inconsistent with the reported bounds. The firm-level advice in §6.3 rests on the MDE as a bound (see RR-12) and is not conditioned on the assumption; the exchange/regulator implication does not state what the evidence cannot speak to (small caps, effects below detection, non-valuation outcomes), per R3-W4.",
+        "residual_obligation_class": "should_fix"
+      }
+    },
+    {
+      "item_id": "REV-RR-11",
+      "verdict": "PARTIALLY_ADDRESSED",
+      "change_summary": "The revision specifies the TWFE benchmark (Eq. 11: firm and year effects, no covariates, all event years, firm-clustered SE) and notes that it averages over the pre-coverage run-up.",
+      "verified_by": "R1",
+      "applied_criterion": "precommitted",
+      "evidence_anchor": [
+        "text: §4.5 ¶1 \"with firm effects α_i and year effects λ_t, no covariates, all event years, and standard errors clustered by firm\"",
+        "equation: Eq. (11)",
+        "text: §5.5 ¶2 \"The gap between rows R6 and the baseline is an example of the biases of static two-way fixed effects regressions under staggered timing described by Goodman-Bacon (2021) and Baker, Larcker, and Wang (2022).\""
+      ],
+      "residual_gap": {
+        "text": "The gap is still attributed to the staggered-timing biases of Goodman-Bacon and Baker et al.; the text does not say that part of the 0.064 versus 0.002 gap reflects the different covariate adjustment (R2 without covariates is 0.025) and the window, as the criterion requires.",
+        "residual_obligation_class": "consider"
+      }
+    },
+    {
+      "item_id": "REV-RR-12",
+      "verdict": "MADE_WORSE",
+      "change_summary": "The Round-1 MDE-as-bound sentence is kept in the limitations, now with 'even under parallel trends', and is copied into the §6.3 implications, while §5.2 keeps the CI statement that under the same assumption excludes changes above 4.9 percent.",
+      "verified_by": "R1",
+      "applied_criterion": "precommitted",
+      "evidence_anchor": [
+        "text: §7 seventh limitation \"the minimum detectable effect on log MTB is 0.067, so the design cannot rule out valuation effects smaller than about 7.0 percent even under parallel trends\"",
+        "text: §6.3 ¶2 \"although they cannot rule out effects smaller than about 7.0 percent\"",
+        "text: §5.2 ¶1 \"In terms of the MTB ratio, the interval excludes changes outside the range from −4.5 to 4.9 percent under assumption (2).\""
+      ]
+    },
+    {
+      "item_id": "REV-RR-13",
+      "verdict": "PARTIALLY_ADDRESSED",
+      "change_summary": "The revision re-describes the placebo as restating the pre-trend, labels R1–R6 pre-specified and R7–R11 exploratory in the Table 3 note and §4.4–§4.5, and replaces 'registered' with 'recorded'.",
+      "verified_by": "R1",
+      "applied_criterion": "precommitted",
+      "evidence_anchor": [
+        "text: §5.5 ¶2 \"The placebo fails, and the failure restates the pre-coverage growth shown in Figure 1 in a different form rather than adding independent evidence.\"",
+        "table: Table 3 note \"rows R1 to R6 were pre-specified and rows R7 to R11 are exploratory\"",
+        "text: §4.5 ¶2 \"The pre-analysis plan fixed five robustness checks: adding not-yet-scored firms to the controls, the alternative comparison group of Callaway and Sant'Anna (2021), dropping the covariates, excluding the 2020 and 2021 cohorts, keeping only control firms ... and a placebo\"",
+        "text: §1 ¶4 \"We recorded the hypotheses, sample rules, estimator, and robustness checks in a pre-analysis plan before estimating any effect\""
+      ],
+      "residual_gap": {
+        "text": "The pre-analysis plan is neither provided nor dated, and its provenance is described only in the AI statement (§4.6) without a date or location. The §4.5 list calls six items 'five robustness checks' (not-yet-scored controls and 'the alternative comparison group' are the same R1 check) and does not list the TWFE row R6, which the Table 3 note calls pre-specified, so registered-versus-exploratory labelling is not consistent between text and table note.",
+        "residual_obligation_class": "should_fix"
+      }
+    },
+    {
+      "item_id": "REV-RR-14",
+      "verdict": "PARTIALLY_ADDRESSED",
+      "change_summary": "The revision adds Table IA4 with non-missing firm-years and firms per outcome by group and the missing share of the 36,168-firm-year grid.",
+      "verified_by": "R1",
+      "applied_criterion": "precommitted",
+      "evidence_anchor": [
+        "table: Table IA4 firm-years and firms per outcome for scored and never-scored firms, share of firm-years missing 0.248/0.195/0.202/0.123",
+        "text: §3.2 ¶2 \"Table IA4 of the Internet Appendix reports the number of firm-years available for each outcome.\""
+      ],
+      "residual_gap": {
+        "text": "Treated and control counts by event time are not reported; the handling of delisting, attrition, and MTB ≤ 0 (negative book equity set to missing) is not described; the 36,168 figure is not explicitly called the full firm-by-year grid.",
+        "residual_obligation_class": "consider"
+      }
+    },
+    {
+      "item_id": "REV-RR-15",
+      "verdict": "FULLY_ADDRESSED",
+      "change_summary": "The R4 description now states that only a lower size bound is applied (§4.5; §3.2 and §5.5 speak of dropping controls below the size range).",
+      "verified_by": "R1",
+      "applied_criterion": "precommitted",
+      "evidence_anchor": [
+        "text: §4.5 ¶2 \"keeping only control firms whose log total assets in year g − 1 are at or above the 10th percentile of the scored firms in the cohort (a lower bound only)\""
+      ]
+    },
+    {
+      "item_id": "REV-RR-16",
+      "verdict": "CANNOT_VERIFY",
+      "change_summary": "No data or code availability statement appears anywhere in the revised manuscript body (§1–§8, exhibits, References); the only end-matter statement is the AI-use section §4.6, which the original also had in shorter form.",
+      "verified_by": "R1",
+      "applied_criterion": "precommitted",
+      "cannot_verify_reason": "The criterion names statements that JF:IP places on the separate title page (data/code availability, conflict of interest, funding; EIC-W8), and no title page or end-matter file is in the Phase 2A input set. Absence is verified for the revised manuscript body only; whether the submitted title page carries the statements cannot be verified from the inputs."
+    },
+    {
+      "item_id": "REV-RR-17",
+      "verdict": "PARTIALLY_ADDRESSED",
+      "change_summary": "The limitation now says that winsorization is pooled and does not correct the implausible values.",
+      "verified_by": "R1",
+      "applied_criterion": "precommitted",
+      "evidence_anchor": [
+        "text: §7 fifth limitation \"a small number of market capitalization values in the source data are implausibly large, winsorization over the pooled sample limits their influence without correcting them\"",
+        "text: §3.3 \"We winsorize MTB, market capitalization, leverage, and total assets at the 1st and 99th percentiles of the pooled sample\""
+      ],
+      "residual_gap": {
+        "text": "The possible consequence for change-based estimates (a bad value at g − 1 enters every cell of that cohort) is not noted.",
+        "residual_obligation_class": "consider"
+      }
+    },
+    {
+      "item_id": "REV-RR-18",
+      "verdict": "FULLY_ADDRESSED",
+      "change_summary": "Stars are removed from Table 2, so no estimate carries conflicting markers; each table note states its p-value basis, and §4.3 documents the p-value, CI, and joint-test methods.",
+      "verified_by": "R1",
+      "applied_criterion": "precommitted",
+      "evidence_anchor": [
+        "table: Table 2 (no significance markers; note \"p-values for the three secondary outcomes are Holm-adjusted\")",
+        "table: Table 3 note \"*, **, and *** denote significance at the 10%, 5%, and 1% levels based on unadjusted p-values\"",
+        "text: §4.3 ¶1–2 bootstrap SE, percentile 95% CI, normal-approximation two-sided p-value, Holm adjustment, Wald joint test Eq. (8)"
+      ]
+    },
+    {
+      "item_id": "REV-RR-19",
+      "verdict": "FULLY_ADDRESSED",
+      "change_summary": "The author names are corrected to Albert Tsang, Yujie Wang, Yi Xiang, and Li Yu.",
+      "verified_by": "R2",
+      "applied_criterion": "precommitted",
+      "evidence_anchor": [
+        "text: References \"Tsang, Albert, Yujie Wang, Yi Xiang, and Li Yu, 2024, The rise of ESG rating agencies and management of corporate ESG violations\""
+      ]
+    },
+    {
+      "item_id": "REV-RR-20",
+      "verdict": "PARTIALLY_ADDRESSED",
+      "change_summary": "The revision adds Demiroglu and Ryngaert (2010) and Chen, Noronha, and Singal (2004), distinguishes temporary from lasting index-addition effects, and uses Kelly and Ljungqvist and Hartzmark and Sussman mainly as motivating channels in §1–§2.",
+      "verified_by": "R2",
+      "applied_criterion": "precommitted",
+      "evidence_anchor": [
+        "text: §1 ¶2 \"part of the effect reverses within weeks (Harris and Gurel, 1986), and a permanent component has been attributed to greater investor awareness (Chen, Noronha, and Singal, 2004)\"",
+        "text: §2.2 ¶3 \"the first coverage of a neglected stock raises its price only when the coverage is favorable (Demiroglu and Ryngaert, 2010)\"",
+        "text: §5.2 ¶1 \"it contrasts with the strong response of fund flows to newly published sustainability ratings documented by Hartzmark and Sussman (2019)\"",
+        "text: §6.2 ¶2 \"Price effects of index additions concentrate around the announcement and partly reverse (Shleifer, 1986; Harris and Gurel, 1986; Chen, Noronha, and Singal, 2004)\""
+      ],
+      "residual_gap": {
+        "text": "§5.2 still sets the firm-level MTB null against Hartzmark and Sussman's fund-flow response as a contrast (the not-like-for-like comparison R2-W6 flagged), and §6.2 opens by saying the null 'differs from' the sell-side evidence. §6.2 cites Shleifer (1986), whose effect is the lasting one, for effects that 'partly reverse'.",
+        "residual_obligation_class": "consider"
+      }
+    },
+    {
+      "item_id": "REV-RR-21",
+      "verdict": "PARTIALLY_ADDRESSED",
+      "change_summary": "The revision names the product (LSEG ESG, formerly Refinitiv) and the score field, and states that recent scores are non-definitive, with implications for treatment dates and the high/low split.",
+      "verified_by": "R2",
+      "applied_criterion": "precommitted",
+      "evidence_anchor": [
+        "text: §3.2 ¶1 \"We use the ESG score field, not the combined score that adjusts for controversies.\"",
+        "text: §3.2 ¶3 \"scores for the five most recent fiscal years can change after publication (Sahin et al., 2023)\"",
+        "text: §5.5 ¶4 \"the initial scores used for this split may differ from those that investors saw\"",
+        "text: References \"LSEG, 2025, LSEG ESG Scores (ESG score field), annual, 2014–2024 [Data set], LSEG Workspace.\""
+      ],
+      "residual_gap": {
+        "text": "The download date or vintage is not reported in the Data section or the data citation (only the year 2025).",
+        "residual_obligation_class": "consider"
+      }
+    },
+    {
+      "item_id": "REV-RR-22",
+      "verdict": "FULLY_ADDRESSED",
+      "change_summary": "The revision adds a compact paragraph on rating-driven demand, disagreement and size bias (§2.1–§2.2, with Christensen et al. in §1) and uses it in the §6.2 interpretation.",
+      "verified_by": "R2",
+      "applied_criterion": "precommitted",
+      "evidence_anchor": [
+        "text: §2.1 ¶2 \"the holdings of ESG funds in the United States respond to the ratings of one provider more than to those of others (Berg, Heeb, and Kölbel, 2022). Scores from different providers disagree (Berg, Kölbel, and Rigobon, 2022), and disagreement is priced (Gibson Brandon, Krueger, and Schmidt, 2021; Avramov, Cheng, Lioui, and Tarelli, 2022)\"",
+        "text: §2.2 ¶1 \"larger firms receive higher scores from the provider we study (Dobrick, Klein, and Zwergel, 2023)\"",
+        "text: §6.2 ¶2 \"If ESG funds follow one provider more than others (Berg, Heeb, and Kölbel, 2022), coverage by a different provider may matter little for demand\""
+      ]
+    },
+    {
+      "item_id": "REV-RR-23",
+      "verdict": "PARTIALLY_ADDRESSED",
+      "change_summary": "The 'probably known to many investors' assertion is replaced by an explanation labelled as untested, with ownership stated as unobserved.",
+      "verified_by": "R3",
+      "applied_criterion": "precommitted",
+      "evidence_anchor": [
+        "text: §6.2 ¶1 \"we have not tested this explanation directly because the data contain no measures of ownership or investor attention\"",
+        "text: §7 fourth limitation \"the data contain no ... ownership ... so we cannot ... test the recognition channel directly\""
+      ],
+      "residual_gap": {
+        "text": "The text does not note that foreign-ownership limits (for example Thailand's 49 percent limit and NVDRs) may mute the recognition channel.",
+        "residual_obligation_class": "consider"
+      }
+    },
+    {
+      "item_id": "REV-RR-24",
+      "verdict": "FULLY_ADDRESSED",
+      "change_summary": "The 'after the first round of review' sentence is removed and the added checks are described only as not pre-specified/exploratory; the only related text is the §4.6 AI disclosure that simulated referee reports informed the revision, which is a tool disclosure, not a reference to a review round.",
+      "verified_by": "EIC",
+      "applied_criterion": "precommitted",
+      "evidence_anchor": [
+        "text: §4.4 ¶1 \"we add two exploratory checks that the pre-analysis plan did not contain\"",
+        "text: §4.5 ¶2 \"we added four exploratory analyses\""
+      ]
+    },
+    {
+      "item_id": "REV-RR-25",
+      "verdict": "NOT_ADDRESSED",
+      "change_summary": "The companion-study sentence is unchanged in substance: the study is still withheld 'for anonymous review' (only the non-overlap statement is extended to 'outcome or treatment variable'), so it is not identified by citation or name in the manuscript.",
+      "verified_by": "EIC",
+      "applied_criterion": "precommitted",
+      "evidence_anchor": [
+        "text: §3.2 ¶1 \"This data set also underlies a companion study with a different research question (details withheld for anonymous review).\""
+      ]
+    },
+    {
+      "item_id": "REV-RR-26",
+      "verdict": "PARTIALLY_ADDRESSED",
+      "change_summary": "The Figure 1 note now names the estimator by equation and the units per outcome, the y-axis label separates log points from the leverage ratio, and the e = 4 MTB estimate is reported and discussed in §5.3.",
+      "verified_by": "EIC",
+      "applied_criterion": "precommitted",
+      "evidence_anchor": [
+        "figure: Fig. 1 note \"Circles show the estimates of Eq. (5) relative to the year before the first score (event year −1, set to zero) ... Log outcomes are in log points and book leverage is a ratio.\"",
+        "text: §5.3 ¶2 \"In event year 4, which only the earliest cohorts reach, the MTB estimate is −0.077 (p = 0.209).\""
+      ],
+      "residual_gap": {
+        "text": "The note still does not state the control group (never-scored firms), the covariates, the sample sizes, or why e = 4 is plotted but excluded from the headline average; the e = 4 market-capitalization estimate (about +0.09 in the figure) is not reported in the text.",
+        "residual_obligation_class": "consider"
+      }
+    }
+  ],
+  "new_issues": [
+    {
+      "new_issue_id": "NEW-1",
+      "description": "The re-dated specification R10 is used in the abstract, introduction, §5.4, §6.1 and conclusion as the post-publication result (−0.068, p = 0.004), but it is identified under parallel trends from base year g, and the paper's own narrative is that valuations peak in exactly that year after a run-up. No pre-trend diagnostic, event-time profile, or relative-magnitude bound is reported for R10, so its significant decline is at least as trend-dependent as the headline estimate and cannot separate reversal from a coverage effect. The abstract nevertheless reports it without condition, and §5.4 ¶3 calls the absence of a positive effect 'including row R10' independent of the assumption.",
+      "location_anchor": "text: §5.4 ¶1 \"When we date coverage one year after the first scored fiscal year (row R10), so that the base year is the first scored year ... the MTB effect is −0.068 (95% interval −0.116 to −0.020; p = 0.004)\"",
+      "severity": "major",
+      "found_by": "R1",
+      "confidence": 4,
+      "competence_basis": "R1 card: staggered DiD and event-study identification under pre-trends; the point follows from the base-year choice in Eq. (2) applied to the re-dated treatment and from Fig. 1 (MTB e = 0 is +0.017 relative to e = −1, so the run-up continues into g).",
+      "attribution": "regression",
+      "attribution_evidence": "R10 and all sentences using it are absent from original_manuscript_v1_1.md (Table 3 there ends at R9 and the heterogeneity rows); the diff adds row R10, §5.4 ¶1 and the abstract clause '−0.068 when coverage is dated one year later'.",
+      "nearest_roadmap_item": "REV-RR-1",
+      "non_match_rationale": "RR-1's committed criterion requires R10 to be reported with uncertainty and interpreted as the post-publication estimate; it does not operationalize the identifying assumption or the pre-trend diagnostics of the re-dated specification itself, which is a new analysis whose inferential status is the issue here."
+    },
+    {
+      "new_issue_id": "NEW-2",
+      "description": "§4.3 explains that a p-value near 5% and a CI end near zero can disagree because the bootstrap distribution may be asymmetric. The disagreement that actually appears in Table 2 (ln total assets: CI [0.007, 0.081] excludes zero, p = 0.053) arises because the p-value is Holm-adjusted while the percentile CI is not adjusted for multiplicity. The Table 2 note does not say that the CIs are unadjusted, so the added explanation misattributes the discrepancy.",
+      "location_anchor": "text: §4.3 ¶2 \"when the bootstrap distribution is asymmetric, a p-value near the 5% threshold and an interval whose end lies close to zero can therefore disagree slightly\"",
+      "severity": "minor",
+      "found_by": "R1",
+      "confidence": 4,
+      "competence_basis": "R1 card: inference and reporting; arithmetic check that the unadjusted p for 0.044/0.018 is about 0.015–0.018 and 3 × that equals the Holm 0.053 in Table 2.",
+      "attribution": "regression",
+      "attribution_evidence": "The asymmetry sentence is new in the revised §4.3 (absent from original §2.3); the Table 2 row itself is unchanged from the original.",
+      "nearest_roadmap_item": "REV-RR-18",
+      "non_match_rationale": "RR-18 requires consistent markers and documented p-value/CI methods, which the revision provides; the issue is the correctness of a newly added explanatory sentence and the unlabelled multiplicity status of the CI column, not the marker convention."
+    },
+    {
+      "new_issue_id": "NEW-3",
+      "description": "§4.2 justifies dropping the doubly robust propensity-score component because scored and never-scored firms 'overlap poorly in size'. Poor overlap is equally a problem for the outcome-regression estimator that is kept, which then extrapolates the size quadratic beyond the control support. The only support restriction (R4) trims controls from below only, and no overlap diagnostic is reported.",
+      "location_anchor": "text: §4.2 ¶2 \"the doubly robust version of Sant'Anna and Zhao (2020) adds a propensity-score model, which we do not use because scored and never-scored firms overlap poorly in size\"",
+      "severity": "minor",
+      "found_by": "R1",
+      "confidence": 3,
+      "competence_basis": "R1 card: Callaway–Sant'Anna / Sant'Anna–Zhao estimators; standard result that outcome regression extrapolates under limited overlap.",
+      "attribution": "regression",
+      "attribution_evidence": "The original §2.3 used the outcome regression without giving any reason for omitting the propensity model; the overlap rationale is added in revised §4.2.",
+      "nearest_roadmap_item": "REV-RR-15",
+      "non_match_rationale": "RR-15 concerns only how the R4 size restriction is described (lower bound only), which is fixed; it does not cover the estimator-choice rationale or overlap diagnostics."
+    },
+    {
+      "new_issue_id": "NEW-4",
+      "description": "The introduction describes the pre-coverage estimate with a double negative: 'their market capitalization was −0.132 log points lower ... and their MTB ratio was −0.095 log points lower', which read literally says the outcomes were 0.132 and 0.095 log points higher. The intended meaning is 0.132/0.095 lower, or 'the estimate is −0.132'.",
+      "location_anchor": "text: §1 ¶5 \"Relative to that base year, their market capitalization was −0.132 log points lower five years earlier, and their MTB ratio was −0.095 log points lower.\"",
+      "severity": "minor",
+      "found_by": "EIC",
+      "confidence": 4,
+      "competence_basis": "EIC card: strict on clarity of the one headline message in a short-format paper; plain reading of the sentence.",
+      "attribution": "regression",
+      "attribution_evidence": "The original introduction stated the pre-trend as '14.1 percent' growth; the '−0.132 log points lower' phrasing first appears in revised §1 ¶5.",
+      "nearest_roadmap_item": "REV-RR-4",
+      "non_match_rationale": "RR-4 governs outcome labelling (valuation vs size), test standards and the horizon; the horizon part of this sentence is scored under RR-4, but the sign error created by the double negative is not within its criterion."
+    },
+    {
+      "new_issue_id": "NEW-5",
+      "description": "Heading levels are inconsistent: Section 1 is a level-1 heading ('# 1. Introduction'), Sections 2–8 are level-2 headings, and their subsections (2.1, 3.1, ...) use the same level-2 marker as the sections, so the section/subsection hierarchy is not encoded.",
+      "location_anchor": "text: §1 heading \"# 1. Introduction\" versus \"## 2. Related Literature and Hypotheses\" and \"## 2.1. Ratings, investor demand, and valuation\"",
+      "severity": "minor",
+      "found_by": "EIC",
+      "confidence": 5,
+      "competence_basis": "EIC card: exhibits and structure for a short-format journal; direct inspection of the markdown heading markers.",
+      "attribution": "previously_missed",
+      "attribution_evidence": "Present in both versions: original has '# 1. Introduction', '## 2. Data and Research Design', '## 2.1. Sample and coverage timing'; revised keeps the same pattern. EIC-W11 mentioned it in passing, but no roadmap item carried it.",
+      "nearest_roadmap_item": "REV-RR-26",
+      "non_match_rationale": "RR-26's committed criterion covers only the Figure 1 note and the e = 4 reporting; heading hierarchy is outside it."
+    }
+  ],
+  "dissents": [],
+  "escalation_exceptions": []
+}
