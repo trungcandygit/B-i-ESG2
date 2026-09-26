@@ -159,3 +159,21 @@ tự giải quyết bằng mặc định hợp lý nhất và ghi tại đây.
   Danh sách sửa 37 mục trong phase2B_decision.md; làm hết, rồi Stage 4.5.
 - Chạy lại toàn bộ run_all.R (16,9 phút) sau D-15: mọi file trong project_R/outputs giống hệt từng byte so với lần chạy
   trước (md5), trừ tableIA3_formatted.csv (đổi tiêu đề cột "Market", có chủ đích). → FORCE A4 byte-identical PASS.
+
+## Iter 8 — Stage 4' (vòng revision thứ 2, cuối) (2026-09-26)
+- Làm 37 mục của phase2B_decision.md §8 (9 must_fix dư, 10 should_fix dư, 5 new issue, 13 sửa thư). Bản v3.
+- R vòng 3 (03_estimate.R, exploratory): R10 event study + pre-trend (MTB p = 0.072) + cận Eq. (10) (M̄ 0.25:
+  [−0.138, 0.002], chứa 0; breakdown M̄ = 0.23), breakdown M̄ baseline (5%: 0.01; dương: 0), số hãng theo event
+  time (Table IA6 mới), trùng lắp quy mô (24.6% hãng được chấm lớn hơn P95 của nhóm chưa chấm), attrition (271/274
+  đến e = 3). Chạy lại toàn bộ: mọi output cũ giống từng byte; numbers.csv: 0 key đổi giá trị, 203 key mới.
+- D-18: RR-8 (tài liệu ngoài Mỹ) và RR-9 (nguồn quy định công bố ở MY/TH/ID/PH, chính sách coverage của LSEG):
+  theo chỉ thị người dùng "không tìm thêm tác giả, chỉ trích dẫn tài liệu đã có" → không thêm tài liệu mới; thu hẹp
+  câu (§1 ¶3), gắn nhãn kỳ vọng (§2.2), bỏ câu thời hạn nộp SGX (thuộc bản sửa đổi sau 2016), ghi hạn chế (§3.1,
+  §7 thứ tám). Thư phản hồi ghi "Partly addressed: scope/limitation stated".
+- Data availability statement (meta.md) viết lại: giấy phép cấm phân phối dữ liệu, mã hãng, biến cấp hãng; ngày
+  tải không được ghi lại; code + PAP + output tổng hợp nộp kèm, lưu kho công khai khi được chấp nhận.
+- Script xuất bản phản biện: sửa cấp tiêu đề (NEW-5).
+- Độ dài: sau khi sửa lên 10.598 từ → cắt các đoạn lặp ý (§2.2 ¶2, §3.2, §4.1–4.3, §5.1 ¶2, §5.3, §5.5, §5.6,
+  §6.1–6.3) → 9.990 từ (D-13 PASS); thân bài 8.407. checks.py 97/97 PASS.
+- Thư phản hồi v3 (`notes/review_independent/08_response_to_reviewers.md`): trạng thái theo thực tế, bỏ tham chiếu
+  ledger nội bộ, sửa con trỏ mục.
