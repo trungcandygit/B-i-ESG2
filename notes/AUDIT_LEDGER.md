@@ -210,3 +210,8 @@ tự giải quyết bằng mặc định hợp lý nhất và ghi tại đây.
   Vòng 1: 5 agent độc lập song song, mỗi agent một nhóm mục, load academic-paper + proofreading + stop-slop, viết lại
   có mục tiêu số từ, giữ nguyên placeholder/trích dẫn/phương trình; tôi ghép và chạy cổng academic-paper. Vòng 2:
   agent độc lập proofreading (report) + stop-slop (audit) trên toàn bài, rồi áp dụng sửa, chạy lại cổng.
+- D-25 (2026-09-26): người dùng: "không có in nghiêng và dùng dấu () vô tội vạ". Bỏ mọi chữ nghiêng trong tóm tắt, thân
+  bài, note bảng/hình, câu companion (ký hiệu p, g, e, t viết thường, không nghiêng; phương trình OMML giữ nguyên).
+  Tên tạp chí/tập trong References giữ nghiêng vì APA 7 bắt buộc (người dùng yêu cầu APA). checks.py thêm kiểm tra
+  "no italics". Ngoặc đơn: chỉ giữ cho trích dẫn APA, số phương trình, thống kê gọn; các agent vòng 1 chuyển phần
+  chú thích trong ngoặc thành mệnh đề thường.

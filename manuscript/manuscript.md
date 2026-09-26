@@ -303,7 +303,7 @@ kind:=table
 caption:=Table 2|Average effect of the first LSEG ESG score over event years 0 to 3
 csvfile:=table2_formatted.csv
 widths:=1.55,0.6,0.5,1.15,0.6,0.5,0.6,0.55,0.6
-note:=ATT is the average effect over event years 0 to 3 (Eq. 6), with bootstrap standard errors and unadjusted 95% intervals; *p*-values of the three secondary outcomes are Holm-adjusted. MDE is the minimum detectable effect at 80% power, and pre-trend *p* is the joint test of Eq. (8).
+note:=ATT is the average effect over event years 0 to 3 (Eq. 6), with bootstrap standard errors and unadjusted 95% intervals; p-values of the three secondary outcomes are Holm-adjusted. MDE is the minimum detectable effect at 80% power, and pre-trend p is the joint test of Eq. (8).
 source:=Authors' calculations from LSEG ESG scores and Compustat Global.
 
 kind:=figure
@@ -316,7 +316,7 @@ kind:=table
 caption:=Table 3|Robustness checks, timing of coverage, and heterogeneity by initial ESG score
 csvfile:=table3_formatted.csv
 widths:=1.9,1.15,1.15,1.15,1.15
-note:=Cells show the average effect over event years 0 to 3, with bootstrap standard errors in parentheses (firm-clustered in R6); R1 to R6 are pre-specified and R7 to R11 exploratory. \*, \*\*, and \*\*\* denote significance at 10%, 5%, and 1% (unadjusted *p*-values).
+note:=Cells show the average effect over event years 0 to 3, with bootstrap standard errors in parentheses (firm-clustered in R6); R1 to R6 are pre-specified and R7 to R11 exploratory. \*, \*\*, and \*\*\* denote significance at 10%, 5%, and 1% (unadjusted p-values).
 source:=Authors' calculations from LSEG ESG scores and Compustat Global.
 
 @@ ia_intro
@@ -327,7 +327,7 @@ kind:=table
 caption:=Table IA1|Leave-one-market-out estimates of the average effect of the first LSEG ESG score
 csvfile:=tableIA1_formatted.csv
 widths:=1.9,1.15,1.15,1.15,1.15
-note:=Cells show the average effect over event years 0 to 3 without the named market, with bootstrap standard errors in parentheses. \*, \*\*, and \*\*\* denote significance at 10%, 5%, and 1% (unadjusted *p*-values).
+note:=Cells show the average effect over event years 0 to 3 without the named market, with bootstrap standard errors in parentheses. \*, \*\*, and \*\*\* denote significance at 10%, 5%, and 1% (unadjusted p-values).
 source:=Authors' calculations from LSEG ESG scores and Compustat Global.
 
 kind:=table
@@ -347,7 +347,7 @@ kind:=table
 caption:=Table IA3|Estimates of the average effect of the first LSEG ESG score by market
 csvfile:=tableIA3_formatted.csv
 widths:=1.2,1.1,1.1,1.1,1.1,0.9
-note:=Cells show the average effect over event years 0 to 3 estimated within each market, with bootstrap standard errors in parentheses. \*, \*\*, and \*\*\* denote significance at 10%, 5%, and 1% (unadjusted *p*-values).
+note:=Cells show the average effect over event years 0 to 3 estimated within each market, with bootstrap standard errors in parentheses. \*, \*\*, and \*\*\* denote significance at 10%, 5%, and 1% (unadjusted p-values).
 source:=Authors' calculations from LSEG ESG scores and Compustat Global.
 
 kind:=table

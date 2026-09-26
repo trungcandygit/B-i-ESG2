@@ -36,7 +36,7 @@ Not applicable. The study uses firm-level secondary data and involves no human p
 Nguyen Thanh Binh: Conceptualization, Supervision, Writing (review and editing). Nguyen Van Trung: Conceptualization, Data curation, Formal analysis, Methodology, Software, Visualization, Writing (original draft). Nguyen Anh Tuan: Data curation, Validation, Writing (review and editing).
 
 @@ companion_named
-This data set also underlies a companion study with a different research question (Nguyen, Nguyen, & Nguyen, *GRI adoption and corporate brownwashing: Board governance evidence from ASEAN-5*, manuscript under review at the *International Journal of Management and Sustainability*).
+This data set also underlies a companion study with a different research question (Nguyen, Nguyen, & Nguyen, GRI adoption and corporate brownwashing: Board governance evidence from ASEAN-5, manuscript under review at the International Journal of Management and Sustainability).
 
 @@ companion_blind
 This data set also underlies a companion study with a different research question (details withheld for anonymous review).

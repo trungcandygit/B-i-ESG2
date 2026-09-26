@@ -141,6 +141,9 @@ def main(docx_dir):
     # 9. Style: no em dash, no banned words, no second person
     full = body + secs['abstract']
     check('no em dash', '—' not in full)
+    ex_notes = ' '.join(l for l in (secs['exhibits'] + secs['exhibits_ia']).splitlines() if l.startswith('note:='))
+    ital = re.findall(r'(?<![\\*])\*(?!\*)[^*\n]+?\*', re.sub(r'^\$\$.*$', '', body + secs['abstract'] + ex_notes, flags=re.M).replace('\\*', ''))
+    check('no italics in abstract, body, and exhibit notes (user instruction D-25)', not ital, str(ital[:6]))
     banned = re.findall(r'\b(genuinely|strictly|markedly|fundamentally|crucial|critical|robustly|delve|guarantee|prove[sd]?|verif(?:y|ies|ied)|ensure[sd]?|Firstly|Secondly|you|your)\b', full, flags=re.I)
     check('no banned words / second person', not banned, str(sorted(set(banned))))
 
