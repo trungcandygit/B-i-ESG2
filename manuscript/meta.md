@@ -21,7 +21,7 @@ This research did not receive any specific grant from funding agencies in the pu
 
 ## Data availability statement
 
-The ESG scores (LSEG Workspace) and accounting and market data (Compustat Global) are licensed and cannot be redistributed by the authors. Researchers with access to these databases can rebuild the sample with the replication code; the code and all output files are available as supporting material and will be deposited upon acceptance.
+The ESG scores (LSEG Workspace) and the accounting and market data (Compustat Global) are licensed, and the licences do not allow the authors to redistribute them, including firm identifiers and derived firm-level variables; the download date of the scores was not recorded. The R code, the pre-analysis plan, and all aggregate output files are supplied as supporting material with this submission and will be deposited in a public repository upon acceptance. Researchers with access to the two databases can rebuild the sample with the code.
 
 ## Conflict of interest disclosure
 

@@ -133,3 +133,11 @@ tia5 <- rmb %>% transmute(Outcome = OUTCOMES[outcome], `M-bar` = fmt(Mbar, 2), `
   `Bias bound` = fmt(bias_bound), `Robust 95% interval` = paste0("[", fmt(robust_lo), ", ", fmt(robust_hi), "]"))
 names(tia5) <- c("Outcome", "M\u0304", "Largest pre-period change", "Bias bound", "Robust 95% interval")
 write.csv(tia5, file.path(OUT, "tableIA5_formatted.csv"), row.names = FALSE)
+
+# Scored firms and control firms by event year for ln MTB (Table IA6)
+fe <- read.csv(file.path(OUT, "firms_by_event_time.csv"))
+tia6 <- data.frame(`Event year` = sub("^-", "−", as.character(fe$e)), `Scored firms` = fmtn(fe$scored_firms),
+                   Cohorts = fmtn(fe$cohorts),
+                   `Control firms per cohort cell` = paste0(fmtn(fe$controls_min), "–", fmtn(fe$controls_max)),
+                   check.names = FALSE)
+write.csv(tia6, file.path(OUT, "tableIA6_formatted.csv"), row.names = FALSE)

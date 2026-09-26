@@ -119,6 +119,41 @@ put("t1_mcap_ratio_med", fmt(t1$tr_median[2] / t1$nv_median[2], 1))
 put("t1_asset_ratio_med", fmt(t1$tr_median[4] / t1$nv_median[4], 1))
 put("B_BOOT", fmtn(B_BOOT)); put("SEED", as.character(SEED))
 
+# ---- Revision round 3 (Stage 3' re-review) ----
+for (i in seq_len(nrow(rv2))) {
+  a <- ab[[rv2$outcome[i]]]; k <- sub("_.*", "", rv2$spec[i])
+  put(paste0(a, "_", k, "_nco"), fmtn(rv2$n_control_firms[i]))
+  put(paste0(a, "_", k, "_lo_pct"), pct(rv2$ci_lo[i])); put(paste0(a, "_", k, "_hi_pct"), pct(rv2$ci_hi[i]))
+}
+put("n_R11_cohorts", fmtn(sum(cs$G <= 2021)))
+r10p <- read.csv(file.path(OUT, "r10_pretrend_tests.csv"))
+for (i in seq_len(nrow(r10p))) put(paste0(ab[[r10p$outcome[i]]], "_R10_pre_p"), fmtp(r10p$p[i]))
+r10e <- read.csv(file.path(OUT, "r10_event_study.csv"))
+for (i in seq_len(nrow(r10e))) {
+  a <- ab[[r10e$outcome[i]]]; e <- r10e$term[i]; tag <- ifelse(e < 0, paste0("m", -e), as.character(e))
+  put(paste0(a, "_R10_e", tag), fmt(r10e$est[i])); put(paste0(a, "_R10_e", tag, "_p"), fmtp(r10e$p[i]))
+}
+r10b <- read.csv(file.path(OUT, "r10_rm_bounds.csv"))
+for (i in seq_len(nrow(r10b))) {
+  a <- ab[[r10b$outcome[i]]]; m <- gsub("\\.", "", formatC(r10b$Mbar[i], digits = 2, format = "f"))
+  put(paste0(a, "_R10_rm", m, "_lo"), fmt(r10b$robust_lo[i])); put(paste0(a, "_R10_rm", m, "_hi"), fmt(r10b$robust_hi[i]))
+  put(paste0(a, "_R10_rm_dmax"), fmt(r10b$dmax[i]))
+}
+bd <- read.csv(file.path(OUT, "rm_breakdown.csv"))
+for (i in seq_len(nrow(bd))) {
+  a <- ab[[bd$outcome[i]]]; k <- if (bd$spec[i] == "baseline") "" else "_R10"
+  put(paste0(a, k, "_bd0"), fmt(bd$Mbar_admit_zero[i], 2)); put(paste0(a, k, "_bd5"), fmt(bd$Mbar_admit_5pct[i], 2))
+}
+fe <- read.csv(file.path(OUT, "firms_by_event_time.csv"))
+put("mtb_nfirms_e0", fmtn(fe$scored_firms[fe$e == 0])); put("mtb_nfirms_e3", fmtn(fe$scored_firms[fe$e == 3]))
+put("mtb_nfirms_e4", fmtn(fe$scored_firms[fe$e == 4])); put("mtb_ncoh_e4", fmtn(fe$cohorts[fe$e == 4]))
+so <- read.csv(file.path(OUT, "size_overlap.csv"))
+put("pct_scored_above_p95", fmt(100 * so$share_scored_above_never_p95, 1))
+put("pct_never_below_p10", fmt(100 * so$share_never_below_scored_p10, 1))
+ae <- read.csv(file.path(OUT, "attrition_e3.csv"))
+put("n_attr_base", fmtn(ae$n_base)); put("n_attr_e3", fmtn(ae$n_e3)); put("pct_attr_e3", fmt(100 * ae$share_e3, 1))
+put("log105", fmt(log(1.05)))
+
 # Text form of every p-value: "= 0.xxx" or "< 0.001", so that "*p* {{key_txt}}" reads correctly.
 for (k in grep("_p$|_pholm$|_pre_p$", names(nums), value = TRUE))
   put(paste0(k, "_txt"), ifelse(nums[[k]] == "<0.001", "< 0.001", paste("=", nums[[k]])))

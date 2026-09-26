@@ -1,5 +1,5 @@
 """Export the filled manuscript (text + exhibits as Markdown tables) for reviewers: notes/review_independent/input/."""
-import csv, os, shutil, sys
+import csv, os, re, shutil, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from build_manuscript import load_numbers, parse_sections, parse_exhibits, blocks, MS, META, OUTR, ROOT
 
@@ -13,7 +13,7 @@ def md_table(f):
     lines += ['| ' + ' | '.join(r) + ' |' for r in rows[1:]]
     return '\n'.join(lines)
 parts = ['# ' + secs['title'], '', 'Running title: ' + secs['running_title'], '', '## Abstract', '', secs['abstract'], '',
-         'Keywords: ' + secs['keywords'], '', 'JEL classification: ' + secs['jel'], '', body.replace('\n# ', '\n## ').replace('\n## ', '\n## '), '',
+         'Keywords: ' + secs['keywords'], '', 'JEL classification: ' + secs['jel'], '', re.sub(r'^(#+) ', lambda m: '#' + m.group(1) + ' ', body, flags=re.M), '',
          '## References', '']
 parts += [b + '\n' for b in blocks(secs['references'])]
 for key, title in (('exhibits', 'Exhibits'), ('exhibits_ia', 'Internet Appendix exhibits')):
