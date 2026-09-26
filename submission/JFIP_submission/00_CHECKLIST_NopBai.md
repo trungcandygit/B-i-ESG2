@@ -26,7 +26,7 @@ Highlights: JF:IP không yêu cầu, nên không làm.
 - [x] Tài liệu tham khảo APA 7: tên tạp chí và số tập in nghiêng; "&" trong ngoặc; ≥ 3 tác giả dùng "et al."; mọi tài liệu được trích dẫn và ngược lại.
 - [x] Nhãn giả thuyết viết chỉ số dưới (H₁, H₂, H₃).
 - [x] Bản ẩn danh sạch: không tên, email, ORCID, đơn vị; docProps trống; không có word/people.xml; không có Author contributions.
-- [x] Khai báo dùng AI ở Methods (mục 4.6), đúng yêu cầu của JF:IP.
+- [ ] Khai báo dùng AI: tác giả đã bỏ mục 4.6 (2026-09-26). Author Guidelines của JF:IP yêu cầu khai báo AI trong Methods; cover letter vẫn nhắc "Section 4.6".
 
 ## 3. Việc bạn tự làm trên hệ thống
 

@@ -263,3 +263,11 @@ tự giải quyết bằng mặc định hợp lý nhất và ghi tại đây.
   theo người dùng. Cập nhật meta.md, COI, cover letter, token ẩn danh. Author contributions của Ha Hong Hanh
   (Methodology, Validation, Writing – review and editing) và Nguyen Bach Diep (Data curation, Validation, Writing –
   review and editing) là mặc định do Claude đặt, cần tác giả xác nhận.
+- D-32 (2026-09-26, người dùng): tác giả tự sửa định dạng trong Word và gửi lại 01, 02, 04, 06, 07; các file này thay
+  thế bản do script dựng (từ nay chạy lại build_submission.py sẽ ghi đè các chỉnh sửa định dạng thủ công). Nội dung
+  thay đổi so với bản dựng: email tác giả liên hệ đổi lại kontrungcany@gmail.com; bỏ mục 4.6 Use of generative AI ở
+  cả 02 và 07; dấu phẩy trên (X′) trong Eq. (4). Đã đồng bộ meta.md, manuscript.md, build_submission.py, checks.py.
+  Xoá cp:lastModifiedBy ("Tatyana Bardeen") khỏi docProps của 02 để giữ ẩn danh; không đổi nội dung. Kiểm tra: 02
+  không còn tên, email, ORCID, đơn vị; không có people.xml; 5 file qua validate.py.
+  Lưu ý chưa xử lý (chờ tác giả): (1) JF:IP yêu cầu khai báo AI trong Methods, bản hiện tại không còn khai báo nào;
+  (2) cover letter 06 vẫn viết "described in Section 4.6".

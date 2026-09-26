@@ -6,11 +6,11 @@ Nguyen Thanh Binh^a^, Nguyen Van Trung^a,^*, Ha Hong Hanh^b^, Nguyen Bach Diep^a
 
 ^b^ School of Accounting and Auditing, National Economics University, Hanoi, Vietnam
 
-\* Corresponding author: Nguyen Van Trung, Academy of Policy and Development, Nam An Khanh Urban Area, Hoai Duc District, Hanoi, Vietnam. Email: 15233582@st.neu.edu.vn. Tel: +84 355 347 831.
+\* Corresponding author: Nguyen Van Trung, Academy of Policy and Development, Nam An Khanh Urban Area, Hoai Duc District, Hanoi, Vietnam. Email: kontrungcany@gmail.com. Tel: +84 355 347 831.
 
 Nguyen Thanh Binh: nguyenthanhbinhapd@apd.edu.vn; ORCID 0009-0007-0042-2835
 
-Nguyen Van Trung: 15233582@st.neu.edu.vn; ORCID 0009-0008-3307-6569
+Nguyen Van Trung: kontrungcany@gmail.com; ORCID 0009-0008-3307-6569
 
 Ha Hong Hanh: hanhhh@neu.edu.vn; ORCID 0000-0003-3581-6571
 

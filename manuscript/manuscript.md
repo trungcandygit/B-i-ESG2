@@ -150,10 +150,6 @@ where α~i~ and λ~t~ are firm and year effects, D~i,t~ marks years from the fir
 
 The pre-analysis plan fixed rows R1 to R6 of Table 3: four robustness checks, a placebo, and the benchmark of Eq. (11). The checks add not-yet-scored firms to the controls; drop the covariates; exclude the 2020 and 2021 cohorts; and keep only control firms whose log total assets in year g − 1 reach the 10th percentile of the cohort's scored firms, a lower bound only. The placebo dates coverage three years early and uses only years before the actual score. Besides the checks in Section 4.4, four analyses are exploratory: dating coverage one year later, with its own pre-trend test and bounds; restricting the sample to cohorts observed through event year three; excluding one market at a time; and estimating the model by market.
 
-## 4.6. Use of generative AI
-
-We used Claude (Anthropic), through Claude Code, in September 2026 to screen research questions, draft the pre-analysis plan, write the R code, edit the text, check references, and simulate referee reports. We reviewed every output, checked each number against the R output files, and take full responsibility for the content.
-
 # 5. Results
 
 ## 5.1. Which firms get scored

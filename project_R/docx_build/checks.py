@@ -5,7 +5,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from build_manuscript import load_numbers, parse_sections, blocks, MS, META, OUTR, ROOT
 
 LIMIT_NO_EXHIBITS = 7000
-AUTHOR_TOKENS = ['Nguyen', 'Binh', 'Trung', 'Hanh', 'Diep', 'Ha Hong', 'apd.edu', 'neu.edu', '15233582', 'Academy of Policy',
+AUTHOR_TOKENS = ['Nguyen', 'Binh', 'Trung', 'Hanh', 'Diep', 'Ha Hong', 'apd.edu', 'neu.edu', '15233582', 'kontrungcany', 'Academy of Policy',
                  'National Economics University', 'School of Accounting and Auditing', '0009-0007-0042-2835',
                  '0009-0008-3307-6569', '0000-0003-3581-6571', '0009-0003-0967-7528']
 ABBREV = {'ESG': 'environmental, social, and governance', 'LSEG': 'London Stock Exchange Group',
