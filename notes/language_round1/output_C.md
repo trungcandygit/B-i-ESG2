@@ -10,7 +10,7 @@ the average effect in year t for firms first scored in year g. We identify it un
 
 $$latex \mathbb{E}\left[Y_{i,t}(\infty)-Y_{i,g-1}(\infty)\mid X_i,G_i=g\right]=\mathbb{E}\left[Y_{i,t}(\infty)-Y_{i,g-1}(\infty)\mid X_i,G_i=\infty\right] | (2)
 
-where X~i~ contains country and industry indicators and log total assets and its square, measured in year g − 1. Given X~i~, scored firms' outcomes would have changed from year g − 1 to year t as never-scored firms' outcomes did. Because the assumption concerns changes, the size differences in Table 1 do not violate it by themselves, but pre-coverage growth of the kind that precedes index additions would (Chen et al., 2004). We test this implication with the pre-coverage estimates but do not rely on the test alone, because pre-trend tests can have low power and conditioning on them can distort inference (Roth, 2022).
+where X~i~ contains country and industry indicators and log total assets and its square, measured in year g − 1. Because assumption (2) concerns changes in outcomes, the size differences in Table 1 do not violate it by themselves, but pre-coverage growth of the kind that precedes index additions would (Chen et al., 2004). We test this implication with the pre-coverage estimates but do not rely on the test alone.
 
 ## 4.2. Estimation
 
@@ -30,9 +30,9 @@ where h indexes cohorts. The headline estimate averages all cells from the first
 
 $$latex \hat{\theta}_{\mathrm{post}}=\frac{\sum_{(g,t):\,0\le t-g\le 3}N_{g,t}\,\widehat{\mathrm{ATT}}(g,t)}{\sum_{(g,t):\,0\le t-g\le 3}N_{g,t}} | (6)
 
-Cohorts first scored after 2021 are not observed for all four post-coverage years, so cohort composition changes across event years (Baker et al., 2022; Callaway & Sant'Anna, 2021); we therefore also report estimates for the cohorts observed through event year three.
+Cohorts first scored after 2021 are not observed for all four post-coverage years, so cohort composition changes across event years; we therefore also report estimates for the cohorts observed through event year three.
 
-Three design choices matter. First, the baseline controls are never-scored firms; firms scored later may themselves be growing toward the provider's universe, so they join the controls only in a robustness check. Second, all comparisons use year g − 1 as the base year, the common reference point that the pre-trend analysis of Roth (2022) presumes, so a negative estimate θ̂(e) for e ≤ −2 means that scored firms grew faster than comparable never-scored firms from year g + e to year g − 1. Third, the covariates are measured at the end of any run-up. Because the provider's scores rise with firm size (Dobrick et al., 2023), conditioning on base-year size matches scored firms to never-scored firms of similar size and can absorb part of the run-up, so we also report estimates without covariates and estimates that condition on pre-coverage growth.
+Three design choices need comment. First, the baseline controls are never-scored firms; later-scored firms, which may also be growing toward the provider's universe, join them only in check R1. Second, all comparisons, including pre-coverage ones, use year g − 1 as the base year, so a negative estimate θ̂(e) for e ≤ −2 means that scored firms grew faster than comparable never-scored firms from year g + e to year g − 1. Third, the covariates are measured at the end of any run-up. Because the provider's scores rise with firm size (Dobrick et al., 2023), conditioning on base-year size matches scored firms to never-scored firms of similar size and can absorb part of the run-up, so we also report estimates without covariates and estimates that condition on pre-coverage growth.
 
 ## 4.3. Inference
 
@@ -44,9 +44,9 @@ where z~0.975~ and z~0.80~ are standard normal quantiles and the hatted SE is th
 
 $$latex W=\hat{\theta}_{\mathrm{pre}}'\,\hat{V}_{\mathrm{pre}}^{-1}\,\hat{\theta}_{\mathrm{pre}}\ \sim\ \chi^2_{4} | (8)
 
-where θ̂~pre~ stacks the estimates for e = −5 to −2 and V̂~pre~ is their bootstrap covariance matrix. Following Roth (2022), we report W as a diagnostic and do not condition on it.
+where θ̂~pre~ stacks the estimates for e = −5 to −2 and V̂~pre~ is their bootstrap covariance matrix. Because pre-trend tests can have low power and conditioning on them can distort inference (Roth, 2022), we report W as a diagnostic and do not condition the analysis on it.
 
-Coverage arrived in market-level waves, so a market-year shock can affect many scored firms at once, and national disclosure rules differ (Krueger et al., 2024; Singapore Exchange, 2016). The country indicators in Eq. (3) absorb market-wide changes within each cell, and we report leave-one-market-out estimates; five markets are too few clusters for a reliable market-level bootstrap. The firm-level bootstrap does not account for correlation within market-level coverage waves, so the confidence intervals and pre-trend p-values may be too narrow.
+Coverage arrived in market-level waves, so a market-year shock can affect many scored firms at once. The country indicators in Eq. (3) absorb market-wide changes within each cell, and we report leave-one-market-out estimates; five markets are too few clusters for a reliable market-level bootstrap. The firm-level bootstrap does not account for correlation within market-level coverage waves, so the confidence intervals and pre-trend p-values may be too narrow.
 
 ## 4.4. Sensitivity to departures from parallel trends
 
@@ -58,7 +58,7 @@ where b̂ is the fitted slope and θ̃(e) is the trend-adjusted estimate, which 
 
 $$latex \left|\delta(e)-\delta(e-1)\right|\le \bar{M}\,\max_{s\le -1}\left|\hat{\theta}(s)-\hat{\theta}(s-1)\right|\equiv \bar{M}\,\Delta,\qquad \delta(-1)=0 | (10)
 
-where s indexes pre-coverage event years. The bias for event year e is then at most M̄Δ(e + 1), and we widen the headline confidence interval by the weighted average of this bound. This construction is conservative and simpler than the confidence sets of Rambachan and Roth (2023), which we do not compute. We also add to X~i~ the growth of log market capitalization from year g − 3 to year g − 1, which compares scored firms with never-scored firms that grew at a similar rate before coverage.
+where s indexes pre-coverage event years. The bias for event year e is then at most M̄Δ(e + 1), and we widen the headline confidence interval by the weighted average of this bound. This construction is conservative and simpler than the confidence sets of Rambachan and Roth (2023), which we do not compute. We also add to X~i~ the growth of log market capitalization from year g − 3 to year g − 1, which compares scored firms with never-scored firms of similar pre-coverage growth.
 
 ## 4.5. Benchmark regression and robustness checks
 
@@ -66,10 +66,10 @@ As a benchmark, we estimate on scored and never-scored firms the static two-way 
 
 $$latex Y_{i,t}=\alpha_i+\lambda_t+\beta\,D_{i,t}+\varepsilon_{i,t},\qquad D_{i,t}=\mathbf{1}\left[t\ge G_i\right] | (11)
 
-where α~i~ and λ~t~ are firm and year effects, D~i,t~ marks years from the first score onward, and ε~i,t~ is the error; we use no covariates and all event years and cluster standard errors by firm. The coefficient β compares all post-coverage with all pre-coverage years, so it averages over any run-up, and with staggered timing it uses already-scored firms as controls for later cohorts, which biases β when effects change over time (Baker et al., 2022; Goodman-Bacon, 2021).
+where α~i~ and λ~t~ are firm and year effects, D~i,t~ marks years from the first score onward, and ε~i,t~ is the error; we use no covariates and all event years and cluster standard errors by firm. The coefficient β compares all post-coverage with all pre-coverage years, so it averages over any run-up, and with staggered timing it uses already-scored firms as controls for later cohorts, which biases β when effects change over time.
 
-The pre-analysis plan fixed rows R1 to R6 of Table 3: four robustness checks, a placebo, and the benchmark of Eq. (11). The checks add not-yet-scored firms to the controls, the alternative comparison group of Callaway and Sant'Anna (2021); drop the covariates; exclude the 2020 and 2021 cohorts; and keep only control firms whose log total assets in year g − 1 reach the 10th percentile of the cohort's scored firms, a lower bound only. The placebo dates coverage three years early and uses only years before the actual score. Besides the checks in Section 4.4, four analyses are exploratory: dating coverage one year later, with its own pre-trend test and bounds; restricting the sample to cohorts observed through event year three; excluding one market at a time; and estimating the model by market.
+The pre-analysis plan fixed rows R1 to R6 of Table 3: four robustness checks, a placebo, and the benchmark of Eq. (11). The checks add not-yet-scored firms to the controls; drop the covariates; exclude the 2020 and 2021 cohorts; and keep only control firms whose log total assets in year g − 1 reach the 10th percentile of the cohort's scored firms, a lower bound only. The placebo dates coverage three years early and uses only years before the actual score. Besides the checks in Section 4.4, four analyses are exploratory: dating coverage one year later, with its own pre-trend test and bounds; restricting the sample to cohorts observed through event year three; excluding one market at a time; and estimating the model by market.
 
 ## 4.6. Use of generative AI
 
-The authors used Claude (Anthropic), accessed through Claude Code in September 2026, to screen candidate research questions, draft the pre-analysis plan, write and debug the R code, draft and edit the text, and search for and check references. Five instances of the tool, each in a separate context, also produced simulated referee reports that informed the revision. The authors reviewed and approved the research question and the pre-analysis plan before any estimation, reviewed every output of the tool, checked each reported number against the R output files, and take full responsibility for the content.
+The authors used Claude (Anthropic) through Claude Code in September 2026 to screen candidate research questions, draft the pre-analysis plan, write and debug the R code, draft and edit the text, and search for and check references. Five instances of the tool, each in a separate context, also produced simulated referee reports that informed the revision. The authors reviewed and approved the research question and the pre-analysis plan before any estimation, reviewed every output of the tool, checked each reported number against the R output files, and take full responsibility for the content.
