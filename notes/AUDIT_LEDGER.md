@@ -177,3 +177,10 @@ tự giải quyết bằng mặc định hợp lý nhất và ghi tại đây.
   §6.1–6.3) → 9.990 từ (D-13 PASS); thân bài 8.407. checks.py 97/97 PASS.
 - Thư phản hồi v3 (`notes/review_independent/08_response_to_reviewers.md`): trạng thái theo thực tế, bỏ tham chiếu
   ledger nội bộ, sửa con trỏ mục.
+- D-19 (2026-09-26): người dùng dán lại Author Guidelines JF:IP (Last Updated 22 Dec 2025), nội dung trùng với bản đã
+  lưu (`notes/journal/JFIP_Author_Guidelines.md`). JF:IP dùng Free Format: không có template bắt buộc. "Template" của
+  bài = bố cục do build_manuscript.py dựng theo các điểm ràng buộc: Times New Roman 12 pt, giãn dòng 1.5, lề trái/phải
+  1 inch, trên/dưới 1.5 inch (theo quy định cho bản PDF); thứ tự Title page → Abstract (≤100 từ) → Keywords (≤7) →
+  Main text → References → Tables → Figures (legend dưới hình); Supplemental Appendix = Internet Appendix riêng.
+  Nhãn hình giữ "Fig. n" (CLAUDE.md E1; Free Format chỉ yêu cầu nhất quán). Bộ hồ sơ S10 sẽ thêm Plain Language
+  Summary và Suggested X post (tuỳ chọn).
