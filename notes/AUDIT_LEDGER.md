@@ -191,3 +191,22 @@ tự giải quyết bằng mặc định hợp lý nhất và ghi tại đây.
 - D-21 (2026-09-26): kiểu tài liệu tham khảo. JF:IP: "There is no submission requirement for formatting references"
   (Free Format) → không bắt buộc APA. Bài dùng kiểu author-year của Journal of Finance (tạp chí anh em cùng AFA):
   "Tác giả, Năm, Tên bài, *Tạp chí* Tập(Số), trang. DOI" — nhất quán, đủ các trường JF:IP yêu cầu. Giữ nguyên.
+- D-21b (2026-09-26): người dùng yêu cầu "Chuyển sang APA". Thay D-21: References + trích dẫn trong văn theo APA 7
+  (≥ 3 tác giả → "et al." từ lần đầu; "&" trong ngoặc, "and" khi trích dẫn tường thuật; nhiều nguồn trong ngoặc xếp
+  theo chữ cái, bỏ dấu khi xếp; cùng tác giả gộp năm "Tsang et al., 2024, 2025"; hai Berg 2022 phân biệt "Berg,
+  Heeb, et al." / "Berg, Kölbel, et al."; danh sách: Họ, T. T. (Năm). Tên bài. *Tạp chí*, *Tập*(Số), trang. DOI;
+  working paper, tin báo, dữ liệu theo mẫu APA). checks.py thêm 2 kiểm tra APA. Câu công bố companion study viết theo
+  dạng APA.
+- D-22 (2026-09-26): người dùng: note bảng/hình tối đa 2 câu, bảng bớt chữ. Viết lại mọi note (≤ 2 câu; checks.py
+  ngưỡng 2); rút gọn nhãn hàng/cột trong R (04_tables_figures.R, OUTCOMES trong 01_data.R: "ln(market cap)",
+  "Leverage (ratio)", "ln(assets)"; hàng Table 3 ngắn; IA "Without <market>", "Sample", "Market"...). Dựng lại bảng
+  và Fig. 1 bằng R (chỉ phần 04/05 từ output ước lượng đã lưu; numbers.csv không đổi).
+- D-23 (2026-09-26): người dùng: "BỎ BƯỚC S9". Không làm S9 (notes/09_overlap_audit.md và chạy lại overlap_audit.R
+  trên bản cuối). Kết quả overlap gần nhất (bản v2): 0% 8-gram ở mọi mục (project_R/outputs/overlap). Ghi rõ trong
+  tóm tắt cuối rằng mục H "overlap PASS" dựa trên lần chạy v2, không chạy lại trên bản cuối.
+- D-24 (2026-09-26): người dùng: vòng hoàn thiện ngôn ngữ phải chạy kỹ, nhiều task, agent độc lập load đủ skill,
+  cắt 20–30% số từ. Thay D-13: mục tiêu thân bài ≈ 6.100–6.200 từ (cắt ~25% từ 8.316; khớp giới hạn JF:IP 6.200 với 4
+  exhibit). checks.py: tiêu chí từ chuyển sang giới hạn JF:IP (FAIL nếu vượt), bỏ tiêu chí 8.500–10.000.
+  Vòng 1: 5 agent độc lập song song, mỗi agent một nhóm mục, load academic-paper + proofreading + stop-slop, viết lại
+  có mục tiêu số từ, giữ nguyên placeholder/trích dẫn/phương trình; tôi ghép và chạy cổng academic-paper. Vòng 2:
+  agent độc lập proofreading (report) + stop-slop (audit) trên toàn bài, rồi áp dụng sửa, chạy lại cổng.

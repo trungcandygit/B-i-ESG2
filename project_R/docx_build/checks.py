@@ -43,10 +43,8 @@ def main(docx_dir):
         table_words += words(d['caption']) + words(d['note']) + words('Source: ' + d['source'])
     full = words(secs['title']) + words(secs['abstract']) + words(secs['keywords']) + wc + \
         sum(words(r) for r in blocks(secs['references'])) + table_words
-    check('full text 8,500-10,000 words (user target, D-13)', 8500 <= full <= 10000,
-          f'full text {full} words (title+abstract+keywords+body {wc}+references+exhibits)')
-    results.append(('JF:IP main-text limit (info; user will cut later)', 'WARN' if wc > limit else 'PASS',
-                    f'{wc} words; limit {limit} with {n_ex} exhibits'))
+    # D-24 (2026-09-26): the user asked for a 20-30% cut; the JF:IP main-text limit is now a hard criterion.
+    check('JF:IP main-text limit', wc <= limit, f'{wc} words; limit {limit} with {n_ex} exhibits; full text {full}')
     aw = words(secs['abstract']); check('abstract <= 100 words', aw <= 100, f'{aw} words')
     kw = [k.strip() for k in secs['keywords'].split(';')]
     check('keywords <= 7 and alphabetical', len(kw) <= 7 and kw == sorted(kw, key=str.lower), '; '.join(kw))
@@ -76,15 +74,15 @@ def main(docx_dir):
     check('tables first cited in numeric order', tab_order == sorted(tab_order), str(tab_order))
 
     check('figure mentions in text match caption label (Fig. n)', not re.search(r'\bFigure \d', body))
-    # 4. Notes <= 3 sentences, every exhibit has a Source line
+    # 4. Notes <= 2 sentences (user instruction 2026-09-26, ledger D-22), every exhibit has a Source line
     for b in exhibits:
         d = dict(l.split(':=', 1) for l in b.splitlines())
-        note = re.sub(r'\b(Eqs?|Fig)\.', r'\1', d['note']); ns = len(re.findall(r'[.!?](\s|$)', note))
-        check(f"note <= 3 sentences: {d['caption'].split('|')[0]}", ns <= 3, f'{ns} sentences')
+        note = re.sub(r'\b(Eqs?|Fig|Norm|diff)\.', r'\1', d['note']); ns = len(re.findall(r'[.!?](\s|$)', note))
+        check(f"note <= 2 sentences: {d['caption'].split('|')[0]}", ns <= 2, f'{ns} sentences')
         check(f"source line: {d['caption'].split('|')[0]}", bool(d.get('source')))
 
     # 5. Caption ↔ content: header row of each table CSV must match the caption's subject
-    expect = {1: ['Scored mean', 'Never-scored mean'], 2: ['ATT', 'Pre-trend p'], 3: ['Specification']}
+    expect = {1: ['Scored mean', 'Never-scored mean', 'Norm. diff.'], 2: ['ATT', 'Pre-trend p'], 3: ['Specification']}
     # Internet Appendix exhibits are cited as 'Table IA1' etc. and are not counted toward the exhibit limit.
     for kind, n, cap in caps:
         if kind == 'Table':
@@ -104,10 +102,10 @@ def main(docx_dir):
     ref_keys = []
     for r in refs_list:
         auth, year = r.split(', 20')[0] if False else None, None
-        m = re.match(r'(.+?), (\d{4})', r); ref_keys.append((m.group(1), m.group(2)))
+        m = re.match(r'(.+?)\.? \((\d{4})', r); ref_keys.append((m.group(1), m.group(2)))   # APA 7: Author. (Year).
     surnames = []
     for a, y in ref_keys:
-        first_s = a.split(',')[0].split(' and ')[0].strip()
+        first_s = a.split(',')[0].split(' & ')[0].strip()
         surnames.append((first_s, y))
     text_all = body + ' ' + secs['abstract']
     for s, y in surnames:
@@ -117,9 +115,14 @@ def main(docx_dir):
     for m in re.finditer(r"([A-Z][A-Za-zÀ-ž'\-]+)[^()]{0,60}?,? (?:\(|)(\d{4})\)", body):
         in_text.add((m.group(1), m.group(2)))
     ref_first = {s for s, _ in surnames}
-    not_authors = {'FTSE', 'LSEG', 'ESG', 'MTB', 'ATT', 'Table', 'Figure', 'Fig', 'Section', 'Eq', 'The', 'In', 'We', 'Inference', 'Following', 'Because', 'This', 'As', 'If', 'A', 'Singapore'}
+    not_authors = {'FTSE', 'LSEG', 'ESG', 'MTB', 'ATT', 'Table', 'Figure', 'Fig', 'Section', 'Eq', 'The', 'In', 'We', 'Inference', 'Following', 'Because', 'This', 'As', 'If', 'A', 'Singapore', 'Heeb', 'Kölbel'}
     orphan = [(a, y) for a, y in in_text if a not in not_authors and y.startswith(('19', '20')) and a not in ref_first and not any(a in r for r in refs_list)]
     check('no in-text citation missing from references', not orphan, str(orphan[:6]))
+    # APA 7 in-text form: three or more authors -> "et al."; "&" inside parentheses, "and" in narrative citations
+    three = re.findall(r"[A-Z][\w'’-]+, [A-Z][\w'’-]+,? (?:and|&) [A-Z][\w'’-]+,? \(?\d{4}", body)
+    check('APA: no three-author lists in citations', not three, str(three[:4]))
+    amp = [g for g in re.findall(r'\(([^()]*\d{4}[^()]*)\)', body) if re.search(r"[A-Z][\w'’-]+ and [A-Z][\w'’-]+, \d{4}", g)]
+    check('APA: "&" in parenthetical citations', not amp, str(amp[:4]))
     verified = open(os.path.join(ROOT, 'notes', '05_references_verified.md'), encoding='utf-8').read()
     for r in refs_list:
         doi = re.search(r'doi\.org/(\S+)', r)

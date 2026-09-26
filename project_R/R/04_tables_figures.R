@@ -29,7 +29,7 @@ t1_fmt <- data.frame(Variable = t1$variable,
   `Scored mean` = mapply(fmt, t1$tr_mean, dig1), `Scored median` = mapply(fmt, t1$tr_median, dig1),
   `Scored N` = fmtn(t1$tr_n),
   `Never-scored mean` = mapply(fmt, t1$nv_mean, dig1), `Never-scored median` = mapply(fmt, t1$nv_median, dig1),
-  `Never-scored N` = fmtn(t1$nv_n), `Normalized difference` = fmt(t1$norm_diff, 2), check.names = FALSE)
+  `Never-scored N` = fmtn(t1$nv_n), `Norm. diff.` = fmt(t1$norm_diff, 2), check.names = FALSE)
 write.csv(t1_fmt, file.path(OUT, "table1_formatted.csv"), row.names = FALSE)
 
 # ---- Table 2: main ATTs ----
@@ -53,21 +53,21 @@ row_of <- function(label, d) {
   as.data.frame(as.list(c(Specification = label, setNames(cellv(d$est, d$se, d$p), OUTCOMES))), check.names = FALSE)
 }
 t3 <- bind_rows(
-  row_of("Baseline (never-scored controls, covariates)", main_tab),
-  row_of("R1 Not-yet-scored firms added to controls", rob[rob$spec == "R1_notyet", ]),
+  row_of("Baseline", main_tab),
+  row_of("R1 Not-yet-scored in controls", rob[rob$spec == "R1_notyet", ]),
   row_of("R2 No covariates", rob[rob$spec == "R2_nocovars", ]),
-  row_of("R3 Excluding 2020 and 2021 cohorts", rob[rob$spec == "R3_dropcovid", ]),
-  row_of("R4 Controls on treated size support", rob[rob$spec == "R4_support", ]),
-  row_of("R5 Placebo: coverage dated three years early", rob[rob$spec == "R5_placebo", ]),
-  row_of("R6 Static two-way fixed effects", tw),
-  row_of("R7 Linear pre-trend removed", rv[rv$spec == "R7_trendadj", ]),
-  row_of("R8 Controlling for pre-coverage growth", rv[rv$spec == "R8_pregrowth", ]),
-  row_of("R9 Excluding Malaysia", rv[rv$spec == "R9_excludeMY", ]),
-  row_of("R10 Treatment dated one year later", rv2[rv2$spec == "R10_shift1", ]),
-  row_of("R11 Cohorts observed through event year 3", rv2[rv2$spec == "R11_balanced", ]),
-  row_of("High initial ESG score", het[het$group == "high_initial_score", ]),
-  row_of("Low initial ESG score", het[het$group == "low_initial_score", ]),
-  row_of("Difference, high minus low", het[het$group == "difference_high_minus_low", ]))
+  row_of("R3 No 2020–2021 cohorts", rob[rob$spec == "R3_dropcovid", ]),
+  row_of("R4 Size-trimmed controls", rob[rob$spec == "R4_support", ]),
+  row_of("R5 Placebo, 3 years early", rob[rob$spec == "R5_placebo", ]),
+  row_of("R6 Two-way fixed effects", tw),
+  row_of("R7 Pre-trend removed", rv[rv$spec == "R7_trendadj", ]),
+  row_of("R8 Pre-coverage growth", rv[rv$spec == "R8_pregrowth", ]),
+  row_of("R9 No Malaysia", rv[rv$spec == "R9_excludeMY", ]),
+  row_of("R10 Dated 1 year later", rv2[rv2$spec == "R10_shift1", ]),
+  row_of("R11 Cohorts to 2021", rv2[rv2$spec == "R11_balanced", ]),
+  row_of("High initial score", het[het$group == "high_initial_score", ]),
+  row_of("Low initial score", het[het$group == "low_initial_score", ]),
+  row_of("High minus low", het[het$group == "difference_high_minus_low", ]))
 write.csv(t3, file.path(OUT, "table3_formatted.csv"), row.names = FALSE)
 
 # ---- Figure 1: event-study coefficients, four outcomes ----
@@ -105,7 +105,8 @@ ggsave(file.path(FIG, "FigIA1.png"), pia, width = 6, height = 3.5, dpi = 600)
 # ---- Internet Appendix tables ----
 lomo <- read.csv(file.path(OUT, "leave_one_market_out.csv"))
 cn <- c(ID = "Indonesia", MY = "Malaysia", PH = "Philippines", SG = "Singapore", TH = "Thailand")
-tia1 <- bind_rows(lapply(names(cn), function(cc) row_of(paste("Excluding", cn[[cc]]), lomo[lomo$excluded == cc, ])))
+tia1 <- bind_rows(lapply(names(cn), function(cc) row_of(paste("Without", cn[[cc]]), lomo[lomo$excluded == cc, ])))
+names(tia1)[1] <- "Sample"
 write.csv(tia1, file.path(OUT, "tableIA1_formatted.csv"), row.names = FALSE)
 csz <- read.csv(file.path(OUT, "cohort_sizes.csv"))
 tia2 <- data.frame(`First score year` = csz$G, Indonesia = csz$ID, Malaysia = csz$MY, Philippines = csz$PH,
@@ -116,28 +117,28 @@ write.csv(tia2, file.path(OUT, "tableIA2_formatted.csv"), row.names = FALSE)
 pm <- read.csv(file.path(OUT, "per_market.csv"))
 tia3 <- bind_rows(lapply(names(cn), function(cc) {
   r <- row_of(cn[[cc]], pm[pm$market == cc, ])
-  r$`Scored firms (ln MTB)` <- fmtn(pm$n_treated_firms[pm$market == cc & pm$outcome == "ln_mtb"]); r }))
+  r$`Scored firms` <- fmtn(pm$n_treated_firms[pm$market == cc & pm$outcome == "ln_mtb"]); r }))
 names(tia3)[1] <- "Market"
 write.csv(tia3, file.path(OUT, "tableIA3_formatted.csv"), row.names = FALSE)
 ss <- bind_rows(lapply(names(OUTCOMES), function(y) {
   v <- panel[[y]]
   data.frame(Outcome = OUTCOMES[[y]],
-             `Scored firms: firm-years` = fmtn(sum(!is.na(v) & panel$treated)),
-             `Scored firms: firms` = fmtn(n_distinct(panel$firm_id[!is.na(v) & panel$treated])),
-             `Never-scored: firm-years` = fmtn(sum(!is.na(v) & !panel$treated)),
-             `Never-scored: firms` = fmtn(n_distinct(panel$firm_id[!is.na(v) & !panel$treated])),
-             `Share of firm-years missing` = fmt(mean(is.na(v)), 3), check.names = FALSE) }))
+             `Scored firm-years` = fmtn(sum(!is.na(v) & panel$treated)),
+             `Scored firms` = fmtn(n_distinct(panel$firm_id[!is.na(v) & panel$treated])),
+             `Never-scored firm-years` = fmtn(sum(!is.na(v) & !panel$treated)),
+             `Never-scored firms` = fmtn(n_distinct(panel$firm_id[!is.na(v) & !panel$treated])),
+             `Share missing` = fmt(mean(is.na(v)), 3), check.names = FALSE) }))
 write.csv(ss, file.path(OUT, "tableIA4_formatted.csv"), row.names = FALSE)
 rmb <- read.csv(file.path(OUT, "rm_bounds.csv"))
 tia5 <- rmb %>% transmute(Outcome = OUTCOMES[outcome], `M-bar` = fmt(Mbar, 2), `Largest pre-period change` = fmt(dmax),
   `Bias bound` = fmt(bias_bound), `Robust 95% interval` = paste0("[", fmt(robust_lo), ", ", fmt(robust_hi), "]"))
-names(tia5) <- c("Outcome", "M\u0304", "Largest pre-period change", "Bias bound", "Robust 95% interval")
+names(tia5) <- c("Outcome", "M\u0304", "Max pre-period change", "Bias bound", "Robust 95% interval")
 write.csv(tia5, file.path(OUT, "tableIA5_formatted.csv"), row.names = FALSE)
 
 # Scored firms and control firms by event year for ln MTB (Table IA6)
 fe <- read.csv(file.path(OUT, "firms_by_event_time.csv"))
 tia6 <- data.frame(`Event year` = sub("^-", "−", as.character(fe$e)), `Scored firms` = fmtn(fe$scored_firms),
                    Cohorts = fmtn(fe$cohorts),
-                   `Control firms per cohort cell` = paste0(fmtn(fe$controls_min), "–", fmtn(fe$controls_max)),
+                   `Control firms (range)` = paste0(fmtn(fe$controls_min), "–", fmtn(fe$controls_max)),
                    check.names = FALSE)
 write.csv(tia6, file.path(OUT, "tableIA6_formatted.csv"), row.names = FALSE)

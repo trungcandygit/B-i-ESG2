@@ -62,8 +62,8 @@ cohort_sizes <- panel %>% filter(treated) %>% distinct(firm_id, G, country) %>%
   count(G, country) %>% pivot_wider(names_from = country, values_from = n, values_fill = 0) %>%
   mutate(total = rowSums(across(-G))) %>% arrange(G)
 
-OUTCOMES <- c(ln_mtb = "ln(MTB)", ln_mcap = "ln(market capitalization)",
-              leverage = "Book leverage", ln_asset = "ln(total assets)")
+OUTCOMES <- c(ln_mtb = "ln(MTB)", ln_mcap = "ln(market cap)",
+              leverage = "Leverage (ratio)", ln_asset = "ln(assets)")
 
 write_out(sample_flow, "sample_flow.csv")
 write_out(cohort_sizes, "cohort_sizes.csv")
