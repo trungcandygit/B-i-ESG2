@@ -129,3 +129,12 @@ tự giải quyết bằng mặc định hợp lý nhất và ghi tại đây.
   (thư vòng 1 không có khối acceptance criteria). NS-1 (advisory): CI cho con số pre-trend 14.1%/10.0%.
 - Xuất lại bản sửa v2.1 cho Phase 2: `notes/re_review/input/revised_manuscript_v2_1.md` + `diff_v1_1_to_v2_1.patch`
   (thay bản v2 xuất trước khi thêm trích dẫn).
+- D-15 (2026-09-26): người dùng dán checklist tiền nộp của Springer Nature (Figures and tables; Structure and layout;
+  trang của Asia-Pacific Financial Markets). Không có chỉ thị đổi tạp chí → tạp chí đích vẫn là JF:IP (CLAUDE.md §0);
+  checklist được lưu (`notes/journal/Springer_presubmission_checklist.md`) và áp dụng như chuẩn trình bày bổ sung:
+  (i) nhắc hình trong văn đổi "Figure n" → "Fig. n" cho khớp caption (checks.py thêm kiểm tra); (ii) §4 đổi tên
+  "Empirical Design" → "Methods" (khớp cấu trúc Title–Abstract–Introduction–Methods–Results–Discussion);
+  (iii) đơn vị (log points, ratio) ghi trong note Table 2, 3, IA1, IA3, IA5; (iv) đệm ô bảng (tblCellMar) và nới cột
+  Table 3/IA1/IA3 để ô số không xuống dòng (đã render PDF kiểm tra); (v) Table IA3 cột đầu "Market" (sửa trong R
+  04_tables_figures.R, chạy lại run_all.R). Các sửa này đến sau ảnh chụp Phase 2A (chỉ trình bày, không đổi số/ý) và
+  sẽ được Stage 4.5 xem trên bản cuối.

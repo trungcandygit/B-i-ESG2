@@ -59,10 +59,10 @@ def main(docx_dir):
     check('no unresolved placeholders', not left, str(left[:5]))
 
     # 3. Exhibits cited in text, in order
-    cites = [('Table', int(m)) for m in re.findall(r'Table (\d)', body)] + [('Figure', int(m)) for m in re.findall(r'Figure (\d)', body)]
+    cites = [('Table', int(m)) for m in re.findall(r'Table (\d)', body)] + [('Figure', int(m)) for m in re.findall(r'Fig\. (\d)', body)]
     first = {}
-    for m in re.finditer(r'(Table|Figure) (\d)', body):
-        first.setdefault((m.group(1), int(m.group(2))), m.start())
+    for m in re.finditer(r'(Table|Fig\.) (\d)', body):
+        first.setdefault(('Figure' if m.group(1) == 'Fig.' else 'Table', int(m.group(2))), m.start())
     caps = []
     for b in exhibits:
         cap = [l for l in b.splitlines() if l.startswith('caption:=')][0][9:]
@@ -75,10 +75,11 @@ def main(docx_dir):
     tab_order = [k[1] for k, _ in order if k[0] == 'Table']
     check('tables first cited in numeric order', tab_order == sorted(tab_order), str(tab_order))
 
+    check('figure mentions in text match caption label (Fig. n)', not re.search(r'\bFigure \d', body))
     # 4. Notes <= 3 sentences, every exhibit has a Source line
     for b in exhibits:
         d = dict(l.split(':=', 1) for l in b.splitlines())
-        note = re.sub(r'\bEqs?\.', 'Eq', d['note']); ns = len(re.findall(r'[.!?](\s|$)', note))
+        note = re.sub(r'\b(Eqs?|Fig)\.', r'\1', d['note']); ns = len(re.findall(r'[.!?](\s|$)', note))
         check(f"note <= 3 sentences: {d['caption'].split('|')[0]}", ns <= 3, f'{ns} sentences')
         check(f"source line: {d['caption'].split('|')[0]}", bool(d.get('source')))
 
@@ -116,7 +117,7 @@ def main(docx_dir):
     for m in re.finditer(r"([A-Z][A-Za-zÀ-ž'\-]+)[^()]{0,60}?,? (?:\(|)(\d{4})\)", body):
         in_text.add((m.group(1), m.group(2)))
     ref_first = {s for s, _ in surnames}
-    not_authors = {'FTSE', 'LSEG', 'ESG', 'MTB', 'ATT', 'Table', 'Figure', 'Section', 'Eq', 'The', 'In', 'We', 'Inference', 'Following', 'Because', 'This', 'As', 'If', 'A', 'Singapore'}
+    not_authors = {'FTSE', 'LSEG', 'ESG', 'MTB', 'ATT', 'Table', 'Figure', 'Fig', 'Section', 'Eq', 'The', 'In', 'We', 'Inference', 'Following', 'Because', 'This', 'As', 'If', 'A', 'Singapore'}
     orphan = [(a, y) for a, y in in_text if a not in not_authors and y.startswith(('19', '20')) and a not in ref_first and not any(a in r for r in refs_list)]
     check('no in-text citation missing from references', not orphan, str(orphan[:6]))
     verified = open(os.path.join(ROOT, 'notes', '05_references_verified.md'), encoding='utf-8').read()

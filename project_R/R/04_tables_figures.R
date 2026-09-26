@@ -117,6 +117,7 @@ pm <- read.csv(file.path(OUT, "per_market.csv"))
 tia3 <- bind_rows(lapply(names(cn), function(cc) {
   r <- row_of(cn[[cc]], pm[pm$market == cc, ])
   r$`Scored firms (ln MTB)` <- fmtn(pm$n_treated_firms[pm$market == cc & pm$outcome == "ln_mtb"]); r }))
+names(tia3)[1] <- "Market"
 write.csv(tia3, file.path(OUT, "tableIA3_formatted.csv"), row.names = FALSE)
 ss <- bind_rows(lapply(names(OUTCOMES), function(y) {
   v <- panel[[y]]

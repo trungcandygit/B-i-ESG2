@@ -214,6 +214,10 @@ def table_exhibit(d, caption, csvfile, note, source, widths=None, size=9):
     add_runs(p, caption.split('|')[1].strip()); set_spacing(p, 1.0, 6)
     t = d.add_table(rows=len(rows), cols=len(rows[0])); t.alignment = WD_TABLE_ALIGNMENT.CENTER
     t.autofit = False
+    mar = OxmlElement('w:tblCellMar')   # cell padding for readable row and column spacing
+    for side, w in (('top', 40), ('bottom', 40), ('left', 85), ('right', 85)):
+        e = OxmlElement('w:' + side); e.set(qn('w:w'), str(w)); e.set(qn('w:type'), 'dxa'); mar.append(e)
+    t._tbl.tblPr.append(mar)
     for i, row in enumerate(rows):
         for j, v in enumerate(row):
             c = t.cell(i, j)
