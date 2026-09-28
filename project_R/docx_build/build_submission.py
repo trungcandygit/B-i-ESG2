@@ -2,7 +2,7 @@
 
 Files: 00_CHECKLIST_NopBai.md, 01_Title_Page.docx, 02_Manuscript_Anonymized.docx, 03_Figures/,
 04_Declaration_of_Competing_Interest.docx, 05_Replication_Package/ (+ .zip), 06_Cover_Letter.docx,
-07_Manuscript_with_Author_Details.docx, 08_Supplemental_Appendix.docx, 09_Word_Count.docx/.pdf.
+07_Manuscript_with_Author_Details.docx, 08_Supplemental_Appendix.docx, 09_Word_Count.docx/.pdf, 10_Plain_Language_Summary_and_X_Post.docx.
 Highlights are not required by JF:IP and are not produced."""
 import os, re, shutil, subprocess, sys, zipfile
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -72,14 +72,23 @@ def main():
                  'kontrungcany@gmail.com', '', 'The Editors', 'Journal of Finance: Insights and Perspectives', '']:
         q = d.add_paragraph(); add_runs(q, line); set_spacing(q, 1.0, 0)
     for para in blocks(open(os.path.join(ROOT, 'manuscript', 'cover_letter.md'), encoding='utf-8').read()):
-        body_par(d, para.replace('{{WORDCOUNT}}', f'{wc:,}').replace('{{LIMIT}}', f'{limit:,}')
-                 .replace('{{NEX}}', str(len(exhibits))), indent=False)
+        para = para.replace('{{WORDCOUNT}}', f'{wc:,}').replace('{{LIMIT}}', f'{limit:,}').replace('{{NEX}}', str(len(exhibits)))
+        para = re.sub(r'\{\{(\w+)\}\}', lambda m: nums[m.group(1)], para)
+        body_par(d, para, indent=False)
     d.save(os.path.join(SUB, '06_Cover_Letter.docx'))
 
     # 03 Figures
     fd = os.path.join(SUB, '03_Figures'); os.makedirs(fd)
-    for f in ('Fig1.eps', 'Fig1.png', 'FigIA1.eps', 'FigIA1.png'):
-        shutil.copy(os.path.join(OUTR, 'figures', f), fd)
+    for f, g in (('Fig1.eps', 'Fig1.eps'), ('Fig1.png', 'Fig1.png'), ('FigIA1.eps', 'FigS1.eps'), ('FigIA1.png', 'FigS1.png')):
+        shutil.copy(os.path.join(OUTR, 'figures', f), os.path.join(fd, g))
+
+    # 10 Plain language summary and suggested X post (optional JF:IP items)
+    pls = parse_sections(os.path.join(ROOT, 'manuscript', 'plain_language_summary.md'), nums)
+    d = base_doc(); heading(d, 'Plain Language Summary', 1); body_par(d, pls['pls'], indent=False)
+    heading(d, 'Suggested X post', 1); body_par(d, pls['xpost'], indent=False)
+    assert len(pls['xpost']) <= 280, len(pls['xpost'])
+    d.save(os.path.join(SUB, '10_Plain_Language_Summary_and_X_Post.docx'))
+    shutil.copy(os.path.join(ROOT, 'submission', '00_CHECKLIST_NopBai.md'), os.path.join(SUB, '00_CHECKLIST_NopBai.md'))
 
     # 05 Replication package (code + outputs; licensed raw data excluded)
     rp = os.path.join(SUB, '05_Replication_Package'); os.makedirs(rp)
