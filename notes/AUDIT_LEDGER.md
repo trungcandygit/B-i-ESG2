@@ -413,3 +413,13 @@ format for JEMF after round 1 is merged, once its submission guidelines are retr
 Author asked to settle the journal by the skill before formatting. After precedent searches, final ranking:
 JEMF 76 > AAMJAF 72 > IJEM 70 = AJAR 70 > IJBS 64 = Managerial Finance 64. First target: Journal of Emerging Market
 Finance (supersedes D-48 GFJ, which was the prestige route). Stage 5 formats for JEMF after language round 1.
+
+### Iter 14 — Language round 1 on v4.1 (single round, D-57) (2026-10-12)
+- Three independent section editors (A §1–2, B §3–4, C §5–8) read academic-paper, proofreading, stop-slop, and
+  sciwrite (5 passes); brief notes/language_v41_r1/BRIEF.md; logs log_A/B/C.md. Word counts: A 1911→1844, B 2616→2596,
+  C 4412→4375. Placeholders, citations, equations, cross-references unchanged (agent scripts, then checks.py).
+- Merged into manuscript/manuscript.md. Two flagged wording issues fixed by the editor: Malaysian asset ratio phrased
+  as "median total assets of scored firms were 3.3 times those of never-scored firms" (05_numbers.R: exp(scored −
+  never) median ln assets); §6.1 "coverage had no effect within the interval" → "no detected effect ... the interval
+  bounds its size" (F2). Flag "five groups vs six" in §6.3 checked: five groups listed, no change.
+- Gates: checks.py 116/116 PASS; build_sfr.py all PASS; body 8,084 words; docx validate PASS.
