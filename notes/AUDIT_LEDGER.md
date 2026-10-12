@@ -288,3 +288,10 @@ tự giải quyết bằng mặc định hợp lý nhất và ghi tại đây.
   generative AI use"), không nằm trong bản ẩn danh.
 - Giới hạn số từ của SFR chưa xác minh (emerald.com bị chặn). Thân bài 6.127 từ; thân bài + abstract + references 7.151.
 - Xoá submission/JFIP_submission (còn trong lịch sử git, commit 7b5fee5, gồm các file tác giả sửa tay).
+
+## Iter 12 — Thêm skill sciwrite (2026-10-12)
+- D-34 (người dùng): lưu skill https://github.com/labarba/sciwrite. Vendor nguyên bản (commit 64b128b, 2026-08-03,
+  CC BY 4.0, Lorena A. Barba) vào vendor/sciwrite (SKILL.md, README.md, HOW-TO-USE.md, LICENSE, SOURCE.md); link
+  .claude/skills/sciwrite. Đã đọc toàn bộ: chỉ là hướng dẫn Markdown, không có script.
+- Xung đột với quy tắc repo, repo ưu tiên: skill gợi ý dùng em dash (Pass 3) → không áp dụng (F7); skill bảo hỏi tạp chí
+  đích → không hỏi (1b; tạp chí đã chốt SFR); chế độ interactive "chờ xác nhận" → không dừng chờ (1b). Ghi trong CLAUDE.md §1.

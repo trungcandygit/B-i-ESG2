@@ -27,6 +27,10 @@ skill đã load còn hiệu lực cả phiên, **không gọi lại**.
 - Hook `.claude/settings.json` (`SessionStart` + `UserPromptSubmit`) gọi `.claude/hooks/force-ars.sh`. Không được xoá/tắt hook.
 - Vòng ngôn ngữ (sau tối đa 2 vòng revision của ARS): 2 vòng `proofreading` (vendor/proofreading) + `stop-slop`
   (vendor/stop-slop); mỗi vòng qua cổng kiểm tra của `academic-paper` (số liệu khớp R, trích dẫn, giới hạn từ, quy định tạp chí).
+- Skill bổ trợ `sciwrite` (vendor/sciwrite, labarba/sciwrite, CC BY 4.0; tên trong SKILL.md: `manuscript-writing-review`):
+  5 lượt soát câu chữ (clutter, câu chủ động/động từ, cấu trúc câu, thống nhất thuật ngữ, số liệu/trích dẫn); dùng kèm
+  vòng proofreading + stop-slop. Quy tắc repo ưu tiên hơn skill: KHÔNG em dash (bỏ gợi ý "dash (—)" của skill), không hỏi
+  tạp chí đích (đã chốt ở mục 3), không đổi nội dung khoa học, số liệu vẫn phải khớp R.
 - Văn phong: stop-slop trong khuôn khổ học thuật (D14): dùng "we", không "you", bỏ trạng từ đệm / phóng đại,
   giữ trạng từ kỹ thuật, không em dash.
 
