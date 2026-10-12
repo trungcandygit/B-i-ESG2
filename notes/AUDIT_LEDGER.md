@@ -386,3 +386,11 @@ tự giải quyết bằng mặc định hợp lý nhất và ghi tại đây.
 - D-52 (người dùng: chỉ Q3): tuyến Q3: 1 Journal of Emerging Market Finance (Sage), 2 Managerial Finance (Emerald), 3 Review of Pacific Basin Financial Markets and Policies (World Scientific), 4 IJEM (UPM), 5 IJBS (UNIMAS, USD 200), 6 AJBA (UM), 7 AAJFA (Inderscience), 8 JIEB (UGM). Loại APJAE (đã Q2 theo T&F 2025).
 - D-53: chấm lại JEMF sau khi có trang Aims & Scope chính thức (Sage, COPE): 76 Good fit (trước 66 do thiếu bằng chứng). Vẫn là lựa chọn số 1 tuyến Q3.
 - D-54 (người dùng: thấp hơn nữa): tuyến Q4: 1 AAMJAF (USM, Q4, không APC, có tiền lệ ESG coverage), 2 AJEB (Emerald/ĐH Ngân hàng TP.HCM, mới vào Scopus 9/2026, không APC), 3 RPBFMP, 4 SAJE (Chulalongkorn), 5 IMFI, 6 Banks and Bank Systems. Tránh: Accounting (Growing Science), IJEFI, JAFEB (bị Scopus loại).
+
+### D-55 (2026-10-12) 30-candidate journal list below the Q1 band
+Author asked for 30 candidates per journal-fit-finder. Consolidated 30 non-Q1 titles with rubric totals, index and
+cost labels (source-backed / unverified), publisher-diversity note, and avoid list in
+notes/journal/journal_fit_report_2026-10-12.md. No acceptance probabilities. Default first target for the easier route:
+Journal of Emerging Market Finance (76). Final journal choice stays with the author; Stage 5 formatting waits for it.
+Manuscript status at this point: content revision (Stage 4, 4') done, v4.1 pushed; remaining: two language rounds,
+Stage 4.5 integrity, Stage 5 formatting.

@@ -206,3 +206,55 @@ Avoid (discontinued from Scopus): Accounting (Growing Science; Nov 2025 list, "c
 Journal of Economics and Financial Issues (Econjournals; 2025 list), Journal of Asian Finance, Economics and Business
 (2021, "publication concerns").
 Q4 recommendation: Asian Academy of Management Journal of Accounting and Finance (free, ESG precedent).
+
+## 30-candidate list below the Q1 band (author: "tìm thêm xem. 30 ứng viên, theo skill", 2026-10-12)
+Consolidated from the routes above plus a further search (Malaysian, Indonesian, Thai, Singaporean, Emerald, and World
+Scientific titles). Q1 prestige titles (GFJ, JSFI, EMFT, PBFJ, EMR, RIBAF, CGIR, JBE, JBF, IJFE, JABES) are kept in
+the earlier tables and left out here. Fit = rubric total (scope 25, precedent 15, method 15, contribution 15, practical
+10, legitimacy/index 10, strategic 10, with the author's priority "easier to publish" scored under strategic fit).
+Quartiles: database and year as found; "unverified" = aggregator or dated source; scimagojr.com was not reachable from
+this environment, so every quartile must be checked there before submission. No acceptance rate was found for any
+title; none is estimated.
+
+| # | Journal | Publisher | Index/quartile (label) | Cost (label) | Fit | Band |
+|---:|---|---|---|---|---:|---|
+| 1 | Journal of Emerging Market Finance | Sage | SJR Q3 Finance to 2022 (unverified); JCR Q2 2026 (unverified) | Hybrid; fee not found | 76 | Good |
+| 2 | Asian Academy of Management Journal of Accounting and Finance | USM (Malaysia) | SJR Q4 Finance (unverified) | No APC (DOAJ, source-backed) | 70 | Good |
+| 3 | Asian Journal of Accounting Research | Emerald / Airlangga | Scopus Q2 2022 (unverified for 2026) | Platinum OA, no APC (source-backed) | 70 | Good |
+| 4 | International Journal of Emerging Markets | Emerald | Scopus (source-backed); quartile not found | Hybrid | 70 | Good |
+| 5 | Cogent Economics & Finance | Taylor & Francis | SJR Q2 Finance (unverified) | APC GBP 1,000–1,344 (conflict) | 68 | Backup |
+| 6 | Management and Accounting Review | UiTM (Malaysia) | In SCImago (source-backed); quartile not found | Not found | 66 | Backup |
+| 7 | Journal of Economics and Development | Emerald / NEU | Q2 at Scopus entry 2023 (source-backed for 2023) | Platinum OA, no APC (source-backed) | 66 | Backup; declare NEU affiliation |
+| 8 | Managerial Finance | Emerald | SJR Q3, JCR Q3 (unverified) | Hybrid | 64 | Backup |
+| 9 | Asian Journal of Economics and Banking | Emerald / BUH | Scopus addition Sep 2026 (single news source, unverified); no quartile yet | Diamond OA (source-backed) | 64 | Backup |
+| 10 | Review of Pacific Basin Financial Markets and Policies | World Scientific | Q3 or Q4 (sources conflict, unverified) | US$150 submission fee 2021–22 (unverified) | 62 | Backup |
+| 11 | Asia-Pacific Journal of Financial Studies | Wiley | Quartile not found | No submission fee (third-party, unverified) | 62 | Backup |
+| 12 | Journal of Financial Economic Policy | Emerald | Scopus; JCR/ESCI Q1 (aggregator, unverified) | Hybrid | 62 | Backup (policy framing needed) |
+| 13 | Jurnal Pengurusan | UKM (Malaysia) | Scopus (journal page, source-backed); quartile not found | Not found | 60 | Backup |
+| 14 | International Journal of Economics and Management | UPM (Malaysia) | Q3 2023 (unverified) | Not found | 60 | Backup |
+| 15 | Asia-Pacific Journal of Accounting & Economics | Taylor & Francis | CiteScore Q2 2025 (T&F page, source-backed) | Hybrid | 60 | Backup |
+| 16 | Singapore Economic Review | World Scientific | SJR Q3 Economics (aggregator, unverified) | Hybrid | 58 | Backup |
+| 17 | Borsa Istanbul Review | Elsevier (OA) | Scopus (source-backed); quartile not found | APC conflict (DOAJ none vs Scimago estimate) | 58 | Backup |
+| 18 | International Journal of Business and Society | UNIMAS (Malaysia) | Scopus since 2009 (source-backed); SJR Q3 2019–23 (unverified) | USD 200 (source-backed) | 58 | Backup |
+| 19 | Asian Journal of Business and Accounting | University of Malaya | Scopus Q3 (unverified) | OA; APC amount not found | 58 | Backup |
+| 20 | Afro-Asian Journal of Finance and Accounting | Inderscience | Q3 2023 (unverified) | Hybrid; not found | 58 | Backup |
+| 21 | Journal of Economic and Administrative Sciences | Emerald | Scopus; JCR Q2 (aggregator, unverified) | Hybrid | 56 | Backup |
+| 22 | Australasian Accounting, Business and Finance Journal | Univ. of Wollongong | SJR Q2 per journal site (source-backed, year not stated); ABDC B | No fees (source-backed) | 56 | Backup; submissions currently closed |
+| 23 | Journal of Indonesian Economy and Business | Univ. Gadjah Mada | Scopus Q3, SJR 2023 0.25 (journal page, source-backed) | Not found | 55 | Backup |
+| 24 | Gadjah Mada International Journal of Business | Univ. Gadjah Mada | Scopus since 2010; Q3 in 2018 (dated) | Not found | 55 | Backup |
+| 25 | Southeast Asian Journal of Economics | Chulalongkorn | Scopus (blog, unverified); quartile not found | No charges (source-backed) | 55 | Backup |
+| 26 | Journal of Southeast Asian Economies | ISEAS | Scopus and ESCI (source-backed); quartile not found | Not found | 54 | Backup (economics/policy) |
+| 27 | Journal of Risk and Financial Management | MDPI | Scopus (source-backed); removed from WoS Mar 2023 | APC (amount not found) | 55 | Backup, verify |
+| 28 | Asian Journal of Accounting and Governance | UKM (Malaysia) | JCR Q4 (unverified); Scopus status not found | Not found | 52 | Verify index first |
+| 29 | Investment Management and Financial Innovations | Business Perspectives | Q4 per aggregator, metrics inconsistent | OA; APC not found | 52 | Verify |
+| 30 | Banks and Bank Systems | Business Perspectives | Scopus; JCR Q3 (unverified) | APC about US$641 (unverified) | 45 | Weak (banking scope) |
+
+Publisher diversity: Emerald 7, Malaysian universities 7, World Scientific 2, Taylor & Francis 2, Business Perspectives
+2, Indonesian universities 2, and one each for Sage, Wiley, Elsevier, Inderscience, MDPI, UOW, Chulalongkorn, ISEAS.
+Avoid (discontinued from Scopus): Accounting (Growing Science), International Journal of Economics and Financial Issues,
+Journal of Asian Finance, Economics and Business.
+
+Strategy for the "easier" route: first Journal of Emerging Market Finance (Q3, best scope); in parallel-ready order
+after a rejection: Asian Academy of Management Journal of Accounting and Finance (free, ESG precedent), Asian Journal
+of Accounting Research (free), International Journal of Emerging Markets. Each change of target needs a reformat
+(Stage 5) and a scope-specific cover letter; the manuscript content does not change.
