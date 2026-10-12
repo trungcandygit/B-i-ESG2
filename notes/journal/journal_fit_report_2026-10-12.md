@@ -258,3 +258,31 @@ Strategy for the "easier" route: first Journal of Emerging Market Finance (Q3, b
 after a rejection: Asian Academy of Management Journal of Accounting and Finance (free, ESG precedent), Asian Journal
 of Accounting Research (free), International Journal of Emerging Markets. Each change of target needs a reformat
 (Stage 5) and a scope-specific cover letter; the manuscript content does not change.
+
+## Final decision per skill (2026-10-12, author: "tìm journal trước đã, theo skill")
+Route: International English, Scopus required, author priority "easier to publish" (Q3/Q4 accepted), fees accepted.
+New evidence this pass: recent-precedent searches (2024–2026) for the top candidates.
+- JEMF: scope "finance in emerging markets", double-anonymized, subscription (no APC), abstract at most 100 words,
+  6 keywords (Sage pages via search snippets; Sage domains unreachable). No ESG article found in search: precedent
+  stays low. Score unchanged 76 (Good), confidence Medium.
+- AAMJAF: Scopus and ESCI (journal site), JCR Q4 2025 (Journal Metrics, unverified), two issues a year, scope includes
+  finance and governance; closest precedent is Srivisal et al. (2021) on ESG coverage; no 2024–2025 ESG title found.
+  72 (Good), confidence Medium.
+- IJBS: 2025 article on ESG, profitability, and stability of Asia-Pacific banks (ijbs.unimas.my, source-backed):
+  precedent raised. 64 (Backup).
+- IJEM, Managerial Finance, AJAR, RPBFMP, APJFS: no ESG article found in this pass; scores unchanged.
+
+| Rank | Journal | Fit | Confidence | Best reason | Main risk |
+|---:|---|---:|---|---|---|
+| 1 | Journal of Emerging Market Finance (Sage) | 76 | Medium | Scope is emerging-market finance; Q3; no APC | No ESG precedent; 100-word abstract |
+| 2 | Asian Academy of Management Journal of Accounting and Finance (USM) | 72 | Medium | ESG-coverage precedent; free; Q4 | Low visibility; accounting-leaning |
+| 3 | International Journal of Emerging Markets (Emerald) | 70 | Medium | Emerging-markets scope | Emerald house style; precedent not found |
+| 4 | Asian Journal of Accounting Research (Emerald/Airlangga) | 70 | Low | Free platinum OA | Q2 (harder); accounting framing |
+| 5 | International Journal of Business and Society (UNIMAS) | 64 | Medium | Recent ESG precedent; Q3 | USD 200; broad business scope |
+| 6 | Managerial Finance (Emerald) | 64 | Low | Q3 general finance | Precedent not found |
+
+Submission strategy: first target JEMF; second wave AAMJAF, then IJEM; backup AJAR, IJBS, Managerial Finance.
+Avoid: discontinued Scopus titles listed above; SFR; JF:IP.
+Pre-submission edits for JEMF: unstructured abstract of at most 100 words; anonymized main file and separate title
+page; double spacing; check word limit, reference style, and fee on journals.sagepub.com/author-instructions/emf
+(not reachable here). No acceptance rate is published for any of these journals.

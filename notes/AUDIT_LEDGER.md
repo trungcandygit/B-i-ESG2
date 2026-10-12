@@ -408,3 +408,8 @@ Author: "language chỉ 1 round đó thôi". Language round 2 cancelled; round 1
 independent section editors) is the only language round on v4.1. Target journal default (no question asked, rule 1b):
 Journal of Emerging Market Finance (Sage), the top title of the author's "easier" route (D-55, fit 76). Stage 5 will
 format for JEMF after round 1 is merged, once its submission guidelines are retrieved; the author can switch targets.
+
+### D-58 (2026-10-12) Target journal chosen per journal-fit-finder
+Author asked to settle the journal by the skill before formatting. After precedent searches, final ranking:
+JEMF 76 > AAMJAF 72 > IJEM 70 = AJAR 70 > IJBS 64 = Managerial Finance 64. First target: Journal of Emerging Market
+Finance (supersedes D-48 GFJ, which was the prestige route). Stage 5 formats for JEMF after language round 1.
