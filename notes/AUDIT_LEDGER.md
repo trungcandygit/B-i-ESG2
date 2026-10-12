@@ -423,3 +423,9 @@ Finance (supersedes D-48 GFJ, which was the prestige route). Stage 5 formats for
   never) median ln assets); §6.1 "coverage had no effect within the interval" → "no detected effect ... the interval
   bounds its size" (F2). Flag "five groups vs six" in §6.3 checked: five groups listed, no change.
 - Gates: checks.py 116/116 PASS; build_sfr.py all PASS; body 8,084 words; docx validate PASS.
+
+### D-59 (2026-10-12) Middle option between GFJ and JEMF
+Author asked for one journal between GFJ (86) and JEMF (76), leaning toward easier. From the existing scored lists:
+Asian Journal of Accounting Research (70, Scopus Q2 per 2022 news, unverified for 2026; platinum OA, no APC,
+source-backed) is the middle choice; Cogent Economics & Finance (68, Q2 aggregator, APC GBP 1,000–1,344) is the
+alternative. Higher-fit Q1 titles (EMFT 80, PBFJ 80, IJFE 74) are not "leaning easier". No acceptance rates exist.
