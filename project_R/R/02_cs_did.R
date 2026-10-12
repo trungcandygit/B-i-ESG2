@@ -10,8 +10,16 @@ NF    <- length(FIRMS)
 set.seed(SEED)
 WBOOT <- vapply(seq_len(B_BOOT), function(b) tabulate(sample.int(NF, NF, replace = TRUE), NF), integer(NF))
 
+# Revision round 4: size quintile bins (breaks from the whole panel) as an alternative to the quadratic in size.
+SIZE_BREAKS <- quantile(panel$ln_asset, c(0.2, 0.4, 0.6, 0.8), na.rm = TRUE, names = FALSE)
+
 make_X <- function(df, covars) {
-  if (!covars) return(matrix(1, nrow(df), 1, dimnames = list(NULL, "(Intercept)")))
+  if (isFALSE(covars)) return(matrix(1, nrow(df), 1, dimnames = list(NULL, "(Intercept)")))
+  if (identical(covars, "bins")) {
+    df$size_bin <- factor(findInterval(df$lnA_b, SIZE_BREAKS) + 1L, levels = 1:5)
+    return(model.matrix(~ size_bin + factor(country, levels = sort(unique(panel$country))) +
+                          factor(industry_code, levels = sort(unique(panel$industry_code))), data = df))
+  }
   model.matrix(~ lnA_b + I(lnA_b^2) + factor(country, levels = sort(unique(panel$country))) +
                  factor(industry_code, levels = sort(unique(panel$industry_code))), data = df)
 }
@@ -19,7 +27,8 @@ make_X <- function(df, covars) {
 # Build all 2x2 cells (g, t) for outcome y.
 build_cells <- function(y, control = c("never", "notyet"), covars = TRUE, drop_cohorts = NULL,
                         support = FALSE, placebo = FALSE, treated_subset = NULL, pregrowth = FALSE,
-                        exclude_country = NULL, only_country = NULL, shift_G = 0) {
+                        exclude_country = NULL, only_country = NULL, shift_G = 0,
+                        size_lag = 0, keep_treated = NULL, trim_top = FALSE) {
   control <- match.arg(control)
   d <- panel %>% mutate(yv = .data[[y]], size_b = ln_asset) %>%
     select(firm_id, year, G, country, industry_code, size_b, yv, high0, ln_mcap)
@@ -42,7 +51,8 @@ build_cells <- function(y, control = c("never", "notyet"), covars = TRUE, drop_c
   for (g in cohorts) {
     base <- g - 1
     yb <- wide_y %>% filter(year == base, !is.na(yv)) %>% select(firm_id, yb = yv)
-    ab <- wide_a %>% filter(year == base, !is.na(size_b)) %>% select(firm_id, lnA_b = size_b)
+    # Revision round 4: size_lag > 0 measures the size covariate size_lag years before the base year.
+    ab <- wide_a %>% filter(year == base - size_lag, !is.na(size_b)) %>% select(firm_id, lnA_b = size_b)
     if (pregrowth) {
       # Exploratory (revision round 1, RR-2): growth in log market capitalization from g-3 to g-1.
       m1 <- d %>% filter(year == base, !is.na(ln_mcap)) %>% select(firm_id, m1 = ln_mcap)
@@ -62,6 +72,9 @@ build_cells <- function(y, control = c("never", "notyet"), covars = TRUE, drop_c
       co <- if (control == "never") cd %>% filter(!is.finite(G)) else
         cd %>% filter(!is.finite(G) | (G > max(t, base) & G != g))
       if (support && nrow(tr) > 0) co <- co %>% filter(lnA_b >= quantile(tr$lnA_b, 0.10, names = FALSE))
+      # Revision round 4: keep a subset of scored firms; trim scored firms above the 95th size percentile of controls.
+      if (!is.null(keep_treated)) tr <- tr %>% filter(firm_id %in% keep_treated)
+      if (trim_top && nrow(co) > 0) tr <- tr %>% filter(lnA_b <= quantile(co$lnA_b, 0.95, names = FALSE))
       if (nrow(tr) == 0 || nrow(co) < 30) next
       Xc <- make_X(co, covars); Xt <- make_X(tr, covars)
       if (pregrowth) { Xc <- cbind(Xc, pg = co$pg); Xt <- cbind(Xt, pg = tr$pg) }
@@ -101,15 +114,15 @@ aggregate_cells <- function(cells, ca) {
 }
 
 # Full estimation with bootstrap. Returns point estimates and the bootstrap draws.
-run_cs <- function(y, ...) {
+run_cs <- function(y, ..., W = WBOOT) {
   cells <- build_cells(y, ...)
   attr(cells, "placebo") <- isTRUE(list(...)$placebo)
   w1 <- rep(1L, NF)
   ca <- cell_atts(cells, w1)
   est <- aggregate_cells(cells, ca)
   # Draws are deterministic given WBOOT, so forking across cores does not change any output.
-  draws <- do.call(rbind, parallel::mclapply(seq_len(B_BOOT), function(b)
-    aggregate_cells(cells, cell_atts(cells, WBOOT[, b])), mc.cores = N_CORES))
+  draws <- do.call(rbind, parallel::mclapply(seq_len(ncol(W)), function(b)
+    aggregate_cells(cells, cell_atts(cells, W[, b])), mc.cores = N_CORES))
   gt <- data.frame(g = vapply(cells, `[[`, numeric(1), "g"), t = vapply(cells, `[[`, numeric(1), "t"),
                    e = vapply(cells, `[[`, numeric(1), "e"), att = ca[, 1], n_treated = ca[, 2],
                    n_control = vapply(cells, function(z) length(z$ic), numeric(1)))

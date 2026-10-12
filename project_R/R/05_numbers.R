@@ -154,6 +154,69 @@ ae <- read.csv(file.path(OUT, "attrition_e3.csv"))
 put("n_attr_base", fmtn(ae$n_base)); put("n_attr_e3", fmtn(ae$n_e3)); put("pct_attr_e3", fmt(100 * ae$share_e3, 1))
 put("log105", fmt(log(1.05)))
 
+# ---- Revision round 4 (exploratory; review after the desk rejection, 03b_round4.R) ----
+r4tag <- c(baseline = "base", no_covariates = "nocov", size_at_g3 = "sizeg3", size_bins = "bins", trim_top_p95 = "trim",
+           R10_shift1 = "R10", R10_size_at_g1 = "R10g1", R12_shift2 = "R12", wave_MY_2021_22 = "wMY",
+           wave_TH_SG_2019_20 = "wTHSG", wave_other = "wOth", cohorts_to_2019 = "c19", cohorts_from_2020 = "c20")
+r4p <- read.csv(file.path(OUT, "r4_post.csv"))
+for (i in seq_len(nrow(r4p))) {
+  k <- paste0(ab[[r4p$outcome[i]]], "_r4", r4tag[[r4p$spec[i]]])
+  put(k, fmt(r4p$est[i])); put(paste0(k, "_se"), fmt(r4p$se[i])); put(paste0(k, "_p"), fmtp(r4p$p[i]))
+  put(paste0(k, "_lo"), fmt(r4p$ci_lo[i])); put(paste0(k, "_hi"), fmt(r4p$ci_hi[i])); put(paste0(k, "_pct"), pct(r4p$est[i]))
+  put(paste0(k, "_lo_pct"), pct(r4p$ci_lo[i])); put(paste0(k, "_hi_pct"), pct(r4p$ci_hi[i]))
+  put(paste0(k, "_ntr"), fmtn(r4p$n_treated_firms[i]))
+}
+r4pre <- read.csv(file.path(OUT, "r4_pretrend_tests.csv"))
+for (i in seq_len(nrow(r4pre))) put(paste0(ab[[r4pre$outcome[i]]], "_r4", r4tag[[r4pre$spec[i]]], "_pre_p"), fmtp(r4pre$p[i]))
+r4ev <- read.csv(file.path(OUT, "r4_event_profiles.csv"))
+for (i in seq_len(nrow(r4ev))) {
+  e <- r4ev$term[i]; tag <- ifelse(e < 0, paste0("m", -e), as.character(e))
+  k <- paste0(ab[[r4ev$outcome[i]]], "_r4", r4tag[[r4ev$spec[i]]], "_e", tag)
+  put(k, fmt(r4ev$est[i])); put(paste0(k, "_p"), fmtp(r4ev$p[i]))
+  if (e < 0) put(paste0(ab[[r4ev$outcome[i]]], "_r4", r4tag[[r4ev$spec[i]]], "_runup_", tag), pct(-r4ev$est[i]))
+}
+clb <- read.csv(file.path(OUT, "r4_cluster_bootstrap.csv")) %>% filter(term == "post")
+for (i in seq_len(nrow(clb))) {
+  k <- paste0(ab[[clb$outcome[i]]], "_cl", ifelse(clb$spec[i] == "baseline", "", "R10"))
+  put(k, fmt(clb$est[i])); put(paste0(k, "_se"), fmt(clb$se[i])); put(paste0(k, "_p"), fmtp(clb$p[i]))
+  put(paste0(k, "_lo"), fmt(clb$ci_lo[i])); put(paste0(k, "_hi"), fmt(clb$ci_hi[i]))
+  put(paste0(k, "_lo_pct"), pct(clb$ci_lo[i])); put(paste0(k, "_hi_pct"), pct(clb$ci_hi[i]))
+}
+clpre <- read.csv(file.path(OUT, "r4_cluster_pretrend.csv"))
+for (i in seq_len(nrow(clpre)))
+  put(paste0(ab[[clpre$outcome[i]]], "_cl", ifelse(clpre$spec[i] == "baseline", "", "R10"), "_pre_p"), fmtp(clpre$p[i]))
+put("n_clusters", fmtn(read.csv(file.path(OUT, "r4_waves.csv"))$n_clusters[1]))
+ru <- read.csv(file.path(OUT, "r4_runup.csv"))
+for (i in seq_len(nrow(ru))) {
+  k <- paste0(ab[[ru$outcome[i]]], "_runup", ifelse(ru$bootstrap[i] == "firm", "", "_cl"))
+  put(paste0(k, "_lo"), fmt(ru$runup_pct_lo[i], 1)); put(paste0(k, "_hi"), fmt(ru$runup_pct_hi[i], 1))
+}
+br <- read.csv(file.path(OUT, "r4_twfe_bridge.csv"))
+for (i in seq_len(nrow(br))) {
+  k <- paste0(ab[[br$outcome[i]]], "_bridge", substr(br$step[i], 1, 1))
+  put(k, fmt(br$est[i])); put(paste0(k, "_p"), fmtp(br$p[i])); put(paste0(k, "_pct"), pct(br$est[i]))
+}
+h3r <- read.csv(file.path(OUT, "r4_h3_residual_score.csv"))
+for (i in seq_len(nrow(h3r))) {
+  g <- c(high_residual_score = "high", low_residual_score = "low", difference_high_minus_low = "diff")[[h3r$group[i]]]
+  k <- paste0(ab[[h3r$outcome[i]]], "_h3r_", g)
+  put(k, fmt(h3r$est[i])); put(paste0(k, "_se"), fmt(h3r$se[i])); put(paste0(k, "_p"), fmtp(h3r$p[i]))
+  put(paste0(k, "_mde"), fmt(h3r$mde80[i]))
+  if (!is.na(h3r$n_treated_firms[i])) put(paste0(k, "_n"), fmtn(h3r$n_treated_firms[i]))
+}
+hc <- read.csv(file.path(OUT, "r4_h3_score_size.csv"))
+put("h3_cor_score_size", fmt(hc$cor_score_size, 2)); put("h3_r2_score", fmt(hc$r2_size_country_cohort, 2))
+ms <- read.csv(file.path(OUT, "r4_missing_mtb.csv"))
+put("pct_miss_mtb_scored", fmt(100 * ms$share_missing_ln_mtb[ms$group == "scored"], 1))
+put("pct_miss_mtb_never", fmt(100 * ms$share_missing_ln_mtb[ms$group == "never_scored"], 1))
+my <- read.csv(file.path(OUT, "r4_malaysia_never_scored.csv"))
+put("n_my_never", fmtn(my$firms[my$group == "never_scored"]))
+put("my_asset_ratio_med", fmt(exp(my$median_ln_asset[my$group == "scored"] - my$median_ln_asset[my$group == "never_scored"]), 1))
+rbw <- read.csv(file.path(OUT, "r4_rebased_within_cohort.csv"))
+for (i in seq_len(nrow(rbw))) put(paste0(ab[[rbw$outcome[i]]], "_reb_e", rbw$e[i]), fmt(rbw$rebased[i]))
+wv <- read.csv(file.path(OUT, "r4_waves.csv"))
+for (i in seq_len(nrow(wv))) put(paste0("n_", r4tag[[wv$wave[i]]]), fmtn(wv$firms[i]))
+
 # Text form of every p-value: "= 0.xxx" or "< 0.001", so that "*p* {{key_txt}}" reads correctly.
 for (k in grep("_p$|_pholm$|_pre_p$", names(nums), value = TRUE))
   put(paste0(k, "_txt"), ifelse(nums[[k]] == "<0.001", "< 0.001", paste("=", nums[[k]])))

@@ -200,7 +200,9 @@ def main():
 
     # 04 Figures: EPS (accepted format) plus a Word file with each figure and its caption
     fd = os.path.join(SUB, '04_Figures'); os.makedirs(fd)
-    shutil.copy(os.path.join(OUTR, 'figures', 'Fig1.eps'), os.path.join(fd, 'Figure_1.eps'))
+    for ex in [e for e in exhibits if e['kind'] == 'figure']:
+        n = ex['args']['caption'].split('|')[0].strip().replace('Fig. ', '')
+        shutil.copy(os.path.join(OUTR, 'figures', ex['args']['png'].replace('.png', '.eps')), os.path.join(fd, f'Figure_{n}.eps'))
     d = base_doc()
     for ex in [e for e in exhibits if e['kind'] == 'figure']:
         figure_exhibit(d, **ex['args'])
@@ -220,7 +222,7 @@ def main():
 
     d = base_doc()
     for line in ['Nguyen Van Trung (corresponding author)', 'Academy of Policy and Development, Hanoi, Vietnam',
-                 'kontrungcany@gmail.com', '', 'The Editor', 'Sustainable Finance Review', '']:
+                 'kontrungcany@gmail.com', '', 'The Editor', '']:
         q = d.add_paragraph(); add_runs(q, line); set_spacing(q, 1.0, 0)
     for para in blocks(sfr['cover_letter']):
         body_par(d, para, indent=False)

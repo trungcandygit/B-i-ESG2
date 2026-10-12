@@ -55,3 +55,41 @@ Dữ liệu (data citation, bắt buộc theo Author Guidelines):
   (WebSearch: ScienceDirect S1544612323003860; RePEc eee:finlet:v:55:y:2023:i:pb:s1544612323003860).
 - Chen, Noronha, & Singal (2004), Journal of Finance 59(4): pages 1901–1929 confirmed (WebSearch: Wiley Online Library
   doi 10.1111/j.1540-6261.2004.00683.x; Semantic Scholar). RePEc lists 1901–1930; publisher range kept.
+
+## Round-2 review after the SFR desk rejection (2026-10-12, roadmap RR2-2, RR2-6, RR2-19)
+Each item verified by WebSearch (authors, year, title, venue, volume/issue, pages, DOI); sources listed.
+- Shanaev, S., & Ghimire, B. (2022). When ESG meets AAA: The effect of ESG rating changes on stock returns. Finance
+  Research Letters 46(Part A), Article 102302. DOI 10.1016/j.frl.2021.102302 (RePEc eee:finlet:v:46:y:2022:i:pa:
+  s1544612321003342; Northumbria research portal). Content: 748 US rating changes 2016–2021; downgrades about −1.2%/month.
+- Serafeim, G., & Yoon, A. (2023). Stock price reactions to ESG news: The role of ESG ratings and disagreement. Review of
+  Accounting Studies 28(3), 1500–1530. DOI 10.1007/s11142-022-09675-3 (RePEc spr:reaccs:v:28:y:2023:i:3:d:10.1007_
+  s11142-022-09675-3; Kellogg, Harvard DASH).
+- Hawn, O., Chatterji, A. K., & Mitchell, W. (2018). Do investors actually value sustainability? New evidence from
+  investor reactions to the Dow Jones Sustainability Index (DJSI). Strategic Management Journal 39(4), 949–976.
+  DOI 10.1002/smj.2752 (Duke Scholars).
+- Durand, R., Paugam, L., & Stolowy, H. (2019). Do investors actually value sustainability indices? Replication,
+  development, and new evidence on CSR visibility. Strategic Management Journal 40(9), 1471–1490. DOI 10.1002/smj.3035
+  (RePEc bla:stratm:v:40:y:2019:i:9:p:1471-1490; HEC).
+- Pástor, Ľ., Stambaugh, R. F., & Taylor, L. A. (2022). Dissecting green returns. Journal of Financial Economics 146(2),
+  403–424. DOI 10.1016/j.jfineco.2022.07.007 (NBER w28940 page; SUFE record).
+- Drempetic, S., Klein, C., & Zwergel, B. (2020). The influence of firm size on the ESG score: Corporate sustainability
+  ratings under review. Journal of Business Ethics 167(2), 333–360. DOI 10.1007/s10551-019-04164-1 (RePEc kap:jbuset:
+  v:167:y:2020:i:2:d:10.1007_s10551-019-04164-1; Uni Kassel).
+- Berg, Heeb, & Kölbel (2022), SAFE WP 439 (already listed): price result re-verified (SAFE and GRASFI abstract): only
+  MSCI explains holdings of US ESG-mandate funds; one-year abnormal return after downgrades −2.37%, weaker for upgrades.
+- Tsang, Wang, Xiang, & Yu (2025), Corporate Governance: An International Review 33(4), 554–577, DOI 10.1111/corg.12615
+  (Wiley Online Library listing; reviewer R2 could not find it, re-verified, issue number 4 added).
+- Securities and Exchange Commission Philippines (2019). Memorandum Circular No. 4, s. 2019, Sustainability reporting
+  guidelines for publicly-listed companies (official PDF https://www.sec.gov.ph/wp-content/uploads/2020/09/2019MCNo4.pdf;
+  dated 15 Feb 2019; applies to 2019 annual reports filed in 2020; comply-or-explain for the first three years).
+- Otoritas Jasa Keuangan (2017). POJK No. 51/POJK.03/2017 (sustainable finance for financial services institutions,
+  issuers, public companies); sustainability report obligation for listed companies from 2020 (Baker McKenzie Global
+  Compliance News 2020; OJK extension letter moved the first deadline to April 2022).
+- Bursa Malaysia (2015). Sustainability Reporting Guide (issued with the October 2015 Listing Requirements amendments;
+  sustainability statement for financial years ending on or after 31 Dec 2016, phased to 31 Dec 2018; eco-business,
+  Rajah & Tann, SSE Initiative fact sheet). No DOI; cited without URL.
+- Tilleke & Gibbins (2020, September). Thailand's SEC unifies annual report for listed companies (56-1 One Report replaces
+  Forms 56-1 and 56-2 from fiscal years ending 31 Dec 2021; filings from 1 Jan 2022; ESG content added; Nishimura & Asahi
+  2022 confirms no ESG requirement before 2021).
+- Not used (could not be verified to the required standard): Mohd Sabri et al. (2022) FTSE4Good Bursa Malaysia event study
+  and Kumar et al. (2023) suggested by R2; no need for the argument.

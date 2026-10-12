@@ -1,20 +1,20 @@
 % Sustainable Finance Review (Emerald) version: sections that differ from manuscript.md.
 % Numbers are {{key}} placeholders filled from project_R/outputs/numbers.csv. Built by project_R/docx_build/build_sfr.py.
 @@ abstract
-Purpose|This study examines whether the first environmental, social, and governance (ESG) score that a rating provider assigns to a listed firm changes how the equity market values the firm.
+Purpose|This study asks which listed firms enter the environmental, social, and governance (ESG) rated universe in emerging markets and whether entering it changes how the equity market values them.
 
-Design/methodology/approach|Using the staggered first appearance of London Stock Exchange Group (LSEG) ESG scores for {{n_treated_all}} non-financial firms in Indonesia, Malaysia, the Philippines, Singapore, and Thailand and {{n_never}} never-scored firms from 2014 to 2024, the study estimates heterogeneity-robust difference-in-differences effects on the market-to-book (MTB) ratio, market capitalization, leverage, and total assets, following a pre-analysis plan.
+Design/methodology/approach|The study follows {{n_treated_all}} non-financial firms in Indonesia, Malaysia, the Philippines, Singapore, and Thailand that received a first London Stock Exchange Group (LSEG) ESG score between 2015 and 2024, and compares them, before and after the first score, with {{n_never}} firms that were never scored, using difference-in-differences estimators that allow effects to vary across entry cohorts and a pre-analysis plan.
 
-Findings|Before their first scored year, the market capitalization of scored firms grew {{mcap_runup_m5}} percent more, and their MTB ratio {{mtb_runup_m5}} percent more, than those of comparable never-scored firms. Under parallel trends, MTB ratios did not rise afterwards (estimate {{mtb_att}}; 95% interval {{mtb_lo}} to {{mtb_hi}}). A static two-way fixed effects regression on the same data attributes a {{mtb_R6_pct}} percent MTB increase to coverage.
+Findings|Firms that entered through selective coverage waves had outgrown comparable unscored firms beforehand: their market-to-book (MTB) ratio grew {{mtb_runup_m5}} percent more over the five pre-coverage years. Malaysian firms covered in a wholesale expansion in 2021 and 2022 show no such run-up. Under parallel trends, MTB ratios did not rise after the first score (estimate {{mtb_att}}; 95% interval {{mtb_lo}} to {{mtb_hi}}), whatever the level of the score.
 
-Research limitations/implications|The provider chooses when to cover a firm, the data are annual, and bounds that allow departures from parallel trends admit effects of several percent in either direction.
+Research limitations/implications|The provider chooses when to cover a firm, the data are annual, and departures from parallel trends like those before coverage admit effects of several percent in either direction.
 
-Practical implications|Comparisons of rated and unrated firms that ignore coverage timing attribute selection into coverage to the rating.
+Practical implications|ESG screens, indices, and studies of ESG premiums that compare scored with unscored firms in these markets draw on a scored universe tilted toward firms that have just grown; exchange-wide coverage avoids that tilt.
 
-Originality/value|The study provides emerging-market evidence on the extensive margin of ESG rating coverage and shows that the first scored year coincides with a valuation peak.
+Originality/value|The study documents selection into ESG rating coverage and its valuation consequences in emerging markets, an extensive-margin event that the evidence on rating changes does not cover.
 
 @@ keywords
-Difference-in-differences; ESG ratings; Firm valuation; Rating coverage; Southeast Asia; Staggered adoption
+Emerging markets; ESG investing; ESG ratings; Firm valuation; Rating coverage; Sustainable finance
 
 @@ paper_type
 Research paper
@@ -34,6 +34,8 @@ Bernama (2022), "Bursa Malaysia signs sustainability MoU with London Stock Excha
 
 Bikmetova, N. and Pirinsky, C.A. (2026), "Do ESG rating agencies improve ESG performance?", *Journal of Business Ethics*, Vol. 204 No. 2, pp. 335-365, doi: 10.1007/s10551-025-06063-0.
 
+Bursa Malaysia (2015), Sustainability Reporting Guide, Bursa Malaysia Berhad, Kuala Lumpur.
+
 Callaway, B. and Sant'Anna, P.H.C. (2021), "Difference-in-differences with multiple time periods", *Journal of Econometrics*, Vol. 225 No. 2, pp. 200-230, doi: 10.1016/j.jeconom.2020.12.001.
 
 Chen, H., Noronha, G. and Singal, V. (2004), "The price response to S&P 500 index additions and deletions: evidence of asymmetry and a new explanation", *The Journal of Finance*, Vol. 59 No. 4, pp. 1901-1929, doi: 10.1111/j.1540-6261.2004.00683.x.
@@ -44,6 +46,10 @@ Demiroglu, C. and Ryngaert, M.D. (2010), "The first analyst coverage of neglecte
 
 Dobrick, J., Klein, C. and Zwergel, B. (2023), "Size bias in Refinitiv ESG data", *Finance Research Letters*, Vol. 55, 104014, doi: 10.1016/j.frl.2023.104014.
 
+Drempetic, S., Klein, C. and Zwergel, B. (2020), "The influence of firm size on the ESG score: corporate sustainability ratings under review", *Journal of Business Ethics*, Vol. 167 No. 2, pp. 333-360, doi: 10.1007/s10551-019-04164-1.
+
+Durand, R., Paugam, L. and Stolowy, H. (2019), "Do investors actually value sustainability indices? Replication, development, and new evidence on CSR visibility", *Strategic Management Journal*, Vol. 40 No. 9, pp. 1471-1490, doi: 10.1002/smj.3035.
+
 Gibson Brandon, R., Krueger, P. and Schmidt, P.S. (2021), "ESG rating disagreement and stock returns", *Financial Analysts Journal*, Vol. 77 No. 4, pp. 104-127, doi: 10.1080/0015198X.2021.1963186.
 
 Goodman-Bacon, A. (2021), "Difference-in-differences with variation in treatment timing", *Journal of Econometrics*, Vol. 225 No. 2, pp. 254-277, doi: 10.1016/j.jeconom.2021.03.014.
@@ -51,6 +57,8 @@ Goodman-Bacon, A. (2021), "Difference-in-differences with variation in treatment
 Harris, L. and Gurel, E. (1986), "Price and volume effects associated with changes in the S&P 500 list: new evidence for the existence of price pressures", *The Journal of Finance*, Vol. 41 No. 4, pp. 815-829, doi: 10.1111/j.1540-6261.1986.tb04550.x.
 
 Hartzmark, S.M. and Sussman, A.B. (2019), "Do investors value sustainability? A natural experiment examining ranking and fund flows", *The Journal of Finance*, Vol. 74 No. 6, pp. 2789-2837, doi: 10.1111/jofi.12841.
+
+Hawn, O., Chatterji, A.K. and Mitchell, W. (2018), "Do investors actually value sustainability? New evidence from investor reactions to the Dow Jones Sustainability Index (DJSI)", *Strategic Management Journal*, Vol. 39 No. 4, pp. 949-976, doi: 10.1002/smj.2752.
 
 Kelly, B. and Ljungqvist, A. (2012), "Testing asymmetric-information asset pricing models", *The Review of Financial Studies*, Vol. 25 No. 5, pp. 1366-1413, doi: 10.1093/rfs/hhr134.
 
@@ -60,7 +68,11 @@ LSEG (2025), LSEG ESG Scores (ESG Score Field), Annual, 2014-2024, dataset, LSEG
 
 Merton, R.C. (1987), "A simple model of capital market equilibrium with incomplete information", *The Journal of Finance*, Vol. 42 No. 3, pp. 483-510, doi: 10.1111/j.1540-6261.1987.tb04565.x.
 
+Otoritas Jasa Keuangan (2017), Peraturan Otoritas Jasa Keuangan Nomor 51/POJK.03/2017 tentang Penerapan Keuangan Berkelanjutan bagi Lembaga Jasa Keuangan, Emiten, dan Perusahaan Publik [Regulation on the application of sustainable finance to financial services institutions, issuers, and public companies], Otoritas Jasa Keuangan, Jakarta.
+
 Pástor, Ľ., Stambaugh, R.F. and Taylor, L.A. (2021), "Sustainable investing in equilibrium", *Journal of Financial Economics*, Vol. 142 No. 2, pp. 550-571, doi: 10.1016/j.jfineco.2020.12.011.
+
+Pástor, Ľ., Stambaugh, R.F. and Taylor, L.A. (2022), "Dissecting green returns", *Journal of Financial Economics*, Vol. 146 No. 2, pp. 403-424, doi: 10.1016/j.jfineco.2022.07.007.
 
 Pedersen, L.H., Fitzgibbons, S. and Pomorski, L. (2021), "Responsible investing: the ESG-efficient frontier", *Journal of Financial Economics*, Vol. 142 No. 2, pp. 572-597, doi: 10.1016/j.jfineco.2020.11.001.
 
@@ -74,25 +86,33 @@ Sahin, Ö., Bax, K., Paterlini, S. and Czado, C. (2023), "The pitfalls of (non-d
 
 Sant'Anna, P.H.C. and Zhao, J. (2020), "Doubly robust difference-in-differences estimators", *Journal of Econometrics*, Vol. 219 No. 1, pp. 101-122, doi: 10.1016/j.jeconom.2020.06.003.
 
+Securities and Exchange Commission Philippines (2019), "Memorandum Circular No. 4, series of 2019: sustainability reporting guidelines for publicly-listed companies", available at: https://www.sec.gov.ph/wp-content/uploads/2020/09/2019MCNo4.pdf.
+
+Serafeim, G. and Yoon, A. (2023), "Stock price reactions to ESG news: the role of ESG ratings and disagreement", *Review of Accounting Studies*, Vol. 28 No. 3, pp. 1500-1530, doi: 10.1007/s11142-022-09675-3.
+
+Shanaev, S. and Ghimire, B. (2022), "When ESG meets AAA: the effect of ESG rating changes on stock returns", *Finance Research Letters*, Vol. 46 Part A, 102302, doi: 10.1016/j.frl.2021.102302.
+
 Shleifer, A. (1986), "Do demand curves for stocks slope down?", *The Journal of Finance*, Vol. 41 No. 3, pp. 579-590, doi: 10.1111/j.1540-6261.1986.tb04518.x.
 
 Singapore Exchange (2016), "SGX Mainboard Rules 711A and 711B: sustainability report", SGX Rulebook, available at: https://rulebook.sgx.com/rulebook/711a.
 
+Tilleke & Gibbins (2020), "Thailand's SEC unifies annual report for listed companies", September, available at: https://www.tilleke.com/insights/thailands-sec-unifies-annual-report-listed-companies/.
+
 Tsang, A., Wang, Y., Xiang, Y. and Yu, L. (2024), "The rise of ESG rating agencies and management of corporate ESG violations", *Journal of Banking & Finance*, Vol. 169, 107312, doi: 10.1016/j.jbankfin.2024.107312.
 
-Tsang, A., Wang, Y., Xiang, Y. and Yu, L. (2025), "ESG ratings and dividend changes: evidence from the initiation of nonfinancial agency coverage", *Corporate Governance: An International Review*, Vol. 33, pp. 554-577, doi: 10.1111/corg.12615.
+Tsang, A., Wang, Y., Xiang, Y. and Yu, L. (2025), "ESG ratings and dividend changes: evidence from the initiation of nonfinancial agency coverage", *Corporate Governance: An International Review*, Vol. 33 No. 4, pp. 554-577, doi: 10.1111/corg.12615.
 
 @@ ai_declaration
-The authors used Claude (Anthropic), through Claude Code, in September 2026 to screen research questions, draft the pre-analysis plan, write the R code, edit the text, check references, and simulate referee reports. The authors reviewed every output, checked each reported number against the R output files, and take full responsibility for the content.
+The authors used Claude (Anthropic), through Claude Code, in September and October 2026 to screen research questions, draft the pre-analysis plan, write the R code, edit and revise the text, check references, and simulate referee reports. The authors reviewed every output, checked each reported number against the R output files, and take full responsibility for the content.
 
 @@ cover_letter
 Dear Editor,
 
-We submit the manuscript "[[TITLE]]" for consideration as a research paper in Sustainable Finance Review.
+We submit the manuscript "[[TITLE]]" for consideration as a research paper.
 
-The paper asks whether the first ESG score that a rating provider assigns to a listed firm changes how the equity market values that firm. Using the staggered first appearance of LSEG ESG scores for {{n_treated_all}} non-financial firms in Indonesia, Malaysia, the Philippines, Singapore, and Thailand, and heterogeneity-robust difference-in-differences estimators, we find that scored firms gained value faster than comparable firms before their first scored year and, under parallel trends, did not gain in market-to-book ratio afterwards. A static two-way fixed effects regression on the same data would instead attribute a valuation gain of {{mtb_R6_pct}} percent to coverage. The paper fits the journal's interest in ESG ratings and sustainable finance in emerging markets. We registered the hypotheses, sample rules, estimator, and robustness checks in a pre-analysis plan before estimation and report all pre-specified results, including a placebo test that fails.
+The paper asks which listed firms enter the ESG-rated universe in emerging markets and whether entering it changes how the equity market values them. Following {{n_treated_all}} non-financial firms in Indonesia, Malaysia, the Philippines, Singapore, and Thailand that received a first LSEG ESG score, and comparing them with {{n_never}} never-scored firms, we find that firms entering through selective coverage waves had outgrown comparable unscored firms beforehand, whereas Malaysian firms covered in a wholesale expansion had not. Under parallel trends, market-to-book ratios did not rise after the first score, whatever the level of the score, while a static two-way fixed effects regression on the same data would attribute a valuation gain of {{mtb_R6_pct}} percent to coverage. The paper speaks to research on ESG ratings as information, on ESG investor demand, and on the composition of the rated universe that ESG screens and indices draw on. We registered the hypotheses, sample rules, estimator, and robustness checks in a pre-analysis plan before estimation and report all pre-specified results, including a placebo test that fails.
 
-The manuscript is original, has not been published elsewhere, and is not under consideration by another journal. All authors have approved the submission and declare no competing interests. The manuscript file is anonymized for double-anonymous review; author details, acknowledgements, and the declaration of generative AI use are in the separate title page. Tables are supplied in a separate file, and the supplementary material contains six tables and one figure referred to in the text. The underlying LSEG and Compustat data are licensed and cannot be redistributed; the R code, the pre-analysis plan, and all aggregate output files are available on request and will be deposited in a public repository upon acceptance.
+The manuscript is original, has not been published elsewhere, and is not under consideration by another journal. All authors have approved the submission and declare no competing interests. The manuscript file is anonymized for double-anonymous review; author details, acknowledgements, and the declaration of generative AI use are in the separate title page. Tables are supplied in a separate file, and the supplementary material contains eight tables and two figures referred to in the text. The underlying LSEG and Compustat data are licensed and cannot be redistributed; the R code, the pre-analysis plan, and all aggregate output files are available on request and will be deposited in a public repository upon acceptance.
 
 Sincerely,
 

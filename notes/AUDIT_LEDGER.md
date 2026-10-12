@@ -313,3 +313,37 @@ tự giải quyết bằng mặc định hợp lý nhất và ghi tại đây.
   Markets" bị từ chối 11/10/2026 với lý do "appropriateness of your manuscript for our journal" (không qua phản biện,
   không có ý kiến nội dung). Người dùng yêu cầu dùng các skill mới (sciwrite, paper-writing) cùng ARS, proofreading,
   stop-slop để cải thiện bản thảo trước khi chọn tạp chí mới.
+- Môi trường phiên này: R 4.3.3 + r-cran-{dplyr,ggplot2,plm,readxl,sandwich,tidyr,tibble} cài qua apt (người dùng: "cài R
+  về đi nếu cần").
+- Stage 3 (pipeline, sau Reject → quay lại phản biện full): 5 subagent độc lập (notes/review_round2/{EIC,R1,R2,R3,DA}_phase1/2.md),
+  thẻ phase 1 đúng [CONTRACT-ACKNOWLEDGED]; check_phase_conformance.py: 5/5 PASS; provenance (07_panel_provenance.json)
+  replay PASS; công bố lỗi tương quan (cùng họ model). Thêm 1 agent soát văn (sciwrite 5 lượt + paper-writing M1–M18,
+  S1–S31) → writing_audit.md (74 phát hiện: 1 CRITICAL "size" hai nghĩa, 23 MAJOR, 50 MINOR).
+- Quyết định biên tập (06_editorial_decision.md): MAJOR REVISION (F2: block D1, D2, D3, D6, đều repairable; không DA
+  CRITICAL). Chẩn đoán desk reject: bài đặt khung như ghi chú kinh tế lượng (abstract, keywords, §6.3 "main implication is
+  methodological", §2 so với analyst/S&P 500 thay vì tài liệu về ESG rating/certification). Roadmap RR2-1…RR2-20.
+- D-38: Triage roadmap theo §1b: làm mọi mục. Phân tích mới vòng 4 (exploratory, sau PAP) trong project_R/R/03b_round4.R và
+  04b_round4_exhibits.R: event profile không hiệp biến / size g−3 / size quintile / scored firms trong vùng size của control;
+  R10 với size ở g−1 gốc; dời 2 năm; theo đợt (MY 2021–22, TH+SG 2019–20, khác); cohort ≤2019 / ≥2020; bootstrap cụm
+  thị trường×ngành (50 cụm, seed 20260925+4, không đổi WBOOT); cầu nối TWFE→CS; điểm ban đầu đã loại size/country/cohort;
+  re-base theo từng cohort để đối chiếu R10 (R1-W1: chênh lệch chủ yếu do thành phần cohort); tỷ lệ thiếu MTB theo nhóm.
+  02_cs_did.R thêm tham số có mặc định giữ nguyên hành vi cũ (size_lag, keep_treated, trim_top, covars="bins", W).
+- D-39: Thêm 10 tài liệu mới đã xác minh WebSearch (notes/05_references_verified.md, mục round 2): Shanaev & Ghimire 2022;
+  Serafeim & Yoon 2023; Hawn et al. 2018; Durand et al. 2019; Pástor et al. 2022; Drempetic et al. 2020; SEC Philippines
+  2019; OJK 2017; Bursa Malaysia 2015; Tilleke & Gibbins 2020. Lý do: chẩn đoán desk reject (R2-W1) cần tài liệu về ESG
+  rating/certification; chỉ thị trước đây "không thêm tác giả" (Iter 6, D-18) gắn với vòng sửa đó; vòng này người dùng yêu
+  cầu "bản hoàn chỉnh mạnh nhất theo skill"; CLAUDE.md B4 cho phép tài liệu đã xác minh. Không dùng 2 tài liệu R2 gợi ý mà
+  không xác minh đủ (Mohd Sabri et al. 2022; Kumar et al. 2023).
+- D-40: Không dùng biến `gri` của dữ liệu làm proxy thời điểm công bố (vùng cấm trùng với bài gốc, §0/B1); mốc quy định công
+  bố bền vững ghi ở cấp thị trường từ nguồn quy định.
+- D-41: RR2-18 (công bố companion study trong bài) không làm: tác giả đã quyết định bỏ (D-27, D-30). Ghi trong thư phản hồi.
+- D-42: Revision viết lại theo mục (không dùng patch protocol 1.1 #390), như D-14: tái cấu trúc tiêu đề, abstract, §1, §2,
+  §3.1, §5.3–5.6, §6 cho khung tài chính bền vững. Hệ quả: không có revision-evidence-bundle; Stage 3' vẫn chạy 3 cổng
+  bằng subagent độc lập, diff v3→v4 lưu ở notes/review_round2/.
+- D-43: Giữ 11 phương trình trong Methods (người dùng yêu cầu có công thức, Iter 5) thay vì chuyển Eq. 7–10 sang phụ lục như
+  EIC-W8 gợi ý; thêm câu diễn giải M̄ bằng lời (R3-W6).
+- D-44: Tiêu đề mới "Who Gets an ESG Score? Coverage Selection and Firm Value in Five Southeast Asian Markets"; running title
+  "ESG score coverage and firm value"; keywords: Emerging markets; ESG investing; ESG ratings; Firm valuation; Rating
+  coverage; Sustainable finance. Fig. 2 mới (theo đợt) trong bài chính; Table S7, S8, Fig. S2 trong phụ lục. Cover letter
+  bỏ tên SFR (tạp chí tiếp theo chưa chọn); bộ hồ sơ giữ khuôn Emerald.
+- D-45 (người dùng, 2026-10-12): mỗi vòng sửa xong → dựng docx, gửi người dùng xem, push lên main, rồi mới sang vòng tiếp.
