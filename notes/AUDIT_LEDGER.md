@@ -382,3 +382,4 @@ tự giải quyết bằng mặc định hợp lý nhất và ghi tại đây.
   RR2-20 (câu dài để vòng ngôn ngữ); RR2-18 declined (quyết định tác giả). checks.py 116/116 PASS; build 9/9 PASS
   (abstract 250/250); validate.py PASS mọi docx; thân bài 8.194 từ. Theo pipeline: 3' Major → 4' → Stage 4.5, không quay
   lại phản biện.
+- D-51 (người dùng: 'toàn Q1 vậy'): thêm tuyến Scopus Q2–Q4 (AAMJAF Q4 không APC; AJAR Q2 không APC; JED/NEU Q2 lúc vào Scopus 2023, không APC, có xung đột lợi ích tiềm năng vì đồng tác giả Hà Hồng Hạnh ở NEU; Cogent Q2 APC; IJEM UPM Q3; AAJFA Q3; Managerial Finance Q3; IMFI verify). Tránh JAFEB (Scopus loại 2021).
