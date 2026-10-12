@@ -110,3 +110,12 @@ coverage and ESG ratings (labels as above; fit scores are rubric judgements, not
 
 Publisher diversity: Elsevier 7, Taylor & Francis 2, Wiley 3, Springer 1; the tiers A–C hold no more than three
 Elsevier titles. All quartiles remain aggregator figures except GFJ (author-confirmed Q1).
+
+## Final submission strategy (skill rubric and tie-breakers; no acceptance probabilities)
+- First target: Global Finance Journal (Strong, 86): highest fit, explicit ESG-and-valuation scope (lowest scope-driven
+  desk-rejection risk), recent precedent, meets the author's constraints (Q1, fee accepted).
+- Second wave (scores 80–82 close; tie-breaker 1, recent precedent): Emerging Markets Finance and Trade, then Journal of
+  Sustainable Finance & Investment, then Pacific-Basin Finance Journal.
+- Backup: Asia-Pacific Journal of Financial Studies; Borsa Istanbul Review; International Review of Economics & Finance.
+- Avoid: Sustainable Finance Review; JF:IP; Finance Research Letters (length); Business Strategy and the Environment;
+  Journal of Asset Management.

@@ -374,3 +374,4 @@ tự giải quyết bằng mặc định hợp lý nhất và ghi tại đây.
   US$150, không hoàn lại, có miễn giảm cho nước đang phát triển; nguồn: Guide for Authors trên ScienceDirect). Người dùng
   yêu cầu danh sách nhiều ứng viên hơn theo skill → báo cáo mở rộng 14 tạp chí (Tier A–C + backup). Bộ hồ sơ cuối (Stage 5)
   sẽ dựng theo Guide for Authors của GFJ (cần đọc nguyên văn; WebFetch có thể bị chặn → nhờ người dùng dán nếu cần).
+- D-49 (2026-10-12): người dùng hỏi tier dễ nhất 'theo chuẩn skill'. Skill không xếp theo độ dễ và cấm quy điểm thành xác suất nhận bài; theo rubric + tie-breaker: first target GFJ, second wave EMFT → JSF&I → PBFJ, backup APJFS/BIR/IREF. Giữ D-48.
