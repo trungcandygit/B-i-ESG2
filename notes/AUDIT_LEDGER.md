@@ -347,3 +347,11 @@ tự giải quyết bằng mặc định hợp lý nhất và ghi tại đây.
   coverage; Sustainable finance. Fig. 2 mới (theo đợt) trong bài chính; Table S7, S8, Fig. S2 trong phụ lục. Cover letter
   bỏ tên SFR (tạp chí tiếp theo chưa chọn); bộ hồ sơ giữ khuôn Emerald.
 - D-45 (người dùng, 2026-10-12): mỗi vòng sửa xong → dựng docx, gửi người dùng xem, push lên main, rồi mới sang vòng tiếp.
+- Vòng sửa Stage 4 (v4) hoàn tất 2026-10-12: run_all.R (có 03b, 04b) chạy 40,6 phút, exit 0. Mọi CSV cũ giống từng byte
+  (numbers.csv: 0 khoá đổi giá trị, 0 khoá mất, 1.324 khoá mới); hình cũ khác chỉ do font nhúng của container (Liberation
+  Sans), dữ liệu hình không đổi. Đối chiếu văn với số: sửa 6 câu cho khớp CSV (re-base R10 "much closer", cầu nối TWFE
+  "about half / most of the rest / little", cohort ≤2019 p = 0,047 nêu rõ là exploratory và chưa hiệu chỉnh đa kiểm định,
+  pre-trend p của bootstrap cụm: MTB 0,225, market cap 0,001; run-up size g−3 p = 0,176).
+- D-46: checks.py: giới hạn từ JF:IP chuyển thành WARN (tạp chí đích chưa chọn); thêm −2,37 (Berg, Heeb, et al.) vào danh
+  sách số trích từ tài liệu. Kết quả: checks.py 115/115 PASS; build_sfr.py 9/9 PASS (abstract có cấu trúc 247/250 từ;
+  6 keywords; mọi tài liệu được trích; bản ẩn danh sạch); validate.py PASS cho 8 docx. Thân bài 7.657 từ (SFR builder).

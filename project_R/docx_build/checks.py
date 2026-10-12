@@ -45,7 +45,9 @@ def main(docx_dir):
     full = words(secs['title']) + words(secs['abstract']) + words(secs['keywords']) + wc + \
         sum(words(r) for r in blocks(secs['references'])) + table_words
     # D-24 (2026-09-26): the user asked for a 20-30% cut; the JF:IP main-text limit is now a hard criterion.
-    check('JF:IP main-text limit', wc <= limit, f'{wc} words; limit {limit} with {n_ex} exhibits; full text {full}')
+    # D-46 (2026-10-12): JF:IP is no longer the target and the next journal is not chosen, so the JF:IP limit is reported
+    # as information (WARN) instead of a pass/fail criterion; the venue limit is checked once the journal is chosen.
+    print(f'WARN  main-text words (no venue limit set): {wc} words; JF:IP limit would be {limit} with {n_ex} exhibits; full text {full}')
     aw = words(secs['abstract']); check('abstract <= 100 words', aw <= 100, f'{aw} words')
     kw = [k.strip() for k in secs['keywords'].split(';')]
     check('keywords <= 7 and alphabetical', len(kw) <= 7 and kw == sorted(kw, key=str.lower), '; '.join(kw))
@@ -156,7 +158,7 @@ def main(docx_dir):
     vals = set(nums.values())
     txt = re.sub(r'^#+ \d+(\.\d+)?\.? ', '', body, flags=re.M)
     txt = re.sub(r'Section \d+(\.\d+)?', '', txt)
-    constants = {'2.8', '0.975', '0.80', '0.25', '0.5', '4.86'}   # 4.86: Demiroglu and Ryngaert (2010) announcement return   # MDE multiplier, z quantiles, M-bar values (Eqs. 7, 10)   # 2.8 standard errors = MDE multiplier at 80% power, 5% two-sided (stated in Section 2.3)
+    constants = {'2.8', '0.975', '0.80', '0.25', '0.5', '4.86', '−2.37'}   # −2.37: Berg, Heeb, et al. (2022) one-year return after MSCI downgrades   # 4.86: Demiroglu and Ryngaert (2010) announcement return   # MDE multiplier, z quantiles, M-bar values (Eqs. 7, 10)   # 2.8 standard errors = MDE multiplier at 80% power, 5% two-sided (stated in Section 2.3)
     tokens = re.findall(r'(?<![\w.])[−-]?\d[\d,]*\.\d+', txt + secs['abstract'])
     bad = [t for t in tokens if t not in vals and t not in constants]
     check('every decimal number in text comes from numbers.csv', not bad, str(bad[:8]))
