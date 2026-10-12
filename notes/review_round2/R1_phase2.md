@@ -131,7 +131,7 @@ Questions for the authors: (1) What explains the gap between the R10 and re-base
 
 ### AR1
 procedure_id: p_from_test_statistic
-evidence_anchor: text: §5.4 "The MTB effect is then −0.068" with Table 3 row R10 "−0.068*** (0.024)" and "p = 0.004"
+evidence_anchor: text: §5.4 "The MTB effect is then −0.068" with Table 3 row R10 "(0.024)" and "p = 0.004"
 reported_inputs: estimate −0.068; bootstrap SE 0.024; reported p = 0.004; test family z (normal approximation)
 assumptions: paper states a normal-approximation two-sided p-value from the bootstrap SE (§4.3), so z = estimate / SE; estimate and SE rounded to three decimals
 tail_convention: two-tailed
@@ -175,7 +175,7 @@ status: consistent
 
 ### AR5
 procedure_id: p_from_test_statistic
-evidence_anchor: text: §5.5 "yields 0.059 on log MTB (p = 0.010)" with Table 3 row R5 "0.059*** (0.023)"
+evidence_anchor: text: §5.5 "yields 0.059 on log MTB (p = 0.010)" with Table 3 row R5 "(0.023)"
 reported_inputs: estimate 0.059; SE 0.023; reported p = 0.010; test family z
 assumptions: normal-approximation two-sided p from bootstrap SE as stated in §4.3; three-decimal rounding
 tail_convention: two-tailed
