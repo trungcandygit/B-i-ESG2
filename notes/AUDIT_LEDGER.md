@@ -394,3 +394,11 @@ notes/journal/journal_fit_report_2026-10-12.md. No acceptance probabilities. Def
 Journal of Emerging Market Finance (76). Final journal choice stays with the author; Stage 5 formatting waits for it.
 Manuscript status at this point: content revision (Stage 4, 4') done, v4.1 pushed; remaining: two language rounds,
 Stage 4.5 integrity, Stage 5 formatting.
+
+### D-56 (2026-10-12) Author skips Stage 4.5 (final integrity round)
+Author instruction: "bỏ qua bước này đi: Kiểm tra liêm chính cuối". The separate, independent Stage 4.5 audit is not
+run. Kept (CLAUDE.md §0: "Không hỏi lại" does not waive R matching and real citations): the automatic gate in every
+build (checks.py: numbers vs numbers.csv, citation-reference match, cross-references, no em dash, banned words) and
+docx validation. Residual risk recorded: no fresh independent re-check of citations and overlap after the language
+rounds. Paperpal question: external tool, not run here; if the author uses it, the edited docx comes back through
+checks.py and the AI declaration must name it (B5).
