@@ -119,3 +119,25 @@ Elsevier titles. All quartiles remain aggregator figures except GFJ (author-conf
 - Backup: Asia-Pacific Journal of Financial Studies; Borsa Istanbul Review; International Review of Economics & Finance.
 - Avoid: Sustainable Finance Review; JF:IP; Finance Research Letters (length); Business Strategy and the Environment;
   Journal of Asset Management.
+
+## Realistic-publication route (author priority 2026-10-12: "dễ đăng")
+The author's stated priority is a realistic chance of publication rather than prestige. Under the rubric this enters
+through Strategic fit (10%) and the skill's rule to include realistic-fit journals, not only famous ones. "Easier" is
+judged only from qualitative selectivity signals (lower quartile, broader scope, larger publication volume, regional
+home journal); no acceptance rate was found for any journal, and none is estimated.
+
+| Rank | Journal | Publisher | Index/quartile (label) | Fit | Selectivity signal | Cost | Main risk |
+|---:|---|---|---|---|---|---|---|
+| 1 | International Journal of Emerging Markets | Emerald | Scopus (bibliometric review, source-backed); ABDC B 2019 (source-backed); SJR quartile not found | Good (76) | Mid-tier, emerging-markets scope | Hybrid; APC only for OA (verify) | Emerald house style as at SFR; ESG precedent not checked |
+| 2 | Journal of Asian Business and Economic Studies | Emerald for Univ. of Economics Ho Chi Minh City | Scopus Q1 in Economics/Finance per 2025 news (unverified); DOAJ | Good (74) | Regional home journal for Asian business and economics | Open access; APC not found | Q1 status means it is not "easy"; regional framing required |
+| 3 | Asian Journal of Accounting Research | Emerald for Universitas Airlangga | Scopus Q2 per 2022 university news (unverified for 2026) | Good (70) | Developing-country accounting and finance scope | Platinum OA, no APC (source-backed: DOAJ listing, journal statement) | Accounting framing; ESG-in-Asia call closed 30 Jun 2026 |
+| 4 | Cogent Economics & Finance | Taylor & Francis | Scopus; SJR Q2 Finance per aggregator (unverified) | Good (68) | Broad scope, high volume | Gold OA APC GBP 1,000 to 1,344 (sources conflict; verify) | APC cost; lower visibility |
+| 5 | Managerial Finance | Emerald | SJR Q3 Finance and JCR Q3 per aggregators (unverified) | Backup (64) | Mid/lower selectivity | Hybrid | ESG precedent not checked |
+| 6 | Asia-Pacific Journal of Financial Studies | Wiley | CiteScore about 2 per aggregator (unverified) | Backup (62) | Lower selectivity | No submission fee per third-party notice (unverified) | Visibility |
+| 7 | Borsa Istanbul Review | Elsevier (OA) | Scopus (journal call for papers, source-backed) | Backup (58) | Emerging and developing markets | APC: DOAJ says none, Scimago lists an estimate (conflict) | ESG not in listed topics |
+| 8 | Journal of Risk and Financial Management | MDPI | Scopus (MDPI flyer, source-backed); dropped from Web of Science in March 2023 (university record) | Backup (55), verify | High-volume OA | APC (amount not found) | Verify status before submitting (WoS removal) |
+
+Realistic strategy: first target International Journal of Emerging Markets; if open access with no APC is preferred,
+Asian Journal of Accounting Research; Cogent Economics & Finance if the APC is acceptable. Journal of Asian Business and
+Economic Studies fits the regional framing but should not be treated as an easy option. The prestige route (GFJ first)
+stays available; the author chooses the route.

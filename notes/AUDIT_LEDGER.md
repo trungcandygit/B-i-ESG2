@@ -375,3 +375,4 @@ tự giải quyết bằng mặc định hợp lý nhất và ghi tại đây.
   yêu cầu danh sách nhiều ứng viên hơn theo skill → báo cáo mở rộng 14 tạp chí (Tier A–C + backup). Bộ hồ sơ cuối (Stage 5)
   sẽ dựng theo Guide for Authors của GFJ (cần đọc nguyên văn; WebFetch có thể bị chặn → nhờ người dùng dán nếu cần).
 - D-49 (2026-10-12): người dùng hỏi tier dễ nhất 'theo chuẩn skill'. Skill không xếp theo độ dễ và cấm quy điểm thành xác suất nhận bài; theo rubric + tie-breaker: first target GFJ, second wave EMFT → JSF&I → PBFJ, backup APJFS/BIR/IREF. Giữ D-48.
+- D-50 (người dùng, 2026-10-12): 'Skill phải xếp hạng dễ đăng'. Theo skill (Strategic fit + include realistic-fit journals) thêm tuyến realistic: 1 IJoEM, 2 JABES, 3 AJAR (platinum OA, không APC), 4 Cogent E&F (APC), 5 Managerial Finance, 6 APJFS, 7 Borsa Istanbul Review, 8 JRFM (verify). Không có tỷ lệ chấp nhận đáng tin; 'dễ' chỉ dựa trên tín hiệu định tính.
