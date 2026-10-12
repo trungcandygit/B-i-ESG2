@@ -435,3 +435,18 @@ Author pasted from the journal page: 24.8 days (submission to first decision), 5
 acceptance rate 3.5%. Label: author-supplied from the publisher page (not retrieved by us). Effect on the skill rating:
 AJAR is highly selective, so it is not an "easier" option; strategic fit lowered, score 70 → 65 (Backup). The fast
 first decision keeps the time cost of a try low. First target stays JEMF (D-58).
+
+### D-61 (2026-10-12) Target journal: AAMJAF (author: "vậy đăng malaysia vậy")
+After the AJAR acceptance rate (D-60), the author chose a Malaysian journal. Highest-scoring Malaysian title in the
+skill ranking: Asian Academy of Management Journal of Accounting and Finance (72; Scopus and ESCI; free; precedent
+Srivisal et al., 2021 on ESG coverage). Guidelines (journal page via search results; site not reachable): ScholarOne;
+title + 100–150 word abstract + at most six keywords on page 1; no author names in the manuscript, separate cover
+page; author-date citations; avoid footnotes; tables numbered, cited, each on a separate sheet. Not found: length
+limit, reference style name, fees (checklist asks the author to check).
+Stage 5: manuscript/aamjaf.md (unstructured abstract 141 words filled, keywords 5 alphabetical; "ESG investing"
+dropped to keep five core terms), project_R/docx_build/build_aamjaf.py, submission/AAMJAF_submission/ 00–08.
+Body unchanged from v4.2 (APA references, no italics, "Figure n"), double spacing, tables and figures after the
+references, one per page, position markers in text. Builder checks 8/8 PASS; checks.py 116/116 PASS; docx validate
+PASS (5 files); PDF render 43 pages, inspected page 1 and Figure 1 page. Cover letter: stale v4 phrases
+("wholesale", "selective", "whatever the level") not carried over; companion-study sentence not included (author
+decision D-30), flagged to the author again.
