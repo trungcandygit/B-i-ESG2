@@ -2,7 +2,7 @@
 
 ## 3.1. ESG disclosure and rating coverage in the five markets
 
-The five markets introduced sustainability reporting rules for listed firms at different times. Bursa Malaysia required a sustainability statement in annual reports for financial years ending on or after December 31, 2016, phased in from the largest companies over two years (Bursa Malaysia, 2015). Singapore requires a comply-or-explain sustainability report for financial years ending on or after December 31, 2017 (Singapore Exchange, 2016). Philippine listed companies have attached a comply-or-explain sustainability report since the 2019 annual reports (Securities and Exchange Commission Philippines, 2019). A 2017 Indonesian regulation applies to listed companies from 2020 (Otoritas Jasa Keuangan, 2017), and Thai listed companies have reported sustainability information in the 56-1 One Report since the fiscal year ending in 2021 (Tilleke & Gibbins, 2020). We could not confirm the dates of earlier Thai guidance.
+The five markets introduced sustainability reporting rules for listed firms at different times. Bursa Malaysia required a sustainability statement in annual reports for financial years ending on or after December 31, 2016, phased in from the largest companies over two years (Bursa Malaysia, 2015). Singapore requires listed issuers to publish a comply-or-explain sustainability report for financial years ending on or after December 31, 2017 (Singapore Exchange, 2016). Philippine listed companies have attached a comply-or-explain sustainability report since the 2019 annual reports (Securities and Exchange Commission Philippines, 2019). A 2017 Indonesian regulation applies to listed companies from 2020 (Otoritas Jasa Keuangan, 2017), and Thai listed companies have reported sustainability information in the 56-1 One Report since the fiscal year ending in 2021 (Tilleke & Gibbins, 2020). We could not confirm the dates of earlier Thai guidance.
 
 Several providers score firms in these markets. In Malaysia, FTSE Russell, another part of LSEG, scored only the constituents of the FTSE Bursa Malaysia EMAS index, about 30% of listed companies, until Bursa Malaysia and LSEG agreed in November 2022 to extend these scores to all Main and ACE Market companies (Bernama, 2022). The LSEG ESG score we study, formerly Refinitiv ESG, is a separate product. Some newly covered firms may thus already have had scores that our data do not record, so our event is the initiation of LSEG ESG coverage, not a firm's first ESG rating of any kind. Throughout, a score is the LSEG ESG score, a data-vendor assessment built from company disclosures; a rating is the broader class of assessments, including MSCI-type ratings produced by analysts; and coverage means that LSEG publishes a score for the firm.
 
@@ -40,7 +40,7 @@ For each cohort g and year t, we regress the long difference ΔY~i,t~ = Y~i,t~ �
 
 $$latex \Delta Y_{i,t}=X_i'\beta_{g,t}+u_{i,t},\qquad G_i=\infty | (3)
 
-where β~g,t~ is the coefficient vector of the cell and u~i,t~ is the error. We omit the propensity-score model of the doubly robust estimator because of the poor overlap in total assets: {{pct_scored_above_p95}}% of scored firms have larger base-year total assets than the 95th percentile of never-scored firms. The estimated group-time effect is
+where β~g,t~ is the coefficient vector of the cell and u~i,t~ is the error. We omit the propensity-score model of the doubly robust estimator because total assets overlap poorly: {{pct_scored_above_p95}}% of scored firms have larger base-year total assets than the 95th percentile of never-scored firms. The estimated group-time effect is
 
 $$latex \widehat{\mathrm{ATT}}(g,t)=\frac{1}{N_{g,t}}\sum_{i:\,G_i=g}\left(\Delta Y_{i,t}-X_i'\hat{\beta}_{g,t}\right) | (4)
 
@@ -58,7 +58,7 @@ The design involves three choices. First, baseline controls are never-scored fir
 
 ## 4.3. Inference
 
-We bootstrap the aggregated effects by resampling firms with their full time series, a nonparametric alternative to the multiplier bootstrap of Callaway and Sant'Anna (2021). All specifications share the same {{B_BOOT}} draws and fixed seed, so that differences between specifications have a valid joint distribution. We report the bootstrap standard error, the percentile 95% confidence interval, and a normal-approximation two-sided p-value. The minimum detectable effect (MDE) at 80% power in a two-sided 5% test is
+We bootstrap the aggregated effects by resampling firms with their full time series, a nonparametric alternative to the multiplier bootstrap of Callaway and Sant'Anna (2021). All specifications share the same {{B_BOOT}} draws and fixed seed, so differences between specifications have a valid joint distribution. We report the bootstrap standard error, the percentile 95% confidence interval, and a normal-approximation two-sided p-value. The minimum detectable effect (MDE) at 80% power in a two-sided 5% test is
 
 $$latex \mathrm{MDE}=(z_{0.975}+z_{0.80})\,\widehat{\mathrm{SE}}\approx 2.8\,\widehat{\mathrm{SE}} | (7)
 
@@ -72,7 +72,7 @@ Coverage arrived in market-level waves, so a market or industry shock can affect
 
 ## 4.4. Sensitivity to departures from parallel trends
 
-Because the pre-coverage estimates cast doubt on assumption (2), we add two exploratory checks not in the pre-analysis plan. The first removes a linear pre-coverage trend that passes through zero in the base year:
+Because the pre-coverage estimates cast doubt on assumption (2), we add exploratory checks not in the pre-analysis plan. The first removes a linear pre-coverage trend that passes through zero in the base year:
 
 $$latex \hat{b}=\frac{\sum_{e=-5}^{-1}(e+1)\,\hat{\theta}(e)}{\sum_{e=-5}^{-1}(e+1)^{2}},\qquad \tilde{\theta}(e)=\hat{\theta}(e)-\hat{b}\,(e+1) | (9)
 
@@ -84,10 +84,10 @@ where s indexes the pre-coverage event years. The bias for event year e is at mo
 
 ## 4.5. Benchmark regression and robustness checks
 
-As a benchmark, we use scored and never-scored firms to estimate the static two-way fixed effects (TWFE) regression analyzed by Goodman-Bacon (2021) and Baker et al. (2022):
+As a benchmark, we estimate on scored and never-scored firms the static two-way fixed effects (TWFE) regression analyzed by Goodman-Bacon (2021) and Baker et al. (2022):
 
 $$latex Y_{i,t}=\alpha_i+\lambda_t+\beta\,D_{i,t}+\varepsilon_{i,t},\qquad D_{i,t}=\mathbf{1}\left[t\ge G_i\right] | (11)
 
 where α~i~ and λ~t~ are firm and year effects, D~i,t~ marks years from the first score onward, and ε~i,t~ is the error term. We include no covariates, use all event years, and cluster standard errors by firm. The coefficient β compares all post-coverage with all pre-coverage years, so it averages over any run-up; with staggered timing, it also uses already scored firms as controls for later cohorts.
 
-The pre-analysis plan fixed rows R1 to R6 of Table 3: four robustness checks, a placebo, and the benchmark of Eq. (11). The checks add not-yet-scored firms to the controls (R1), drop the covariates (R2), exclude the 2020 and 2021 cohorts (R3), and keep only control firms whose base-year log total assets reach the 10th percentile among scored firms of the same cohort (R4). The placebo (R5) dates coverage three years early and uses only years before the actual score. Rows R7 to R11 and Tables S7 and S8 of the Supplemental Appendix are exploratory; Section 5 describes each of these checks where it reports the results.
+The pre-analysis plan fixed rows R1 to R6 of Table 3: four robustness checks, a placebo, and the benchmark of Eq. (11). The checks add not-yet-scored firms to the controls (R1), drop the covariates (R2), exclude the 2020 and 2021 cohorts (R3), and keep only control firms whose base-year log total assets reach the 10th percentile among scored firms of the same cohort (R4). The placebo (R5) dates coverage three years early and uses only years before the actual score. Rows R7 to R11 and Tables S7 and S8 of the Supplemental Appendix are exploratory; Section 5 describes each check with its results.

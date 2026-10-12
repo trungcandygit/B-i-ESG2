@@ -112,7 +112,12 @@ def main():
     body_par(d, plain_text(secs['ia_intro']), indent=False)
     if 'appendix_b' in aam:   # robustness text moved out of the main text to meet the 7,500-word limit
         for b in blocks(aam['appendix_b']):
-            heading(d, b[3:], 1) if b.startswith('## ') else body_par(d, plain_text(b))
+            if b.startswith('# '):
+                heading(d, b[2:], 1)
+            elif b.startswith('## '):
+                heading(d, b[3:], 2)
+            else:
+                body_par(d, plain_text(b))
     page_break(d)
     for i, ex in enumerate(exhibits_ia):
         (table_exhibit if ex['kind'] == 'table' else figure_exhibit)(d, **ex['args'])
@@ -155,7 +160,8 @@ def main():
     xml = ''.join(z.read(n).decode('utf-8', 'ignore') for n in z.namelist() if n.endswith('.xml'))
     hits = [t for t in AUTHOR_TOKENS if t in xml]
     res.append(('anonymized manuscript: no author identifiers', not hits, hits))
-    res.append(('anonymized manuscript: no people.xml / acknowledgements', 'word/people.xml' not in z.namelist() and 'Acknowledgements' not in xml, ''))
+    # GFA item 4 places acknowledgements at the end of the manuscript; their text carries no identifier (token check above)
+    res.append(('anonymized manuscript: no people.xml', 'word/people.xml' not in z.namelist(), ''))
     res.append(('no footnotes', 'word/footnotes.xml' not in z.namelist() or '<w:footnote ' not in z.read('word/footnotes.xml').decode('utf-8', 'ignore').replace('w:type="separator"', '').replace('w:type="continuationSeparator"', ''), ''))
     word_like = len(aam['abstract'].split()) + len(re.sub(r'(?m)^(\$\$.*|#.*)$', '', body).split())
     res.append(('GFA item 8: abstract + main text within 7,500 words (whitespace count, as in Word)', word_like <= 7500, word_like))

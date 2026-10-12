@@ -466,3 +466,7 @@ decision D-30), flagged to the author again.
   manuscript; APA; tables and figures each on a separate sheet; length within 7,500 words (read as abstract + main
   text, whitespace count). Body 7,981 + abstract 141 → cut to ≤ 7,500 by three independent editors
   (notes/aamjaf_cut/), secondary robustness text moved to supplementary Appendix B. Author: no publisher-style layout.
+- D-62 result: cut merged (A 1840→1616, B 2335→2049, C 4380→3629; Appendix B in aamjaf.md). Whitespace count
+  abstract 140 + body 6,892 = 6,950 ≤ 7,500 PASS. checks.py 116/116; build_aamjaf 9/9 PASS; 5 docx validate PASS;
+  PDF render 39 pages (manuscript), 2 (cover), 13 (supplement). Anonymized file keeps the non-identifying
+  acknowledgement at the end (GFA item 4).
