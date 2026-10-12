@@ -22,6 +22,7 @@ skill đã load còn hiệu lực cả phiên, **không gọi lại**.
 | Phản biện / review bài báo | `academic-paper-reviewer` |
 | Nghiên cứu, tổng quan tài liệu, fact-check, thiết kế phương pháp | `deep-research` |
 | Quy trình trọn gói, **hoặc không chắc chọn skill nào** | `academic-pipeline` (mặc định) |
+| Sàng lọc tài liệu cho systematic/scoping review (PRISMA) | `sr-screener` |
 
 - Skill vendor tại `vendor/academic-research-skills/`, link vào `.claude/skills/`.
 - Hook `.claude/settings.json` (`SessionStart` + `UserPromptSubmit`) gọi `.claude/hooks/force-ars.sh`. Không được xoá/tắt hook.

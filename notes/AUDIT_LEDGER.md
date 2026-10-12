@@ -295,3 +295,10 @@ tự giải quyết bằng mặc định hợp lý nhất và ghi tại đây.
   .claude/skills/sciwrite. Đã đọc toàn bộ: chỉ là hướng dẫn Markdown, không có script.
 - Xung đột với quy tắc repo, repo ưu tiên: skill gợi ý dùng em dash (Pass 3) → không áp dụng (F7); skill bảo hỏi tạp chí
   đích → không hỏi (1b; tạp chí đã chốt SFR); chế độ interactive "chờ xác nhận" → không dừng chờ (1b). Ghi trong CLAUDE.md §1.
+- D-35 (người dùng, 2026-10-12): cập nhật ARS từ https://github.com/Imbad0202/academic-research-skills. Bản cũ trong
+  vendor: v3.22.1 (upstream 8c53caf); bản mới: v3.23.0 + Unreleased (upstream d1e5171, 2026-10-12). Vendor như lần đầu:
+  bỏ thư mục chỉ dành cho người phát triển (tests, evals, audits, plugin-evals*, README dịch); không có sửa tay nào
+  trong bản cũ ngoài .upstream-commit. Thêm skill thứ năm `sr-screener` (sàng lọc cho systematic review), đã link
+  .claude/skills/sr-screener và thêm vào bảng ở CLAUDE.md §1 cùng lệnh dựng lại trong HANDOFF.md. Giấy phép vẫn là
+  CC BY-NC 4.0 (dùng cho nghiên cứu học thuật, phi thương mại). Bài này không phải systematic review nên sr-screener
+  không nằm trong quy trình S0→S11.
