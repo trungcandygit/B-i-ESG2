@@ -161,3 +161,22 @@ Avoid: Journal of Asian Finance, Economics and Business (discontinued from Scopu
 source-backed list).
 Realistic choice if the goal is the easiest Scopus publication with no cost: Asian Academy of Management Journal of
 Accounting and Finance or Asian Journal of Accounting Research.
+
+## Q3-only route (author: "tìm bọn Q3 thôi, Q2 là cao", 2026-10-12)
+Scopus/SJR Q3 by the best available evidence; most labels are aggregator figures (unverified) and some are dated, so
+each must be checked on scimagojr.com before submission. Excluded: Asia-Pacific Journal of Accounting & Economics
+(Q2 by CiteScore 2025 on the Taylor & Francis page, source-backed).
+
+| Rank | Journal | Publisher | Q3 evidence | Cost | Fit | Note |
+|---:|---|---|---|---|---|---|
+| 1 | Journal of Emerging Market Finance | Sage | SJR 0.248, Q3 Finance and Economics (ResearchBite to 2022, unverified); JCR Q2 2026 (Journal Metrics) | Hybrid; fee not found | Good (66) | Emerging-market finance scope; best topical fit in this tier |
+| 2 | Managerial Finance | Emerald | SJR Q3 Finance (Editage, unverified); JCR Q3 | Hybrid | Good (64) | General finance; ESG precedent not checked |
+| 3 | Review of Pacific Basin Financial Markets and Policies | World Scientific | Q3 (DataLearner, unverified); Q4 per OpenAlex-based list | US$150 submission fee in 2021–2022 conference notices (unverified for 2026) | Good (62) | Pacific Basin finance focus |
+| 4 | International Journal of Economics and Management | Universiti Putra Malaysia | Q3 (ResearchBite 2023, unverified) | Not found | Backup (60) | Malaysian base |
+| 5 | International Journal of Business and Society | Universiti Malaysia Sarawak | SJR Q3 2019–2023 (directory, unverified); Scopus since 2009 (journal site, source-backed) | USD 200 per paper (journal site, source-backed) | Backup (58) | Broad business scope |
+| 6 | Asian Journal of Business and Accounting | University of Malaya | Scopus Q3, CiteScore 1.3 (DataLearner, unverified) | Open access; APC page exists, amount not found | Backup (58) | Accounting-leaning |
+| 7 | Afro-Asian Journal of Finance and Accounting | Inderscience | Q3 Accounting and Finance (ResearchBite 2023, unverified) | Not found | Backup (58) | Low visibility |
+| 8 | Journal of Indonesian Economy and Business | Universitas Gadjah Mada | Scopus Q3, SJR 2023 0.25 (journal's own page, source-backed) | Not found | Backup (55) | Indonesia focus; our sample spans five markets |
+
+Q3 recommendation: Journal of Emerging Market Finance first (closest scope), then Managerial Finance or Review of
+Pacific Basin Financial Markets and Policies.

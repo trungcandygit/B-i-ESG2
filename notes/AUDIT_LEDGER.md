@@ -383,3 +383,4 @@ tự giải quyết bằng mặc định hợp lý nhất và ghi tại đây.
   (abstract 250/250); validate.py PASS mọi docx; thân bài 8.194 từ. Theo pipeline: 3' Major → 4' → Stage 4.5, không quay
   lại phản biện.
 - D-51 (người dùng: 'toàn Q1 vậy'): thêm tuyến Scopus Q2–Q4 (AAMJAF Q4 không APC; AJAR Q2 không APC; JED/NEU Q2 lúc vào Scopus 2023, không APC, có xung đột lợi ích tiềm năng vì đồng tác giả Hà Hồng Hạnh ở NEU; Cogent Q2 APC; IJEM UPM Q3; AAJFA Q3; Managerial Finance Q3; IMFI verify). Tránh JAFEB (Scopus loại 2021).
+- D-52 (người dùng: chỉ Q3): tuyến Q3: 1 Journal of Emerging Market Finance (Sage), 2 Managerial Finance (Emerald), 3 Review of Pacific Basin Financial Markets and Policies (World Scientific), 4 IJEM (UPM), 5 IJBS (UNIMAS, USD 200), 6 AJBA (UM), 7 AAJFA (Inderscience), 8 JIEB (UGM). Loại APJAE (đã Q2 theo T&F 2025).
