@@ -370,3 +370,7 @@ tự giải quyết bằng mặc định hợp lý nhất và ghi tại đây.
   liệu 565 hãng MY chưa được chấm; NEW-2 mô tả sai nhóm "other cohorts"), Phase 2B (Major Revision theo luật B3; 14 claim
   drift trong thư phản hồi; checker check_re_review_synthesis.py: manifest_incomplete như dự kiến, xem D-42). Theo
   pipeline → Stage 4' (vòng sửa cuối), sau đó Stage 4.5, không quay lại phản biện.
+- D-48 (người dùng, 2026-10-12): tạp chí đích = Global Finance Journal (Elsevier); người dùng chấp nhận phí nộp (GFJ:
+  US$150, không hoàn lại, có miễn giảm cho nước đang phát triển; nguồn: Guide for Authors trên ScienceDirect). Người dùng
+  yêu cầu danh sách nhiều ứng viên hơn theo skill → báo cáo mở rộng 14 tạp chí (Tier A–C + backup). Bộ hồ sơ cuối (Stage 5)
+  sẽ dựng theo Guide for Authors của GFJ (cần đọc nguyên văn; WebFetch có thể bị chặn → nhờ người dùng dán nếu cần).

@@ -85,3 +85,28 @@ Searches used topic keywords only, never manuscript sentences (skill query-hygie
   environment; all quartiles above are aggregator figures).
 - Word limit, abstract format, reference style, data and code availability policy, AI-use policy.
 - APC only if gold OA is chosen; waiver policy for Vietnam-based authors.
+
+## Expanded candidate list (update 2026-10-12, after the author's feedback)
+The author accepts submission fees (D-48), so the no-fee filter is dropped; Scopus remains required. The skill asks for
+strong-fit and realistic-fit journals, so the list below widens the pool, giving priority to recent precedent on rating
+coverage and ESG ratings (labels as above; fit scores are rubric judgements, not acceptance probabilities).
+
+| Tier | Journal | Publisher | Fit | Recent precedent (evidence) | Notes |
+|---|---|---|---|---|---|
+| A first target | Global Finance Journal | Elsevier | Strong (86) | Sahin et al. (2023) on ESG scoring (source-backed) | Submission fee US$150, non-refundable, waivers for developing countries; OA APC US$3,080 only if OA (source-backed: ScienceDirect guide for authors) |
+| A | Journal of Sustainable Finance & Investment | Taylor & Francis | Good (82) | Scope: ESG integration, disclosure (source-backed) | Hybrid |
+| A | Emerging Markets Finance and Trade | Taylor & Francis | Good (80) | Cheng, Ji, Tsang & Xu (2025), "ESG rating agency coverage and analysts' earnings forecasts: Evidence from China", 61(11), 3332–3358 (source-backed, RePEc) | Closest topical precedent on coverage; scope page not retrieved |
+| B realistic | Pacific-Basin Finance Journal | Elsevier | Good (80) | Asia-Pacific capital markets; ESG/green-bond papers (source-backed scope) | Fee status not found |
+| B | International Journal of Finance & Economics | Wiley | Good (74) | Asteriou et al. (2025), ESG ratings and country returns, 30(4), 3761–3784 (source-backed) | Scope page not retrieved |
+| B | Emerging Markets Review | Elsevier | Good (75) | Emerging-markets finance; CSR topic (inferred, 2015 page) | Fee status not found |
+| B | Research in International Business and Finance | Elsevier | Good (72) | Sustainability and finance in scope; 2024 ESG-in-Asia special issue (source-backed) | Fee status not found |
+| C stretch | Corporate Governance: An International Review | Wiley | Stretch (70) | Tsang et al. (2025) on initiation of non-financial rating coverage (source-backed, cited in the paper) | About 5% acceptance per a third-party page (unverified third-party claim) |
+| C | Journal of Business Ethics | Springer | Stretch (70) | Bikmetova & Pirinsky (2026); Drempetic et al. (2020) (source-backed) | Needs ethics/stakeholder framing |
+| C | Journal of Banking & Finance | Elsevier | Stretch (65) | Tsang et al. (2024) on ESG rating agencies (source-backed) | Highly selective; fee status not found |
+| Backup | Finance Research Letters | Elsevier | Backup (60) | Dobrick et al. (2023) Refinitiv size bias; Shanaev & Ghimire (2022) (source-backed) | Letters under about 2,500 words (unverified): only as a short spin-off |
+| Backup | Asia-Pacific Journal of Financial Studies | Wiley | Backup (62) | Asia-Pacific finance | No submission fee per third-party notice (unverified) |
+| Backup | Borsa Istanbul Review | Elsevier (OA) | Backup (58) | Emerging and developing markets finance (source-backed call for papers) | DOAJ says no APC, Scimago lists an estimated APC: conflict, verify |
+| Backup | International Review of Economics & Finance | Elsevier | Backup (55) | No ESG-rating precedent found in this search | Scope page not retrieved |
+
+Publisher diversity: Elsevier 7, Taylor & Francis 2, Wiley 3, Springer 1; the tiers A–C hold no more than three
+Elsevier titles. All quartiles remain aggregator figures except GFJ (author-confirmed Q1).
