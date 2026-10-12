@@ -45,12 +45,12 @@ The paper's headline is that firms are rated at the peak: a provider selects fir
 
 | Dimension / criterion | Criterion source | Judgement | Evidence anchors | Rationale | Uncertainty or scope limit | Decision bearing? |
 |---|---|---|---|---|---|---|
-| D3 core thesis (title and conclusion claim of a valuation peak) | Contract D3; DA Challenge 1 | DOES_NOT_MEET | text: Abstract Originality/value "shows that the first scored year coincides with a valuation peak" | Primary post-coverage MTB path is flat, so "peak" outruns the estimates | Extended event year 4 is negative but imprecise and excluded from Eq. (6) | yes, binds the D3 block |
-| D3 logic chain (event timing) | Contract D3; DA Challenge 4 | PARTLY_MEETS | text: §3.2 "Both features move the true publication date later, never earlier" | Paper's own timing argument implies rating follows, not coincides with, the high | R10 decline loses significance at M̄ = 0.23 | yes |
-| D3 alternative explanations | Contract D3; DA Challenge 6 | PARTLY_MEETS | text: §6.1 "The clearest result is the ordering of events" | Ordering is consistent with selection and with common-cause stories; paper names selection | No index, report-date, or issuance data in the paper | yes |
-| D3 confirmation bias (abstract selection of results) | Contract D3; DA Challenge 3 | PARTLY_MEETS | text: Abstract Findings "A static two-way fixed effects regression on the same data attributes a 6.6 percent MTB increase to coverage." | Abstract reports the TWFE +6.6 percent but not the publication-timed −6.6 percent | Both are non-headline rows of Table 3 | yes |
-| D3 overgeneralization | Contract D3; DA Challenge 5 | MEETS | text: §6.3 "These data cannot show whether the ordering extends to other markets or providers." | Paper bounds external validity explicitly | none identified | no |
-| So-what test (sustainability-finance contribution) | Reviewer configuration card, DA seat; DA Challenge 8 | PARTLY_MEETS | text: §6.3 "Studies comparing rated and unrated firms in these markets should model coverage timing" | The implication is generic to any coverage event; ESG content of the score plays no role in the results | D6 is the editor seat's to score | no for D3, yes as input to D6 |
+| D3 core thesis (title and conclusion claim of a valuation peak) | Contract D3; DA Challenge 1 | DOES_NOT_MEET | see Abstract Originality/value "shows that the first scored year coincides with a valuation peak" | Primary post-coverage MTB path is flat, so "peak" outruns the estimates | Extended event year 4 is negative but imprecise and excluded from Eq. (6) | yes, binds the D3 block |
+| D3 logic chain (event timing) | Contract D3; DA Challenge 4 | PARTLY_MEETS | see §3.2 "Both features move the true publication date later, never earlier" | Paper's own timing argument implies rating follows, not coincides with, the high | R10 decline loses significance at M̄ = 0.23 | yes |
+| D3 alternative explanations | Contract D3; DA Challenge 6 | PARTLY_MEETS | see §6.1 "The clearest result is the ordering of events" | Ordering is consistent with selection and with common-cause stories; paper names selection | No index, report-date, or issuance data in the paper | yes |
+| D3 confirmation bias (abstract selection of results) | Contract D3; DA Challenge 3 | PARTLY_MEETS | see Abstract Findings "A static two-way fixed effects regression on the same data attributes a 6.6 percent MTB increase to coverage." | Abstract reports the TWFE +6.6 percent but not the publication-timed −6.6 percent | Both are non-headline rows of Table 3 | yes |
+| D3 overgeneralization | Contract D3; DA Challenge 5 | MEETS | see §6.3 "These data cannot show whether the ordering extends to other markets or providers." | Paper bounds external validity explicitly | none identified | no |
+| So-what test (sustainability-finance contribution) | Reviewer configuration card, DA seat; DA Challenge 8 | PARTLY_MEETS | see §6.3 "Studies comparing rated and unrated firms in these markets should model coverage timing" | The implication is generic to any coverage event; ESG content of the score plays no role in the results | D6 is the editor seat's to score | no for D3, yes as input to D6 |
 
 ### Ignored Alternative Explanations/Paths
 
@@ -99,10 +99,44 @@ Major revision. The descriptive core is defensible, but the title and main claim
 
 ## MINOR
 
-| # | Seat ID | Dimension | Issue Description | Evidence Anchor | Confidence | What would resolve it |
-|---|---|---|---|---|---|---|
-| m1 | DA-m1 | Construct label | The title and design call the event the "first LSEG ESG score", yet FTSE Russell, which the paper says is part of LSEG, scored Malaysian EMAS constituents earlier. For those firms the event is neither the first LSEG-group score nor clearly an extensive-margin event, which weakens the Originality claim about the extensive margin. | text: §3.1 "FTSE Russell, another part of LSEG, scored only the FTSE Bursa Malaysia EMAS constituents" | 4 (paper's own statement) | Rename the event (first LSEG/Refinitiv ESG score in the data) and qualify the extensive-margin claim. |
-| m2 | DA-m2 | Hypothesis logic | H1 states that the selection view predicts no post-coverage effect, but the Discussion argues that selected firms carry transitory value, which predicts a post-coverage decline. With a transitory run-up, a flat headline path is evidence of an offsetting positive effect, not support for pure selection. The hypothesis and the interpretation use two different selection models. | text: §2.3 "the selection view predicts no effect after coverage and relative growth before it" | 4 (internal comparison with §6.1) | State the selection model's post-coverage prediction under permanent and transitory run-ups and interpret the null against both. |
-| m3 | DA-m3 | Overstated implication | The conclusion says rated-unrated comparisons "will" attribute selection to the rating, but the paper shows the TWFE gap is partly due to covariates and the event window (R2 no-covariate estimate 0.025). The evidence supports "can", as Section 6.3 says. | text: §8 "Comparisons of rated and unrated firms that ignore coverage timing will attribute this selection to the rating." | 4 (internal consistency with §5.5 and §6.3) | Align the conclusion and abstract wording with Section 6.3 ("can reflect"). |
-| m4 | DA-m4 | Rival: calendar composition | The long pre-period estimates come from cohorts first scored 2019 to 2024 only, so event years −5 to −1 span the 2020 pandemic shock and recovery for most scored firms. A size-dependent pandemic rebound not captured by the cell regression could contribute to the run-up. | table: Table S6, event year −5 row, 497 scored firms from 6 cohorts | 2 (speculative; covariates partly address it) | Show the pre-coverage profile for pre-2020 and post-2020 cohorts separately, or add size-by-year flexibility. |
-| m5 | DA-m5 | Wording in abstract | The abstract calls the controls "comparable never-scored firms", while Table 1 shows normalized size differences of 0.69 and 0.61 and Section 4.2 reports poor overlap. Comparable after regression adjustment is not comparable in levels. | text: Abstract Findings "than those of comparable never-scored firms" | 3 (wording issue tied to DA-M6) | Describe them as never-scored firms adjusted for size, country, and industry. |
+MINOR findings sit in their own section after Review Body, because the contract reserves the Review Body issue tables for the CRITICAL and MAJOR bands.
+
+### DA-m1: Construct label
+
+- Severity band: MINOR
+- Issue: The title and design call the event the "first LSEG ESG score", yet FTSE Russell, which the paper says is part of LSEG, scored Malaysian EMAS constituents earlier. For those firms the event is neither the first LSEG-group score nor clearly an extensive-margin event, which weakens the Originality claim about the extensive margin.
+- Evidence Anchor: text: §3.1 "FTSE Russell, another part of LSEG, scored only the FTSE Bursa Malaysia EMAS constituents"
+- Confidence: 4 (paper's own statement)
+- What would resolve it: Rename the event (first LSEG/Refinitiv ESG score in the data) and qualify the extensive-margin claim.
+
+### DA-m2: Hypothesis logic
+
+- Severity band: MINOR
+- Issue: H1 states that the selection view predicts no post-coverage effect, but the Discussion argues that selected firms carry transitory value, which predicts a post-coverage decline. With a transitory run-up, a flat headline path is evidence of an offsetting positive effect, not support for pure selection. The hypothesis and the interpretation use two different selection models.
+- Evidence Anchor: text: §2.3 "the selection view predicts no effect after coverage and relative growth before it"
+- Confidence: 4 (internal comparison with §6.1)
+- What would resolve it: State the selection model's post-coverage prediction under permanent and transitory run-ups and interpret the null against both.
+
+### DA-m3: Overstated implication
+
+- Severity band: MINOR
+- Issue: The conclusion says rated-unrated comparisons "will" attribute selection to the rating, but the paper shows the TWFE gap is partly due to covariates and the event window (R2 no-covariate estimate 0.025). The evidence supports "can", as Section 6.3 says.
+- Evidence Anchor: text: §8 "Comparisons of rated and unrated firms that ignore coverage timing will attribute this selection to the rating."
+- Confidence: 4 (internal consistency with §5.5 and §6.3)
+- What would resolve it: Align the conclusion and abstract wording with Section 6.3 ("can reflect").
+
+### DA-m4: Rival: calendar composition
+
+- Severity band: MINOR
+- Issue: The long pre-period estimates come from cohorts first scored 2019 to 2024 only, so event years −5 to −1 span the 2020 pandemic shock and recovery for most scored firms. A size-dependent pandemic rebound not captured by the cell regression could contribute to the run-up.
+- Evidence Anchor: table: Table S6, event year −5 row, 497 scored firms from 6 cohorts
+- Confidence: 2 (speculative; covariates partly address it)
+- What would resolve it: Show the pre-coverage profile for pre-2020 and post-2020 cohorts separately, or add size-by-year flexibility.
+
+### DA-m5: Wording in abstract
+
+- Severity band: MINOR
+- Issue: The abstract calls the controls "comparable never-scored firms", while Table 1 shows normalized size differences of 0.69 and 0.61 and Section 4.2 reports poor overlap. Comparable after regression adjustment is not comparable in levels.
+- Evidence Anchor: text: Abstract Findings "than those of comparable never-scored firms"
+- Confidence: 3 (wording issue tied to DA-M6)
+- What would resolve it: Describe them as never-scored firms adjusted for size, country, and industry.
