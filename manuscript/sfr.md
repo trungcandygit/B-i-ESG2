@@ -1,17 +1,17 @@
 % Sustainable Finance Review (Emerald) version: sections that differ from manuscript.md.
 % Numbers are {{key}} placeholders filled from project_R/outputs/numbers.csv. Built by project_R/docx_build/build_sfr.py.
 @@ abstract
-Purpose|This study asks which listed firms enter the environmental, social, and governance (ESG) rated universe in emerging markets and whether entry changes their market valuation.
+Purpose|Environmental, social, and governance (ESG) scores decide which firms ESG-screened investors can hold, yet most listed firms in emerging markets have none. This study asks which firms enter the scored universe and whether entry changes their market valuation.
 
-Design/methodology/approach|The study compares {{n_treated_all}} non-financial firms in Indonesia, Malaysia, the Philippines, Singapore, and Thailand that received a first London Stock Exchange Group (LSEG) ESG score in 2015 to 2024 with {{n_never}} never-scored firms, before and after the first score, using cohort-specific difference-in-differences estimators and a pre-analysis plan.
+Design/methodology/approach|The study compares {{n_treated_all}} non-financial firms in Indonesia, Malaysia, the Philippines, Singapore, and Thailand that received a first London Stock Exchange Group (LSEG) ESG score in 2015 to 2024 with {{n_never}} never-scored firms, before and after the first score, following a pre-analysis plan.
 
-Findings|Firms that entered through selective coverage waves had outgrown comparable unscored firms beforehand: from five years before the first score to the year before it, their market-to-book (MTB) ratio grew {{mtb_runup_m5}} percent more. Malaysian firms covered in a wholesale expansion in 2021 and 2022 show no such run-up. Under parallel trends, MTB ratios did not rise after the first score (estimate {{mtb_att}}; 95% interval {{mtb_lo}} to {{mtb_hi}}), whatever the level of the score.
+Findings|From five years before the first score to the year before it, scored firms' market-to-book (MTB) ratio grew {{mtb_runup_m5}} percent more than that of never-scored firms (95% interval {{mtb_runup_lo}} to {{mtb_runup_hi}} percent); a large Malaysian wave shows no such run-up. Under parallel trends, MTB did not rise after the first score (estimate {{mtb_att}}; interval {{mtb_lo}} to {{mtb_hi}}), for high- or low-score firms alike. Dated one year later, MTB fell {{mtb_R10_pct}} percent, a decline that small departures from parallel trends erase.
 
-Research limitations/implications|The provider chooses when to cover a firm, the data are annual, and departures from parallel trends like those before coverage admit effects of several percent in either direction.
+Research limitations/implications|The provider chooses whom to cover, the data are annual, and departures from parallel trends like those before coverage admit effects of several percent either way.
 
-Practical implications|ESG screens, indices, and ESG-premium studies in these markets draw on a scored universe tilted toward firms that have just grown; exchange-wide coverage avoids that tilt.
+Practical implications|ESG screens, index builders, and ESG-premium studies that use this provider draw on firms that have often just outgrown their peers.
 
-Originality/value|The study documents selection into ESG rating coverage and its valuation consequences in emerging markets, an event that evidence on rating changes does not cover.
+Originality/value|The study documents selection into ESG rating coverage, and its valuation consequences, in emerging markets.
 
 @@ keywords
 Emerging markets; ESG investing; ESG ratings; Firm valuation; Rating coverage; Sustainable finance

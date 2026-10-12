@@ -19,6 +19,7 @@ put("pct_coh_2020_2023", fmt(100 * sum(cs$total[cs$G %in% 2020:2023]) / sum(cs$t
 put("n_my_2021_2022", fmtn(sum(cs$MY[cs$G %in% 2021:2022])))
 put("n_th_sg_2019_2020", fmtn(sum(cs$TH[cs$G %in% 2019:2020]) + sum(cs$SG[cs$G %in% 2019:2020])))
 put("n_coh_min_year", as.character(min(cs$G))); put("n_coh_max_year", as.character(max(cs$G)))
+put("n_coh_2023", fmtn(cs$total[cs$G == 2023]))   # round 4: firms first scored in 2023 (Table S2)
 
 mt <- read.csv(file.path(OUT, "att_main.csv")); pre <- read.csv(file.path(OUT, "pretrend_tests.csv"))
 for (i in seq_len(nrow(mt))) {
