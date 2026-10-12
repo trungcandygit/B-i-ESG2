@@ -32,6 +32,11 @@ skill đã load còn hiệu lực cả phiên, **không gọi lại**.
   5 lượt soát câu chữ (clutter, câu chủ động/động từ, cấu trúc câu, thống nhất thuật ngữ, số liệu/trích dẫn); dùng kèm
   vòng proofreading + stop-slop. Quy tắc repo ưu tiên hơn skill: KHÔNG em dash (bỏ gợi ý "dash (—)" của skill), không hỏi
   tạp chí đích (đã chốt ở mục 3), không đổi nội dung khoa học, số liệu vẫn phải khớp R.
+- Skill bổ trợ `paper-writing` (vendor/paper-writing, SNL-UCSB/paper-writing-skill, MIT): pipeline viết 5 giai đoạn,
+  cổng văn phong M1–M18/S1–S31, red-team, nén chữ. Mô tả của skill tự ghi "MANDATORY TRIGGERS" cho mọi việc viết bài
+  nhưng trong repo này nó chỉ là skill PHỤ: ARS vẫn điều phối (§1). Dùng các cổng/checklist của nó để soát văn khi cần;
+  KHÔNG chạy brainstorming 34 câu hỏi hay tạo project_context.md (đề tài, câu hỏi, tạp chí đã chốt), không hỏi lại (1b);
+  ngưỡng "passive voice zero tolerance" và quy ước hội nghị CS (NSDI/SIGCOMM, .tex) chỉ tham khảo, Methods theo SFR.
 - Văn phong: stop-slop trong khuôn khổ học thuật (D14): dùng "we", không "you", bỏ trạng từ đệm / phóng đại,
   giữ trạng từ kỹ thuật, không em dash.
 

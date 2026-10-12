@@ -302,3 +302,14 @@ tự giải quyết bằng mặc định hợp lý nhất và ghi tại đây.
   .claude/skills/sr-screener và thêm vào bảng ở CLAUDE.md §1 cùng lệnh dựng lại trong HANDOFF.md. Giấy phép vẫn là
   CC BY-NC 4.0 (dùng cho nghiên cứu học thuật, phi thương mại). Bài này không phải systematic review nên sr-screener
   không nằm trong quy trình S0→S11.
+- D-36 (người dùng, 2026-10-12): thêm skill https://github.com/SNL-UCSB/paper-writing-skill (commit 676f852, 2026-07-20,
+  MIT, Arpit Gupta) vào vendor/paper-writing, link .claude/skills/paper-writing. Đã đọc hết: chỉ Markdown + script
+  `setup` (copy vào ~/.claude, không dùng). Bỏ .git/.DS_Store/.gitignore; đổi CLAUDE.md của upstream thành
+  UPSTREAM_CLAUDE.md để không bị nạp như quy tắc repo. Skill tự nhận "MANDATORY TRIGGERS" cho mọi việc viết; trong repo
+  này nó là skill phụ dưới ARS; không chạy brainstorming 34 câu/project_context.md, không hỏi lại (ghi CLAUDE.md §1).
+
+## Iter 13 — SFR từ chối (desk reject), cải thiện bản thảo (2026-10-12)
+- D-37: SFR-09-2026-0113 "Rated at the Peak? Firm Valuation around the First LSEG ESG Score in Five Southeast Asian
+  Markets" bị từ chối 11/10/2026 với lý do "appropriateness of your manuscript for our journal" (không qua phản biện,
+  không có ý kiến nội dung). Người dùng yêu cầu dùng các skill mới (sciwrite, paper-writing) cùng ARS, proofreading,
+  stop-slop để cải thiện bản thảo trước khi chọn tạp chí mới.
