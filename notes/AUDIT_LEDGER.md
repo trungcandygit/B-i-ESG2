@@ -429,3 +429,9 @@ Author asked for one journal between GFJ (86) and JEMF (76), leaning toward easi
 Asian Journal of Accounting Research (70, Scopus Q2 per 2022 news, unverified for 2026; platinum OA, no APC,
 source-backed) is the middle choice; Cogent Economics & Finance (68, Q2 aggregator, APC GBP 1,000–1,344) is the
 alternative. Higher-fit Q1 titles (EMFT 80, PBFJ 80, IJFE 74) are not "leaning easier". No acceptance rates exist.
+
+### D-60 (2026-10-12) Author-supplied journal metrics (AJAR)
+Author pasted from the journal page: 24.8 days (submission to first decision), 51 days acceptance to publication,
+acceptance rate 3.5%. Label: author-supplied from the publisher page (not retrieved by us). Effect on the skill rating:
+AJAR is highly selective, so it is not an "easier" option; strategic fit lowered, score 70 → 65 (Backup). The fast
+first decision keeps the time cost of a try low. First target stays JEMF (D-58).
