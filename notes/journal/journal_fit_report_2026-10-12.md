@@ -180,3 +180,11 @@ each must be checked on scimagojr.com before submission. Excluded: Asia-Pacific 
 
 Q3 recommendation: Journal of Emerging Market Finance first (closest scope), then Managerial Finance or Review of
 Pacific Basin Financial Markets and Policies.
+
+### Re-score: Journal of Emerging Market Finance (after retrieving the official scope, 2026-10-12)
+Scope (Sage journal page, source-backed): "theory and practice of finance in emerging markets", practical relevance,
+comparisons of emerging and developed markets including corporate governance; blind peer review; COPE member.
+Rubric: scope 19/25; recent precedent 6/15 (no ESG article found); method and type 13/15; contribution 13/15;
+practical constraints 7/10 (word limit and fee not found); legitimacy/index 8/10 (Sage, COPE, Scopus Q3 on dated
+data); strategic fit 10/10 (author priority: Q3). Total 76, Good fit, confidence Medium. The earlier 66 reflected
+missing evidence (skill rule: score conservatively). It remains first choice in the Q3 route.
