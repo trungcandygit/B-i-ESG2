@@ -188,3 +188,21 @@ Rubric: scope 19/25; recent precedent 6/15 (no ESG article found); method and ty
 practical constraints 7/10 (word limit and fee not found); legitimacy/index 8/10 (Sage, COPE, Scopus Q3 on dated
 data); strategic fit 10/10 (author priority: Q3). Total 76, Good fit, confidence Medium. The earlier 66 reflected
 missing evidence (skill rule: score conservatively). It remains first choice in the Q3 route.
+
+## Q4 / newly indexed route (author: "thấp hơn nữa", 2026-10-12)
+This band contains many titles that Scopus has discontinued; each candidate was checked against discontinued-title
+lists reproduced by university libraries (UNIMAS Nov 2025, UTHM Feb 2026).
+
+| Rank | Journal | Publisher | Index/quartile (label) | Cost | Fit | Note |
+|---:|---|---|---|---|---|---|
+| 1 | Asian Academy of Management Journal of Accounting and Finance | Universiti Sains Malaysia | SJR Q4 Finance (Editage/Researcher.Life, unverified) | No APC (DOAJ, source-backed) | Good (70) | Published Srivisal et al. (2021) on ESG coverage and credit ratings (source-backed): recent-precedent points |
+| 2 | Asian Journal of Economics and Banking | Emerald for Banking University Ho Chi Minh City | Newly added to Scopus, coverage from 2022 (Vietnamese news of 15 Sep 2026, single source, unverified); quartile not yet assigned | No APC, diamond OA (Emerald journal page, source-backed) | Good (64) | Vietnam-based editors; check that the Scopus addition appears in the Scopus source list |
+| 3 | Review of Pacific Basin Financial Markets and Policies | World Scientific | Q4 per OpenAlex-based list; Q3 per another (unverified) | US$150 submission fee in 2021–2022 notices (unverified) | Good (62) | Pacific Basin finance |
+| 4 | Southeast Asian Journal of Economics | Chulalongkorn University (Thailand) | Scopus reported (blog, unverified); quartile not found | No submission or publication charge (journal site, source-backed) | Backup (55) | Economics, not finance |
+| 5 | Investment Management and Financial Innovations | Business Perspectives | Q4 per one aggregator (unverified) | OA, APC not found | Backup (52), verify | Inconsistent metrics |
+| 6 | Banks and Bank Systems | Business Perspectives | Scopus (library records); JCR Q3 | APC about US$641 (aggregator, unverified) | Weak (45) | Banking scope, poor fit |
+
+Avoid (discontinued from Scopus): Accounting (Growing Science; Nov 2025 list, "continuous curation"), International
+Journal of Economics and Financial Issues (Econjournals; 2025 list), Journal of Asian Finance, Economics and Business
+(2021, "publication concerns").
+Q4 recommendation: Asian Academy of Management Journal of Accounting and Finance (free, ESG precedent).
