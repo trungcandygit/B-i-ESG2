@@ -402,3 +402,9 @@ build (checks.py: numbers vs numbers.csv, citation-reference match, cross-refere
 docx validation. Residual risk recorded: no fresh independent re-check of citations and overlap after the language
 rounds. Paperpal question: external tool, not run here; if the author uses it, the edited docx comes back through
 checks.py and the AI declaration must name it (B5).
+
+### D-57 (2026-10-12) One language round only; default target journal
+Author: "language chỉ 1 round đó thôi". Language round 2 cancelled; round 1 (sciwrite + proofreading + stop-slop, three
+independent section editors) is the only language round on v4.1. Target journal default (no question asked, rule 1b):
+Journal of Emerging Market Finance (Sage), the top title of the author's "easier" route (D-55, fit 76). Stage 5 will
+format for JEMF after round 1 is merged, once its submission guidelines are retrieved; the author can switch targets.
