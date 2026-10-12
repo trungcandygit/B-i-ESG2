@@ -376,3 +376,9 @@ tự giải quyết bằng mặc định hợp lý nhất và ghi tại đây.
   sẽ dựng theo Guide for Authors của GFJ (cần đọc nguyên văn; WebFetch có thể bị chặn → nhờ người dùng dán nếu cần).
 - D-49 (2026-10-12): người dùng hỏi tier dễ nhất 'theo chuẩn skill'. Skill không xếp theo độ dễ và cấm quy điểm thành xác suất nhận bài; theo rubric + tie-breaker: first target GFJ, second wave EMFT → JSF&I → PBFJ, backup APJFS/BIR/IREF. Giữ D-48.
 - D-50 (người dùng, 2026-10-12): 'Skill phải xếp hạng dễ đăng'. Theo skill (Strategic fit + include realistic-fit journals) thêm tuyến realistic: 1 IJoEM, 2 JABES, 3 AJAR (platinum OA, không APC), 4 Cogent E&F (APC), 5 Managerial Finance, 6 APJFS, 7 Borsa Istanbul Review, 8 JRFM (verify). Không có tỷ lệ chấp nhận đáng tin; 'dễ' chỉ dựa trên tín hiệu định tính.
+- Stage 4' (vòng sửa cuối, v4.1) hoàn tất 2026-10-12: sửa 36 mục của phase2B_decision.md (NEW-1…7, phần dư RR2-1…20,
+  thư phản hồi mới notes/review_round2/09_response_stage4prime.md sửa 14 claim drift). Còn "Partly addressed" có lý do:
+  RR2-6 (nguồn Thái Lan thứ cấp), RR2-9 (không vẽ thêm hình market cap), RR2-17 (profile trước/sau 2020 dạng bảng),
+  RR2-20 (câu dài để vòng ngôn ngữ); RR2-18 declined (quyết định tác giả). checks.py 116/116 PASS; build 9/9 PASS
+  (abstract 250/250); validate.py PASS mọi docx; thân bài 8.194 từ. Theo pipeline: 3' Major → 4' → Stage 4.5, không quay
+  lại phản biện.
