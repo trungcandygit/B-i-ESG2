@@ -1,0 +1,4 @@
+interface:
+  display_name: "Journal Fit Finder"
+  short_description: "Match manuscripts to suitable journals"
+  default_prompt: "Use $journal-fit-finder to analyze my manuscript and recommend suitable journals with evidence-backed fit scores."

@@ -1,0 +1,656 @@
+{
+  "contract_version": "1.1",
+  "round_id": "review_round2-rereview-1",
+  "revision": 1,
+  "verdict_record_hash": "d2eee6b4af75aeba299cce1d4d7bb1d778c1aa4a31924d9ba49a23aaf21b5756",
+  "rows": [
+    {
+      "item_id": "REV-RR2-1",
+      "concern_id": "R1",
+      "obligation_class": "MUST_FIX",
+      "original_comment": "Reframe for sustainable finance: retitle; running title; structured abstract in plain words (who gets rated, what follows); keywords with sustainability vocabulary; contribution paragraph addressed to ESG-demand, rating-coverage and ESG-premium literatures; remove \"main implication is methodological\"",
+      "authors_claim": "Addressed: New title and running title; abstract rewritten around which firms enter the scored universe and what follows, without estimator names; keywords now Emerging markets; ESG investing; ESG ratings; Firm valuation; Rating coverage; Sustainable finance; §1 opens with ESG screens and the unscored majority, states the two questions, and lists three contributions to sustainable finance (rating coverage, ratings as information and certification, ESG-premium comparisons); the pre-trend remark left the contribution paragraph; §6.3 no longer says \"the main implication is methodological\".",
+      "revision_location": "Title; running title; Abstract (Purpose, Design, Findings); Keywords; Section 1, paragraph 7; Section 6.3",
+      "verified": "PARTIAL",
+      "status": "PARTIALLY_ADDRESSED",
+      "quality_assessment": "Phase 2A verdict stands (no adjustment). Residual (consider): Elements (i), (ii), (iv), (v), (vi) are met; element (iii) is not: the abstract Design field still uses estimator vocabulary ('cohort-specific difference-in-differences estimators') and the Purpose field does not state why first coverage matters for ESG-screened capital (that motivation appears only in Section 1, paragraph 1). [CLAIM-DRIFT CD-1, factual] Letter: abstract rewritten \"without estimator names\". v4 Abstract Design field still reads \"using cohort-specific difference-in-differences estimators\"; the Purpose field does not state why first coverage matters for ESG-screened capital. Status \"Addressed\" overstates the PARTIALLY_ADDRESSED verdict.",
+      "final_verdict": "PARTIALLY_ADDRESSED",
+      "phase2a_verdict": "PARTIALLY_ADDRESSED",
+      "verified_by": "EIC",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": [],
+      "cross_model_status": "not_configured"
+    },
+    {
+      "item_id": "REV-RR2-2",
+      "concern_id": "R2",
+      "obligation_class": "MUST_FIX",
+      "original_comment": "Rebuild §2 around ESG ratings as information/certification, ESG-demand price pressure, and rater selection, with verified references (rating-change and ESG-index-inclusion price evidence); Hartzmark and Sussman cited early and described as fund-level",
+      "authors_claim": "Addressed: §2 rebuilt in three strands: ESG ratings as information and certification (§2.1: Berg, Heeb, et al. price result; Shanaev & Ghimire, 2022; Serafeim & Yoon, 2023; Hawn et al., 2018; Durand et al., 2019), ESG demand, recognition, and price pressure (§2.2: Pástor et al., 2022), and rater selection (§2.3: Drempetic et al., 2020). Hartzmark and Sussman (2019) cited in §1 and §2.1 and described as fund-level ratings. All new references verified (notes/05_references_verified.md). Analyst and S&P 500 analogies kept as secondary.",
+      "revision_location": "Sections 2.1 to 2.3; Section 1, paragraphs 2 and 7; References",
+      "verified": "YES",
+      "status": "FULLY_ADDRESSED",
+      "quality_assessment": "Phase 2A verdict stands (no adjustment). Committed criterion met. Letter claim consistent with v4.",
+      "final_verdict": "FULLY_ADDRESSED",
+      "phase2a_verdict": "FULLY_ADDRESSED",
+      "verified_by": "R2",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": [],
+      "cross_model_status": "not_configured"
+    },
+    {
+      "item_id": "REV-RR2-3",
+      "concern_id": "R3",
+      "obligation_class": "MUST_FIX",
+      "original_comment": "Restate channel predictions (recognition: gain; preference: sign depends on score; selection: permanent vs transitory run-up); present H3 as the sustainability test; add initial score purged of size, country and cohort",
+      "authors_claim": "Addressed: §2.2 and H~1~ state predictions by channel: recognition (gain), preference (sign depends on the score), selection (no effect if growth permanent, decline if transitory). H~3~ presented as the test that separates preference from recognition. New §5.6 \"Does the score itself matter?\" adds the split with the score purged of size, country, and cohort (Table S7) and reports the score-size correlation.",
+      "revision_location": "Section 2.4 (H1, H3); Section 5.6; Table S7; Abstract Findings; Section 1, paragraph 5",
+      "verified": "PARTIAL",
+      "status": "PARTIALLY_ADDRESSED",
+      "quality_assessment": "Phase 2A verdict stands (no adjustment). Residual (should_fix): H3 is not presented in the abstract or Introduction as the preference-channel test with its estimate, its non-significance, and its minimum detectable effect: the abstract says only 'whatever the level of the score' and the Introduction says the effect 'does not differ' between high- and low-score firms, which reads a non-significant test (MDE 0.111 to 0.113) as equality. State the H3 estimate, p-value, and MDE where H3 is summarized and replace 'does not differ' / 'whatever the level of the score' with non-detection language. [CLAIM-DRIFT CD-2, status] Letter status \"Addressed\". The described changes exist (Section 2.4 channel signs, H3 as the separating test, Section 5.6 purged split, correlation 0.35), but the abstract (\"whatever the level of the score\") and Section 1 (\"does not differ\") still read a non-significant H3 test (MDE 0.111 to 0.113) as equality.",
+      "final_verdict": "PARTIALLY_ADDRESSED",
+      "phase2a_verdict": "PARTIALLY_ADDRESSED",
+      "verified_by": "R2",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": [],
+      "cross_model_status": "not_configured"
+    },
+    {
+      "item_id": "REV-RR2-4",
+      "concern_id": "R4",
+      "obligation_class": "MUST_FIX",
+      "original_comment": "Correct Chen et al. (2004) (permanent addition effects); revisit the weight given to the transitory-value reading",
+      "authors_claim": "Addressed: Chen et al. (2004) now cited for permanent addition effects (§2.2, §5.7, §6.1); partial reversal attributed to Harris and Gurel (1986) only; §6.1 states that the awareness evidence predicts a lasting gain, which makes the post-coverage null more informative against recognition, and no longer says the transitory reading \"deserves weight\".",
+      "revision_location": "Section 2.2; Section 5.7; Section 6.1, paragraph 2; Section 8",
+      "verified": "PARTIAL",
+      "status": "PARTIALLY_ADDRESSED",
+      "quality_assessment": "Phase 2A verdict stands (no adjustment). Residual (consider): The Conclusion still offers only the reversal reading of the R10 decline ('may reflect a reversal of the run-up') without the alternative that coverage lowered valuations, so the conclusion leans on reversal while Sections 5.4 and 6.1 treat the two readings as inseparable. [CLAIM-DRIFT CD-3, status] Letter status \"Addressed\". The Chen et al. correction is in v4, but Section 8 still gives only the reversal reading of the R10 decline (\"may reflect a reversal of the run-up\").",
+      "final_verdict": "PARTIALLY_ADDRESSED",
+      "phase2a_verdict": "PARTIALLY_ADDRESSED",
+      "verified_by": "R2",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": [],
+      "cross_model_status": "not_configured"
+    },
+    {
+      "item_id": "REV-RR2-5",
+      "concern_id": "R5",
+      "obligation_class": "MUST_FIX",
+      "original_comment": "Construct: \"initiation of LSEG ESG coverage\" (a data-vendor score); qualify \"scored at all\"; note the score is not the rating tied to fund holdings in the cited evidence; consistent terminology",
+      "authors_claim": "Addressed: §3.1 defines the event as the initiation of LSEG ESG coverage, not a first rating of any kind; §1 introduces LSEG as one widely used provider; §6.2 notes that the cited fund-holdings evidence concerns MSCI. Terminology unified: \"LSEG ESG score\", \"scored\"/\"never-scored\", \"first scored year (g)\", \"base year (g − 1)\", \"run-up\" (defined in §5.3), \"total assets\" and \"market capitalization\" named explicitly instead of \"size\" (writing audit CRITICAL item).",
+      "revision_location": "Section 3.1, paragraph 2; Section 6.2; Section 7 (third limitation); Abstract",
+      "verified": "PARTIAL",
+      "status": "PARTIALLY_ADDRESSED",
+      "quality_assessment": "Phase 2A verdict stands (no adjustment). Residual (should_fix): Missing: (a) the statement that the LSEG score is not the rating tied to fund holdings appears only as an interpretation (Section 6.2), not as a limitation in Section 7; (b) score, rating, coverage, rater, and provider are not defined once and the LSEG product is not distinguished from MSCI-type ratings; (c) terminology still drifts ('ESG rated universe', 'scored universe', 'unscored', 'never-scored', 'comparable unscored firms'); (d) the abstract's Practical implications generalize from the LSEG scored universe to 'ESG screens, indices, and ESG-premium studies' in general, although Section 6.2 says ESG funds follow MSCI. [CLAIM-DRIFT CD-4, factual] Letter: \"Terminology unified\" and \"total assets and market capitalization named explicitly instead of size\". v4 still mixes \"ESG rated universe\", \"scored universe\", \"unscored\" (6 occurrences), \"never-scored\" and \"comparable unscored firms\", and \"size\" remains as a covariate/support term (e.g., Section 4.5 \"size covariate\", Section 5.5). Letter also says Section 1 introduces LSEG \"as one widely used provider\"; v4 says \"one of the most widely used providers in research and practice\" (unsourced; NEW-7). The fund-holdings point is not a Section 7 limitation and no term definitions were added.",
+      "final_verdict": "PARTIALLY_ADDRESSED",
+      "phase2a_verdict": "PARTIALLY_ADDRESSED",
+      "verified_by": "R2",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": [],
+      "cross_model_status": "not_configured"
+    },
+    {
+      "item_id": "REV-RR2-6",
+      "concern_id": "R6",
+      "obligation_class": "MUST_FIX",
+      "original_comment": "Document disclosure-mandate timing in the five markets from verifiable sources and relate it to the coverage waves; discuss domestic ESG channels only with verified facts",
+      "authors_claim": "Partly addressed: §3.1 now dates the sustainability reporting rules in all five markets from verified regulatory sources (Singapore FY2017; Malaysia from FY2016, phased; Philippines 2019 reports; Indonesia from 2020; Thailand FY2021) and states that the waves do not line up with a single rule. Firm-level first-report dates are not in the data (Limitation 4). Domestic ESG indices and Shariah screens are not discussed because we could not verify programme dates to the required standard.",
+      "revision_location": "Section 3.1, paragraphs 1 and 3; Section 7 (fourth limitation); References",
+      "verified": "PARTIAL",
+      "status": "PARTIALLY_ADDRESSED",
+      "quality_assessment": "Phase 2A verdict stands (no adjustment). Residual (should_fix): (a) The Thai date is sourced only to a secondary law-firm note (Tilleke & Gibbins, 2020), not to the Thai SEC or SET, and dates the 56-1 One Report, a consolidation of filings, rather than the onset of mandated sustainability disclosure in Thailand, so 'the Thai wave preceded the One Report' may misstate the ordering; Section 7 calls all dates 'from regulatory sources', which is not true for Thailand. (b) Whether first scores follow first mandated reports is stated only for Thailand and Malaysia, not for Singapore, Indonesia, and the Philippines (cohort-by-market counts are in Table S2). (c) Domestic ESG channels other than FTSE Russell (exchange sustainability indices, Shariah screens) are neither discussed nor stated as not examined. [CLAIM-DRIFT CD-5, factual] Letter: mandate dates \"from verified regulatory sources\" for all five markets. The Thai date is sourced to a law-firm note (Tilleke & Gibbins, 2020) about the 56-1 One Report, and Section 7 repeats \"from regulatory sources\". The letter's reason for not discussing domestic ESG indices and Shariah screens (dates not verifiable) is not stated in the manuscript.",
+      "final_verdict": "PARTIALLY_ADDRESSED",
+      "phase2a_verdict": "PARTIALLY_ADDRESSED",
+      "verified_by": "R2",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": [],
+      "cross_model_status": "not_configured"
+    },
+    {
+      "item_id": "REV-RR2-7",
+      "concern_id": "R7",
+      "obligation_class": "MUST_FIX",
+      "original_comment": "Wave-level pre-coverage profiles (Malaysia 2021–22; Thailand and Singapore 2019–20; other cohorts); describe never-scored Malaysian firms; state the mechanism conditional on these profiles",
+      "authors_claim": "Addressed: New Fig. 2 and §5.3: event-time paths for the Malaysian 2021–2022 wave, the Thai and Singaporean 2019–2020 wave, and all other cohorts; the run-up appears in the selective waves and not in the Malaysian expansion. §3.1 notes that the Malaysian wave began in fiscal 2021, before the November 2022 agreement, which concerned FTSE Russell scores. §5.1 describes the never-scored Malaysian firms.",
+      "revision_location": "Fig. 2; Section 5.3, paragraph 3; Section 5.1; Section 3.1, paragraph 3; Table S7",
+      "verified": "YES",
+      "status": "FULLY_ADDRESSED",
+      "quality_assessment": "Phase 2A verdict stands (no adjustment). Committed criterion met. Letter claim consistent with v4.",
+      "final_verdict": "FULLY_ADDRESSED",
+      "phase2a_verdict": "FULLY_ADDRESSED",
+      "verified_by": "R3",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": [],
+      "cross_model_status": "not_configured"
+    },
+    {
+      "item_id": "REV-RR2-8",
+      "concern_id": "R8",
+      "obligation_class": "MUST_FIX",
+      "original_comment": "Replace \"peak\" with what the estimates show; report R10 in the abstract with its fragility; report the R10 event-time profile and an R10 run with size held at the original g − 1; say which specification governs the long-horizon reading",
+      "authors_claim": "Addressed: \"Peak\" removed from title, abstract, and conclusion; the ordering is stated as run-up then no detected gain. R10 is reported in §1 and §8 with its fragility; Fig. S2 panel B plots the R10 path and the R10 run with total assets at the original base year; §5.4 reconciles R10 with the baseline by re-basing each cohort to its first scored year, which shows that the gap R1 identified comes mainly from cohort composition; dating two years later added.",
+      "revision_location": "Title; Abstract; Section 5.4, paragraphs 1-2; Fig. S2 panel B; Section 1, paragraph 6; Section 8",
+      "verified": "PARTIAL",
+      "status": "PARTIALLY_ADDRESSED",
+      "quality_assessment": "Phase 2A verdict stands (no adjustment). Residual (should_fix): The abstract does not report the re-dated R10 result (−0.068, about −6.6 percent) or its fragility (interval includes zero at M̄ = 0.25; significance lost at M̄ = 0.23); the Introduction gives the R10 decline without its interval or fragility. Section 5.4 reconciles the two paths but does not say explicitly which specification governs the long-horizon reading. [CLAIM-DRIFT CD-6, factual] Letter: \"R10 is reported in Section 1 and Section 8 with its fragility\" and re-basing \"shows that the gap R1 identified comes mainly from cohort composition\". Section 1 and Section 8 give the R10 decline (about -6.6 percent) without its interval or its pre-trend fragility (interval includes zero at M-bar = 0.25; significance lost at 0.23, Section 5.4 only); the abstract, which the roadmap names, has no R10 result; the re-based estimates carry no standard errors (NEW-5), so \"comes mainly from cohort composition\" is stronger than v4 supports.",
+      "final_verdict": "PARTIALLY_ADDRESSED",
+      "phase2a_verdict": "PARTIALLY_ADDRESSED",
+      "verified_by": "R1",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": [],
+      "cross_model_status": "not_configured"
+    },
+    {
+      "item_id": "REV-RR2-9",
+      "concern_id": "R9",
+      "obligation_class": "MUST_FIX",
+      "original_comment": "Covariate-free event-time profile and pre-trend tests; size measured at g − 3; say whether the run-up figures survive",
+      "authors_claim": "Addressed: Table S7 and Fig. S2 panel A: no covariates, total assets measured at g − 3, quintile indicators; §5.5 states that the MTB run-up survives.",
+      "revision_location": "Section 5.5, paragraph 2; Fig. S2 panel A; Table S7",
+      "verified": "PARTIAL",
+      "status": "PARTIALLY_ADDRESSED",
+      "quality_assessment": "Phase 2A verdict stands (no adjustment). Residual (should_fix): The explicit survival statement covers only the 10.0 percent MTB run-up and gives log-point estimates (−0.064 and −0.077), not the corresponding percentages; nothing is said about whether the 14.1 percent market-capitalization run-up survives (the outputs show it does: −0.215 without covariates and −0.185 with size at g − 3 in r4_event_profiles.csv), and no market-capitalization event-time profile is shown for the variants. The no-covariate MTB run-up (−0.064, about 6.6 percent; e = −5 p = 0.068) is weaker than the headline 10.0 percent and this is not stated. [CLAIM-DRIFT CD-7, status] Letter status \"Addressed\" (\"Section 5.5 states that the MTB run-up survives\"). True for MTB, but nothing is said about the 14.1 percent market-capitalization run-up, percentages are not given, and the weaker no-covariate MTB run-up is not acknowledged.",
+      "final_verdict": "PARTIALLY_ADDRESSED",
+      "phase2a_verdict": "PARTIALLY_ADDRESSED",
+      "verified_by": "R1",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": [],
+      "cross_model_status": "not_configured"
+    },
+    {
+      "item_id": "REV-RR2-10",
+      "concern_id": "R10",
+      "obligation_class": "MUST_FIX",
+      "original_comment": "Market-by-industry cluster bootstrap for headline, R10 and pre-trend tests; drop \"excludes\" wording if intervals widen",
+      "authors_claim": "Addressed: §4.3 adds a bootstrap over 50 market-by-industry clusters (separate seed; firm draws unchanged); headline, R10, run-up, and pre-trend tests reported in §5.2 to §5.4 and Table S7.",
+      "revision_location": "Section 4.3; Sections 5.2 and 5.3; Table S7; Section 6.3, paragraph 6",
+      "verified": "PARTIAL",
+      "status": "PARTIALLY_ADDRESSED",
+      "quality_assessment": "Phase 2A verdict stands (no adjustment). Residual (should_fix): The clustered headline interval is wider (upper limit 0.053, about 5.4 percent), yet Section 6.3 still states that 'the confidence interval excludes increases above 4.9 percent', based on the firm bootstrap only. [CLAIM-DRIFT CD-8, status] Letter status \"Addressed\". The roadmap asked to drop \"excludes\" wording if intervals widen; the clustered headline interval widens to -0.050 to 0.053, yet Section 6.3 still says \"the confidence interval excludes increases above 4.9 percent\".",
+      "final_verdict": "PARTIALLY_ADDRESSED",
+      "phase2a_verdict": "PARTIALLY_ADDRESSED",
+      "verified_by": "R1",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": [],
+      "cross_model_status": "not_configured"
+    },
+    {
+      "item_id": "REV-RR2-11",
+      "concern_id": "R11",
+      "obligation_class": "MUST_FIX",
+      "original_comment": "Common support: drop scored firms above the 95th size percentile of controls; size bins instead of the quadratic",
+      "authors_claim": "Addressed: Table S7: scored firms restricted to the size range of the controls in each cell, and quintile indicators instead of the quadratic; §5.5.",
+      "revision_location": "Section 5.5, paragraph 2; Table S7; Fig. S2 panel A",
+      "verified": "PARTIAL",
+      "status": "PARTIALLY_ADDRESSED",
+      "quality_assessment": "Phase 2A verdict stands (no adjustment). Residual (should_fix): (a) No note that the trimmed estimate is an ATT for the common-support population (estimand change); (b) the text does not say how the run-up changes under trimming or binning (the trimmed pre-trend p is 0.212 against 0.074 at baseline); (c) Table S7 reports a significant trimmed market-capitalization effect of −0.096 (p = 0.006), larger than the baseline −0.055, which the text does not mention. [CLAIM-DRIFT CD-9, status] Letter status \"Addressed\". The checks are in Table S7, but the estimand change (common-support ATT), the change in the run-up under trimming (pre-trend p = 0.212), and the significant trimmed market-capitalization effect (-0.096) are not discussed.",
+      "final_verdict": "PARTIALLY_ADDRESSED",
+      "phase2a_verdict": "PARTIALLY_ADDRESSED",
+      "verified_by": "R1",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": [],
+      "cross_model_status": "not_configured"
+    },
+    {
+      "item_id": "REV-RR2-12",
+      "concern_id": "R12",
+      "obligation_class": "MUST_FIX",
+      "original_comment": "Bridge from static TWFE to the robust estimate (window/controls, covariates); replace \"most of the gap\" unless the bridge supports it; \"can\", not \"will\"",
+      "authors_claim": "Addressed: Table S8 bridges the static TWFE estimate to the baseline in four steps; §5.5 attributes the gap to the cohort-by-base-year comparison and to size conditioning, not to controls or window; \"will attribute\" replaced by \"can attribute\" in §8 and the abstract.",
+      "revision_location": "Table S8; Section 5.5, paragraph 3; Section 6.3, paragraph 6; Section 8",
+      "verified": "YES",
+      "status": "FULLY_ADDRESSED",
+      "quality_assessment": "Phase 2A verdict stands (no adjustment). Committed criterion met. [CLAIM-DRIFT CD-10, factual] Letter: \"will attribute\" replaced by \"can attribute\" \"in Section 8 and the abstract\". v4 has the sentence in Section 8 (and Section 6.3 \"can reflect\"); the abstract contains no such sentence. Verdict unaffected (criterion met).",
+      "final_verdict": "FULLY_ADDRESSED",
+      "phase2a_verdict": "FULLY_ADDRESSED",
+      "verified_by": "R1",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": [],
+      "cross_model_status": "not_configured"
+    },
+    {
+      "item_id": "REV-RR2-13",
+      "concern_id": "R13",
+      "obligation_class": "MUST_FIX",
+      "original_comment": "Intervals for the run-up figures in abstract, introduction and conclusion; state the MTB joint test (p = 0.074)",
+      "authors_claim": "Addressed: Run-up intervals given in §1 and §8 (firm bootstrap) and §5.3 (cluster bootstrap); §1 states that the joint test rejects for market capitalization but not, at 5%, for MTB.",
+      "revision_location": "Section 1, paragraph 5; Section 5.3, paragraph 1; Section 8; Abstract Findings",
+      "verified": "PARTIAL",
+      "status": "PARTIALLY_ADDRESSED",
+      "quality_assessment": "Phase 2A verdict stands (no adjustment). Residual (should_fix): The abstract still reports the 10.0 percent MTB run-up without its interval, and the Introduction states the MTB non-rejection without p = 0.074 and without the share-issuance caveat on the market-capitalization run-up (which appears only in Section 5.3). [CLAIM-DRIFT CD-11, status] Letter status \"Addressed\" lists intervals in Sections 1, 5.3, and 8, silently omitting the abstract that the roadmap names; the abstract still gives the 10.0 percent MTB run-up without an interval, and Section 1 omits p = 0.074.",
+      "final_verdict": "PARTIALLY_ADDRESSED",
+      "phase2a_verdict": "PARTIALLY_ADDRESSED",
+      "verified_by": "R1",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": [],
+      "cross_model_status": "not_configured"
+    },
+    {
+      "item_id": "REV-RR2-14",
+      "concern_id": "R14",
+      "obligation_class": "MUST_FIX",
+      "original_comment": "Ordering of events as the finding; provider selection, disclosure, index entry and equity issuance as consistent mechanisms; untested strategic-disclosure reading in §6",
+      "authors_claim": "Addressed: §6.1 \"What the ordering of events shows\": provider selection, first sustainability report, index entry, equity issuance, and strategic disclosure listed as consistent mechanisms; the ordering, not one mechanism, is the finding.",
+      "revision_location": "Section 6.1, paragraph 1; Section 5.3; Abstract Findings",
+      "verified": "YES",
+      "status": "FULLY_ADDRESSED",
+      "quality_assessment": "Phase 2A verdict stands (no adjustment). Committed criterion met. Letter claim consistent with v4.",
+      "final_verdict": "FULLY_ADDRESSED",
+      "phase2a_verdict": "FULLY_ADDRESSED",
+      "verified_by": "R2",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": [],
+      "cross_model_status": "not_configured"
+    },
+    {
+      "item_id": "REV-RR2-15",
+      "concern_id": "R15",
+      "obligation_class": "MUST_FIX",
+      "original_comment": "Stakeholder implications (raters, exchanges, regulators, ESG investors and index builders, listed firms), each tied to a result and bounded by the design; data-vintage look-ahead point for data users",
+      "authors_claim": "Addressed: §6.3 rewritten with implications for rating providers and data users (including look-ahead bias in backtests), exchanges, regulators, ESG investors and index builders, listed firms, and researchers, each tied to an exhibit and bounded by the design; abstract practical implications rewritten.",
+      "revision_location": "Section 6.3, paragraphs 1-6; Abstract Practical implications",
+      "verified": "PARTIAL",
+      "status": "PARTIALLY_ADDRESSED",
+      "quality_assessment": "Phase 2A verdict stands (no adjustment). Residual (should_fix): The exchange implication is not bounded by the design: the abstract asserts that 'exchange-wide coverage avoids that tilt' and Section 6.3 attributes the Malaysian pattern to 'exchange-provider arrangements of this kind (Bernama, 2022)', although Section 3.1 states that the Malaysian LSEG wave began before the November 2022 agreement and that the agreement concerned FTSE Russell scores, and the paper's own counts (565 never-scored Malaysian firms) do not show exchange-wide coverage. The abstract's Practical implications also do not name rating providers. [CLAIM-DRIFT CD-12, factual] Letter: implications are \"each tied to an exhibit and bounded by the design\". The exchange implication (abstract \"exchange-wide coverage avoids that tilt\"; Section 6.3 attribution to the Bernama 2022 arrangement) conflicts with Section 3.1 (wave predates the agreement, which concerned FTSE Russell scores) and with 565 never-scored Malaysian firms; the abstract implications do not name rating providers.",
+      "final_verdict": "PARTIALLY_ADDRESSED",
+      "phase2a_verdict": "PARTIALLY_ADDRESSED",
+      "verified_by": "R3",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": [],
+      "cross_model_status": "not_configured"
+    },
+    {
+      "item_id": "REV-RR2-16",
+      "concern_id": "S1",
+      "obligation_class": "SHOULD_FIX",
+      "original_comment": "Lighten method exposition in the main text; plain-language translation of the sensitivity bound",
+      "authors_claim": "Partly addressed: Equations kept in Methods because the authors require formulas there (ledger Iter 5); §4.4 adds a plain-language reading of M̄ = 0.25.",
+      "revision_location": "Section 4.4 (Eqs. 9-10, plain-language M-bar sentence); Section 4.3 (Eqs. 7-8)",
+      "verified": "PARTIAL",
+      "status": "PARTIALLY_ADDRESSED",
+      "quality_assessment": "Phase 2A verdict stands (no adjustment). Residual (consider): The derivation equations (Eqs. 7 to 10) are still in the main text, and the plain-language translation sits in Methods and is not expressed in percent of MTB in the Discussion. Letter claim consistent with v4. The letter's reason (house rule keeps formulas in Methods) is a constraint, not a rebuttal of the finding on the merits; no valid_rebuttal basis.",
+      "final_verdict": "PARTIALLY_ADDRESSED",
+      "phase2a_verdict": "PARTIALLY_ADDRESSED",
+      "verified_by": "EIC",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": []
+    },
+    {
+      "item_id": "REV-RR2-17",
+      "concern_id": "S2",
+      "obligation_class": "SHOULD_FIX",
+      "original_comment": "Two-year re-dating; reconcile firm counts; Table 1 calendar-year caveat; missing MTB by group; pre-/post-2020 cohort profiles; \"never-scored firms adjusted for size, country and industry\" instead of \"comparable\"",
+      "authors_claim": "Addressed: Two-year dating (§5.4); one attrition count kept and the 270/271/273/274 counts no longer appear together in the text; Table 1 calendar-year caveat in §5.1; missing MTB shares by group in §3.2; cohorts to 2019 and from 2020 in §5.5 and Table S7; \"comparable\" now refers to never-scored firms adjusted for size, country, and industry (§1, §4.1).",
+      "revision_location": "Section 5.4, paragraph 1; Section 5.1; Section 3.2; Table S7; Table S6; Abstract Findings",
+      "verified": "PARTIAL",
+      "status": "PARTIALLY_ADDRESSED",
+      "quality_assessment": "Phase 2A verdict stands (no adjustment). Residual (should_fix): Sub-items met: (3) calendar caveat and median correction, (4) missing MTB by group. Partly met: (1) two-year re-dating reported without a statement of how conclusions change; (5) pre-/post-2020 cohorts reported as averages and pre-trend p-values, not as pre-coverage profiles. Not met: (2) firm counts for the same population (Table S6 event year 3: 270; R11: 273) are not reconciled; (6) the abstract still says 'comparable unscored firms'. [CLAIM-DRIFT CD-13, factual] Letter: \"comparable\" now refers to never-scored firms adjusted for size, country, and industry \"(Section 1, Section 4.1)\". Neither Section 1 nor Section 4.1 contains that definition (the phrase appears only in Section 5.1, linked to Eq. (3)); the abstract still says \"comparable unscored firms\". Letter: the 270/271/273/274 counts \"no longer appear together\"; true literally (270 in Table S6, 273 in Section 5.4), but the roadmap asked to reconcile them, which v4 does not do.",
+      "final_verdict": "PARTIALLY_ADDRESSED",
+      "phase2a_verdict": "PARTIALLY_ADDRESSED",
+      "verified_by": "R1",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": []
+    },
+    {
+      "item_id": "REV-RR2-18",
+      "concern_id": "S3",
+      "obligation_class": "SHOULD_FIX",
+      "original_comment": "Companion-study disclosure in the text",
+      "authors_claim": "Declined: The authors decided not to mention the other manuscript that uses the data set (author decision, 26 September 2026); the editor will be informed in the cover letter if the authors choose to.",
+      "revision_location": "none (no change in manuscript text)",
+      "verified": "NO",
+      "status": "NOT_ADDRESSED",
+      "quality_assessment": "Phase 2A verdict stands (no adjustment). Committed criterion met. Letter claim consistent with v4. Declined by the authors; the decline is preserved and grants no manuscript authority; an author decision is not a rebuttal of the finding on the merits.",
+      "final_verdict": "NOT_ADDRESSED",
+      "phase2a_verdict": "NOT_ADDRESSED",
+      "verified_by": "EIC",
+      "author_triage": "wont_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": [],
+      "author_reason": "RR2-18: declined. The authors removed every mention of the companion manuscript (ledger D-27, D-30, author decision of 2026-09-26). The text keeps that decision; the cover letter for the next venue will raise it with the editor."
+    },
+    {
+      "item_id": "REV-RR2-19",
+      "concern_id": "S4",
+      "obligation_class": "SHOULD_FIX",
+      "original_comment": "Re-verify Tsang et al. (2025)",
+      "authors_claim": "Addressed: Tsang et al. (2025) verified (Corporate Governance: An International Review 33(4), 554–577, doi 10.1111/corg.12615); issue number added.",
+      "revision_location": "References (Tsang et al., 2025); Section 1, paragraph 3",
+      "verified": "YES",
+      "status": "FULLY_ADDRESSED",
+      "quality_assessment": "Phase 2A verdict stands (no adjustment). Committed criterion met. Letter claim consistent with v4.",
+      "final_verdict": "FULLY_ADDRESSED",
+      "phase2a_verdict": "FULLY_ADDRESSED",
+      "verified_by": "R2",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": []
+    },
+    {
+      "item_id": "REV-RR2-20",
+      "concern_id": "S5",
+      "obligation_class": "SHOULD_FIX",
+      "original_comment": "Sentence-level revisions: clutter, voice, buried predicates, term drift",
+      "authors_claim": "Addressed: Long sentences split, actor restored in selection sentences, unsupported phrases removed (\"most developed market\", \"many trade thinly\", \"ESG scores rarely carry cash-flow news\"), forward references to R-labels replaced, \"analogue\" spelled \"analog\", and term drift removed (see RR2-5).",
+      "revision_location": "Section 1 (paragraphs 1, 5, 6); Section 4.5; Section 8; manuscript-wide terminology",
+      "verified": "PARTIAL",
+      "status": "PARTIALLY_ADDRESSED",
+      "quality_assessment": "Phase 2A verdict stands (no adjustment). Residual (should_fix): Remaining: term drift for scored versus never-scored firms ('unscored' 7 occurrences, 'comparable' 9, 'rated universe' alongside 'scored universe'); several sentences of 44 words or more (Section 1 paragraphs 2, 4, 5; Section 4.5 paragraph 2 at 74 words; Section 5.5 paragraph 2; Section 5.7); a double negative 'declines by about −6.6 percent' / 'a decline of about −6.6 percent' in Section 1 and Section 8; hedging of the main null not aligned (Section 6.3 'excludes increases above 4.9 percent' versus the clustered interval in Section 5.2). [CLAIM-DRIFT CD-14, factual] Letter: \"term drift removed (see RR2-5)\" and \"unsupported phrases removed\". The three named phrases are gone, but term drift remains (see CD-4), a new unsupported phrase was added (NEW-7), several sentences of 44+ words remain (Section 4.5 paragraph 2 at 74 words), and \"declines by about -6.6 percent\" persists in Sections 1 and 8.",
+      "final_verdict": "PARTIALLY_ADDRESSED",
+      "phase2a_verdict": "PARTIALLY_ADDRESSED",
+      "verified_by": "EIC",
+      "author_triage": "will_address",
+      "authorized_targets": [],
+      "claim_strength_authorizations": []
+    }
+  ],
+  "adjustments": [],
+  "new_issues": [
+    {
+      "new_issue_id": "NEW-1",
+      "description": "The Malaysian 2021-2022 wave is characterized as 'a wholesale expansion' (abstract Findings), 'a wave that extended coverage across a whole market' (Section 1), 'the wholesale Malaysian expansion' (Section 6.1), and 'coverage extended across a whole market' (Section 6.3), and the abstract concludes that 'exchange-wide coverage avoids that tilt'. The manuscript's own counts contradict this: the wave covered 289 firms while 565 Malaysian non-financial firms were never scored (Section 5.1; r4_malaysia_never_scored.csv), and a further 83 Malaysian firms were first scored in 2023 (Table S2). The data do not record the provider's coverage rule (Section 3.1), so 'wholesale' versus 'selective' is an interpretation, not an observation. The selective-versus-wholesale contrast is the revision's main new framing, so the overstatement reaches the abstract, Introduction, Discussion, and implications.",
+      "location_anchor": "text: Abstract, Findings, 'Malaysian firms covered in a wholesale expansion in 2021 and 2022 show no such run-up'; Abstract, Practical implications, 'exchange-wide coverage avoids that tilt'",
+      "severity": "major",
+      "found_by": "R3",
+      "confidence": 4,
+      "competence_basis": "Perspective/practical-impact seat that verified the wave-profile item (RR2-7); check uses the manuscript's own counts (Section 5.1, Table S2) and r4_malaysia_never_scored.csv, r4_waves.csv.",
+      "attribution": "regression",
+      "attribution_evidence": "The wording 'wholesale expansion', 'across a whole market', and 'exchange-wide coverage' is absent from v3 (script count 0) and appears in v4 abstract, Section 1 paragraph 5, Section 6.1, and Section 6.3; diff_v3_to_v4.patch adds these lines.",
+      "nearest_roadmap_item": "REV-RR2-7",
+      "non_match_rationale": "RR2-7 asks for wave-level profiles and a mechanism statement conditional on them, which v4 provides; it does not cover a factual characterization of the wave's breadth that contradicts the manuscript's own counts. The exchange implication's lack of design bounds is graded under RR2-15; this record concerns the factual claim across all locations."
+    },
+    {
+      "new_issue_id": "NEW-2",
+      "description": "The 'selective waves' claim is not supported for the 'all other cohorts' group. Section 5.3 says these 278 firms 'entered coverage a few at a time' and 'show the same pattern', and Section 6.1 says that in selective waves firms entered 'after their MTB ratio and market capitalization had grown faster'. But Table S2 shows the group includes 109 firms first scored in 2023 (83 Malaysian) and 31 and 26 Thai firms in 2021 and 2022, so they did not enter a few at a time; their market-capitalization pre-trend test gives p = 0.652 with an event-year −5 estimate of −0.077 (p = 0.26), so no market-capitalization run-up is detected; and their MTB e = −5 estimate (−0.103, 95% interval −0.213 to 0.004) is no larger than the e = −2 estimate (−0.108), so the pattern is a gap that closes in the base year rather than the same gradual run-up (r4_event_profiles.csv, r4_pretrend_tests.csv). The wave boundaries (Malaysia 2021-2022 only; Thailand and Singapore 2019-2020 only) were set after seeing Table S2.",
+      "location_anchor": "text: Section 5.3, paragraph 3, 'The 278 firms in all other cohorts, which entered coverage a few at a time, show the same pattern, with MTB growth of 10.8 percent (pre-trend p = 0.006).'; Section 6.1, paragraph 1, 'In selective coverage waves, firms entered the scored universe after their MTB ratio and market capitalization had grown faster'",
+      "severity": "major",
+      "found_by": "R1",
+      "confidence": 4,
+      "competence_basis": "Methodology seat; checked against Table S2 counts and the wave rows of r4_event_profiles.csv and r4_pretrend_tests.csv produced by project_R/R/03b_round4.R (WAVES definition, lines 19-24).",
+      "attribution": "regression",
+      "attribution_evidence": "The wave analysis and these sentences are new in v4 (Section 5.3 paragraph 3 and the rewritten Section 6.1 paragraph 1 are additions in diff_v3_to_v4.patch); v3 had no wave-level estimates.",
+      "nearest_roadmap_item": "REV-RR2-7",
+      "non_match_rationale": "RR2-7 requires wave-level profiles for the Malaysian, Thai/Singaporean, and remaining cohorts and a mechanism conditional on them; it does not cover whether the text describes the 'other cohorts' profile and composition accurately once reported."
+    },
+    {
+      "new_issue_id": "NEW-3",
+      "description": "The abstract attributes the pooled MTB run-up to the selective waves: 'Firms that entered through selective coverage waves had outgrown comparable unscored firms beforehand: ... their market-to-book (MTB) ratio grew 10.0 percent more.' The 10.0 percent is the pooled estimate over all 675 firms, including the Malaysian wave the next sentence says had no run-up (r4_runup.csv); the selective-wave estimates are 33.1 percent (Thailand and Singapore) and 10.8 percent (other cohorts). Section 5.7 repeats the conflation ('the growth that precedes selective coverage' for the pooled run-up).",
+      "location_anchor": "text: Abstract, Findings, 'Firms that entered through selective coverage waves had outgrown comparable unscored firms beforehand: from five years before the first score to the year before it, their market-to-book (MTB) ratio grew 10.0 percent more.'",
+      "severity": "minor",
+      "found_by": "R1",
+      "confidence": 5,
+      "competence_basis": "Methodology seat; number traced to r4_runup.csv (pooled, est_e5 −0.0949) and r4_event_profiles.csv wave rows.",
+      "attribution": "regression",
+      "attribution_evidence": "v3 abstract attributed the 10.0 percent to 'scored firms' (all firms); the 'selective coverage waves' subject is added in v4 (diff_v3_to_v4.patch, abstract Findings).",
+      "nearest_roadmap_item": "REV-RR2-13",
+      "non_match_rationale": "RR2-13 concerns intervals and the MTB joint test where run-up figures appear; it does not cover attributing the pooled figure to a subgroup."
+    },
+    {
+      "new_issue_id": "NEW-4",
+      "description": "Section 3.1 argues that the Malaysian wave is unrelated to the November 2022 Bursa-LSEG agreement because it 'began in fiscal 2021, before the November 2022 agreement'. Section 3.2 states that the first scored fiscal year can precede publication by one year or more and that history may have been filled in when a firm entered coverage, so fiscal-2021 and fiscal-2022 first scores may have been produced after November 2022. The timing argument therefore does not follow from the data as described.",
+      "location_anchor": "text: Section 3.1, paragraph 3, 'The Malaysian wave began in fiscal 2021, before the November 2022 agreement, which concerned FTSE Russell scores.'",
+      "severity": "minor",
+      "found_by": "R2",
+      "confidence": 4,
+      "competence_basis": "Domain seat; internal consistency check between Section 3.1 and Section 3.2 (timing and backfilling).",
+      "attribution": "regression",
+      "attribution_evidence": "The sentence is added in v4 (diff_v3_to_v4.patch, Section 3.1 paragraph 3); v3 did not relate the wave to the agreement.",
+      "nearest_roadmap_item": "REV-RR2-7",
+      "non_match_rationale": "RR2-7 asks that the relation to the November 2022 arrangement be addressed with what is publicly known; v4 addresses it, and this record concerns the internal contradiction of the argument used, not the absence of the discussion."
+    },
+    {
+      "new_issue_id": "NEW-5",
+      "description": "The within-cohort re-based baseline estimates (−0.083 and −0.167 for event years 3 and 4) are reported without standard errors or intervals (r4_rebased_within_cohort.csv contains point estimates only), yet Sections 5.4 and 6.1 draw an inferential conclusion from them: 'Both specifications therefore show that early cohorts lost value relative to never-scored firms in their third and fourth years of coverage.'",
+      "location_anchor": "text: Section 5.4, paragraph 2, 'Re-based within each cohort to the first scored year, the baseline estimates for event years 3 and 4 are −0.083 and −0.167 ... Both specifications therefore show that early cohorts lost value'",
+      "severity": "minor",
+      "found_by": "R1",
+      "confidence": 4,
+      "competence_basis": "Methodology seat; checked project_R/outputs/r4_rebased_within_cohort.csv columns (no SE or CI).",
+      "attribution": "regression",
+      "attribution_evidence": "The re-basing analysis and the sentence are new in v4 (diff_v3_to_v4.patch, Section 5.4 paragraph 2).",
+      "nearest_roadmap_item": "REV-RR2-8",
+      "non_match_rationale": "RR2-8 asks for the R10 profile, a g − 1 rerun, and which specification governs; it does not cover the inferential status of a new reconciliation estimate."
+    },
+    {
+      "new_issue_id": "NEW-6",
+      "description": "The Introduction misdescribes the preference channel: 'Under ESG preferences, investors pay more for assets they can classify as sustainable and less for those they cannot (Pástor et al., 2021; Pedersen et al., 2021)'. The cited models price green versus brown assets, not classifiable versus unclassifiable assets; the next clause ('raise the value of firms revealed as green and lower the value of firms revealed as brown') states the cited prediction correctly, so the sentence is internally inconsistent.",
+      "location_anchor": "text: Section 1, paragraph 2, 'Under ESG preferences, investors pay more for assets they can classify as sustainable and less for those they cannot'",
+      "severity": "minor",
+      "found_by": "R2",
+      "confidence": 3,
+      "competence_basis": "Domain seat; knowledge of the cited equilibrium models (green/brown tastes).",
+      "attribution": "regression",
+      "attribution_evidence": "The sentence is new in v4 (Section 1 paragraph 2 rewritten in diff_v3_to_v4.patch); v3 stated that investors 'accept lower expected returns on assets they can classify as sustainable' without the unclassifiable contrast.",
+      "nearest_roadmap_item": "REV-RR2-3",
+      "non_match_rationale": "RR2-3 asks for per-channel predictions in the hypotheses; this record concerns a misdescription of a cited source in the Introduction, not the hypotheses' structure."
+    },
+    {
+      "new_issue_id": "NEW-7",
+      "description": "New unsourced assertion: LSEG is described as 'one of the most widely used providers in research and practice' with no citation or evidence.",
+      "location_anchor": "text: Section 1, paragraph 1, 'London Stock Exchange Group (LSEG), one of the most widely used providers in research and practice'",
+      "severity": "minor",
+      "found_by": "EIC",
+      "confidence": 4,
+      "competence_basis": "Journal-fit seat; claim-support check.",
+      "attribution": "regression",
+      "attribution_evidence": "Absent from v3; added in v4 (diff_v3_to_v4.patch, Section 1 paragraph 1).",
+      "nearest_roadmap_item": "REV-RR2-20",
+      "non_match_rationale": "RR2-20's criterion targets the unsupported assertions flagged in the round-1 writing audit (P5-8 to P5-10) in v3; this sentence did not exist in v3."
+    }
+  ],
+  "post_letter_observations": [
+    "[CLAIM-DRIFT CD-1] REV-RR2-1 (factual): Letter: abstract rewritten \"without estimator names\". v4 Abstract Design field still reads \"using cohort-specific difference-in-differences estimators\"; the Purpose field does not state why first coverage matters for ESG-screened capital. Status \"Addressed\" overstates the PARTIALLY_ADDRESSED verdict.",
+    "[CLAIM-DRIFT CD-2] REV-RR2-3 (status): Letter status \"Addressed\". The described changes exist (Section 2.4 channel signs, H3 as the separating test, Section 5.6 purged split, correlation 0.35), but the abstract (\"whatever the level of the score\") and Section 1 (\"does not differ\") still read a non-significant H3 test (MDE 0.111 to 0.113) as equality.",
+    "[CLAIM-DRIFT CD-3] REV-RR2-4 (status): Letter status \"Addressed\". The Chen et al. correction is in v4, but Section 8 still gives only the reversal reading of the R10 decline (\"may reflect a reversal of the run-up\").",
+    "[CLAIM-DRIFT CD-4] REV-RR2-5 (factual): Letter: \"Terminology unified\" and \"total assets and market capitalization named explicitly instead of size\". v4 still mixes \"ESG rated universe\", \"scored universe\", \"unscored\" (6 occurrences), \"never-scored\" and \"comparable unscored firms\", and \"size\" remains as a covariate/support term (e.g., Section 4.5 \"size covariate\", Section 5.5). Letter also says Section 1 introduces LSEG \"as one widely used provider\"; v4 says \"one of the most widely used providers in research and practice\" (unsourced; NEW-7). The fund-holdings point is not a Section 7 limitation and no term definitions were added.",
+    "[CLAIM-DRIFT CD-5] REV-RR2-6 (factual): Letter: mandate dates \"from verified regulatory sources\" for all five markets. The Thai date is sourced to a law-firm note (Tilleke & Gibbins, 2020) about the 56-1 One Report, and Section 7 repeats \"from regulatory sources\". The letter's reason for not discussing domestic ESG indices and Shariah screens (dates not verifiable) is not stated in the manuscript.",
+    "[CLAIM-DRIFT CD-6] REV-RR2-8 (factual): Letter: \"R10 is reported in Section 1 and Section 8 with its fragility\" and re-basing \"shows that the gap R1 identified comes mainly from cohort composition\". Section 1 and Section 8 give the R10 decline (about -6.6 percent) without its interval or its pre-trend fragility (interval includes zero at M-bar = 0.25; significance lost at 0.23, Section 5.4 only); the abstract, which the roadmap names, has no R10 result; the re-based estimates carry no standard errors (NEW-5), so \"comes mainly from cohort composition\" is stronger than v4 supports.",
+    "[CLAIM-DRIFT CD-7] REV-RR2-9 (status): Letter status \"Addressed\" (\"Section 5.5 states that the MTB run-up survives\"). True for MTB, but nothing is said about the 14.1 percent market-capitalization run-up, percentages are not given, and the weaker no-covariate MTB run-up is not acknowledged.",
+    "[CLAIM-DRIFT CD-8] REV-RR2-10 (status): Letter status \"Addressed\". The roadmap asked to drop \"excludes\" wording if intervals widen; the clustered headline interval widens to -0.050 to 0.053, yet Section 6.3 still says \"the confidence interval excludes increases above 4.9 percent\".",
+    "[CLAIM-DRIFT CD-9] REV-RR2-11 (status): Letter status \"Addressed\". The checks are in Table S7, but the estimand change (common-support ATT), the change in the run-up under trimming (pre-trend p = 0.212), and the significant trimmed market-capitalization effect (-0.096) are not discussed.",
+    "[CLAIM-DRIFT CD-10] REV-RR2-12 (factual): Letter: \"will attribute\" replaced by \"can attribute\" \"in Section 8 and the abstract\". v4 has the sentence in Section 8 (and Section 6.3 \"can reflect\"); the abstract contains no such sentence. Verdict unaffected (criterion met).",
+    "[CLAIM-DRIFT CD-11] REV-RR2-13 (status): Letter status \"Addressed\" lists intervals in Sections 1, 5.3, and 8, silently omitting the abstract that the roadmap names; the abstract still gives the 10.0 percent MTB run-up without an interval, and Section 1 omits p = 0.074.",
+    "[CLAIM-DRIFT CD-12] REV-RR2-15 (factual): Letter: implications are \"each tied to an exhibit and bounded by the design\". The exchange implication (abstract \"exchange-wide coverage avoids that tilt\"; Section 6.3 attribution to the Bernama 2022 arrangement) conflicts with Section 3.1 (wave predates the agreement, which concerned FTSE Russell scores) and with 565 never-scored Malaysian firms; the abstract implications do not name rating providers.",
+    "[CLAIM-DRIFT CD-13] REV-RR2-17 (factual): Letter: \"comparable\" now refers to never-scored firms adjusted for size, country, and industry \"(Section 1, Section 4.1)\". Neither Section 1 nor Section 4.1 contains that definition (the phrase appears only in Section 5.1, linked to Eq. (3)); the abstract still says \"comparable unscored firms\". Letter: the 270/271/273/274 counts \"no longer appear together\"; true literally (270 in Table S6, 273 in Section 5.4), but the roadmap asked to reconcile them, which v4 does not do.",
+    "[CLAIM-DRIFT CD-14] REV-RR2-20 (factual): Letter: \"term drift removed (see RR2-5)\" and \"unsupported phrases removed\". The three named phrases are gone, but term drift remains (see CD-4), a new unsupported phrase was added (NEW-7), several sentences of 44+ words remain (Section 4.5 paragraph 2 at 74 words), and \"declines by about -6.6 percent\" persists in Sections 1 and 8.",
+    "[LETTER-VS-EVIDENCE] REV-RR2-7: the letter restates \"the run-up appears in the selective waves and not in the Malaysian expansion\". This matches v4 text, so it is not claim drift, but the frozen new issues NEW-1 (wholesale/exchange-wide characterization contradicted by 565 never-scored Malaysian firms) and NEW-2 (no market-capitalization run-up detected in \"all other cohorts\", which include large 2021-2023 batches) dispute it. Verdict on RR2-7 unchanged (FULLY_ADDRESSED); the dispute is carried by NEW-1 and NEW-2.",
+    "[LETTER-UNVERIFIABLE] REV-RR2-2 and header: \"All new references verified (notes/05_references_verified.md)\" and \"All numbers ... come from project_R/outputs/numbers.csv\" point outside the frozen v4 export; Phase 2A spot-checked the new references and the round-4 numbers against R outputs and found matches; no adjustment rides on these assertions.",
+    "[COMMITMENT-LEDGER] No Schema 11 commitment_extracted lists exist for this round (no revision_coach Step 3.5 output was supplied), so the Commitment Ledger Verification pass has no commitments to verify; no COMMITMENT_GAP or EVIDENCE_TYPE_UNSPECIFIED entry is emitted.",
+    "[AUTHOR-SIDECAR-ABSENT] author_triage/author_reason are transcribed from the triage section of 06_editorial_decision.md (all items will_address except RR2-18 declined) because no author-adjudication/1.0 sidecar exists; authorized_targets and claim_strength_authorizations are empty because no block-scoped authorizations exist. Not an exact sidecar copy; the checker cannot witness it.",
+    "[INTEGRITY-NOTE] REV-RR2-18: the decline leaves the shared-data relationship with the companion manuscript undisclosed in the manuscript text. The roadmap item stays NOT_ADDRESSED (should_fix, decision effect only through should_fix_addressed_rate, which remains 4/5 = 80 percent). The Stage 4.5 integrity gate should confirm that the cover letter for the next venue discloses the companion study, as the letter promises."
+  ],
+  "dissent_adjudications": [],
+  "resolution_intents": [],
+  "cross_model_resolutions": [],
+  "rebuttal_adjudications": [],
+  "g2d_acceptances": [],
+  "pending_rebuttal_upgrades": [],
+  "escalation_approvals": [],
+  "reapplications": [],
+  "decision_inputs": {
+    "per_item": [
+      {
+        "item_id": "REV-RR2-1",
+        "final_verdict": "PARTIALLY_ADDRESSED",
+        "driving_severity": "major",
+        "residual_obligation_class": "consider"
+      },
+      {
+        "item_id": "REV-RR2-2",
+        "final_verdict": "FULLY_ADDRESSED",
+        "driving_severity": "major"
+      },
+      {
+        "item_id": "REV-RR2-3",
+        "final_verdict": "PARTIALLY_ADDRESSED",
+        "driving_severity": "major",
+        "residual_obligation_class": "should_fix"
+      },
+      {
+        "item_id": "REV-RR2-4",
+        "final_verdict": "PARTIALLY_ADDRESSED",
+        "driving_severity": "major",
+        "residual_obligation_class": "consider"
+      },
+      {
+        "item_id": "REV-RR2-5",
+        "final_verdict": "PARTIALLY_ADDRESSED",
+        "driving_severity": "major",
+        "residual_obligation_class": "should_fix"
+      },
+      {
+        "item_id": "REV-RR2-6",
+        "final_verdict": "PARTIALLY_ADDRESSED",
+        "driving_severity": "major",
+        "residual_obligation_class": "should_fix"
+      },
+      {
+        "item_id": "REV-RR2-7",
+        "final_verdict": "FULLY_ADDRESSED",
+        "driving_severity": "major"
+      },
+      {
+        "item_id": "REV-RR2-8",
+        "final_verdict": "PARTIALLY_ADDRESSED",
+        "driving_severity": "major",
+        "residual_obligation_class": "should_fix"
+      },
+      {
+        "item_id": "REV-RR2-9",
+        "final_verdict": "PARTIALLY_ADDRESSED",
+        "driving_severity": "major",
+        "residual_obligation_class": "should_fix"
+      },
+      {
+        "item_id": "REV-RR2-10",
+        "final_verdict": "PARTIALLY_ADDRESSED",
+        "driving_severity": "major",
+        "residual_obligation_class": "should_fix"
+      },
+      {
+        "item_id": "REV-RR2-11",
+        "final_verdict": "PARTIALLY_ADDRESSED",
+        "driving_severity": "major",
+        "residual_obligation_class": "should_fix"
+      },
+      {
+        "item_id": "REV-RR2-12",
+        "final_verdict": "FULLY_ADDRESSED",
+        "driving_severity": "major"
+      },
+      {
+        "item_id": "REV-RR2-13",
+        "final_verdict": "PARTIALLY_ADDRESSED",
+        "driving_severity": "major",
+        "residual_obligation_class": "should_fix"
+      },
+      {
+        "item_id": "REV-RR2-14",
+        "final_verdict": "FULLY_ADDRESSED",
+        "driving_severity": "major"
+      },
+      {
+        "item_id": "REV-RR2-15",
+        "final_verdict": "PARTIALLY_ADDRESSED",
+        "driving_severity": "major",
+        "residual_obligation_class": "should_fix"
+      }
+    ],
+    "verdict_counts": {
+      "must_fix": {
+        "FULLY_ADDRESSED": 4,
+        "PARTIALLY_ADDRESSED": 11,
+        "NOT_ADDRESSED": 0,
+        "MADE_WORSE": 0,
+        "CANNOT_VERIFY": 0
+      },
+      "should_fix": {
+        "FULLY_ADDRESSED": 1,
+        "PARTIALLY_ADDRESSED": 3,
+        "NOT_ADDRESSED": 1,
+        "MADE_WORSE": 0,
+        "CANNOT_VERIFY": 0
+      },
+      "consider": {
+        "FULLY_ADDRESSED": 0,
+        "PARTIALLY_ADDRESSED": 0,
+        "NOT_ADDRESSED": 0,
+        "MADE_WORSE": 0,
+        "CANNOT_VERIFY": 0
+      }
+    },
+    "residual_obligation_class_counts": {
+      "must_fix": {
+        "must_fix": 0,
+        "should_fix": 9,
+        "consider": 2
+      },
+      "should_fix": {
+        "must_fix": 0,
+        "should_fix": 2,
+        "consider": 1
+      },
+      "consider": {
+        "must_fix": 0,
+        "should_fix": 0,
+        "consider": 0
+      }
+    },
+    "should_fix_addressed_rate": {
+      "numerator": 4,
+      "denominator": 5
+    },
+    "regressions": [
+      {
+        "new_issue_id": "NEW-1",
+        "severity": "major"
+      },
+      {
+        "new_issue_id": "NEW-2",
+        "severity": "major"
+      },
+      {
+        "new_issue_id": "NEW-3",
+        "severity": "minor"
+      },
+      {
+        "new_issue_id": "NEW-4",
+        "severity": "minor"
+      },
+      {
+        "new_issue_id": "NEW-5",
+        "severity": "minor"
+      },
+      {
+        "new_issue_id": "NEW-6",
+        "severity": "minor"
+      },
+      {
+        "new_issue_id": "NEW-7",
+        "severity": "minor"
+      }
+    ],
+    "non_regression_new_issue_ids": [],
+    "escalations": [],
+    "reject_recommended": false,
+    "apply_chain_witness": "not_run_no_reports"
+  },
+  "decision_state": "Major Revision"
+}

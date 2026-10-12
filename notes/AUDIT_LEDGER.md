@@ -355,3 +355,18 @@ tự giải quyết bằng mặc định hợp lý nhất và ghi tại đây.
 - D-46: checks.py: giới hạn từ JF:IP chuyển thành WARN (tạp chí đích chưa chọn); thêm −2,37 (Berg, Heeb, et al.) vào danh
   sách số trích từ tài liệu. Kết quả: checks.py 115/115 PASS; build_sfr.py 9/9 PASS (abstract có cấu trúc 247/250 từ;
   6 keywords; mọi tài liệu được trích; bản ẩn danh sạch); validate.py PASS cho 8 docx. Thân bài 7.657 từ (SFR builder).
+- D-47 (người dùng, 2026-10-12): chọn skill chọn tạp chí trong 4 repo topic "journal-recommendation"; khuyến nghị và người
+  dùng chọn https://github.com/hztopcu/journal-fit-finder (commit 2624d0b, MIT). Đã đọc hết (SKILL.md, 3 references,
+  agents/openai.yaml, install.sh/ps1 chỉ copy, scripts/validate_skill.py chỉ kiểm tra cấu trúc). Vendor vào
+  vendor/journal-fit-finder, link .claude/skills/journal-fit-finder; validate_skill.py PASS. Ghi CLAUDE.md §1, HANDOFF.
+- Chọn tạp chí (skill journal-fit-finder, 2026-10-12): báo cáo notes/journal/journal_fit_report_2026-10-12.md. Tuyến
+  International English + Scopus bắt buộc; ràng buộc mặc định theo D-33/D-37 (không phí nộp, không bắt buộc APC, loại SFR
+  và JF:IP). Xếp hạng: 1 Global Finance Journal (Elsevier), 2 Journal of Sustainable Finance & Investment (T&F),
+  3 Pacific-Basin Finance Journal (Elsevier), 4 Emerging Markets Review (Elsevier), 5 Journal of Business Ethics (Springer,
+  stretch), 6 Asia-Pacific Journal of Financial Studies (Wiley, backup). Quartile chỉ có từ trang tổng hợp (scimagojr.com
+  không truy cập được) → ghi "unverified"; phí nộp của các tạp chí Elsevier chưa xác nhận → checklist.
+- Stage 3' (phản biện lại, 3 cổng subagent độc lập): Phase 1 (20 tiêu chí, JSON hợp lệ), Phase 2A (must_fix 4 FULLY,
+  11 PARTIALLY; should_fix 4/5; 7 lỗi mới do bản sửa gây ra, 2 major: NEW-1 gọi đợt Malaysia là "wholesale" trái với số
+  liệu 565 hãng MY chưa được chấm; NEW-2 mô tả sai nhóm "other cohorts"), Phase 2B (Major Revision theo luật B3; 14 claim
+  drift trong thư phản hồi; checker check_re_review_synthesis.py: manifest_incomplete như dự kiến, xem D-42). Theo
+  pipeline → Stage 4' (vòng sửa cuối), sau đó Stage 4.5, không quay lại phản biện.

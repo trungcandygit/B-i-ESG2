@@ -37,6 +37,9 @@ skill đã load còn hiệu lực cả phiên, **không gọi lại**.
   nhưng trong repo này nó chỉ là skill PHỤ: ARS vẫn điều phối (§1). Dùng các cổng/checklist của nó để soát văn khi cần;
   KHÔNG chạy brainstorming 34 câu hỏi hay tạo project_context.md (đề tài, câu hỏi, tạp chí đã chốt), không hỏi lại (1b);
   ngưỡng "passive voice zero tolerance" và quy ước hội nghị CS (NSDI/SIGCOMM, .tex) chỉ tham khảo, Methods theo SFR.
+- Skill chọn tạp chí `journal-fit-finder` (vendor/journal-fit-finder, hztopcu, MIT): so khớp bản thảo với tạp chí bằng
+  bằng chứng (Aims & Scope, chỉ mục, quartile có nguồn + năm + danh mục, APC, cảnh báo predatory); không bịa acceptance rate,
+  quartile, APC (khớp B4). Dùng khi chọn tạp chí đích; không hỏi lại (1b), tự dùng ràng buộc đã biết (Scopus, không phí nộp).
 - Văn phong: stop-slop trong khuôn khổ học thuật (D14): dùng "we", không "you", bỏ trạng từ đệm / phóng đại,
   giữ trạng từ kỹ thuật, không em dash.
 

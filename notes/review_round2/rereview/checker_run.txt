@@ -1,0 +1,4 @@
+$ python3 vendor/academic-research-skills/scripts/check_re_review_synthesis.py --manifest notes/review_round2/rereview/input_manifest.json --precommitment notes/review_round2/rereview/phase1_precommitment.json --verdict-record notes/review_round2/rereview/phase2A_verdicts.json --traceability notes/review_round2/rereview/phase2B_traceability.json --roadmap notes/review_round2/rereview/revision_roadmap.json --author-adjudication notes/review_round2/rereview/author_adjudication.json --revision-evidence-bundle notes/review_round2/rereview/revision_evidence_bundle.json --revision-evidence-root notes/review_round2/rereview --letter notes/review_round2/06_editorial_decision.md
+[RE-REVIEW-ABORT: manifest_incomplete]
+FAIL: manifest: unreadable or invalid JSON ([Errno 2] No such file or directory: 'notes/review_round2/rereview/input_manifest.json')
+[exit code: 2]

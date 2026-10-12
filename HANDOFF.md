@@ -68,6 +68,7 @@ ln -sfn ../../vendor/proofreading .claude/skills/proofreading
 ln -sfn ../../vendor/stop-slop .claude/skills/stop-slop
 ln -sfn ../../vendor/sciwrite .claude/skills/sciwrite         # vendor/sciwrite có sẵn trong repo
 ln -sfn ../../vendor/paper-writing .claude/skills/paper-writing # vendor/paper-writing có sẵn trong repo
+ln -sfn ../../vendor/journal-fit-finder/journal-fit-finder .claude/skills/journal-fit-finder # vendor có sẵn
 ```
 
 Sau đó viết **`CLAUDE.md`** ở gốc repo B-i-ESG2. Lấy nội dung từ `/tmp/template/CLAUDE.md` và chỉnh các đường dẫn (mục 2, 3) cho repo này. Giữ nguyên các FORCE RULE:
