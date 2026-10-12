@@ -27,13 +27,26 @@ def plain_text(t):
 
 
 build_sfr.emerald_text = plain_text   # exhibit notes use the same conventions as the body
+build_sfr.sfr_source = lambda src: src   # source line as written in manuscript.md (single author)
+AUTHOR_TOKENS = AUTHOR_TOKENS + ['Vietnam National University', 'International School', 'Xuan Thuy', '355 347', 'VNU']
+
+
+def exhibit_notes(d, note, source):
+    q = d.add_paragraph(); add_runs(q, 'Note:', bold=True, size=9); q.add_run(' ')
+    add_runs(q, plain_text(note), size=9); set_spacing(q, 1.0, 2)
+    q = d.add_paragraph(); add_runs(q, 'Source:', bold=True, size=9); q.add_run(' ')
+    add_runs(q, source.replace('source:=', ''), size=9); set_spacing(q, 1.0, 2)
+
+
+build_sfr.exhibit_notes = exhibit_notes
 
 
 def abstract(d, aam, jel):
     heading(d, 'Abstract', 1)
     p = d.add_paragraph(); add_runs(p, aam['abstract']); set_spacing(p, 2.0, 6); p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
-    for lab, txt in (('Keywords:', aam['keywords'].replace('; ', ', ')), ('JEL classification:', jel)):
-        p = d.add_paragraph(); add_runs(p, lab, bold=True); p.add_run(' ' + txt); set_spacing(p, 2.0, 4)
+    # GFA item 3: the first page shows only the title, the abstract, and at most six keywords (no JEL codes)
+    p = d.add_paragraph(); add_runs(p, 'Keywords:', bold=True); p.add_run(' ' + aam['keywords'].replace('; ', ', '))
+    set_spacing(p, 2.0, 4)
 
 
 def manuscript(out, secs, aam, labels, exhibits, meta=None):
@@ -45,6 +58,9 @@ def manuscript(out, secs, aam, labels, exhibits, meta=None):
     body = plain_text(secs['body'].replace('[[COMPANION]]', ''))
     assert '[[' not in body
     write_body(d, body, labels)
+    ack = blocks(meta_all['statements'])   # GFA item 4: acknowledgements at the end of the manuscript
+    i = ack.index('## Acknowledgements')
+    heading(d, 'Acknowledgements', 1); body_par(d, ack[i + 1], indent=False)
     heading(d, 'References', 1)
     for b in blocks(secs['references']):
         p = d.add_paragraph(); add_runs(p, b.replace('*', '')); set_spacing(p, 2.0, 4)
@@ -60,7 +76,8 @@ def manuscript(out, secs, aam, labels, exhibits, meta=None):
 
 
 def main():
-    nums = load_numbers(); secs = parse_sections(MS, nums); meta = parse_sections(META, nums)
+    global meta_all
+    nums = load_numbers(); secs = parse_sections(MS, nums); meta = parse_sections(META, nums); meta_all = meta
     aam = parse_sections(AAM, nums)
     aam['cover_letter'] = aam['cover_letter'].replace('[[TITLE]]', secs['title'])
     exhibits = parse_exhibits(secs); exhibits_ia = parse_exhibits(secs, 'exhibits_ia')
@@ -93,6 +110,9 @@ def main():
     p = d.add_paragraph(); add_runs(p, 'Supplementary material', bold=True, size=14); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
     p = d.add_paragraph(); add_runs(p, secs['title'], bold=True); p.alignment = WD_ALIGN_PARAGRAPH.CENTER; set_spacing(p, 1.5, 12)
     body_par(d, plain_text(secs['ia_intro']), indent=False)
+    if 'appendix_b' in aam:   # robustness text moved out of the main text to meet the 7,500-word limit
+        for b in blocks(aam['appendix_b']):
+            heading(d, b[3:], 1) if b.startswith('## ') else body_par(d, plain_text(b))
     page_break(d)
     for i, ex in enumerate(exhibits_ia):
         (table_exhibit if ex['kind'] == 'table' else figure_exhibit)(d, **ex['args'])
@@ -137,6 +157,8 @@ def main():
     res.append(('anonymized manuscript: no author identifiers', not hits, hits))
     res.append(('anonymized manuscript: no people.xml / acknowledgements', 'word/people.xml' not in z.namelist() and 'Acknowledgements' not in xml, ''))
     res.append(('no footnotes', 'word/footnotes.xml' not in z.namelist() or '<w:footnote ' not in z.read('word/footnotes.xml').decode('utf-8', 'ignore').replace('w:type="separator"', '').replace('w:type="continuationSeparator"', ''), ''))
+    word_like = len(aam['abstract'].split()) + len(re.sub(r'(?m)^(\$\$.*|#.*)$', '', body).split())
+    res.append(('GFA item 8: abstract + main text within 7,500 words (whitespace count, as in Word)', word_like <= 7500, word_like))
     for n, ok, det in res:
         print(('PASS' if ok else 'FAIL'), n, det)
     bw = words(re.sub(r'^\$\$.*$', '', body, flags=re.M))

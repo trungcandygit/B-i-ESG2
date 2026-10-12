@@ -450,3 +450,19 @@ references, one per page, position markers in text. Builder checks 8/8 PASS; che
 PASS (5 files); PDF render 43 pages, inspected page 1 and Figure 1 page. Cover letter: stale v4 phrases
 ("wholesale", "selective", "whatever the level") not carried over; companion-study sentence not included (author
 decision D-30), flagged to the author again.
+
+### D-62 (2026-10-12) Native-speaker edit, single author, AAMJAF GFA
+- Author supplied a native-speaker edit of v4.2 (SFR layout). Word diff vs the v4.2 build: 185 edits. Accepted the
+  grammar/style edits; rejected about 20 (typos "issueers", "comply or-explain"; meaning errors "first-year
+  investors", "show split-scored firms", "more valuable than the score itself"; term drift "firms that scored",
+  "firms that never scored", "unscored" for never-scored, "first-scored", "waves" for one wave; tense changes in
+  hypotheses/methods; counterfactual "is" for "were"; dropped causal "so" in R8; dropped Oxford comma). "percent"
+  after numerals → "%" throughout (APA, as AAMJAF adopts APA). Four repeated "therefore" varied. checks.py 116/116.
+- Author: single author Nguyen Van Trung, International School, Vietnam National University, Hanoi (address from the
+  school's site: 144 Xuan Thuy Street, Cau Giay). meta.md, cover letter ("I"), AI declaration, conflict, data and
+  contribution statements updated; manuscript keeps the editorial "we" (D14). Source lines "Author's calculations".
+- AAMJAF GFA (pasted by the author; PDF host unreachable): ScholarOne; cover page separate; page 1 only title,
+  100–150-word abstract, ≤ 6 keywords (JEL removed from page 1); footnotes avoided; acknowledgements at the end of the
+  manuscript; APA; tables and figures each on a separate sheet; length within 7,500 words (read as abstract + main
+  text, whitespace count). Body 7,981 + abstract 141 → cut to ≤ 7,500 by three independent editors
+  (notes/aamjaf_cut/), secondary robustness text moved to supplementary Appendix B. Author: no publisher-style layout.
